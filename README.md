@@ -36,7 +36,9 @@ Please read the [CONTRIBUTING][contributing_file] file first.
 
 ## Internals
 
-This _esbuild_ plugin utilizes the [CycloneDX library][cyclonedx-library] to generate the actual data structures.
+<!-- !!! Undecided whether implementation will be in Go or JS....
+This _esbuild_ plugin utilizes the [CycloneDX library][cyclonedx-(js|go)-library] to generate the actual data structures.
+-->
 
  <!-- Besides the class `CycloneDxEsbuildPlugin` and the interface `CycloneDxEsbuildPluginOptions`,  -->
 This _esbuild_ plugin does **not** expose any additional _public_ API or classes - all code is intended to be internal and might change without any notice during version upgrades.
@@ -57,7 +59,9 @@ See the [LICENSE][license_file] file for the full license.
 
 [CycloneDX]: https://cyclonedx.org/
 [esbuild]: https://esbuild.github.io
-[cyclonedx-library]: https://www.npmjs.com/package/@cyclonedx/cyclonedx-library
+[cyclonedx-go-library]: https://github.com/CycloneDX/cyclonedx-go
+[cyclonedx-js-library]: https://www.npmjs.com/package/@cyclonedx/cyclonedx-library
+
 
 [shield_license]: https://img.shields.io/github/license/CycloneDX/cyclonedx-esbuild-plugin?logo=open%20source%20initiative&logoColor=white "license"
 [shield_website]: https://img.shields.io/badge/https://-cyclonedx.org-blue.svg "homepage"
