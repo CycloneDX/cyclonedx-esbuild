@@ -43,7 +43,7 @@ This _esbuild_ plugin utilizes the [CycloneDX library][cyclonedx-(js|go)-library
 -->
 
  <!-- Besides the class `CycloneDxEsbuildPlugin` and the interface `CycloneDxEsbuildPluginOptions`,  -->
-This _esbuild_ plugin does **not** expose any additional _public_ API or classes - all code is intended to be internal and might change without any notice during version upgrades.
+This tool does **not** expose any additional _public_ API or classes - all code is intended to be internal and might change without any notice during version upgrades.
 
 ## Development & Contributing
 
