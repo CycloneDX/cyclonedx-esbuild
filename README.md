@@ -1,4 +1,4 @@
-# CycloneDX SBOM plugin for esbuild
+# CycloneDX SBOM generator for _esbuild_
 
 [![shield_license]][license_file]  
 [![shield_website]][link_website]
