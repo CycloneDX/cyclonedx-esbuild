@@ -12,7 +12,7 @@ Create [CycloneDX] Software Bill of Materials (SBOM) from _[esbuild]_ projects.
 
 ## 🚧 🏗️ this project is an early development stage
 
-See the projects issues, discussions, pull requests and milestone for the progress.
+See the project's issues, discussions, pull requests and milestone for the progress.
 
 - planning/vision: https://github.com/CycloneDX/cyclonedx-esbuild-plugin/discussions/3
 
