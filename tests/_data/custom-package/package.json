@@ -1,0 +1,24 @@
+{
+  "private": true,
+  "name": "@cyclonedx/cyclonedx-eslint-testing-custom-package",
+  "version": "0.0.1",
+  "description": "",
+  "license": "ISC",
+  "type": "module",
+  "main": "./lib/index.js",
+  "types": "./types/index.d.ts",
+  "files": [
+    "lib",
+    "types"
+  ],
+  "sideEffects": false,
+  "devDependencies": {
+    "typescript": "^5.9.3"
+  },
+  "scripts": {
+    "premake-types": "node -r fs -e 'fs.rmSync(`dist`,{recursive:true,force:true})'",
+    "make-types": "tsc --declaration --allowJs --emitDeclarationOnly --outDir types lib/*.js",
+    "prebuild": "node -r fs -e 'fs.rmSync(`package.tgz`,{force:true})'",
+    "build": "npm run make-types && npm pack && mv *.tgz package.tgz"
+  }
+}

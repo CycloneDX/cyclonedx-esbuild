@@ -1,0 +1,84 @@
+# https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file
+
+version: 2
+updates:
+  - package-ecosystem: 'npm'
+    directories:
+      - '/'
+      - '/tools/*/'
+    schedule:
+      interval: 'weekly'
+      day: 'saturday'
+    allow:
+      - dependency-type: 'all'
+    versioning-strategy: 'auto'
+    labels: [ 'dependencies' ]
+    commit-message:
+      prefix: 'chore'  ## prefix maximum string length of 15
+      include: 'scope'
+    open-pull-requests-limit: 999
+    ignore:
+      - dependency-name: "@types/node"
+        # version is like `ts.X.Y` -- need to maintain manually
+    groups:
+      cyclonedx:
+        patterns:
+          - '@cyclonedx/*'
+      typescript:
+        patterns:
+          - 'typescript'
+          - '@types/*'
+          - 'typedoc'
+          - 'typedoc-*'
+          - '@microsoft/tsdoc'
+          - '@microsoft/tsdoc-*'
+          - 'ts-loader'
+          - 'tslib'
+      esbuild:
+        patterns:
+          - 'esbuild'
+          - '@esbuild/*'
+          - 'esbuild-*'
+          - '*-esbuild'
+      eslint:
+        patterns:
+          - 'eslint'
+          - '@eslint/*'
+          - '*-eslint'
+          - 'eslint-*'
+          - '@types/eslint'
+          - '@types/eslint-*'
+          - '@types/*-eslint'
+          - '@eslint-community/*'
+          - '@typescript-eslint/*'
+          - 'typescript-eslint'
+          - 'neostandard'
+          - 'globals'
+      jest:
+        patterns:
+          - 'jest'
+          - '@jest/*'
+          - 'jest-*'
+          - '*-jest'
+          - '@types/jest'
+          - '@types/jest*'
+      karma:
+        patterns:
+          - 'karma'
+          - 'karma-*'
+      jasmine:
+        patterns:
+          - 'jasmine'
+          - 'jasmine-*'
+          - '@types/jasmine'
+          - '@types/jasmine*'
+  - package-ecosystem: 'github-actions'
+    directory: '/'
+    schedule:
+      interval: 'weekly'
+      day: 'saturday'
+    labels: [ 'dependencies' ]
+    commit-message:
+      prefix: 'chore'   ## prefix maximum string length of 15
+      include: 'scope'
+    open-pull-requests-limit: 999

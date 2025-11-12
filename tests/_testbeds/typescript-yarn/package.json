@@ -1,0 +1,31 @@
+{
+  "private": true,
+  "name": "@cyclonedx/cyclonedx-eslint-testbed-typescript-yarn",
+  "version": "1.0.0",
+  "description": "TypeScript example using esbuild with Yarn 4",
+  "license": "ISC",
+  "main": "dist/bundle.js",
+  "devEngines": {
+    "runtime": {
+      "name": "node",
+      "onFail": "error"
+    },
+    "packageManager": {
+      "name": "yarn",
+      "onFail": "error"
+    }
+  },
+  "devDependencies": {
+    "@types/node": "ts5.9",
+    "custom-package": "file:../../_data/custom-package/package.tgz",
+    "cyclonedx-esbuild": "link:../../../",
+    "esbuild": "0.27.0",
+    "typescript": "5.9.3"
+  },
+  "scripts": {
+    "build": "node build.cjs",
+    "start": "yarn build && node dist/bundle.js",
+    "typecheck": "tsc --noEmit"
+  },
+  "packageManager": "yarn@4.11.0"
+}

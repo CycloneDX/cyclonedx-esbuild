@@ -1,0 +1,28 @@
+{
+  "private": true,
+  "name": "@cyclonedx/cyclonedx-eslint-testbed-typescript-npm",
+  "version": "1.0.0",
+  "description": "TypeScript example using esbuild with npm",
+  "type": "module",
+  "main": "dist/bundle.js",
+  "scripts": {
+    "build": "node build.mjs",
+    "start": "npm run build && node dist/bundle.js",
+    "typecheck": "tsc --noEmit"
+  },
+  "author": "",
+  "license": "ISC",
+  "devEngines": {
+    "runtime": {
+      "name": "node",
+      "onFail": "error"
+    }
+  },
+  "devDependencies": {
+    "@types/node": "ts5.9",
+    "custom-package": "file:../../_data/custom-package/package.tgz",
+    "cyclonedx-esbuild": "file:../../../",
+    "esbuild": "0.27.0",
+    "typescript": "5.9.3"
+  }
+}
