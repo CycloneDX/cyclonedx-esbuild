@@ -1,5 +1,6 @@
 # CycloneDX SBOM generator for _esbuild_
 
+[![shield_npm-version]][link_npm]
 [![shield_gh-workflow-test]][link_gh-workflow-test]
 [![shield_coverage]][link_codacy]
 [![shield_ossf-best-practices]][link_ossf-best-practices]
