@@ -174,13 +174,12 @@ See the [CONTRIBUTING][contributing_file] file for details.
 Permission to modify and redistribute is granted under the terms of the Apache 2.0 license.  
 See the [LICENSE][license_file] file for the full license.
 
-
 [license_file]: https://github.com/CycloneDX/cyclonedx-esbuild-plugin/blob/1.0-dev/LICENSE
 [contributing_file]: https://github.com/CycloneDX/cyclonedx-esbuild-plugin/blob/1.0-dev/CONTRIBUTING.md
 
 [CycloneDX]: https://cyclonedx.org/
 [esbuild]: https://esbuild.github.io
-[cyclonedx-js-library]: https://www.npmjs.com/package/@cyclonedx/cyclonedx-library
+[CycloneDX-javascript-library]: https://github.com/CycloneDX/cyclonedx-javascript-library/
 
 [shield_gh-workflow-test]: https://img.shields.io/github/actions/workflow/status/CycloneDX/cyclonedx-esbuild/nodejs.yml?branch=1.0-dev&logo=GitHub&logoColor=white "tests"
 [shield_npm-version]: https://img.shields.io/npm/v/%40cyclonedx%2fcyclonedx-esbuild/latest?label=npm&logo=npm&logoColor=white "npm"
