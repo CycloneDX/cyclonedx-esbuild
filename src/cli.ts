@@ -207,7 +207,7 @@ export async function run(process_: NodeJS.Process): Promise<number> {
         throw new ValidationError(
           `Failed to generate valid BOM"\n` +
           'Please report the issue and provide the npm lock file of the current project to:\n' +
-          'https://github.com/CycloneDX/cyclonedx-TODO/issues/new?template=ValidationError-report.md&labels=ValidationError&title=%5BValidationError%5D',
+          'https://github.com/CycloneDX/cyclonedx-esbuild/issues/new?template=ValidationError-report.md&labels=ValidationError&title=%5BValidationError%5D',
           validationErrors
         )
       }

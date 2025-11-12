@@ -129,7 +129,7 @@ export const cyclonedxEsbuildPlugin = (opts: CycloneDxEsbuildPluginOptions = {})
     /* eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing, @typescript-eslint/strict-boolean-expressions -- need to handle empty strings */
     const esbuildWorkingDir = build.initialOptions.absWorkingDir || process.cwd()
 
-     
+
     build.onEnd(async (result: esbuild.BuildResult): Promise<void> => {
       if (result.metafile === undefined) {
         throw new Error('missing result.metafile')
@@ -191,7 +191,7 @@ export const cyclonedxEsbuildPlugin = (opts: CycloneDxEsbuildPluginOptions = {})
             throw new ValidationError(
               `Failed to generate valid BOM "${options.outputFile}"\n` +
               'Please report the issue and provide the npm lock file of the current project to:\n' +
-              'https://github.com/CycloneDX/cyclonedx-TODO/issues/new?template=ValidationError-report.md&labels=ValidationError&title=%5BValidationError%5D',
+              'https://github.com/CycloneDX/cyclonedx-esbuild/issues/new?template=ValidationError-report.md&labels=ValidationError&title=%5BValidationError%5D',
               validationErrors
             )
           }
