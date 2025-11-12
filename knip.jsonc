@@ -1,0 +1,19 @@
+{
+  "$schema": "https://unpkg.com/knip@5/schema-jsonc.json",
+  "entry": [
+    "src/plugin.ts!",
+    "src/cli.ts!",
+    "bin/**!"
+  ],
+  "project": [
+    "src/**!",
+    "tests/*.js"
+  ],
+  "ignore": [
+    "tests/_data/custom-package/**",
+    "tests/_testbeds/**",
+    "tools/**"
+  ],
+  "ignoreDependencies": [
+  ]
+}
