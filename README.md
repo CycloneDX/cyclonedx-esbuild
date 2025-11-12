@@ -46,7 +46,7 @@ yarn add --dev cyclonedx-esbuild
 
 ### Esbuild Plugin
 
-The _esbuild_ plugin automatically generates a SBOM during your build process.
+The _esbuild_ plugin automatically generates an SBOM during your build process.
 
 ### Esbuild Plugin Options & Configuration
 
