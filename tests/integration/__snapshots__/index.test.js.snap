@@ -25,17 +25,17 @@ exports[`integration functional: angular20 on yarn generated json file: dist/fir
           ],
           "externalReferences": [
             {
-              "url": "https://github.com/CycloneDX/cyclonedx-webpack-plugin/issues",
+              "url": "https://github.com/CycloneDX/cyclonedx-esbuild/issues",
               "type": "issue-tracker",
               "comment": "as detected from PackageJson property \\"bugs.url\\""
             },
             {
-              "url": "git+https://github.com/CycloneDX/cyclonedx-webpack-plugin.git",
+              "url": "git+https://github.com/CycloneDX/cyclonedx-esbuild.git",
               "type": "vcs",
               "comment": "as detected from PackageJson property \\"repository.url\\""
             },
             {
-              "url": "https://github.com/CycloneDX/cyclonedx-webpack-plugin#readme",
+              "url": "https://github.com/CycloneDX/cyclonedx-esbuild#readme",
               "type": "website",
               "comment": "as detected from PackageJson property \\"homepage\\""
             }
@@ -627,17 +627,17 @@ exports[`integration functional: simple typescript bundling on npm generated jso
           ],
           "externalReferences": [
             {
-              "url": "https://github.com/CycloneDX/cyclonedx-webpack-plugin/issues",
+              "url": "https://github.com/CycloneDX/cyclonedx-esbuild/issues",
               "type": "issue-tracker",
               "comment": "as detected from PackageJson property \\"bugs.url\\""
             },
             {
-              "url": "git+https://github.com/CycloneDX/cyclonedx-webpack-plugin.git",
+              "url": "git+https://github.com/CycloneDX/cyclonedx-esbuild.git",
               "type": "vcs",
               "comment": "as detected from PackageJson property \\"repository.url\\""
             },
             {
-              "url": "https://github.com/CycloneDX/cyclonedx-webpack-plugin#readme",
+              "url": "https://github.com/CycloneDX/cyclonedx-esbuild#readme",
               "type": "website",
               "comment": "as detected from PackageJson property \\"homepage\\""
             }
@@ -775,17 +775,17 @@ exports[`integration functional: simple typescript bundling on yarn generated js
           ],
           "externalReferences": [
             {
-              "url": "https://github.com/CycloneDX/cyclonedx-webpack-plugin/issues",
+              "url": "https://github.com/CycloneDX/cyclonedx-esbuild/issues",
               "type": "issue-tracker",
               "comment": "as detected from PackageJson property \\"bugs.url\\""
             },
             {
-              "url": "git+https://github.com/CycloneDX/cyclonedx-webpack-plugin.git",
+              "url": "git+https://github.com/CycloneDX/cyclonedx-esbuild.git",
               "type": "vcs",
               "comment": "as detected from PackageJson property \\"repository.url\\""
             },
             {
-              "url": "https://github.com/CycloneDX/cyclonedx-webpack-plugin#readme",
+              "url": "https://github.com/CycloneDX/cyclonedx-esbuild#readme",
               "type": "website",
               "comment": "as detected from PackageJson property \\"homepage\\""
             }
