@@ -150,7 +150,7 @@ Here is an example `package.json`
 
 ## Internals
 
-This _esbuild_ plugin and this tool both utilize the [CycloneDX library][CycloneDX-javascript-library] to generate the actual data structures.
+This tooling utilizes the [CycloneDX library][CycloneDX-javascript-library] to generate the actual data structures.
 
 Besides the class `CycloneDxEsbuildPlugin` and the interface `CycloneDxEsbuildPluginOptions`,  
 this _esbuild_ plugin and this tool does **not** expose any additional _public_ API or classes - all code is intended to be internal and might change without any notice during version upgrades.
