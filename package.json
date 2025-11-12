@@ -20,13 +20,13 @@
     "PURL",
     "SPDX"
   ],
-  "homepage": "https://github.com/CycloneDX/cyclonedx-webpack-plugin#readme",
+  "homepage": "https://github.com/CycloneDX/cyclonedx-esbuild#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/CycloneDX/cyclonedx-webpack-plugin.git"
+    "url": "git+https://github.com/CycloneDX/cyclonedx-esbuild.git"
   },
   "bugs": {
-    "url": "https://github.com/CycloneDX/cyclonedx-webpack-plugin/issues"
+    "url": "https://github.com/CycloneDX/cyclonedx-esbuild/issues"
   },
   "funding": [
     {
@@ -106,5 +106,10 @@
     "test:standard": "npm --prefix tools/code-style exec -- eslint .",
     "test:dependencies": "npm --prefix tools/test-dependencies exec -- knip --include dependencies,unlisted,unresolved --production",
     "cs-fix": "npm --prefix tools/code-style exec -- eslint --fix ."
+  },
+  "jest-junit": {
+    "suiteName": "jest tests",
+    "outputDirectory": "reports/jest",
+    "outputName": "tests.junit.xml"
   }
 }

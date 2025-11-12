@@ -132,14 +132,7 @@ function makeCommand(process_: NodeJS.Process): Command {
 }
 
 
-const enum ExitCode {
-  SUCCESS = 0,
-  FAILURE = 1,
-  INVALID = 2
-}
-
-/** @internal **/
-
+/** @internal */
 /* eslint-disable-next-line complexity -- TODO  */
 export async function run(process_: NodeJS.Process): Promise<number> {
   process_.title = 'cyclonedx-esbuild' /* eslint-disable-line  no-param-reassign -- ack */
@@ -246,4 +239,10 @@ export async function run(process_: NodeJS.Process): Promise<number> {
   return written > 0
     ? ExitCode.SUCCESS
     : ExitCode.FAILURE
+}
+
+const enum ExitCode {
+  SUCCESS = 0,
+  FAILURE = 1,
+  INVALID = 2
 }

@@ -1,3 +1,16 @@
+/reports/
+/CI_reports/
+/packed/
+/CI_packed/
+/release_assets/
+
+*.cache
+
+## no lock. pinning of direct dependencies should be enough for a webpack-plugin
+/package-lock.json
+
+## taken from https://github.com/github/gitignore/blob/main/Node.gitignore
+
 # Logs
 logs
 *.log
@@ -139,6 +152,3 @@ dist
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 .vite/
-
-## caches
-/*.cache

@@ -129,6 +129,7 @@ export const cyclonedxEsbuildPlugin = (opts: CycloneDxEsbuildPluginOptions = {})
     /* eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing, @typescript-eslint/strict-boolean-expressions -- need to handle empty strings */
     const esbuildWorkingDir = build.initialOptions.absWorkingDir || process.cwd()
 
+     
     build.onEnd(async (result: esbuild.BuildResult): Promise<void> => {
       if (result.metafile === undefined) {
         throw new Error('missing result.metafile')

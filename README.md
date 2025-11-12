@@ -1,5 +1,8 @@
 # CycloneDX SBOM generator for _esbuild_
 
+[![shield_gh-workflow-test]][link_gh-workflow-test]
+[![shield_coverage]][link_codacy]
+[![shield_ossf-best-practices]][link_ossf-best-practices]
 [![shield_license]][license_file]  
 [![shield_website]][link_website]
 [![shield_slack]][link_slack]
@@ -40,11 +43,11 @@ yarn add --dev cyclonedx-esbuild
 
 ## Usage
 
-### Plugin
+### Esbuild Plugin
 
-The esbuild plugin automatically generates a SBOM during your build process.
+The _esbuild_ plugin automatically generates a SBOM during your build process.
 
-### Plugin Options & Configuration
+### Esbuild Plugin Options & Configuration
 
 <!-- the following table is based on `src/plugin.ts`::`CycloneDxEsbuildPluginOptions` -->
 
@@ -57,7 +60,7 @@ The esbuild plugin automatically generates a SBOM during your build process.
 | **mcType** | `{string}` | `"application"` | Set the MainComponent's type.<br/> See [list of valid values](https://cyclonedx.org/docs/1.7/json/#metadata_component_type). |
 | **validate** | `{boolean \| undefined}` | `undefined` | Validate resulting BOM before outputting.<br/> Validation is skipped, if requirements not met. |
 
-#### Plugin Example
+#### Esbuild Plugin Example
 
 ```javascript
 const esbuild = require('esbuild');
@@ -80,20 +83,20 @@ See extended [examples].
 
 ### CLI Tool
 
-The CLI tool generates SBOMs from [esbuild metafiles](https://esbuild.github.io/api/#metafile).
+The Command Line Interface for generating SBOMs from [esbuild metafiles](https://esbuild.github.io/api/#metafile).
 
-#### CLI call
+#### CLI Call
 
-calling the CLI depends on the used install method.
-
+Calling the CLI depends on the used install method.  
 Here are examples for the various package managers and setups:
+
 ```shell
 npm exec -- cyclonedx-esbuild --help
 pnpm exec cyclonedx-esbuild --help
 yarn exec cyclonedx-esbuild --help
 ```
 
-#### CLI help page
+#### CLI Help Page
 
 ```text
 Usage: cyclonedx-esbuild [options] <metafile>
@@ -129,7 +132,7 @@ Options:
 
 ### Use with Angular
 
-For Angular projects using esbuild (Angular 17+), you can generate SBOMs from the build stats.
+For _Angular_ projects using _esbuild_ (Angular 17+), you can generate SBOMs from the build stats.
 
 Here is an example `package.json`
 ```json
@@ -181,7 +184,7 @@ See the [LICENSE][license_file] file for the full license.
 
 [shield_gh-workflow-test]: https://img.shields.io/github/actions/workflow/status/CycloneDX/cyclonedx-esbuild/nodejs.yml?branch=1.0-dev&logo=GitHub&logoColor=white "tests"
 [shield_npm-version]: https://img.shields.io/npm/v/%40cyclonedx%2fcyclonedx-esbuild/latest?label=npm&logo=npm&logoColor=white "npm"
-[shield_ossf-best-practices]: https://img.shields.io/cii/percentage/xxxx?label=OpenSSF%20best%20practices "OpenSSF best practices"
+[shield_ossf-best-practices]: https://img.shields.io/cii/percentage/11463?label=OpenSSF%20best%20practices "OpenSSF best practices"
 [shield_coverage]: https://img.shields.io/codacy/coverage/4900a38bdc544b2283695447e9513ab5?logo=Codacy&logoColor=white "test coverage"
 [shield_license]: https://img.shields.io/github/license/CycloneDX/cyclonedx-esbuild?logo=open%20source%20initiative&logoColor=white "license"
 [shield_website]: https://img.shields.io/badge/https://-cyclonedx.org-blue.svg "homepage"
@@ -192,7 +195,7 @@ See the [LICENSE][license_file] file for the full license.
 [link_website]: https://cyclonedx.org/
 [link_gh-workflow-test]: https://github.com/CycloneDX/cyclonedx-esbuild/actions/workflows/nodejs.yml?query=branch%3A1.0-dev
 [link_codacy]: https://app.codacy.com/gh/CycloneDX/cyclonedx-esbuild/dashboard
-[link_ossf-best-practices]: https://www.bestpractices.dev/projects/xxxxx
+[link_ossf-best-practices]: https://www.bestpractices.dev/projects/11463
 [link_npm]: https://www.npmjs.com/package/@cyclonedx/webpack-plugin
 [link_slack]: https://cyclonedx.org/slack/invite
 [link_discussion]: https://groups.io/g/CycloneDX
