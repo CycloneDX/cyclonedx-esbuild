@@ -19,7 +19,7 @@ exports[`integration functional: angular20 on yarn generated json file: dist/fir
           "licenses": [
             {
               "license": {
-                "id": "ISC"
+                "id": "Apache-2.0"
               }
             }
           ],
@@ -621,7 +621,7 @@ exports[`integration functional: simple typescript bundling on npm generated jso
           "licenses": [
             {
               "license": {
-                "id": "ISC"
+                "id": "Apache-2.0"
               }
             }
           ],
@@ -769,7 +769,7 @@ exports[`integration functional: simple typescript bundling on yarn generated js
           "licenses": [
             {
               "license": {
-                "id": "ISC"
+                "id": "Apache-2.0"
               }
             }
           ],
