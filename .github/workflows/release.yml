@@ -113,6 +113,7 @@ jobs:
         run: |-
           corepack enable
           yarn --version
+        working-directory: ../  # prevent evaluation of package.json
       - name: setup project
         run: |
           npm install --ignore-scripts --include=optional --loglevel=silly
