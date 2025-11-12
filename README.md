@@ -8,42 +8,158 @@
 
 ----
 
-Create [CycloneDX] Software Bill of Materials (SBOM) from _[esbuild]_ projects.
+Create _[CycloneDX]_ Software Bill of Materials (SBOM) from _[esbuild]_ projects.
 
-## 🚧 🏗️ this project is an early development stage
+This package provides both an **esbuild plugin** and a **CLI tool** to generate CycloneDX SBOMs from your builds.
 
-See the project's issues, discussions, pull requests and milestone for the progress.
+## Features
 
-- planning/vision: https://github.com/CycloneDX/cyclonedx-esbuild-plugin/discussions/3
-
-Development will happen in branch `1.0-dev`.
-
-Feel free to contribute, write issues, create pull requests, or start discussions.  
-Please read the [CONTRIBUTING][contributing_file] file first.
-
-----
+* 🔌 **esbuild plugin** for automatic SBOM generation during builds
+* 🖥️ **CLI tool** for generating SBOMs from esbuild metafiles
+* 🎯 Supports multiple **CycloneDX spec versions** (1.2, 1.3, 1.4, 1.5, 1.6, 1.7)
+* 🔍 Extracts components and dependencies from bundled projects
+* 📝 **License evidence gathering** (experimental)
+* ✅ **Validates** generated SBOMs against CycloneDX schema
+* 🔄 **Reproducible output** option for consistent SBOM generation
+* 📊 Works with **TypeScript**, **Angular**, and other modern frameworks
 
 ## Requirements
 
-... TBD ...
+* _Node.js_ `>= 20.18`
+* _esbuild_ (required when using the plugin; not required for CLI-only usage)
 
-## Installation
+## Installing
 
-... TBD ...
+Use your preferred package manager and install as a dev-dependency:
+
+```shell
+npm install --save-dev cyclonedx-esbuild
+pnpm add --save-dev cyclonedx-esbuild
+yarn add --dev cyclonedx-esbuild
+```
 
 ## Usage
 
-... TBD ...
+### Plugin
 
+The esbuild plugin automatically generates a SBOM during your build process.
+
+### Plugin Options & Configuration
+
+<!-- the following table is based on `src/plugin.ts`::`CycloneDxEsbuildPluginOptions` -->
+
+| Name | Type | Default | Description |
+|:-----|:----:|:-------:|:------------|
+| **`specVersion`** | `{string}`<br/> one of: `"1.2"`, `"1.3"`, `"1.4"`, `"1.5"`, `"1.6"`, `"1.7"` | `"1.6"` |  Which version of [CycloneDX-spec] to use.<br/> Supported values depend on the installed dependency [CycloneDX-javascript-library]. |
+| **outputFile** | `{string}` | `"bom.json"` | Path to the output file. |
+| **gatherLicenseTexts** | `boolean` | `false` | Search for license files in components and include them as license evidence.<br/> This feature is experimental. |
+| **outputReproducible** | `{boolean}` | `false` | Whether to go the extra mile and make the output reproducible.<br/> This requires more resources, and might result in loss of time- and random-based-values. |
+| **mcType** | `{string}` | `"application"` | Set the MainComponent's type.<br/> See [list of valid values](https://cyclonedx.org/docs/1.7/json/#metadata_component_type). |
+| **validate** | `{boolean \| undefined}` | `undefined` | Validate resulting BOM before outputting.<br/> Validation is skipped, if requirements not met. |
+
+#### Plugin Example
+
+```javascript
+const esbuild = require('esbuild');
+const { cyclonedxEsbuildPlugin } = require('cyclonedx-esbuild');
+
+/** @type {import('cyclonedx-esbuild').CycloneDxEsbuildPluginOptions} */
+const cyclonedxEsbuildPluginOptions = {
+  specVersion: '1.7',
+  outputFile: 'bom.json'
+}
+
+esbuild.build({
+  // ...
+  plugins: [
+    cyclonedxEsbuildPlugin(cyclonedxEsbuildPluginOptions),
+  ]
+});
+```
+See extended [examples].
+
+### CLI Tool
+
+The CLI tool generates SBOMs from [esbuild metafiles](https://esbuild.github.io/api/#metafile).
+
+#### CLI call
+
+calling the CLI depends on the used install method.
+
+Here are examples for the various package managers and setups:
+```shell
+npm exec -- cyclonedx-esbuild --help
+pnpm exec cyclonedx-esbuild --help
+yarn exec cyclonedx-esbuild --help
+```
+
+#### CLI help page
+
+```text
+Usage: cyclonedx-esbuild [options] <metafile>
+
+Create CycloneDX Software Bill of Materials (SBOM) from esbuild metafile.
+
+Arguments:
+  metafile                        Path to esbuild metafile
+
+Options:
+  --ewd, --esbuild-working-dir    Working dir used in the esbuild process.
+  --gather-license-texts          Search for license files in components and include them as license evidence.
+                                  This feature is experimental. 
+                                  (default: false)
+  --sv, --spec-version <version>  Which version of CycloneDX spec to use. 
+                                  (choices: "1.2", "1.3", "1.4", "1.5", "1.6", "1.7", default: "1.6")
+  --output-reproducible           Whether to go the extra mile and make the output reproducible.
+                                  This requires more resources, and might result in loss of time- and random-based-values. 
+                                  (env: BOM_REPRODUCIBLE)
+  -o, --output-file <file>        Path to the output file.
+                                  Set to "-" to write to STDOUT.
+                                  (default: write to STDOUT)
+  --validate                      Validate resulting BOM before outputting.
+                                  Validation is skipped, if requirements not met. See the README.
+  --no-validate                   Disable validation of resulting BOM.
+  --mc-type <type>                Type of the main component.
+                                  (choices: "application", "firmware", "library", default: "application")
+  -v, --verbose                   Increase the verbosity of messages.
+                                  Use multiple times to increase the verbosity even more.
+  -V, --version                   output the version number
+  -h, --help                      display help for comman
+```
+
+### Use with Angular
+
+For Angular projects using esbuild (Angular 17+), you can generate SBOMs from the build stats:
+
+```json
+// package.json
+{
+  "scripts": {
+    "build:app": "ng build --stats-json",
+    "build:sbom": "cyclonedx-esbuild --gather-license-texts --output-reproducible -o dist/bom.json dist/stats.json",
+    "build": "npm run build:app && npm run build:sbom"
+  }
+}
+```
 
 ## Internals
 
-<!-- !!! Undecided whether implementation will be in Go or JS....
-This _esbuild_ plugin utilizes the [CycloneDX library][cyclonedx-(js|go)-library] to generate the actual data structures.
--->
+This _esbuild_ plugin and this tool both utilize the [CycloneDX library][CycloneDX-javascript-library] to generate the actual data structures.
 
- <!-- Besides the class `CycloneDxEsbuildPlugin` and the interface `CycloneDxEsbuildPluginOptions`,  -->
-This tool does **not** expose any additional _public_ API or classes - all code is intended to be internal and might change without any notice during version upgrades.
+Besides the class `CycloneDxEsbuildPlugin` and the interface `CycloneDxEsbuildPluginOptions`,  
+this _esbuild_ plugin and this tool doe **not** expose any additional _public_ API or classes - all code is intended to be internal and might change without any notice during version upgrades.
+
+However, the CLI is stable - you may call it programmatically like:
+```javascript
+const { execFileSync } = require('child_process')
+const { constants: { MAX_LENGTH: BUFFER_MAX_LENGTH } } = require('buffer')
+const sbom = JSON.parse(execFileSync(process.execPath, [
+    '../path/to/this/package/bin/cyclonedx-exbuild-cli.js',
+    '--spec-version', '1.7',
+    '--output-file', '-'
+    // additional CLI args
+], { stdio: ['ignore', 'pipe', 'ignore'], encoding: 'buffer', maxBuffer: BUFFER_MAX_LENGTH }))
+```
 
 ## Development & Contributing
 
@@ -61,9 +177,7 @@ See the [LICENSE][license_file] file for the full license.
 
 [CycloneDX]: https://cyclonedx.org/
 [esbuild]: https://esbuild.github.io
-[cyclonedx-go-library]: https://github.com/CycloneDX/cyclonedx-go
 [cyclonedx-js-library]: https://www.npmjs.com/package/@cyclonedx/cyclonedx-library
-
 
 [shield_license]: https://img.shields.io/github/license/CycloneDX/cyclonedx-esbuild-plugin?logo=open%20source%20initiative&logoColor=white "license"
 [shield_website]: https://img.shields.io/badge/https://-cyclonedx.org-blue.svg "homepage"
