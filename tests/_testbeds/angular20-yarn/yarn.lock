@@ -2569,11 +2569,11 @@ __metadata:
   linkType: hard
 
 "baseline-browser-mapping@npm:^2.8.25":
-  version: 2.8.26
-  resolution: "baseline-browser-mapping@npm:2.8.26"
+  version: 2.8.27
+  resolution: "baseline-browser-mapping@npm:2.8.27"
   bin:
     baseline-browser-mapping: dist/cli.js
-  checksum: 10c0/55ea09f2fd8efd90bb735f114f8ac9df310ac4daf598537bf5d2d9a8cdca31747756e77796a3d2465199d94ae5f0b26ea05ff70f856947c5b3c6c718a37d12e5
+  checksum: 10c0/363a7f811ee1a439a504a59967ffac1b504e6bc6fdeb32b60b6cb076f905880921d5c881bc5163a5f082cecd7b14ebf3add565df06b21ba1c6180eb3dcb3ed3f
   languageName: node
   linkType: hard
 
@@ -2921,8 +2921,8 @@ __metadata:
 
 "custom-package@file:../../_data/custom-package/package.tgz::locator=%40cyclonedx%2Fcyclonedx-eslint-testbed-angular20-yarn%40workspace%3A.":
   version: 0.0.1
-  resolution: "custom-package@file:../../_data/custom-package/package.tgz#../../_data/custom-package/package.tgz::hash=7bab51&locator=%40cyclonedx%2Fcyclonedx-eslint-testbed-angular20-yarn%40workspace%3A."
-  checksum: 10c0/a6ae8cf34bc95316f38f2365f174a4d7d56a57281bbb15645222b03cf18aced113ccd66d859348d162f85e12d700425c48c05dbe8b121700249f230dbd534e12
+  resolution: "custom-package@file:../../_data/custom-package/package.tgz#../../_data/custom-package/package.tgz::hash=5d2e15&locator=%40cyclonedx%2Fcyclonedx-eslint-testbed-angular20-yarn%40workspace%3A."
+  checksum: 10c0/7ff078461a78bf832e2d660387b2c930f39767379edaf396580eedd3439d9ef7ea1a48db61e3267c1195c4d733a7c80a4d6b0a993b67860ce4c94b47ab75c004
   languageName: node
   linkType: hard
 

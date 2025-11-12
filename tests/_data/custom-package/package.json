@@ -2,14 +2,16 @@
   "private": true,
   "name": "@cyclonedx/cyclonedx-eslint-testing-custom-package",
   "version": "0.0.1",
-  "description": "",
-  "license": "ISC",
+  "description": "this is a dummy package for showcasing purposes only.\n",
+  "license": "dummy-license",
   "type": "module",
   "main": "./lib/index.js",
   "types": "./types/index.d.ts",
   "files": [
     "lib",
-    "types"
+    "types",
+    "README.md",
+    "LICENSE.txt"
   ],
   "sideEffects": false,
   "devDependencies": {

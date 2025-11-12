@@ -200,18 +200,18 @@ __metadata:
   linkType: hard
 
 "@types/node@npm:ts5.9":
-  version: 24.10.0
-  resolution: "@types/node@npm:24.10.0"
+  version: 24.10.1
+  resolution: "@types/node@npm:24.10.1"
   dependencies:
     undici-types: "npm:~7.16.0"
-  checksum: 10c0/f82ed7194e16f5590ef7afdc20c6d09068c76d50278b485ede8f0c5749683536e3064ffa8def8db76915196afb3724b854aa5723c64d6571b890b14492943b46
+  checksum: 10c0/d6bca7a78f550fbb376f236f92b405d676003a8a09a1b411f55920ef34286ee3ee51f566203920e835478784df52662b5b2af89159d9d319352e9ea21801c002
   languageName: node
   linkType: hard
 
 "custom-package@file:../../_data/custom-package/package.tgz::locator=%40cyclonedx%2Fcyclonedx-eslint-testbed-typescript-yarn%40workspace%3A.":
   version: 0.0.1
-  resolution: "custom-package@file:../../_data/custom-package/package.tgz#../../_data/custom-package/package.tgz::hash=7bab51&locator=%40cyclonedx%2Fcyclonedx-eslint-testbed-typescript-yarn%40workspace%3A."
-  checksum: 10c0/a6ae8cf34bc95316f38f2365f174a4d7d56a57281bbb15645222b03cf18aced113ccd66d859348d162f85e12d700425c48c05dbe8b121700249f230dbd534e12
+  resolution: "custom-package@file:../../_data/custom-package/package.tgz#../../_data/custom-package/package.tgz::hash=5d2e15&locator=%40cyclonedx%2Fcyclonedx-eslint-testbed-typescript-yarn%40workspace%3A."
+  checksum: 10c0/7ff078461a78bf832e2d660387b2c930f39767379edaf396580eedd3439d9ef7ea1a48db61e3267c1195c4d733a7c80a4d6b0a993b67860ce4c94b47ab75c004
   languageName: node
   linkType: hard
 

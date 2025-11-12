@@ -137,29 +137,29 @@ function makeJsonReproducible (json) {
       new RegExp(
         '        {\n' +
                 '          "type": "application",\n' +
-                '          "name": "webpack",\n' +
+                '          "name": "esbuild",\n' +
                 '          "version": ".+?"\n' +
                 '        }'),
       '        {\n' +
             '          "type": "application",\n' +
-            '          "name": "webpack",\n' +
-            '          "version": "webpackVersion-testing"\n' +
+            '          "name": "esbuild",\n' +
+            '          "version": "esbuildVersion-testing"\n' +
             '        }'
     )
     .replace(
       // replace self metadata.tools[].version
       '        "vendor": "@cyclonedx",\n' +
-            '        "name": "webpack-plugin",\n' +
+            '        "name": "cyclonedx-esbuild",\n' +
             `        "version": ${JSON.stringify(thisVersion)}`,
       '        "vendor": "@cyclonedx",\n' +
-            '        "name": "webpack-plugin",\n' +
+            '        "name": "cyclonedx-esbuild",\n' +
             '        "version": "thisVersion-testing"'
     ).replace(
       // replace self metadata.tools.components[].version
-      '          "name": "webpack-plugin",\n' +
+      '          "name": "cyclonedx-esbuild",\n' +
             '          "group": "@cyclonedx",\n' +
             `          "version": ${JSON.stringify(thisVersion)}`,
-      '          "name": "webpack-plugin",\n' +
+      '          "name": "cyclonedx-esbuild",\n' +
             '          "group": "@cyclonedx",\n' +
             '          "version": "thisVersion-testing"'
     ).replace(
@@ -194,32 +194,32 @@ function makeJsonReproducible (json) {
 function makeXmlReproducible (xml) {
   return xml
     .replace(
-      // replace webpack metadata.tools[].version
+      // replace esbuild metadata.tools[].version
       new RegExp(
         '        <component type="application">\n' +
-                '          <name>webpack</name>\n' +
+                '          <name>esbuild</name>\n' +
                 '          <version>.+?</version>\n' +
                 '        </component>'),
       '        <component type="application">\n' +
-            '          <name>webpack</name>\n' +
-            '          <version>webpackVersion-testing</version>\n' +
+            '          <name>esbuild</name>\n' +
+            '          <version>esbuildVersion-testing</version>\n' +
             '        </component>'
     )
     .replace(
       // replace self metadata.tools[].version
       '        <vendor>@cyclonedx</vendor>\n' +
-            '        <name>webpack-plugin</name>\n' +
+            '        <name>cyclonedx-esbuild</name>\n' +
             `        <version>${thisVersion}</version>`,
       '        <vendor>@cyclonedx</vendor>\n' +
-            '        <name>webpack-plugin</name>\n' +
+            '        <name>cyclonedx-esbuild</name>\n' +
             '        <version>thisVersion-testing</version>'
     ).replace(
       // replace self metadata.tools.components[].version
       '          <group>@cyclonedx</group>\n' +
-            '          <name>webpack-plugin</name>\n' +
+            '          <name>cyclonedx-esbuild</name>\n' +
             `          <version>${thisVersion}</version>`,
       '          <group>@cyclonedx</group>\n' +
-            '          <name>webpack-plugin</name>\n' +
+            '          <name>cyclonedx-esbuild</name>\n' +
             '          <version>thisVersion-testing</version>'
     ).replace(
       // replace cdx-lib metadata.tools[].version
