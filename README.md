@@ -124,7 +124,7 @@ Options:
   -v, --verbose                   Increase the verbosity of messages.
                                   Use multiple times to increase the verbosity even more.
   -V, --version                   output the version number
-  -h, --help                      display help for comman
+  -h, --help                      display help for command
 ```
 
 ### Use with Angular
