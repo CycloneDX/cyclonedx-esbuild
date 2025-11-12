@@ -196,7 +196,7 @@ See the [LICENSE][license_file] file for the full license.
 [link_gh-workflow-test]: https://github.com/CycloneDX/cyclonedx-esbuild/actions/workflows/nodejs.yml?query=branch%3A1.0-dev
 [link_codacy]: https://app.codacy.com/gh/CycloneDX/cyclonedx-esbuild/dashboard
 [link_ossf-best-practices]: https://www.bestpractices.dev/projects/11463
-[link_npm]: https://www.npmjs.com/package/@cyclonedx/cycloneedx-esbuild
+[link_npm]: https://www.npmjs.com/package/@cyclonedx/cyclonedx-esbuild
 [link_slack]: https://cyclonedx.org/slack/invite
 [link_discussion]: https://groups.io/g/CycloneDX
 [link_twitter]: https://twitter.com/CycloneDX_Spec
