@@ -132,6 +132,7 @@ export const cyclonedxEsbuildPlugin = (opts: CycloneDxEsbuildPluginOptions = {})
 
     build.onEnd(async (result: esbuild.BuildResult): Promise<void> => {
       if (result.metafile === undefined) {
+        /* c8 ignore next */
         throw new Error('missing result.metafile')
       }
       logger.info(LogPrefixes.INFO, 'start build BOM ...')
