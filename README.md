@@ -137,8 +137,8 @@ Options:
 
 For _Angular_ projects using _esbuild_ (Angular 17+), you can generate SBOMs from the build stats.
 
-Here is an example `package.json`
-```json
+```jsonc
+// package.json
 {
   "scripts": {
     "build:app": "ng build --stats-json",
@@ -147,6 +147,8 @@ Here is an example `package.json`
   }
 }
 ```
+
+See an example here: [integration with Angular17/webpack5](https://github.com/CycloneDX/cyclonedx-esbuild/tree/1.0-dev/tests/_testbeds/angular20-yarn).
 
 ## Internals
 
@@ -177,8 +179,9 @@ See the [CONTRIBUTING][contributing_file] file for details.
 Permission to modify and redistribute is granted under the terms of the Apache 2.0 license.  
 See the [LICENSE][license_file] file for the full license.
 
-[license_file]: https://github.com/CycloneDX/cyclonedx-esbuild-plugin/blob/1.0-dev/LICENSE
-[contributing_file]: https://github.com/CycloneDX/cyclonedx-esbuild-plugin/blob/1.0-dev/CONTRIBUTING.md
+[license_file]: https://github.com/CycloneDX/cyclonedx-esbuild/blob/1.0-dev/LICENSE
+[contributing_file]: https://github.com/CycloneDX/cyclonedx-esbuild/blob/1.0-dev/CONTRIBUTING.md
+[examples]: https://github.com/CycloneDX/cyclonedx-esbuild/tree/1.0-dev/examples
 
 [CycloneDX]: https://cyclonedx.org/
 [esbuild]: https://esbuild.github.io

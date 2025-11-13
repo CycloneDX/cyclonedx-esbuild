@@ -17,7 +17,10 @@ SPDX-License-Identifier: Apache-2.0
 Copyright (c) OWASP Foundation. All Rights Reserved.
 */
 
-// simply re-export foo ...
+const { Popover, Toast, Tooltip } = require('bootstrap')
 
+// no real world use, but showcase
 
-export { greet } from "./utils"
+console.log('Tooltip version', Tooltip.VERSION)
+console.log('Toast version', Toast.VERSION)
+console.log('Popover version', Popover.VERSION)
