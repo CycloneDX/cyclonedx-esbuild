@@ -671,6 +671,12 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@cyclonedx/cyclonedx-esbuild@link:../../../::locator=%40cyclonedx%2Fcyclonedx-eslint-testbed-angular20-yarn%40workspace%3A.":
+  version: 0.0.0-use.local
+  resolution: "@cyclonedx/cyclonedx-esbuild@link:../../../::locator=%40cyclonedx%2Fcyclonedx-eslint-testbed-angular20-yarn%40workspace%3A."
+  languageName: node
+  linkType: soft
+
 "@cyclonedx/cyclonedx-eslint-testbed-angular20-yarn@workspace:.":
   version: 0.0.0-use.local
   resolution: "@cyclonedx/cyclonedx-eslint-testbed-angular20-yarn@workspace:."
@@ -686,6 +692,7 @@ __metadata:
     "@angular/forms": "npm:20.2.2"
     "@angular/material": "npm:20.2.2"
     "@angular/platform-browser": "npm:20.2.2"
+    "@cyclonedx/cyclonedx-esbuild": "link:../../../"
     custom-package: "file:../../_data/custom-package/package.tgz"
     rxjs: "npm:7.8.2"
     tslib: "npm:2.8.1"

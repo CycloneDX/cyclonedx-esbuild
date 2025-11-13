@@ -1,0 +1,8 @@
+/*
+!/.gitignore
+!/.gitattributes
+!/package.json
+!/build.mjs
+!/src/
+!/README.md
+!/sbom-results
