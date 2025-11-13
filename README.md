@@ -63,7 +63,7 @@ The _esbuild_ plugin automatically generates an SBOM during your build process.
 | **mcType** | `{string}` | `"application"` | Set the MainComponent's type.<br/> See [list of valid values](https://cyclonedx.org/docs/1.7/json/#metadata_component_type). |
 | **validate** | `{boolean \| undefined}` | `undefined` | Validate resulting BOM before outputting.<br/> Validation is skipped, if requirements not met. |
 
-#### Esbuild Plugin Example
+### Esbuild Plugin Example
 
 ```javascript
 const esbuild = require('esbuild');
