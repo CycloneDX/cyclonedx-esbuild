@@ -1,6 +1,6 @@
 # Test: Angular20 with esbuild in yarn setup
 
-This demo/example app was pulled from somewhere in the internets.
+This demo/example app was pulled from <https://angular.dev/playground?templateId=3-minigame>.
 
 ----
 
