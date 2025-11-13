@@ -218,7 +218,7 @@ export const cyclonedxEsbuildPlugin = (opts: CycloneDxEsbuildPluginOptions = {})
         mkdirSync(outputFDir, {recursive: true})
       }
       logger.log(LogPrefixes.LOG, 'writing BOM to', options.outputFile)
-      const written = writeAllSync(openSync(outputFPn, 'w'), serialized);
+      const written = await writeAllSync(openSync(outputFPn, 'w'), serialized);
       logger.info(LogPrefixes.INFO, 'wrote %d bytes to %s', written, options.outputFile)
     });
   }
