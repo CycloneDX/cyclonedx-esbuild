@@ -4,7 +4,7 @@ This demo/example app was pulled from <https://angular.dev/playground?templateId
 
 ----
 
-Angular 17+ uses _esbuild_ to generate theis web-deliverables.
+Angular 17+ uses _esbuild_ to generate web-deliverables.
 
 The SBOM is built by analysing the esbuild metafile.  
 1. _esbuild_ metafile is emitted with as file `.../stats.json` during Angular's build process if called with the `--stats-json` switch.
