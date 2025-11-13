@@ -10,7 +10,7 @@ The SBOM is built by analysing the esbuild metafile.
 1. _esbuild_ metafile is emitted with as file `.../stats.json` during Angular's build process if called with the `--stats-json` switch.
 2. _esbuild_ metafile is analysed by the `cyclonedx-esbuild` CLI to generate the SBOM.
 
-All the process is setup as a build script in the [`package.json``](package.json):
+All the process is setup as a build script in the [`package.json`](package.json):
 ```jsonc
 // package.json
 {
