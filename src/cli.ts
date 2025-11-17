@@ -116,7 +116,7 @@ function makeCommand(process_: NodeJS.Process): Command {
       'Use multiple times to increase the verbosity even more.'
     ).argParser<number>(
       (_, previous) => previous + 1
-    ).default(0)
+    ).default(1)
   ).addArgument(
     new Argument(
       '<metafile>',
