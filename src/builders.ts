@@ -126,7 +126,7 @@ export class BomBuilder {
     logger.info(LogPrefixes.INFO, `linking Component.dependencies...`)
     this.linkDependencies(metafile, components)
 
-    logger.log(LogPrefixes.LOG, 'done building Components from modules...')
+    logger.info(LogPrefixes.INFO, 'done building Components from modules...')
     return pkgs
   }
 
