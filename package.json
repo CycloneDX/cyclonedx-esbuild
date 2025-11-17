@@ -1,6 +1,6 @@
 {
   "name": "@cyclonedx/cyclonedx-esbuild",
-  "version": "1.0.0-rc.9",
+  "version": "1.0.0-rc.10",
   "description": "Creates CycloneDX Software Bill of Materials (SBoM) from esbuild projects",
   "license": "Apache-2.0",
   "copyright": "Copyright OWASP Foundation",
