@@ -224,10 +224,13 @@ export const cyclonedxEsbuildPlugin = (opts: CycloneDxEsbuildPluginOptions = {})
   }
 })
 
+/**
+ * from {@link esbuild.LogLevel} to {@link makeConsoleLogger}
+ */
 const LogLevelMap: Record<esbuild.LogLevel, number> = {
-  'silent': -1,
-  'error': 0,
-  'warning': 0,
+  'silent': 0,
+  'error': 1,
+  'warning': 1,
   'info': 2,
   'debug': 3,
   'verbose': 4,
