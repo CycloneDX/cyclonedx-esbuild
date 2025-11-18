@@ -1,0 +1,124 @@
+{
+  "name": "@cyclonedx/cyclonedx-esbuild",
+  "version": "1.0.0-rc.11",
+  "description": "Creates CycloneDX Software Bill of Materials (SBoM) from esbuild projects",
+  "license": "Apache-2.0",
+  "copyright": "Copyright OWASP Foundation",
+  "keywords": [
+    "esbuild",
+    "plugin",
+    "esbuild-plugin",
+    "CycloneDX",
+    "bill-of-materials",
+    "BOM",
+    "software-bill-of-materials",
+    "SBOM",
+    "inventory",
+    "component",
+    "dependency",
+    "package-url",
+    "PURL",
+    "SPDX"
+  ],
+  "homepage": "https://github.com/CycloneDX/cyclonedx-esbuild#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CycloneDX/cyclonedx-esbuild.git"
+  },
+  "bugs": {
+    "url": "https://github.com/CycloneDX/cyclonedx-esbuild/issues"
+  },
+  "funding": [
+    {
+      "type": "individual",
+      "url": "https://owasp.org/donate/?reponame=www-project-cyclonedx&title=OWASP+CycloneDX"
+    }
+  ],
+  "author": {
+    "name": "Jan Kowalleck",
+    "url": "https://github.com/jkowalleck"
+  },
+  "contributors": [
+    {
+      "name": "Jan Kowalleck",
+      "url": "https://github.com/jkowalleck"
+    }
+  ],
+  "type": "commonjs",
+  "engines": {
+    "node": ">=20.18.0"
+  },
+  "types": "./dist/plugin.d.ts",
+  "main": "./dist/plugin.js",
+  "exports": "./dist/plugin.js",
+  "bin": {
+    "cyclonedx-esbuild": "bin/cyclonedx-esbuild-cli.js"
+  },
+  "directories": {
+    "src": "./src",
+    "lib": "./dist",
+    "test": "./tests",
+    "example": "./examples"
+  },
+  "peerDependencies": {
+    "esbuild": ">=0.11.15"
+  },
+  "peerDependenciesMeta": {
+    "esbuild": {
+      "optional": true
+    }
+  },
+  "dependencies": {
+    "@cyclonedx/cyclonedx-library": "^9.2.0",
+    "commander": "^14.0.0",
+    "normalize-package-data": "^7.0.0 || ^8.0.0"
+  },
+  "optionalDependencies": {
+    "ajv": "^8.12.0",
+    "ajv-formats": "^3.0.1",
+    "ajv-formats-draft2019": "^1.6.1"
+  },
+  "devDependencies": {
+    "@types/node": "ts5.9",
+    "@types/normalize-package-data": "^2.4.4",
+    "c8": "^10",
+    "esbuild": "^0.27.0",
+    "jest": "30.2.0",
+    "jest-junit": "16.0.0",
+    "npm-run-all2": "^8.0.1",
+    "typescript": "^5.9.3"
+  },
+  "devEngines": {
+    "runtime": {
+      "name": "node",
+      "onFail": "error"
+    },
+    "packageManager": {
+      "name": "npm",
+      "onFail": "error"
+    }
+  },
+  "scripts": {
+    "dev-setup": "npm i && run-p --aggregate-output -lc dev-setup:\\*",
+    "dev-setup:tools": "run-p --aggregate-output -lc dev-setup:tools:\\*",
+    "dev-setup:tools:code-style": "npm --prefix tools/code-style install",
+    "dev-setup:tools:test-dependencies": "npm --prefix tools/test-dependencies install",
+    "prebuild": "node -r fs -e 'fs.rmSync(`dist`,{recursive:true,force:true})'",
+    "build": "tsc -b ./tsconfig.json",
+    "build-dev": "npm run -- build --sourceMap",
+    "prepublish": "npm run build",
+    "prepublishOnly": "run-s -lc build setup-tests test",
+    "setup-tests": "node tests/setup.js",
+    "test": "run-p --aggregate-output -lc 'test:*'",
+    "test:jest": "c8 jest",
+    "test:lint": "tsc --noEmit",
+    "test:standard": "npm --prefix tools/code-style exec -- eslint .",
+    "test:dependencies": "npm --prefix tools/test-dependencies exec -- knip --include dependencies,unlisted,unresolved --production",
+    "cs-fix": "npm --prefix tools/code-style exec -- eslint --fix ."
+  },
+  "jest-junit": {
+    "suiteName": "jest tests",
+    "outputDirectory": "reports/jest",
+    "outputName": "tests.junit.xml"
+  }
+}

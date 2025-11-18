@@ -5,21 +5,43 @@ But please read the
 [CycloneDX contributing guidelines](https://github.com/CycloneDX/.github/blob/master/CONTRIBUTING.md)
 first.
 
-## Setup
+## Set up the project
 
-... TBD ...
+Install dependencies:
+
+```shell
+npm run dev-setup
+```
+
+This will install process automatically build the project from source.
 
 ## Build from source
 
-... TBD ...
+```shell
+npm run build-dev
+```
 
 ## Testing
 
-... TBD ...
+Set up the tests once, via:
+
+```shell
+npm run setup-tests
+```
+
+Run to have a proper test suite pass:
+
+```shell
+npm test
+```
 
 ## Coding Style guide & standard
 
-... TBD ...
+Apply the coding style via:
+
+```shell
+npm run cs-fix
+```
 
 ## Sign off your commits
 
@@ -27,7 +49,5 @@ Please sign off your commits, to show that you agree to publish your changes und
 , and to indicate agreement with [Developer Certificate of Origin (DCO)](https://developercertificate.org/).
 
 ```shell
-git commit --signoff ...
+git commit --signed-off ...
 ```
-
-Doing so adds a message to your commit message as described in https://git-scm.com/docs/git-commit#Documentation/git-commit.txt--s

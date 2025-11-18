@@ -1,0 +1,225 @@
+# For details of what checks are run for PRs please refer below
+# docs: https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions
+
+name: Node CI
+
+on:
+  push:
+    branches: [ "master", "main", "next", "1.0-dev" ]
+    tags: [ "v*" ]
+  pull_request:
+  workflow_dispatch:
+  schedule:
+    # schedule daily tests, since dependencies are not intended to be locked
+    # this means: at 23:42 every day
+    - cron: '42 23 * * *'
+
+concurrency:
+  group: '${{ github.workflow }}-${{ github.ref }}'
+  cancel-in-progress: true
+
+permissions: {}
+
+env:
+  REPORTS_DIR: CI_reports
+  NODE_ACTIVE_LTS: "22" # https://nodejs.org/en/about/releases/
+  TESTS_REPORTS_ARTIFACT: tests-reports
+
+jobs:
+  build:
+    name: build ${{ matrix.target }}
+    runs-on: "ubuntu-latest"
+    timeout-minutes: 30
+    steps:
+      - name: Checkout
+        # see https://github.com/actions/checkout
+        uses: actions/checkout@v5
+      - name: Setup Node.js ${{ env.NODE_ACTIVE_LTS }}
+        # see https://github.com/actions/setup-node
+        uses: actions/setup-node@v6
+        with:
+          node-version: ${{ env.NODE_ACTIVE_LTS }}
+          package-manager-cache: false
+      - name: setup project
+        run: npm i --ignore-scripts
+      - name: build ${{ matrix.target }}
+        run: npm run build-dev
+      - name: artifact build result
+        # see https://github.com/actions/upload-artifact
+        uses: actions/upload-artifact@v5
+        with:
+          name: dist
+          path: dist
+          if-no-files-found: error
+
+  test-standard:
+    name: test standard
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        # see https://github.com/actions/checkout
+        uses: actions/checkout@v5
+      - name: Setup Node.js ${{ env.NODE_ACTIVE_LTS }}
+        # see https://github.com/actions/setup-node
+        uses: actions/setup-node@v6
+        with:
+          node-version: ${{ env.NODE_ACTIVE_LTS }}
+          package-manager-cache: false
+      - name: setup project
+        run: |
+          npm install --ignore-scripts --loglevel=silly
+      - name: setup tools
+        run: |
+          echo "::group::install code-style deps"
+          npm run -- dev-setup:tools:code-style --ignore-scripts --loglevel=silly
+          echo "::endgroup::"
+      - name: make reports dir
+        run: mkdir -p "$REPORTS_DIR"
+      - name: test
+        run: >
+          npm run -- test:standard
+          --format json
+          --output-file "$PWD/$REPORTS_DIR/eslint.json"
+      - name: Annotate Code
+        if: ${{ failure() || success() }}
+        # see https://github.com/DerLev/eslint-annotations
+        uses: DerLev/eslint-annotations@v2
+        with:
+          eslint-report: ${{ env.REPORTS_DIR }}/eslint.json
+      - name: artifact eslint result
+        # see https://github.com/actions/upload-artifact
+        uses: actions/upload-artifact@v5
+        if: ${{ failure() }}
+        with:
+          name: ${{ env.STANDARD_REPORTS_ARTIFACT }}
+          path: ${{ env.REPORTS_DIR }}
+          if-no-files-found: error
+
+  test-dependencies:
+    name: test dependencies
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        # see https://github.com/actions/checkout
+        uses: actions/checkout@v5
+      - name: Setup Node.js ${{ env.NODE_ACTIVE_LTS }}
+        # see https://github.com/actions/setup-node
+        uses: actions/setup-node@v6
+        with:
+          node-version: ${{ env.NODE_ACTIVE_LTS }}
+          package-manager-cache: false
+      - name: setup project
+        run: npm install --ignore-scripts --loglevel=silly
+      - name: setup tool
+        run: npm run -- dev-setup:tools:test-dependencies --ignore-scripts --loglevel=silly
+      - name: test
+        run: npm run -- test:dependencies -d
+
+  test-jest:
+    needs: [ 'build' ]
+    name: test:Jest (node${{ matrix.node-version }}, ${{ matrix.os }})
+    timeout-minutes: 30
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ "ubuntu-latest" ]
+        node-version:
+          # action based on https://github.com/actions/node-versions/releases
+          # see also: https://nodejs.org/en/about/previous-releases
+          - "24"      # current
+          - "22"      # active LTS
+          # - "20"
+          - "20.18.0" # lowest supported
+    steps:
+      - name: Checkout
+        # see https://github.com/actions/checkout
+        uses: actions/checkout@v5
+      - name: Setup Node.js ${{ matrix.node-version }}
+        # see https://github.com/actions/setup-node
+        uses: actions/setup-node@v6
+        with:
+          node-version: ${{ matrix.node-version }}
+          package-manager-cache: false
+      - # some integration tests require a certain npm version to be installable
+        name: update npm
+        run: |-
+          npm i -g npm@^8
+          npm --version
+      - name: enable yarn
+        run: |-
+          corepack enable yarn
+          yarn --version
+        working-directory: ../  # prevent evaluation of package.json
+      - name: install project
+        shell: bash
+        run: |
+          set -ex
+          dev_requirements='c8 jest jest-junit'
+          npm i --ignore-scripts --omit=peer --omit=dev --only=prod --production --loglevel=silly
+          ## install the needed dev-deps
+          npm i --ignore-scripts --loglevel=silly --no-save $dev_requirements
+      - name: fetch build artifact
+        # see https://github.com/actions/download-artifact
+        uses: actions/download-artifact@v6
+        with:
+          name: dist
+          path: dist
+      - name: setup test beds
+        run: npm run setup-tests
+      - name: artifact npm errors
+        if: ${{ failure() }}
+        # see https://github.com/actions/upload-artifact
+        uses: actions/upload-artifact@v5
+        with:
+          name: 'npm-errors_${{ matrix.os }}_node${{ matrix.node-version }}'
+          path: '/home/runner/.npm/_logs/*.log'
+          if-no-files-found: ignore
+          retention-days: 7
+      - name: test
+        run: npm run test:jest
+        env:
+          JEST_JUNIT_OUTPUT_DIR: ${{ env.REPORTS_DIR }}/${{ matrix.os }}_node${{ matrix.node-version }}
+      - name: collect coverage
+        if: ${{ failure() || success() }}
+        run: >
+          node -- node_modules/c8/bin/c8.js
+          report
+          --reporter clover
+          --reports-dir '${{ env.REPORTS_DIR }}/coverage/${{ matrix.os }}_node${{ matrix.node-version }}'
+      - name: artifact test reports
+        if: ${{ ! cancelled() }}
+        # see https://github.com/actions/upload-artifact
+        uses: actions/upload-artifact@v5
+        with:
+          name: '${{ env.TESTS_REPORTS_ARTIFACT }}_${{ matrix.os }}_node${{ matrix.node-version }}'
+          path: ${{ env.REPORTS_DIR }}
+
+  # test-examples: $ TODO
+
+  report-coverage:
+    name: Publish test coverage
+    needs:
+      - test-jest
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: fetch test artifacts
+        # see https://github.com/actions/download-artifact
+        uses: actions/download-artifact@v6
+        with:
+          pattern: '${{ env.TESTS_REPORTS_ARTIFACT }}_*'
+          merge-multiple: true
+          path: ${{ env.REPORTS_DIR }}
+      - name: Run codacy-coverage-reporter
+        env:
+          CODACY_PROJECT_TOKEN: ${{ secrets.CODACY_PROJECT_TOKEN }}
+        ## see https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#example-using-secrets
+        if: ${{ env.CODACY_PROJECT_TOKEN != '' }}
+        # see https://github.com/codacy/codacy-coverage-reporter-action
+        uses: codacy/codacy-coverage-reporter-action@v1
+        with:
+          project-token: ${{ env.CODACY_PROJECT_TOKEN }}
+          coverage-reports: ${{ env.REPORTS_DIR }}/coverage/*/*

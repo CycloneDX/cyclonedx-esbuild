@@ -1,0 +1,35 @@
+{
+  "private": true,
+  "name": "@cyclonedx/cyclonedx-eslint-testbed-angular20-yarn",
+  "version": "0.0.0",
+  "dependencies": {
+    "@angular/animations": "20.2.2",
+    "@angular/cdk": "20.2.2",
+    "@angular/common": "20.2.2",
+    "@angular/compiler": "20.2.2",
+    "@angular/core": "20.2.2",
+    "@angular/forms": "20.2.2",
+    "@angular/material": "20.2.2",
+    "@angular/platform-browser": "20.2.2",
+    "custom-package": "file:../../_data/custom-package/package.tgz",
+    "rxjs": "7.8.2",
+    "tslib": "2.8.1",
+    "zone.js": "0.15.1"
+  },
+  "devDependencies": {
+    "@angular/build": "20.2.2",
+    "@angular/cli": "20.2.2",
+    "@angular/compiler-cli": "20.2.2",
+    "@cyclonedx/cyclonedx-esbuild": "link:../../../",
+    "typescript": "5.8.3"
+  },
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "watch": "ng build --watch --configuration development",
+    "build:ng": "ng build --stats-json",
+    "build:sbom": "yarn node ../../../bin/cyclonedx-esbuild-cli.js -vvv --gather-license-texts --output-reproducible -o dist/first-app/bom.json dist/first-app/stats.json",
+    "build": "yarn run build:ng && yarn run build:sbom"
+  },
+  "packageManager": "yarn@4.11.0"
+}

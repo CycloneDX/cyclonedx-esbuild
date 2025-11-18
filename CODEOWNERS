@@ -1,0 +1,8 @@
+# see https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/about-code-owners
+
+
+# all maintainers are default-reviewers of new pull requests.
+## !!! Undecided whether implementation will be in Go or JS....
+# see https://github.com/orgs/CycloneDX/teams/javascript-maintainers
+# see https://github.com/orgs/CycloneDX/teams/go-maintainers
+*  @CycloneDX/javascript-maintainers @CycloneDX/go-maintainers
