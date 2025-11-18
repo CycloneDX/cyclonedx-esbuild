@@ -152,7 +152,7 @@ For _Angular_ projects using _esbuild_ (Angular 17+), you can generate SBOMs fro
 }
 ```
 
-See an example here: [integration with Angular20](https://github.com/CycloneDX/cyclonedx-esbuild/tree/1.0-dev/tests/_testbeds/angular20-yarn).
+See an example here: [integration with Angular20](https://github.com/CycloneDX/cyclonedx-esbuild/tree/main/tests/_testbeds/angular20-yarn).
 
 ## Internals
 
@@ -183,15 +183,15 @@ See the [CONTRIBUTING][contributing_file] file for details.
 Permission to modify and redistribute is granted under the terms of the Apache 2.0 license.  
 See the [LICENSE][license_file] file for the full license.
 
-[license_file]: https://github.com/CycloneDX/cyclonedx-esbuild/blob/1.0-dev/LICENSE
-[contributing_file]: https://github.com/CycloneDX/cyclonedx-esbuild/blob/1.0-dev/CONTRIBUTING.md
-[examples]: https://github.com/CycloneDX/cyclonedx-esbuild/tree/1.0-dev/examples
+[license_file]: https://github.com/CycloneDX/cyclonedx-esbuild/blob/main/LICENSE
+[contributing_file]: https://github.com/CycloneDX/cyclonedx-esbuild/blob/main/CONTRIBUTING.md
+[examples]: https://github.com/CycloneDX/cyclonedx-esbuild/tree/main/examples
 
 [CycloneDX]: https://cyclonedx.org/
 [esbuild]: https://esbuild.github.io
 [CycloneDX-javascript-library]: https://github.com/CycloneDX/cyclonedx-javascript-library/
 
-[shield_gh-workflow-test]: https://img.shields.io/github/actions/workflow/status/CycloneDX/cyclonedx-esbuild/nodejs.yml?branch=1.0-dev&logo=GitHub&logoColor=white "tests"
+[shield_gh-workflow-test]: https://img.shields.io/github/actions/workflow/status/CycloneDX/cyclonedx-esbuild/nodejs.yml?branch=main&logo=GitHub&logoColor=white "tests"
 [shield_npm-version]: https://img.shields.io/npm/v/%40cyclonedx%2fcyclonedx-esbuild/latest?label=npm&logo=npm&logoColor=white "npm"
 [shield_ossf-best-practices]: https://img.shields.io/cii/percentage/11463?label=OpenSSF%20best%20practices "OpenSSF best practices"
 [shield_coverage]: https://img.shields.io/codacy/coverage/4900a38bdc544b2283695447e9513ab5?logo=Codacy&logoColor=white "test coverage"
@@ -202,7 +202,7 @@ See the [LICENSE][license_file] file for the full license.
 [shield_twitter-follow]: https://img.shields.io/badge/Twitter-follow-blue?logo=Twitter&logoColor=white "twitter follow"
 
 [link_website]: https://cyclonedx.org/
-[link_gh-workflow-test]: https://github.com/CycloneDX/cyclonedx-esbuild/actions/workflows/nodejs.yml?query=branch%3A1.0-dev
+[link_gh-workflow-test]: https://github.com/CycloneDX/cyclonedx-esbuild/actions/workflows/nodejs.yml?query=branch%3Amain
 [link_codacy]: https://app.codacy.com/gh/CycloneDX/cyclonedx-esbuild/dashboard
 [link_ossf-best-practices]: https://www.bestpractices.dev/projects/11463
 [link_npm]: https://www.npmjs.com/package/@cyclonedx/cyclonedx-esbuild
