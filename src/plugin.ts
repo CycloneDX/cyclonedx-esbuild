@@ -153,11 +153,13 @@ export const cyclonedxEsbuildPlugin = (opts: CycloneDxEsbuildPluginOptions = {})
         options.gatherLicenseTexts,
         logger)
       bom.metadata.lifecycles.add(CDX.Enums.LifecyclePhase.Build)
-      // TODO bom.metadata.component
       bom.metadata.tools.components.add(new CDX.Models.Component(
         CDX.Enums.ComponentType.Application,
         'esbuild',
-        {version: build.esbuild.version}
+        {
+          /* eslint-disable-next-line @typescript-eslint/no-unnecessary-condition -- backwards compatibility */
+          version: build.esbuild?.version // requires esbuild v0.14.3
+        }
       ))
       for (const toolC of makeToolCs(CDX.Enums.ComponentType.Library, cdxComponentBuilder, logger)) {
         bom.metadata.tools.components.add(toolC)

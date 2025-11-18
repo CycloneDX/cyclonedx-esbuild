@@ -77,8 +77,9 @@ export class BomBuilder {
         yield new CDX.Models.NamedLicense(`file: ${file}`, {text})
       }
     }
-      /* c8 ignore next 3 */ catch (e) {
-      // generator will not throw before first `.nest()` is called ...
+    /* c8 ignore next 3 */
+    catch (e) {
+      // generator will not throw before first `.next()` is called ...
       logger.warn(LogPrefixes.WARN, 'collecting license evidence in', packageDir, 'failed:', e)
     }
   }
@@ -130,9 +131,9 @@ export class BomBuilder {
     return pkgs
   }
 
-  /* @ts-expect-error TS6133: -- TODO */
+  /* @ts-expect-error TS6133 -- TODO */
   private linkDependencies(metafile: esbuild.Metafile, modulesComponents: Map<string, CDX.Models.Component>): void {
-    // TODO: link deps based on inputs ...
+    // TODO: link deps based on inputs - https://github.com/CycloneDX/cyclonedx-esbuild/issues/11
     // idea: take the metadata.input
     // then cut the "externals" and copy their content to all the ones that used it
     // then cut the "unknown" and copy their content to all the ones that used it
