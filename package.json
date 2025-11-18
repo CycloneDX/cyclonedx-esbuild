@@ -50,6 +50,7 @@
   },
   "types": "./dist/plugin.d.ts",
   "main": "./dist/plugin.js",
+  "exports": "./dist/plugin.js",
   "bin": {
     "cyclonedx-esbuild": "bin/cyclonedx-esbuild-cli.js"
   },
