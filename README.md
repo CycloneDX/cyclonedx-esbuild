@@ -62,7 +62,7 @@ The _esbuild_ plugin automatically generates an SBOM during your build process.
 |:-----|:----:|:-------:|:------------|
 | **`specVersion`** | `{string}`<br/> one of: `"1.2"`, `"1.3"`, `"1.4"`, `"1.5"`, `"1.6"`, `"1.7"` | `"1.6"` |  Which version of [CycloneDX-spec] to use.<br/> Supported values depend on the installed dependency [CycloneDX-javascript-library]. |
 | **outputFile** | `{string}` | `"bom.json"` | Path to the output file. |
-| **gatherLicenseTexts** | `boolean` | `false` | Search for license files in components and include them as license evidence.<br/> This feature is experimental. |
+| **gatherLicenseTexts** | `{boolean}` | `false` | Search for license files in components and include them as license evidence.<br/> This feature is experimental. |
 | **outputReproducible** | `{boolean}` | `false` | Whether to go the extra mile and make the output reproducible.<br/> This requires more resources, and might result in loss of time- and random-based-values. |
 | **mcType** | `{string}` | `"application"` | Set the MainComponent's type.<br/> See [list of valid values](https://cyclonedx.org/docs/1.7/json/#metadata_component_type). |
 | **validate** | `{boolean \| undefined}` | `undefined` | Validate resulting BOM before outputting.<br/> Validation is skipped, if requirements not met. |
@@ -127,7 +127,7 @@ Options:
                                   Set to "-" to write to STDOUT.
                                   (default: write to STDOUT)
   --validate                      Validate resulting BOM before outputting.
-                                  Validation is skipped, if requirements not met. See the README.
+                                  Validation is skipped, if requirements not met.
   --no-validate                   Disable validation of resulting BOM.
   --mc-type <type>                Type of the main component.
                                   (choices: "application", "firmware", "library", default: "application")
