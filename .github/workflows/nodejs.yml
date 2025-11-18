@@ -143,11 +143,6 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           package-manager-cache: false
-      - # some integration tests require a certain npm version to be installable
-        name: update npm
-        run: |-
-          npm i -g npm@^8
-          npm --version
       - name: enable yarn
         run: |-
           corepack enable yarn
