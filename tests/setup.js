@@ -63,6 +63,14 @@ const MANAGERS = {
 }
 
 function setup () {
+  console.warn(`
+  WILL SETUP INTEGRATION TEST BEDS
+  THAT MIGHT CONTAIN OUTDATED VULNERABLE PACKAGES
+  FOR SHOWCASING AND TESTING PURPOSES ONLY.
+  `)
+
+  process.exitCode = 0
+
   for (const [name, config] of Object.entries(MANAGERS)) {
     for (const dir of config.dirs) {
       console.log(`>>> setup with ${name.toUpperCase()}: ${dir}`)
