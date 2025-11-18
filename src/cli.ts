@@ -57,8 +57,7 @@ function makeCommand(process_: NodeJS.Process): Command {
   ).addOption(
     new Option(
       '--gather-license-texts',
-      'Search for license files in components and include them as license evidence.' +
-      '\nThis feature is experimental.'
+      'Search for license files in components and include them as license evidence.'
     ).default(false)
   ).addOption(
     new Option(

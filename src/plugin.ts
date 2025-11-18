@@ -69,7 +69,6 @@ export interface CycloneDxEsbuildPluginOptions {
 
   /**
    * Search for license files in components and include them as license evidence.
-   * This feature is experimental.
    *
    * @defaultValue `false`
    */
