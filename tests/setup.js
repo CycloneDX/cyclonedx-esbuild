@@ -35,6 +35,13 @@ const MANAGERS = {
       'typescript-npm',
     ]
   },
+  npm_with_scripts: {
+    cmd: 'npm',
+    args: ['ci'],
+    dirs: [
+      'lowest-esbuild'
+    ]
+  },
   yarn: {
     cmd: 'yarn',
     args: ['install', '--immutable', '--mode=skip-build'],

@@ -592,6 +592,153 @@ exports[`integration functional: angular20 on yarn generated json file: dist/fir
 }"
 `;
 
+exports[`integration functional: lowest esbuild generated json file: dist/bom.json 1`] = `
+"{
+  "$schema": "http://cyclonedx.org/schema/bom-1.6.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.6",
+  "version": 1,
+  "metadata": {
+    "lifecycles": [
+      {
+        "phase": "build"
+      }
+    ],
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "name": "esbuild"
+        },
+        {
+          "type": "library",
+          "name": "cyclonedx-esbuild",
+          "group": "@cyclonedx",
+          "version": "thisVersion-testing",
+          "author": "Jan Kowalleck",
+          "description": "Creates CycloneDX Software Bill of Materials (SBoM) from esbuild projects",
+          "licenses": [
+            {
+              "license": {
+                "id": "Apache-2.0"
+              }
+            }
+          ],
+          "externalReferences": [
+            {
+              "url": "https://github.com/CycloneDX/cyclonedx-esbuild/issues",
+              "type": "issue-tracker",
+              "comment": "as detected from PackageJson property \\"bugs.url\\""
+            },
+            {
+              "url": "git+https://github.com/CycloneDX/cyclonedx-esbuild.git",
+              "type": "vcs",
+              "comment": "as detected from PackageJson property \\"repository.url\\""
+            },
+            {
+              "url": "https://github.com/CycloneDX/cyclonedx-esbuild#readme",
+              "type": "website",
+              "comment": "as detected from PackageJson property \\"homepage\\""
+            }
+          ]
+        },
+        {
+          "type": "library",
+          "name": "cyclonedx-library",
+          "group": "@cyclonedx",
+          "version": "libVersion-testing",
+          "author": "Jan Kowalleck",
+          "description": "Core functionality of CycloneDX for JavaScript (Node.js or WebBrowser).",
+          "licenses": [
+            {
+              "license": {
+                "id": "Apache-2.0"
+              }
+            }
+          ],
+          "externalReferences": [
+            {
+              "url": "https://github.com/CycloneDX/cyclonedx-javascript-library/issues",
+              "type": "issue-tracker",
+              "comment": "as detected from PackageJson property \\"bugs.url\\""
+            },
+            {
+              "url": "git+https://github.com/CycloneDX/cyclonedx-javascript-library.git",
+              "type": "vcs",
+              "comment": "as detected from PackageJson property \\"repository.url\\""
+            },
+            {
+              "url": "https://github.com/CycloneDX/cyclonedx-javascript-library#readme",
+              "type": "website",
+              "comment": "as detected from PackageJson property \\"homepage\\""
+            }
+          ]
+        }
+      ]
+    },
+    "component": {
+      "type": "application",
+      "name": "cyclonedx-eslint-testbed-esbuild-lowest",
+      "group": "@cyclonedx",
+      "version": "1.0.0",
+      "bom-ref": "pkg:npm/%40cyclonedx/cyclonedx-eslint-testbed-esbuild-lowest@1.0.0",
+      "description": "Example using esbuild wit the lowest supported version",
+      "licenses": [
+        {
+          "license": {
+            "id": "ISC",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40cyclonedx/cyclonedx-eslint-testbed-esbuild-lowest@1.0.0",
+      "evidence": {}
+    }
+  },
+  "components": [
+    {
+      "type": "library",
+      "name": "cyclonedx-eslint-testing-custom-package",
+      "group": "@cyclonedx",
+      "version": "0.0.1",
+      "bom-ref": "pkg:npm/%40cyclonedx/cyclonedx-eslint-testing-custom-package@0.0.1",
+      "description": "this is a dummy package for showcasing purposes only.\\n",
+      "licenses": [
+        {
+          "license": {
+            "name": "dummy-license",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40cyclonedx/cyclonedx-eslint-testing-custom-package@0.0.1",
+      "evidence": {
+        "licenses": [
+          {
+            "license": {
+              "name": "file: LICENSE.txt",
+              "text": {
+                "content": "SlVTVCBBIERVTU1ZIExJQ0VOU0UgVEVYVAoKTG9yZW0gaXBzdW0gZG9sb3Igc2l0IGFtZXQsIGNvbnNlY3RldHVyIGFkaXBpc2NpbmcgZWxpdC4gUGVsbGVudGVzcXVlIHRlbXB1cyBwcmV0aXVtIGFudGUgaGVuZHJlcml0IHBoYXJldHJhLiBDdXJhYml0dXIgYmxhbmRpdCBhdWN0b3IgbWFnbmEgZXQgcHVsdmluYXIuIFZpdmFtdXMgZXVpc21vZCBtYXVyaXMgc2l0IGFtZXQgdGluY2lkdW50IHRpbmNpZHVudC4gTmFtIGxlY3R1cyB0b3J0b3IsIHVsdHJpY2VzIHF1aXMgdWx0cmljZXMgYXQsIHBoYXJldHJhIGluIGxhY3VzLiBOdWxsYSBsb2JvcnRpcyBudW5jIHNpdCBhbWV0IHRvcnRvciBibGFuZGl0IHNhZ2l0dGlzLiBJbiBlbGVtZW50dW0gc2NlbGVyaXNxdWUgZmV1Z2lhdC4gUGVsbGVudGVzcXVlIGVsZWlmZW5kIHZlbmVuYXRpcyBjb25zZWN0ZXR1ci4gU3VzcGVuZGlzc2UgcG90ZW50aS4gTWF1cmlzIHBsYWNlcmF0LCBtaSBpbiBhdWN0b3IgbG9ib3J0aXMsIHJpc3VzIGxvcmVtIHVsbGFtY29ycGVyIHNhcGllbiwgcXVpcyBwbGFjZXJhdCBlcm9zIGFudGUgbm9uIGxvcmVtLiBOYW0gdGVtcHVzIGNvbmd1ZSBkaWFtIGZpbmlidXMgcnV0cnVtLiBQaGFzZWxsdXMgdHJpc3RpcXVlIHNhcGllbiBpbiBtYXNzYSBhbGlxdWFtLCB2aXRhZSBsdWN0dXMgbWV0dXMgY29uZ3VlLiBRdWlzcXVlIGVsZW1lbnR1bSBhbGlxdWFtIHRpbmNpZHVudC4K",
+                "contentType": "text/plain",
+                "encoding": "base64"
+              }
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "pkg:npm/%40cyclonedx/cyclonedx-eslint-testbed-esbuild-lowest@1.0.0"
+    },
+    {
+      "ref": "pkg:npm/%40cyclonedx/cyclonedx-eslint-testing-custom-package@0.0.1"
+    }
+  ]
+}"
+`;
+
 exports[`integration functional: simple typescript bundling on npm generated json file: dist/bom.json 1`] = `
 "{
   "$schema": "http://cyclonedx.org/schema/bom-1.6.schema.json",

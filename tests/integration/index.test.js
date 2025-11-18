@@ -39,6 +39,17 @@ const testSetups = [
     ]
   },
   {
+    dir: 'lowest-esbuild',
+    purpose: 'functional: lowest esbuild',
+    packageManager: 'npm',
+    results: [ // paths relative to `dir`
+      {
+        format: 'json',
+        file: 'dist/bom.json'
+      },
+    ]
+  },
+  {
     dir: 'typescript-npm',
     purpose: 'functional: simple typescript bundling on npm',
     packageManager: 'npm',
