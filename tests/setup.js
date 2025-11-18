@@ -33,6 +33,12 @@ const MANAGERS = {
     args: ['ci', '--ignore-scripts'],
     dirs: [
       'typescript-npm',
+    ]
+  },
+  npm_with_scripts: {
+    cmd: 'npm',
+    args: ['ci'],
+    dirs: [
       'lowest-esbuild'
     ]
   },
