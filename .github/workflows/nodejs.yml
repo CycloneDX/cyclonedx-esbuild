@@ -147,7 +147,7 @@ jobs:
         run: |-
           corepack enable yarn
           yarn --version
-        working-directory: ../  # prevent evaluation of package.json
+        working-directory: ..  # prevent evaluation of package.json
       - name: install project
         shell: bash
         run: |
