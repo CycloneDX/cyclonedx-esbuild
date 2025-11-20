@@ -2,6 +2,12 @@
   "private": true,
   "name": "@cyclonedx/cyclonedx-eslint-testbed-angular20-yarn",
   "version": "0.0.0",
+  "devEngines": {
+    "packageManager": {
+      "name": "yarn",
+      "onFail": "error"
+    }
+  },
   "dependencies": {
     "@angular/animations": "20.2.2",
     "@angular/cdk": "20.2.2",
