@@ -1,4 +1,6 @@
-# showcase minimal requirements for running as a plugin
+# showcase running as a plugin with **lowest** _esbuild_
+
+lowest: v0.11.15
 
 ## requirements to _esbuild_
 * OPTIONAL: v0.14.3 added plugin access for `esbuild.version` - <https://github.com/evanw/esbuild/blob/main/CHANGELOG-2021.md#0143>

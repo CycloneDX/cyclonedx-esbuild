@@ -11,7 +11,7 @@
   },
   "devDependencies": {
     "@cyclonedx/cyclonedx-esbuild": "../..",
-    "esbuild": "^0.14.0"
+    "esbuild": ">=0.27"
   },
   "scripts": {
     "prebuild": "node -r fs -e 'fs.rmSync(\"dist\",{recursive:true,force:true})'",

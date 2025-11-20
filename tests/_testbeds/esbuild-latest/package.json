@@ -1,0 +1,19 @@
+{
+  "private": true,
+  "name": "@cyclonedx/cyclonedx-eslint-testbed-esbuild-latest",
+  "version": "1.0.0",
+  "description": "Example using esbuild wit the latest supported version",
+  "type": "commonjs",
+  "main": "dist/bundle.js",
+  "scripts": {
+    "build": "node build.js",
+    "start": "npm run build && node dist/bundle.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "custom-package": "file:../../_data/custom-package/package.tgz",
+    "cyclonedx-esbuild": "file:../../../",
+    "esbuild": "latest"
+  }
+}
