@@ -32,8 +32,7 @@ const MANAGERS = {
     cmd: 'npm',
     args: ['ci', '--ignore-scripts'],
     dirs: [
-      'typescript-npm',
-      'esbuild-latest'
+      'typescript-npm'
     ]
   },
   npm_with_scripts: {
@@ -41,6 +40,13 @@ const MANAGERS = {
     args: ['ci'],
     dirs: [
       'esbuild-lowest'
+    ]
+  },
+  npm_not_locked: {
+    cmd: 'npm',
+    args: ['i', '--ignore-scripts'],
+    dirs: [
+      'esbuild-latest'
     ]
   },
   yarn: {
