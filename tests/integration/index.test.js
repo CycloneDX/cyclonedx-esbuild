@@ -39,8 +39,19 @@ const testSetups = [
     ]
   },
   {
-    dir: 'lowest-esbuild',
-    purpose: 'functional: lowest esbuild',
+    dir: 'esbuild-lowest',
+    purpose: 'functional: esbuild lowest',
+    packageManager: 'npm',
+    results: [ // paths relative to `dir`
+      {
+        format: 'json',
+        file: 'dist/bom.json'
+      },
+    ]
+  },
+  {
+    dir: 'esbuild-latest',
+    purpose: 'functional: esbuild latest',
     packageManager: 'npm',
     results: [ // paths relative to `dir`
       {
