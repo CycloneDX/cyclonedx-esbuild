@@ -6,6 +6,11 @@ All notable changes to this project will be documented in this file.
 
 <!-- add unreleased items here -->
 
+* Refactored
+  * Applied latest code style (via [#42]) 
+
+[#42]: https://github.com/CycloneDX/cyclonedx-esbuild/pull/42
+
 ## 1.0.0 - 2025-11-18
 
 Initial implementation.
