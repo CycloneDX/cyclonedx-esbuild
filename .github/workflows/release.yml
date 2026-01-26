@@ -35,7 +35,7 @@ env:
   REPORTS_DIR: CI_reports
   PACKED_DIR: CI_packed
   PACKED_ARTIFACT: packed
-  NODE_ACTIVE_LTS: "22"
+  NODE_ACTIVE_LTS: "24"
 
 jobs:
   bump:
@@ -55,6 +55,8 @@ jobs:
         with:
           node-version: ${{ env.NODE_ACTIVE_LTS }}
           package-manager-cache: false
+      - name: update npm
+        run: npm install -g npm@latest
       - name: Checkout code
         # see https://github.com/actions/checkout
         uses: actions/checkout@v6
@@ -110,6 +112,8 @@ jobs:
         with:
           node-version: ${{ env.NODE_ACTIVE_LTS }}
           package-manager-cache: false
+      - name: update npm
+        run: npm install -g npm@latest
       - name: enable yarn  # needed in some tests
         run: |-
           corepack enable
