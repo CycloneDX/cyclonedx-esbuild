@@ -151,6 +151,19 @@ export const cyclonedxEsbuildPlugin = (opts: CycloneDxEsbuildPluginOptions = {})
         esbuildWorkingDir,
         options.gatherLicenseTexts,
         logger)
+      // ensure metadata.properties exists
+if (!bom.metadata.properties) {
+  bom.metadata.properties = new CDX.Models.PropertyRepository()
+}
+
+// add cdx:reproducible property
+bom.metadata.properties.add(
+  new CDX.Models.Property(
+    'cdx:reproducible',
+    options.outputReproducible ? 'true' : 'false'
+  )
+)
+
       bom.metadata.lifecycles.add(CDX.Enums.LifecyclePhase.Build)
       bom.metadata.tools.components.add(new CDX.Models.Component(
         CDX.Enums.ComponentType.Application,
