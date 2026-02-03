@@ -22,8 +22,9 @@ permissions: {}
 
 env:
   REPORTS_DIR: CI_reports
-  NODE_ACTIVE_LTS: "22" # https://nodejs.org/en/about/releases/
+  NODE_ACTIVE_LTS: "22"
   TESTS_REPORTS_ARTIFACT: tests-reports
+  STANDARD_REPORTS_ARTIFACT: eslint-report
 
 jobs:
   build:
@@ -88,13 +89,12 @@ jobs:
         with:
           eslint-report: ${{ env.REPORTS_DIR }}/eslint.json
       - name: artifact eslint result
-        # see https://github.com/actions/upload-artifact
-        uses: actions/upload-artifact@v6
-        if: ${{ failure() }}
-        with:
-          name: ${{ env.STANDARD_REPORTS_ARTIFACT }}
-          path: ${{ env.REPORTS_DIR }}
-          if-no-files-found: error
+  uses: actions/upload-artifact@v6
+  if: ${{ failure() }}
+  with:
+    name: eslint-report
+    path: ${{ env.REPORTS_DIR }}
+    if-no-files-found: error
 
   test-dependencies:
     name: test dependencies
