@@ -88,13 +88,19 @@ jobs:
         uses: DerLev/eslint-annotations@v2
         with:
           eslint-report: ${{ env.REPORTS_DIR }}/eslint.json
+      - name: Annotate Code
+        if: ${{ failure() || success() }}
+        uses: DerLev/eslint-annotations@v2
+        with:
+          eslint-report: ${{ env.REPORTS_DIR }}/eslint.json
+
       - name: artifact eslint result
-  uses: actions/upload-artifact@v6
-  if: ${{ failure() }}
-  with:
-    name: eslint-report
-    path: ${{ env.REPORTS_DIR }}
-    if-no-files-found: error
+        if: ${{ failure() }}
+        uses: actions/upload-artifact@v6
+        with:
+          name: eslint-reports
+          path: ${{ env.REPORTS_DIR }}
+          if-no-files-found: error
 
   test-dependencies:
     name: test dependencies
