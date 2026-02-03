@@ -152,10 +152,7 @@ export const cyclonedxEsbuildPlugin = (opts: CycloneDxEsbuildPluginOptions = {})
         options.gatherLicenseTexts,
         logger)
       // ensure metadata.properties exists
-if (!bom.metadata.properties) {
-  bom.metadata.properties = new CDX.Models.PropertyRepository()
-}
-
+bom.metadata.properties ||= new CDX.Models.PropertyRepository()
 // add cdx:reproducible property
 bom.metadata.properties.add(
   new CDX.Models.Property(
