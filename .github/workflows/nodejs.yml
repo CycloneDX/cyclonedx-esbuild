@@ -22,8 +22,9 @@ permissions: {}
 
 env:
   REPORTS_DIR: CI_reports
-  NODE_ACTIVE_LTS: "22" # https://nodejs.org/en/about/releases/
+  NODE_ACTIVE_LTS: "22"
   TESTS_REPORTS_ARTIFACT: tests-reports
+  STANDARD_REPORTS_ARTIFACT: eslint-report
 
 jobs:
   build:
@@ -87,12 +88,17 @@ jobs:
         uses: DerLev/eslint-annotations@v2
         with:
           eslint-report: ${{ env.REPORTS_DIR }}/eslint.json
-      - name: artifact eslint result
-        # see https://github.com/actions/upload-artifact
-        uses: actions/upload-artifact@v6
-        if: ${{ failure() }}
+      - name: Annotate Code
+        if: ${{ failure() || success() }}
+        uses: DerLev/eslint-annotations@v2
         with:
-          name: ${{ env.STANDARD_REPORTS_ARTIFACT }}
+          eslint-report: ${{ env.REPORTS_DIR }}/eslint.json
+
+      - name: artifact eslint result
+        if: ${{ failure() }}
+        uses: actions/upload-artifact@v6
+        with:
+          name: eslint-reports
           path: ${{ env.REPORTS_DIR }}
           if-no-files-found: error
 
