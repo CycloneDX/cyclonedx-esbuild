@@ -20,7 +20,7 @@ Copyright (c) OWASP Foundation. All Rights Reserved.
 import {existsSync, mkdirSync, openSync} from "node:fs";
 import {dirname, resolve} from "node:path";
 
-import * as CDX from "@cyclonedx/cyclonedx-library"
+import * as CDX from "@cyclonedx/cyclonedx-library";
 import type * as esbuild from 'esbuild';
 import spdxExpressionParse from 'spdx-expression-parse';
 
