@@ -17,26 +17,22 @@ SPDX-License-Identifier: Apache-2.0
 Copyright (c) OWASP Foundation. All Rights Reserved.
 */
 
-import * as CDX from "@cyclonedx/cyclonedx-library"
-import { PackageURL, PurlQualifierNames } from 'packageurl-js'
+import { Utils } from "@cyclonedx/cyclonedx-library/Contrib/FromNodePackageJson"
+import { ExternalReferenceType } from "@cyclonedx/cyclonedx-library/Enums"
+import type {Component} from "@cyclonedx/cyclonedx-library/Models"
+import {PackageURL, PurlQualifierNames, type PurlQualifiers} from 'packageurl-js'
 
 
 export class PackageUrlFactory {
-
   /**
    * This method assumes that the component is built according to spec.
    */
-  makeFromComponent (component: CDX.Models.Component, sort = false): PackageURL | undefined {
-    const qualifiers: PackageURL['qualifiers'] = {}
-    /* @ts-expect-error TS2322 */
-    qualifiers.__proto__ = null /* eslint-disable-line no-proto -- intended */
+  makeFromComponent (component: Component): PackageURL | undefined {
+    const qualifiers: PurlQualifiers = {}
     let subpath: PackageURL['subpath'] = undefined
 
     // sorting to allow reproducibility: use the last instance for a `extRef.type`, if multiples exist
-    const extRefs = sort
-      ? component.externalReferences.sorted()
-      : component.externalReferences
-    for (const extRef of extRefs) {
+    for (const extRef of component.externalReferences) {
       const url = extRef.url.toString()
       if (url.length <= 0) {
         continue
@@ -47,23 +43,34 @@ export class PackageUrlFactory {
       // Everything is possible: URL-encoded, not encoded, with schema, without schema
       /* eslint-disable-next-line @typescript-eslint/switch-exhaustiveness-check -- intended */
       switch (extRef.type) {
-        case CDX.Enums.ExternalReferenceType.VCS:
+        case ExternalReferenceType.VCS:
           [qualifiers[PurlQualifierNames.VcsUrl], subpath] = url.split('#', 2)
           break
-        case CDX.Enums.ExternalReferenceType.Distribution:
+        case ExternalReferenceType.Distribution:
           qualifiers[PurlQualifierNames.DownloadUrl] = url
           break
       }
     }
+    /* eslint-disable-next-line @typescript-eslint/strict-boolean-expressions -- ack */
+    if (qualifiers[PurlQualifierNames.DownloadUrl]) {
+      /* eslint-disable-next-line @typescript-eslint/no-dynamic-delete -- ack */
+      delete qualifiers[PurlQualifierNames.VcsUrl]
+      if (Utils.defaultRegistryMatcher.test(qualifiers[PurlQualifierNames.DownloadUrl]))
+      {
+        /* eslint-disable-next-line @typescript-eslint/no-dynamic-delete -- ack */
+        delete qualifiers[PurlQualifierNames.DownloadUrl]
+      }
+    }
 
-    const hashes = component.hashes
-    if (hashes.size > 0) {
-      qualifiers[PurlQualifierNames.Checksum] = Array.from(
-        sort
-          ? hashes.sorted()
-          : hashes,
-        ([hashAlgo, hashCont]) => `${hashAlgo.toLowerCase()}:${hashCont.toLowerCase()}`
-      ).join(',')
+    /* eslint-disable-next-line @typescript-eslint/strict-boolean-expressions -- ack */
+    if (qualifiers[PurlQualifierNames.VcsUrl] || qualifiers[PurlQualifierNames.DownloadUrl]) {
+      const hashes = component.hashes
+      if (hashes.size > 0) {
+        qualifiers[PurlQualifierNames.Checksum] = Array.from(
+          hashes.sorted(),
+          ([hashAlgo, hashCont]) => `${hashAlgo.toLowerCase()}:${hashCont.toLowerCase()}`
+        ).join(',')
+      }
     }
 
     try {

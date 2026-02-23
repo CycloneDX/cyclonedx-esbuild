@@ -83,8 +83,7 @@ export class BomBuilder {
         yield new CDX.Models.NamedLicense(`file: ${file}`, {text})
       }
     }
-    /* c8 ignore next 3 */
-    catch (e) {
+      /* c8 ignore next 3 */ catch (e) {
       // generator will not throw before first `.next()` is called ...
       logger.warn(LogPrefixes.WARN, 'collecting license evidence in', packageDir, 'failed:', e)
     }
@@ -183,7 +182,10 @@ export class BomBuilder {
       })
     }
 
-    component.purl = this.purlFactory.makeFromComponent(component)?.toString()
+    /* eslint-disable-next-line @typescript-eslint/no-unsafe-member-access -- ack */
+    if ( pkg.packageJson.private !== true) {
+      component.purl = this.purlFactory.makeFromComponent(component)?.toString()
+    }
     component.bomRef.value = component.purl
 
     return component
