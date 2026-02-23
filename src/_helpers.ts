@@ -88,9 +88,10 @@ export interface PackageDescription<PJ = any> {
   packageJson: NonNullable<PJ>
 }
 
-export function * makeToolCs(selfCTyp: CDX.Enums.ComponentType,
-                            builder: CDX.Contrib.FromNodePackageJson.Builders.ComponentBuilder,
-                            logger: Console
+export function * makeToolCs(
+  selfCTyp: CDX.Enums.ComponentType,
+  builder: CDX.Contrib.FromNodePackageJson.Builders.ComponentBuilder,
+  logger: Console
 ): Generator<CDX.Models.Component> {
   const packageJsonPaths: Array<[string, CDX.Enums.ComponentType]> = [
     // this plugin is an optional enhancement, not a standalone application -- use as `Library`
