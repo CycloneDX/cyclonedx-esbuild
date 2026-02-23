@@ -17,16 +17,17 @@ SPDX-License-Identifier: Apache-2.0
 Copyright (c) OWASP Foundation. All Rights Reserved.
 */
 
-import {Utils as FromNodePackageJsonUtils } from '@cyclonedx/cyclonedx-library/Contrib/FromNodePackageJson'
+import { Utils as FromNodePackageJsonUtils } from '@cyclonedx/cyclonedx-library/Contrib/FromNodePackageJson'
 import type normalizePackageData from "normalize-package-data";
-import {PackageURL, PurlQualifierNames, type PurlQualifiers} from 'packageurl-js'
+import { PackageURL, PurlQualifierNames, type PurlQualifiers } from 'packageurl-js'
 
 
 export class PackageUrlFactory {
+
   makeFromPackageJson(packageJson: normalizePackageData.Package): PackageURL | undefined {
     let name: string = packageJson.name
     let namespace: string | undefined = undefined
-    if (name.startsWith('@')) {
+    if ( name.startsWith('@') ) {
       const nameParts = name.split('/')
       namespace = nameParts.shift()
       name = nameParts.join('/')
@@ -37,15 +38,15 @@ export class PackageUrlFactory {
       // docs: https://blog.npmjs.org/post/172999548390/new-pgp-machinery
       /* eslint-disable-next-line @typescript-eslint/no-unsafe-assignment -- acknowledged */
       const { tarball } = packageJson.dist ?? {}
-      if (typeof tarball === 'string' && tarball.length > 5
+      if ( typeof tarball === 'string' && tarball.length > 5
         && !FromNodePackageJsonUtils.defaultRegistryMatcher.test(tarball)
       ) {
         qualifiers[PurlQualifierNames.DownloadUrl] = tarball
-      } else if (typeof packageJson.repository === 'object') {
+      } else if ( typeof packageJson.repository === 'object' ) {
         const url = new URL(packageJson.repository.url)
         /* @ts-expect-error -- missing type docs */
         const subdir =  packageJson.repository.directory /* eslint-disable-line @typescript-eslint/no-unsafe-assignment -- ack */
-        if (typeof subdir === 'string') {
+        if ( typeof subdir === 'string' ) {
           url.hash = subdir
         }
         qualifiers[PurlQualifierNames.VcsUrl] = url.toString()
