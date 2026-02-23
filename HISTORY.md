@@ -8,7 +8,7 @@ All notable changes to this project will be documented in this file.
 
 * Refactored
   * Take care of PackageURL generation ourselves, now (via [#65])  
-    Was done at best-effort by a 3rd-party library.
+    Previously, this was done at best-effort by a 3rd-party library.
 * Style
   * Applied latest code style (via [#42]) 
 * Dependencies
