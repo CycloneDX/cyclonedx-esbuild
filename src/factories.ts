@@ -17,72 +17,50 @@ SPDX-License-Identifier: Apache-2.0
 Copyright (c) OWASP Foundation. All Rights Reserved.
 */
 
-import { Utils } from "@cyclonedx/cyclonedx-library/Contrib/FromNodePackageJson"
-import { ExternalReferenceType } from "@cyclonedx/cyclonedx-library/Enums"
-import type {Component} from "@cyclonedx/cyclonedx-library/Models"
+import {Utils as FromNodePackageJsonUtils } from '@cyclonedx/cyclonedx-library/Contrib/FromNodePackageJson'
+import type normalizePackageData from "normalize-package-data";
 import {PackageURL, PurlQualifierNames, type PurlQualifiers} from 'packageurl-js'
 
 
 export class PackageUrlFactory {
-  /**
-   * This method assumes that the component is built according to spec.
-   */
-  makeFromComponent (component: Component): PackageURL | undefined {
+  makeFromPackageJson(packageJson: normalizePackageData.Package): PackageURL | undefined {
+    let name: string = packageJson.name
+    let namespace: string | undefined = undefined
+    if (name.startsWith('@')) {
+      const nameParts = name.split('/')
+      namespace = nameParts.shift()
+      name = nameParts.join('/')
+    }
+
     const qualifiers: PurlQualifiers = {}
-    let subpath: PackageURL['subpath'] = undefined
-
-    // sorting to allow reproducibility: use the last instance for a `extRef.type`, if multiples exist
-    for (const extRef of component.externalReferences) {
-      const url = extRef.url.toString()
-      if (url.length <= 0) {
-        continue
+      // "dist" might be used in bundled dependencies' manifests.
+      // docs: https://blog.npmjs.org/post/172999548390/new-pgp-machinery
+      /* eslint-disable-next-line @typescript-eslint/no-unsafe-assignment -- acknowledged */
+      const { tarball } = packageJson.dist ?? {}
+      if (typeof tarball === 'string' && tarball.length > 5
+        && !FromNodePackageJsonUtils.defaultRegistryMatcher.test(tarball)
+      ) {
+        qualifiers[PurlQualifierNames.DownloadUrl] = tarball
+      } else if (typeof packageJson.repository === 'object') {
+        const url = new URL(packageJson.repository.url)
+        /* @ts-expect-error -- missing type docs */
+        const subdir =  packageJson.repository.directory /* eslint-disable-line @typescript-eslint/no-unsafe-assignment -- ack */
+        if (typeof subdir === 'string') {
+          url.hash = subdir
+        }
+        qualifiers[PurlQualifierNames.VcsUrl] = url.toString()
       }
-      // No further need for validation.
-      // According to https://github.com/package-url/purl-spec/blob/master/PURL-TYPES.rst
-      // there is no formal requirement to a `..._url`.
-      // Everything is possible: URL-encoded, not encoded, with schema, without schema
-      /* eslint-disable-next-line @typescript-eslint/switch-exhaustiveness-check -- intended */
-      switch (extRef.type) {
-        case ExternalReferenceType.VCS:
-          [qualifiers[PurlQualifierNames.VcsUrl], subpath] = url.split('#', 2)
-          break
-        case ExternalReferenceType.Distribution:
-          qualifiers[PurlQualifierNames.DownloadUrl] = url
-          break
-      }
-    }
-    /* eslint-disable-next-line @typescript-eslint/strict-boolean-expressions -- ack */
-    if (qualifiers[PurlQualifierNames.DownloadUrl]) {
-      /* eslint-disable-next-line @typescript-eslint/no-dynamic-delete -- ack */
-      delete qualifiers[PurlQualifierNames.VcsUrl]
-      if (Utils.defaultRegistryMatcher.test(qualifiers[PurlQualifierNames.DownloadUrl]))
-      {
-        /* eslint-disable-next-line @typescript-eslint/no-dynamic-delete -- ack */
-        delete qualifiers[PurlQualifierNames.DownloadUrl]
-      }
-    }
-
-    /* eslint-disable-next-line @typescript-eslint/strict-boolean-expressions -- ack */
-    if (qualifiers[PurlQualifierNames.VcsUrl] || qualifiers[PurlQualifierNames.DownloadUrl]) {
-      const hashes = component.hashes
-      if (hashes.size > 0) {
-        qualifiers[PurlQualifierNames.Checksum] = Array.from(
-          hashes.sorted(),
-          ([hashAlgo, hashCont]) => `${hashAlgo.toLowerCase()}:${hashCont.toLowerCase()}`
-        ).join(',')
-      }
-    }
 
     try {
       // Do not beautify the parameters here, because that is in the domain of PackageURL and its representation.
       // No need to convert an empty "subpath" string to `undefined` and such.
       return new PackageURL(
         'npm',
-        component.group,
-        component.name,
-        component.version,
+        namespace,
+        name,
+        packageJson.version,
         qualifiers,
-        subpath
+        undefined
       )
     } catch {
       return undefined

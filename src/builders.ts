@@ -21,6 +21,7 @@ import {dirname, resolve} from "node:path";
 
 import * as CDX from "@cyclonedx/cyclonedx-library";
 import type * as esbuild from "esbuild";
+import type normalizePackageData from "normalize-package-data";
 
 import {getPackageDescription, normalizePackageManifest, type PackageDescription} from "./_helpers";
 import type {PackageUrlFactory} from "./factories";
@@ -182,10 +183,8 @@ export class BomBuilder {
       })
     }
 
-    /* eslint-disable-next-line @typescript-eslint/no-unsafe-member-access -- ack */
-    if ( pkg.packageJson.private !== true) {
-      component.purl = this.purlFactory.makeFromComponent(component)?.toString()
-    }
+    /* eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion -- ack */
+    component.purl = this.purlFactory.makeFromPackageJson(pkg.packageJson as normalizePackageData.Package)?.toString()
     component.bomRef.value = component.purl
 
     return component

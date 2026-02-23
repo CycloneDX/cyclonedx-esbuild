@@ -139,7 +139,7 @@ exports[`integration functional: angular20 on yarn generated json file: dist/fir
       "name": "common",
       "group": "@angular",
       "version": "20.2.2",
-      "bom-ref": "pkg:npm/%40angular/common@20.2.2?vcs_url=git%2Bhttps%3A%2F%2Fgithub.com%2Fangular%2Fangular.git#packages/common",
+      "bom-ref": "pkg:npm/%40angular/common@20.2.2?vcs_url=git%2Bhttps%3A%2F%2Fgithub.com%2Fangular%2Fangular.git%23packages%2Fcommon",
       "author": "angular",
       "description": "Angular - commonly needed directives and services",
       "licenses": [
@@ -150,7 +150,7 @@ exports[`integration functional: angular20 on yarn generated json file: dist/fir
           }
         }
       ],
-      "purl": "pkg:npm/%40angular/common@20.2.2?vcs_url=git%2Bhttps%3A%2F%2Fgithub.com%2Fangular%2Fangular.git#packages/common",
+      "purl": "pkg:npm/%40angular/common@20.2.2?vcs_url=git%2Bhttps%3A%2F%2Fgithub.com%2Fangular%2Fangular.git%23packages%2Fcommon",
       "externalReferences": [
         {
           "url": "https://github.com/angular/angular/issues",
@@ -188,7 +188,7 @@ exports[`integration functional: angular20 on yarn generated json file: dist/fir
       "name": "core",
       "group": "@angular",
       "version": "20.2.2",
-      "bom-ref": "pkg:npm/%40angular/core@20.2.2?vcs_url=git%2Bhttps%3A%2F%2Fgithub.com%2Fangular%2Fangular.git#packages/core",
+      "bom-ref": "pkg:npm/%40angular/core@20.2.2?vcs_url=git%2Bhttps%3A%2F%2Fgithub.com%2Fangular%2Fangular.git%23packages%2Fcore",
       "author": "angular",
       "description": "Angular - the core framework",
       "licenses": [
@@ -199,7 +199,7 @@ exports[`integration functional: angular20 on yarn generated json file: dist/fir
           }
         }
       ],
-      "purl": "pkg:npm/%40angular/core@20.2.2?vcs_url=git%2Bhttps%3A%2F%2Fgithub.com%2Fangular%2Fangular.git#packages/core",
+      "purl": "pkg:npm/%40angular/core@20.2.2?vcs_url=git%2Bhttps%3A%2F%2Fgithub.com%2Fangular%2Fangular.git%23packages%2Fcore",
       "externalReferences": [
         {
           "url": "https://github.com/angular/angular/issues",
@@ -237,7 +237,7 @@ exports[`integration functional: angular20 on yarn generated json file: dist/fir
       "name": "forms",
       "group": "@angular",
       "version": "20.2.2",
-      "bom-ref": "pkg:npm/%40angular/forms@20.2.2?vcs_url=git%2Bhttps%3A%2F%2Fgithub.com%2Fangular%2Fangular.git#packages/forms",
+      "bom-ref": "pkg:npm/%40angular/forms@20.2.2?vcs_url=git%2Bhttps%3A%2F%2Fgithub.com%2Fangular%2Fangular.git%23packages%2Fforms",
       "author": "angular",
       "description": "Angular - directives and services for creating forms",
       "licenses": [
@@ -248,7 +248,7 @@ exports[`integration functional: angular20 on yarn generated json file: dist/fir
           }
         }
       ],
-      "purl": "pkg:npm/%40angular/forms@20.2.2?vcs_url=git%2Bhttps%3A%2F%2Fgithub.com%2Fangular%2Fangular.git#packages/forms",
+      "purl": "pkg:npm/%40angular/forms@20.2.2?vcs_url=git%2Bhttps%3A%2F%2Fgithub.com%2Fangular%2Fangular.git%23packages%2Fforms",
       "externalReferences": [
         {
           "url": "https://github.com/angular/angular/issues",
@@ -334,7 +334,7 @@ exports[`integration functional: angular20 on yarn generated json file: dist/fir
       "name": "platform-browser",
       "group": "@angular",
       "version": "20.2.2",
-      "bom-ref": "pkg:npm/%40angular/platform-browser@20.2.2?vcs_url=git%2Bhttps%3A%2F%2Fgithub.com%2Fangular%2Fangular.git#packages/platform-browser",
+      "bom-ref": "pkg:npm/%40angular/platform-browser@20.2.2?vcs_url=git%2Bhttps%3A%2F%2Fgithub.com%2Fangular%2Fangular.git%23packages%2Fplatform-browser",
       "author": "angular",
       "description": "Angular - library for using Angular in a web browser",
       "licenses": [
@@ -345,7 +345,7 @@ exports[`integration functional: angular20 on yarn generated json file: dist/fir
           }
         }
       ],
-      "purl": "pkg:npm/%40angular/platform-browser@20.2.2?vcs_url=git%2Bhttps%3A%2F%2Fgithub.com%2Fangular%2Fangular.git#packages/platform-browser",
+      "purl": "pkg:npm/%40angular/platform-browser@20.2.2?vcs_url=git%2Bhttps%3A%2F%2Fgithub.com%2Fangular%2Fangular.git%23packages%2Fplatform-browser",
       "externalReferences": [
         {
           "url": "https://github.com/angular/angular/issues",
@@ -509,7 +509,7 @@ exports[`integration functional: angular20 on yarn generated json file: dist/fir
       "type": "library",
       "name": "zone.js",
       "version": "0.15.1",
-      "bom-ref": "pkg:npm/zone.js@0.15.1?vcs_url=git%3A%2F%2Fgithub.com%2Fangular%2Fangular.git#packages/zone.js",
+      "bom-ref": "pkg:npm/zone.js@0.15.1?vcs_url=git%3A%2F%2Fgithub.com%2Fangular%2Fangular.git%23packages%2Fzone.js",
       "author": "Brian Ford",
       "description": "Zones for JavaScript",
       "licenses": [
@@ -520,7 +520,7 @@ exports[`integration functional: angular20 on yarn generated json file: dist/fir
           }
         }
       ],
-      "purl": "pkg:npm/zone.js@0.15.1?vcs_url=git%3A%2F%2Fgithub.com%2Fangular%2Fangular.git#packages/zone.js",
+      "purl": "pkg:npm/zone.js@0.15.1?vcs_url=git%3A%2F%2Fgithub.com%2Fangular%2Fangular.git%23packages%2Fzone.js",
       "externalReferences": [
         {
           "url": "https://github.com/angular/angular/issues",
@@ -559,19 +559,19 @@ exports[`integration functional: angular20 on yarn generated json file: dist/fir
       "ref": "pkg:npm/%40angular/cdk@20.2.2?vcs_url=git%2Bhttps%3A%2F%2Fgithub.com%2Fangular%2Fcomponents.git"
     },
     {
-      "ref": "pkg:npm/%40angular/common@20.2.2?vcs_url=git%2Bhttps%3A%2F%2Fgithub.com%2Fangular%2Fangular.git#packages/common"
+      "ref": "pkg:npm/%40angular/common@20.2.2?vcs_url=git%2Bhttps%3A%2F%2Fgithub.com%2Fangular%2Fangular.git%23packages%2Fcommon"
     },
     {
-      "ref": "pkg:npm/%40angular/core@20.2.2?vcs_url=git%2Bhttps%3A%2F%2Fgithub.com%2Fangular%2Fangular.git#packages/core"
+      "ref": "pkg:npm/%40angular/core@20.2.2?vcs_url=git%2Bhttps%3A%2F%2Fgithub.com%2Fangular%2Fangular.git%23packages%2Fcore"
     },
     {
-      "ref": "pkg:npm/%40angular/forms@20.2.2?vcs_url=git%2Bhttps%3A%2F%2Fgithub.com%2Fangular%2Fangular.git#packages/forms"
+      "ref": "pkg:npm/%40angular/forms@20.2.2?vcs_url=git%2Bhttps%3A%2F%2Fgithub.com%2Fangular%2Fangular.git%23packages%2Fforms"
     },
     {
       "ref": "pkg:npm/%40angular/material@20.2.2?vcs_url=git%2Bhttps%3A%2F%2Fgithub.com%2Fangular%2Fcomponents.git"
     },
     {
-      "ref": "pkg:npm/%40angular/platform-browser@20.2.2?vcs_url=git%2Bhttps%3A%2F%2Fgithub.com%2Fangular%2Fangular.git#packages/platform-browser"
+      "ref": "pkg:npm/%40angular/platform-browser@20.2.2?vcs_url=git%2Bhttps%3A%2F%2Fgithub.com%2Fangular%2Fangular.git%23packages%2Fplatform-browser"
     },
     {
       "ref": "pkg:npm/%40cyclonedx/cyclonedx-eslint-testbed-angular20-yarn@0.0.0"
@@ -586,7 +586,7 @@ exports[`integration functional: angular20 on yarn generated json file: dist/fir
       "ref": "pkg:npm/tslib@2.8.1?vcs_url=git%2Bhttps%3A%2F%2Fgithub.com%2FMicrosoft%2Ftslib.git"
     },
     {
-      "ref": "pkg:npm/zone.js@0.15.1?vcs_url=git%3A%2F%2Fgithub.com%2Fangular%2Fangular.git#packages/zone.js"
+      "ref": "pkg:npm/zone.js@0.15.1?vcs_url=git%3A%2F%2Fgithub.com%2Fangular%2Fangular.git%23packages%2Fzone.js"
     }
   ]
 }"
