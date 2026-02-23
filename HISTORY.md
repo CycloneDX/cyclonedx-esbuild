@@ -13,7 +13,8 @@ All notable changes to this project will be documented in this file.
   * Applied latest code style (via [#42]) 
 * Dependencies
   * Bumped dependency `@cyclonedx/cyclonedx-library@^10.0.0` now, was `@^9.2.0` (via [#65]) 
-  * Added direct dependency `spdx-expression-parse@^3.0.1||^4.0.0` (via [#65])
+  * Added dependency `packageurl-js@^2.0.1` (via [#65])
+  * Added dependency `spdx-expression-parse@^3.0.1||^4.0.0` (via [#65])
 
 [#42]: https://github.com/CycloneDX/cyclonedx-esbuild/pull/42
 [#65]: https://github.com/CycloneDX/cyclonedx-esbuild/pull/65
