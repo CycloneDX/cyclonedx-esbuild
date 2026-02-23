@@ -22,6 +22,7 @@ import {dirname, resolve} from "node:path";
 
 import * as CDX from "@cyclonedx/cyclonedx-library"
 import type * as esbuild from 'esbuild';
+import spdxExpressionParse from 'spdx-expression-parse';
 
 import {makeToolCs, ValidationError, writeAllSync} from "./_helpers";
 import {BomBuilder} from "./builders";
@@ -136,13 +137,12 @@ export const cyclonedxEsbuildPlugin = (opts: CycloneDxEsbuildPluginOptions = {})
       }
       logger.info(LogPrefixes.INFO, 'start build BOM ...')
 
-      const cdxExternalReferenceFactory = new CDX.Factories.FromNodePackageJson.ExternalReferenceFactory()
-      const cdxLicenseFactory = new CDX.Factories.LicenseFactory()
-      const cdxComponentBuilder = new CDX.Builders.FromNodePackageJson.ComponentBuilder(cdxExternalReferenceFactory, cdxLicenseFactory)
+      const cdxExternalReferenceFactory = new CDX.Contrib.FromNodePackageJson.Factories.ExternalReferenceFactory()
+      const cdxLicenseFactory = new CDX.Contrib.License.Factories.LicenseFactory(spdxExpressionParse)
+      const cdxComponentBuilder = new CDX.Contrib.FromNodePackageJson.Builders.ComponentBuilder(cdxExternalReferenceFactory, cdxLicenseFactory)
       const bomBuilder = new BomBuilder(
         cdxComponentBuilder,
-        new CDX.Factories.FromNodePackageJson.PackageUrlFactory('npm'),
-        new CDX.Utils.LicenseUtility.LicenseEvidenceGatherer()
+        new CDX.Contrib.License.Utils.LicenseEvidenceGatherer()
       )
 
       // region make BOM
@@ -165,7 +165,7 @@ export const cyclonedxEsbuildPlugin = (opts: CycloneDxEsbuildPluginOptions = {})
       }
       bom.serialNumber = options.outputReproducible
         ? undefined
-        : CDX.Utils.BomUtility.randomSerialNumber()
+        : CDX.Contrib.Bom.Utils.randomSerialNumber()
       bom.metadata.timestamp = options.outputReproducible
         ? undefined
         : new Date()

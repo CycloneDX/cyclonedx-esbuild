@@ -23,6 +23,7 @@ import {dirname, resolve} from "node:path";
 import * as CDX from "@cyclonedx/cyclonedx-library";
 import {Argument, Command, Option} from 'commander'
 import type * as esbuild from 'esbuild';
+import spdxExpressionParse from 'spdx-expression-parse';
 
 import {loadJsonFile, makeToolCs, ValidationError, writeAllSync} from "./_helpers";
 import {BomBuilder} from "./builders";
@@ -157,14 +158,13 @@ export async function run(process_: NodeJS.Process): Promise<number> {
   }
   /* eslint-enable @typescript-eslint/strict-boolean-expressions */
 
-  const cdxComponentBuilder = new CDX.Builders.FromNodePackageJson.ComponentBuilder(
-    new CDX.Factories.FromNodePackageJson.ExternalReferenceFactory(),
-    new CDX.Factories.LicenseFactory()
+  const cdxComponentBuilder = new CDX.Contrib.FromNodePackageJson.Builders.ComponentBuilder(
+    new CDX.Contrib.FromNodePackageJson.Factories.ExternalReferenceFactory(),
+    new CDX.Contrib.License.Factories.LicenseFactory(spdxExpressionParse)
   )
   const bomBuilder = new BomBuilder(
     cdxComponentBuilder,
-    new CDX.Factories.FromNodePackageJson.PackageUrlFactory('npm'),
-    new CDX.Utils.LicenseUtility.LicenseEvidenceGatherer(),
+    new CDX.Contrib.License.Utils.LicenseEvidenceGatherer(),
   )
 
   // region make BOM
@@ -179,7 +179,7 @@ export async function run(process_: NodeJS.Process): Promise<number> {
   }
   bom.serialNumber = options.outputReproducible
     ? undefined
-    : CDX.Utils.BomUtility.randomSerialNumber()
+    : CDX.Contrib.Bom.Utils.randomSerialNumber()
   bom.metadata.timestamp = options.outputReproducible
     ? undefined
     : new Date()

@@ -27,17 +27,14 @@ import {LogPrefixes} from "./logger";
 
 export class BomBuilder {
 
-  readonly componentBuilder: CDX.Builders.FromNodePackageJson.ComponentBuilder
-  readonly purlFactory: CDX.Factories.FromNodePackageJson.PackageUrlFactory
-  readonly leGatherer: CDX.Utils.LicenseUtility.LicenseEvidenceGatherer
+  readonly componentBuilder: CDX.Contrib.FromNodePackageJson.Builders.ComponentBuilder
+  readonly leGatherer: CDX.Contrib.License.Utils.LicenseEvidenceGatherer
 
   constructor(
-    componentBuilder: CDX.Builders.FromNodePackageJson.ComponentBuilder,
-    purlFactory: CDX.Factories.FromNodePackageJson.PackageUrlFactory,
-    leFetcher: CDX.Utils.LicenseUtility.LicenseEvidenceGatherer
+    componentBuilder: BomBuilder['componentBuilder'],
+    leFetcher: BomBuilder['leGatherer']
   ) {
     this.componentBuilder = componentBuilder
-    this.purlFactory = purlFactory
     this.leGatherer = leFetcher
   }
 
@@ -172,8 +169,8 @@ export class BomBuilder {
       })
     }
 
-    component.purl = this.purlFactory.makeFromComponent(component)
-    component.bomRef.value = component.purl?.toString()
+    component.purl = undefined // TODO
+    component.bomRef.value = component.purl
 
     return component
   }
