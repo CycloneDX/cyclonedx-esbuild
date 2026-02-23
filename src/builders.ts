@@ -23,22 +23,31 @@ import * as CDX from "@cyclonedx/cyclonedx-library";
 import type * as esbuild from "esbuild";
 
 import {getPackageDescription, normalizePackageManifest, type PackageDescription} from "./_helpers";
+import type {PackageUrlFactory} from "./factories";
 import {LogPrefixes} from "./logger";
 
 export class BomBuilder {
 
   readonly componentBuilder: CDX.Contrib.FromNodePackageJson.Builders.ComponentBuilder
+  readonly purlFactory: PackageUrlFactory
   readonly leGatherer: CDX.Contrib.License.Utils.LicenseEvidenceGatherer
 
   constructor(
     componentBuilder: BomBuilder['componentBuilder'],
+    purlFactory: BomBuilder['purlFactory'],
     leFetcher: BomBuilder['leGatherer']
   ) {
     this.componentBuilder = componentBuilder
+    this.purlFactory = purlFactory
     this.leGatherer = leFetcher
   }
 
-  public fromMetafile(metafile: esbuild.Metafile, buildWorkingDir: string, collectEvidence: boolean, logger: Console): CDX.Models.Bom {
+  public fromMetafile(
+    metafile: esbuild.Metafile,
+    buildWorkingDir: string,
+    collectEvidence: boolean,
+    logger: Console
+  ): CDX.Models.Bom {
     logger.debug(LogPrefixes.DEBUG, `metafile:`, metafile)
     const bom = new CDX.Models.Bom()
 
@@ -81,7 +90,12 @@ export class BomBuilder {
     }
   }
 
-  private generateComponents(rootDir: string, metafile: esbuild.Metafile, collectEvidence: boolean, logger: Console): Map<string, CDX.Models.Component> {
+  private generateComponents(
+    rootDir: string,
+    metafile: esbuild.Metafile,
+    collectEvidence: boolean,
+    logger: Console
+  ): Map<string, CDX.Models.Component> {
     const pkgs = new Map<string, CDX.Models.Component>
     const components = new Map<string, CDX.Models.Component>
 
@@ -146,7 +160,7 @@ export class BomBuilder {
       /* eslint-disable-next-line @typescript-eslint/no-unsafe-assignment -- ach */
       const _packageJson = structuredClone(pkg.packageJson)
       normalizePackageManifest(_packageJson)
-      pkg.packageJson = _packageJson /* eslint-disable-line  no-param-reassign -- intended  */
+      pkg.packageJson = _packageJson /* eslint-disable-line no-param-reassign -- intended */
     } catch (e) {
       logger.warn(LogPrefixes.WARN, 'normalizePackageJson from PkgPath', pkg.path, 'failed:', e)
     }
@@ -169,7 +183,7 @@ export class BomBuilder {
       })
     }
 
-    component.purl = undefined // TODO
+    component.purl = this.purlFactory.makeFromComponent(component)?.toString()
     component.bomRef.value = component.purl
 
     return component

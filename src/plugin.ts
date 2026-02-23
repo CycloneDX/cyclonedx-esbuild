@@ -26,6 +26,7 @@ import spdxExpressionParse from 'spdx-expression-parse';
 
 import {makeToolCs, ValidationError, writeAllSync} from "./_helpers";
 import {BomBuilder} from "./builders";
+import {PackageUrlFactory} from "./factories";
 import {LogPrefixes, makeConsoleLogger} from "./logger";
 
 /** @public */
@@ -142,6 +143,7 @@ export const cyclonedxEsbuildPlugin = (opts: CycloneDxEsbuildPluginOptions = {})
       const cdxComponentBuilder = new CDX.Contrib.FromNodePackageJson.Builders.ComponentBuilder(cdxExternalReferenceFactory, cdxLicenseFactory)
       const bomBuilder = new BomBuilder(
         cdxComponentBuilder,
+        new PackageUrlFactory(),
         new CDX.Contrib.License.Utils.LicenseEvidenceGatherer()
       )
 

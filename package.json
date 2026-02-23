@@ -72,6 +72,7 @@
     "@cyclonedx/cyclonedx-library": "^10.0.0-rc.2",
     "commander": "^14.0.0",
     "normalize-package-data": "^7.0.0 || ^8.0.0",
+    "packageurl-js": "^2.0.1",
     "spdx-expression-parse": "^3.0.1 || ^4.0.0"
   },
   "optionalDependencies": {

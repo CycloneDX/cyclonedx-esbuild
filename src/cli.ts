@@ -27,6 +27,7 @@ import spdxExpressionParse from 'spdx-expression-parse';
 
 import {loadJsonFile, makeToolCs, ValidationError, writeAllSync} from "./_helpers";
 import {BomBuilder} from "./builders";
+import {PackageUrlFactory} from "./factories";
 import {LogPrefixes, makeConsoleLogger} from "./logger";
 
 const OutputStdOut = '-'
@@ -164,6 +165,7 @@ export async function run(process_: NodeJS.Process): Promise<number> {
   )
   const bomBuilder = new BomBuilder(
     cdxComponentBuilder,
+    new PackageUrlFactory(),
     new CDX.Contrib.License.Utils.LicenseEvidenceGatherer(),
   )
 
