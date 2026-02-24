@@ -22,6 +22,8 @@ import type normalizePackageData from "normalize-package-data"
 import type { PurlQualifiers } from "packageurl-js"
 import { PackageURL, PurlQualifierNames } from "packageurl-js"
 
+import {isString} from "./_helpers";
+
 
 export class PackageUrlFactory {
 
@@ -44,7 +46,7 @@ export class PackageUrlFactory {
     // docs: https://blog.npmjs.org/post/172999548390/new-pgp-machinery
     /* eslint-disable-next-line @typescript-eslint/no-unsafe-assignment -- acknowledged */
     const { tarball } = packageJson.dist ?? {}
-    if ( typeof tarball === 'string' && tarball.length > 5
+    if ( isString(tarball) && tarball.length > 5
       && !FromNodePackageJsonUtils.defaultRegistryMatcher.test(tarball)
     ) {
       qualifiers[PurlQualifierNames.DownloadUrl] = tarball
@@ -52,7 +54,7 @@ export class PackageUrlFactory {
       const url = new URL(packageJson.repository.url)
       /* @ts-expect-error -- missing type docs */
       const subdir =  packageJson.repository.directory /* eslint-disable-line @typescript-eslint/no-unsafe-assignment -- ack */
-      if ( typeof subdir === 'string' ) {
+      if ( isString(subdir) ) {
         url.hash = subdir
       }
       qualifiers[PurlQualifierNames.VcsUrl] = url.toString()

@@ -196,7 +196,7 @@ export function isValidPackageJSON(pkg: any): pkg is ValidPackageJSON {
   // both are required for a valid package.json according to https://docs.npmjs.com/cli/v10/configuring-npm/package-json
   return isNonNullable(pkg)
     /* eslint-disable @typescript-eslint/no-unsafe-member-access -- false-positive */
-    && typeof pkg.name === 'string'
-    && typeof pkg.version === 'string'
-  /* eslint-enable @typescript-eslint/no-unsafe-member-access */
+    && isString(pkg.name)
+    && isString(pkg.version)
+    /* eslint-enable @typescript-eslint/no-unsafe-member-access */
 }
