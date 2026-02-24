@@ -25,6 +25,11 @@ import { PackageURL, PurlQualifierNames, type PurlQualifiers } from 'packageurl-
 export class PackageUrlFactory {
 
   makeFromPackageJson(packageJson: normalizePackageData.Package): PackageURL | undefined {
+    if ( packageJson.private === true ) {
+      // Per PackageUrl spec, private packages do not have one.
+      return undefined
+    }
+
     let name: string = packageJson.name
     let namespace: string | undefined = undefined
     if ( name.startsWith('@') ) {
