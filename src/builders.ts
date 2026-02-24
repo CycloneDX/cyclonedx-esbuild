@@ -185,7 +185,8 @@ export class BomBuilder {
 
     /* eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion -- ack */
     component.purl = this.purlFactory.makeFromPackageJson(pkg.packageJson as normalizePackageData.Package)?.toString()
-    component.bomRef.value = `${component.group??'-'}/${component.name}@${component.version??'*'}`
+
+    component.bomRef.value = `${pkg.packageJson.name}@${pkg.packageJson.version??'*'}`
 
     return component
   }
