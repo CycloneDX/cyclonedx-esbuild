@@ -20,10 +20,10 @@ Copyright (c) OWASP Foundation. All Rights Reserved.
 import {existsSync, readFileSync, writeSync} from "node:fs"
 import {dirname, isAbsolute, join, resolve, sep} from "node:path"
 
-import {ComponentType} from "@cyclonedx/cyclonedx-library/Enums"
-import normalizePackageData from "normalize-package-data"
 import type { Builders as FromNodePackageJsonBuilders } from "@cyclonedx/cyclonedx-library/Contrib/FromNodePackageJson"
+import {ComponentType} from "@cyclonedx/cyclonedx-library/Enums"
 import type { Component } from "@cyclonedx/cyclonedx-library/Models"
+import normalizePackageData from "normalize-package-data"
 
 import {LogPrefixes} from "./logger"
 

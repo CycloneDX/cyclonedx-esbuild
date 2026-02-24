@@ -20,6 +20,7 @@ Copyright (c) OWASP Foundation. All Rights Reserved.
 import {existsSync, mkdirSync, openSync} from "node:fs"
 import {dirname, resolve} from "node:path"
 
+import { Utils as BomUtils } from "@cyclonedx/cyclonedx-library/Contrib/Bom"
 import {
   Builders as FromNodePackageJsonBuilders,
   Factories as FromNodePackageJsonFactories
@@ -28,15 +29,14 @@ import {
   Factories as LicenseFactories,
   Utils as LicenseUtils
 } from "@cyclonedx/cyclonedx-library/Contrib/License"
-import { Utils as BomUtils } from "@cyclonedx/cyclonedx-library/Contrib/Bom"
-import { JsonSerializer, JSON as SerializeJSON } from "@cyclonedx/cyclonedx-library/Serialize"
-import { Version as SpecVersion, SpecVersionDict} from "@cyclonedx/cyclonedx-library/Spec"
-import { JsonStrictValidator, MissingOptionalDependencyError } from "@cyclonedx/cyclonedx-library/Validation"
 import { ComponentType } from "@cyclonedx/cyclonedx-library/Enums"
-import {Argument, Command, Option} from 'commander'
-import spdxExpressionParse from 'spdx-expression-parse'
 import type { Types as SerializeTypes } from "@cyclonedx/cyclonedx-library/Serialize"
+import { JSON as SerializeJSON, JsonSerializer } from "@cyclonedx/cyclonedx-library/Serialize"
+import { SpecVersionDict, Version as SpecVersion} from "@cyclonedx/cyclonedx-library/Spec"
+import { JsonStrictValidator, MissingOptionalDependencyError } from "@cyclonedx/cyclonedx-library/Validation"
+import {Argument, Command, Option} from "commander"
 import type * as esbuild from 'esbuild'
+import spdxExpressionParse from "spdx-expression-parse"
 
 import {loadJsonFile, makeToolCs, ValidationError, writeAllSync} from "./_helpers"
 import {BomBuilder} from "./builders"

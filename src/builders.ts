@@ -19,17 +19,17 @@ Copyright (c) OWASP Foundation. All Rights Reserved.
 
 import {dirname, resolve} from "node:path";
 
-import { Bom, NamedLicense, ComponentEvidence, LicenseRepository } from "@cyclonedx/cyclonedx-library/Models"
-import { LicenseAcknowledgement } from "@cyclonedx/cyclonedx-library/Enums"
 import type { Builders as FromNodePackageJsonBuilders } from "@cyclonedx/cyclonedx-library/Contrib/FromNodePackageJson"
 import type { Utils as LicenseUtils } from "@cyclonedx/cyclonedx-library/Contrib/License"
-import type { License, Component } from "@cyclonedx/cyclonedx-library/Models"
+import { LicenseAcknowledgement } from "@cyclonedx/cyclonedx-library/Enums"
+import type { Component, License } from "@cyclonedx/cyclonedx-library/Models"
+import { Bom, ComponentEvidence, LicenseRepository, NamedLicense } from "@cyclonedx/cyclonedx-library/Models"
 import type * as esbuild from "esbuild"
 import type normalizePackageData from "normalize-package-data"
 
 import { getPackageDescription, normalizePackageManifest, type PackageDescription } from "./_helpers";
-import { LogPrefixes } from "./logger";
 import type { PackageUrlFactory } from "./factories";
+import { LogPrefixes } from "./logger";
 
 export class BomBuilder {
 
