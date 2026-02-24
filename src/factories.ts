@@ -40,23 +40,23 @@ export class PackageUrlFactory {
     }
 
     const qualifiers: PurlQualifiers = {}
-      // "dist" might be used in bundled dependencies' manifests.
-      // docs: https://blog.npmjs.org/post/172999548390/new-pgp-machinery
-      /* eslint-disable-next-line @typescript-eslint/no-unsafe-assignment -- acknowledged */
-      const { tarball } = packageJson.dist ?? {}
-      if ( typeof tarball === 'string' && tarball.length > 5
-        && !FromNodePackageJsonUtils.defaultRegistryMatcher.test(tarball)
-      ) {
-        qualifiers[PurlQualifierNames.DownloadUrl] = tarball
-      } else if ( typeof packageJson.repository === 'object' ) {
-        const url = new URL(packageJson.repository.url)
-        /* @ts-expect-error -- missing type docs */
-        const subdir =  packageJson.repository.directory /* eslint-disable-line @typescript-eslint/no-unsafe-assignment -- ack */
-        if ( typeof subdir === 'string' ) {
-          url.hash = subdir
-        }
-        qualifiers[PurlQualifierNames.VcsUrl] = url.toString()
+    // "dist" might be used in bundled dependencies' manifests.
+    // docs: https://blog.npmjs.org/post/172999548390/new-pgp-machinery
+    /* eslint-disable-next-line @typescript-eslint/no-unsafe-assignment -- acknowledged */
+    const { tarball } = packageJson.dist ?? {}
+    if ( typeof tarball === 'string' && tarball.length > 5
+      && !FromNodePackageJsonUtils.defaultRegistryMatcher.test(tarball)
+    ) {
+      qualifiers[PurlQualifierNames.DownloadUrl] = tarball
+    } else if ( typeof packageJson.repository === 'object' ) {
+      const url = new URL(packageJson.repository.url)
+      /* @ts-expect-error -- missing type docs */
+      const subdir =  packageJson.repository.directory /* eslint-disable-line @typescript-eslint/no-unsafe-assignment -- ack */
+      if ( typeof subdir === 'string' ) {
+        url.hash = subdir
       }
+      qualifiers[PurlQualifierNames.VcsUrl] = url.toString()
+    }
 
     try {
       // Do not beautify the parameters here, because that is in the domain of PackageURL and its representation.
