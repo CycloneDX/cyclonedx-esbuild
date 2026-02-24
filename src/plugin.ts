@@ -17,17 +17,34 @@ SPDX-License-Identifier: Apache-2.0
 Copyright (c) OWASP Foundation. All Rights Reserved.
 */
 
-import {existsSync, mkdirSync, openSync} from "node:fs";
-import {dirname, resolve} from "node:path";
+import {existsSync, mkdirSync, openSync} from "node:fs"
+import {dirname, resolve} from "node:path"
 
-import * as CDX from "@cyclonedx/cyclonedx-library";
-import type * as esbuild from 'esbuild';
-import spdxExpressionParse from 'spdx-expression-parse';
 
-import {makeToolCs, ValidationError, writeAllSync} from "./_helpers";
-import {BomBuilder} from "./builders";
-import {PackageUrlFactory} from "./factories";
-import {LogPrefixes, makeConsoleLogger} from "./logger";
+import {
+  Builders as FromNodePackageJsonBuilders,
+  Factories as FromNodePackageJsonFactories
+} from "@cyclonedx/cyclonedx-library/Contrib/FromNodePackageJson"
+import {
+  Factories as LicenseFactories,
+  Utils as LicenseUtils
+} from "@cyclonedx/cyclonedx-library/Contrib/License"
+import { Utils as BomUtils } from "@cyclonedx/cyclonedx-library/Contrib/Bom"
+import { LifecyclePhase } from "@cyclonedx/cyclonedx-library/Enums"
+import { Component } from "@cyclonedx/cyclonedx-library/Models"
+import { JsonSerializer, JSON as SerializeJSON } from "@cyclonedx/cyclonedx-library/Serialize"
+import { Version as SpecVersion, SpecVersionDict} from "@cyclonedx/cyclonedx-library/Spec"
+import { JsonStrictValidator, MissingOptionalDependencyError } from "@cyclonedx/cyclonedx-library/Validation"
+import { ComponentType } from "@cyclonedx/cyclonedx-library/Enums"
+import spdxExpressionParse from "spdx-expression-parse"
+import type { Types as SerializeTypes } from "@cyclonedx/cyclonedx-library/Serialize"
+import type * as esbuild from "esbuild"
+
+import {makeToolCs, ValidationError, writeAllSync} from "./_helpers"
+import {BomBuilder} from "./builders"
+import {PackageUrlFactory} from "./factories"
+import {LogPrefixes, makeConsoleLogger} from "./logger"
+
 
 /** @public */
 export const PLUGIN_NAME = 'cyclonedx-esbuild'
@@ -41,7 +58,7 @@ export interface CycloneDxEsbuildPluginOptions {
    *
    * @defaultValue `"1.6"`
    */
-  specVersion?: `${CDX.Spec.Version}` | CDX.Spec.Version
+  specVersion?: `${SpecVersion}` | SpecVersion
 
   /**
    * Path to the output file.
@@ -82,7 +99,7 @@ export interface CycloneDxEsbuildPluginOptions {
    *
    * @defaultValue `"application"`
    */
-  mcType?: `${CDX.Enums.ComponentType}` | CDX.Enums.ComponentType
+  mcType?: `${ComponentType}` | ComponentType
 
   /**
    * Validate resulting BOM before outputting.
@@ -114,15 +131,15 @@ export const cyclonedxEsbuildPlugin = (opts: CycloneDxEsbuildPluginOptions = {})
     const options = {
       gatherLicenseTexts: opts.gatherLicenseTexts ?? false,
       outputReproducible: opts.outputReproducible ?? false,
-      specVersion: opts.specVersion ?? CDX.Spec.Version.v1dot6,
+      specVersion: opts.specVersion ?? SpecVersion.v1dot6,
       /* eslint-disable-next-line  @typescript-eslint/prefer-nullish-coalescing, @typescript-eslint/strict-boolean-expressions -- need to handle empty strings */
       outputFile: opts.outputFile || 'bom.json',
       validate: opts.validate,
-      mcType: opts.mcType ?? CDX.Enums.ComponentType.Application
+      mcType: opts.mcType ?? ComponentType.Application
     } as const satisfies CycloneDxEsbuildPluginOptions
     logger.debug(`${LogPrefixes.DEBUG} setup => options: %j`, options)
 
-    const serializeSpec = CDX.Spec.SpecVersionDict[options.specVersion]
+    const serializeSpec = SpecVersionDict[options.specVersion]
     if (serializeSpec === undefined) {
       throw new Error(`Unknown specVersion: ${options.specVersion}`)
     }
@@ -138,13 +155,13 @@ export const cyclonedxEsbuildPlugin = (opts: CycloneDxEsbuildPluginOptions = {})
       }
       logger.info(LogPrefixes.INFO, 'start build BOM ...')
 
-      const cdxExternalReferenceFactory = new CDX.Contrib.FromNodePackageJson.Factories.ExternalReferenceFactory()
-      const cdxLicenseFactory = new CDX.Contrib.License.Factories.LicenseFactory(spdxExpressionParse)
-      const cdxComponentBuilder = new CDX.Contrib.FromNodePackageJson.Builders.ComponentBuilder(cdxExternalReferenceFactory, cdxLicenseFactory)
+      const cdxExternalReferenceFactory = new FromNodePackageJsonFactories.ExternalReferenceFactory()
+      const cdxLicenseFactory = new LicenseFactories.LicenseFactory(spdxExpressionParse)
+      const cdxComponentBuilder = new FromNodePackageJsonBuilders.ComponentBuilder(cdxExternalReferenceFactory, cdxLicenseFactory)
       const bomBuilder = new BomBuilder(
         cdxComponentBuilder,
         new PackageUrlFactory(),
-        new CDX.Contrib.License.Utils.LicenseEvidenceGatherer()
+        new LicenseUtils.LicenseEvidenceGatherer()
       )
 
       // region make BOM
@@ -153,40 +170,40 @@ export const cyclonedxEsbuildPlugin = (opts: CycloneDxEsbuildPluginOptions = {})
         esbuildWorkingDir,
         options.gatherLicenseTexts,
         logger)
-      bom.metadata.lifecycles.add(CDX.Enums.LifecyclePhase.Build)
-      bom.metadata.tools.components.add(new CDX.Models.Component(
-        CDX.Enums.ComponentType.Application,
+      bom.metadata.lifecycles.add(LifecyclePhase.Build)
+      bom.metadata.tools.components.add(new Component(
+        ComponentType.Application,
         'esbuild',
         {
           /* eslint-disable-next-line @typescript-eslint/no-unnecessary-condition -- backwards compatibility */
           version: build.esbuild?.version // requires esbuild v0.14.3
         }
       ))
-      for (const toolC of makeToolCs(CDX.Enums.ComponentType.Library, cdxComponentBuilder, logger)) {
+      for (const toolC of makeToolCs(ComponentType.Library, cdxComponentBuilder, logger)) {
         bom.metadata.tools.components.add(toolC)
       }
       bom.serialNumber = options.outputReproducible
         ? undefined
-        : CDX.Contrib.Bom.Utils.randomSerialNumber()
+        : BomUtils.randomSerialNumber()
       bom.metadata.timestamp = options.outputReproducible
         ? undefined
         : new Date()
       if (bom.metadata.component !== undefined) {
         /* eslint-disable-next-line  @typescript-eslint/no-unsafe-type-assertion -- ack */
-        bom.metadata.component.type = options.mcType as CDX.Enums.ComponentType
+        bom.metadata.component.type = options.mcType as ComponentType
       }
       // endregion make BOM
 
-      const serializer = new CDX.Serialize.JsonSerializer(
-        new CDX.Serialize.JSON.Normalize.Factory(serializeSpec))
-      const serializeOptions: CDX.Serialize.Types.SerializerOptions & CDX.Serialize.Types.NormalizerOptions = {
+      const serializer = new JsonSerializer(
+        new SerializeJSON.Normalize.Factory(serializeSpec))
+      const serializeOptions: SerializeTypes.SerializerOptions & SerializeTypes.NormalizerOptions = {
         sortLists: options.outputReproducible,
         space: 2 // TODO add option to have this configurable
       }
       const serialized = serializer.serialize(bom, serializeOptions)
 
       if (options.validate !== false) {
-        const validator = new CDX.Validation.JsonStrictValidator(serializeSpec.version)
+        const validator = new JsonStrictValidator(serializeSpec.version)
         try {
           /* eslint-disable-next-line @typescript-eslint/no-unsafe-assignment -- expected */
           const validationErrors = await validator.validate(serialized)
@@ -200,7 +217,7 @@ export const cyclonedxEsbuildPlugin = (opts: CycloneDxEsbuildPluginOptions = {})
             )
           }
         } catch (err) {
-          if (err instanceof CDX.Validation.MissingOptionalDependencyError && !options.validate) {
+          if (err instanceof MissingOptionalDependencyError && !options.validate) {
             logger.info(LogPrefixes.INFO, 'skipped validate BOM:', err.message)
           } else {
             logger.error(LogPrefixes.ERROR, 'unexpected error')

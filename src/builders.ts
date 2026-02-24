@@ -19,19 +19,23 @@ Copyright (c) OWASP Foundation. All Rights Reserved.
 
 import {dirname, resolve} from "node:path";
 
-import * as CDX from "@cyclonedx/cyclonedx-library";
-import type * as esbuild from "esbuild";
-import type normalizePackageData from "normalize-package-data";
+import { Bom, NamedLicense, ComponentEvidence, LicenseRepository } from "@cyclonedx/cyclonedx-library/Models"
+import { LicenseAcknowledgement } from "@cyclonedx/cyclonedx-library/Enums"
+import type { Builders as FromNodePackageJsonBuilders } from "@cyclonedx/cyclonedx-library/Contrib/FromNodePackageJson"
+import type { Utils as LicenseUtils } from "@cyclonedx/cyclonedx-library/Contrib/License"
+import type { License, Component } from "@cyclonedx/cyclonedx-library/Models"
+import type * as esbuild from "esbuild"
+import type normalizePackageData from "normalize-package-data"
 
-import {getPackageDescription, normalizePackageManifest, type PackageDescription} from "./_helpers";
-import type {PackageUrlFactory} from "./factories";
-import {LogPrefixes} from "./logger";
+import { getPackageDescription, normalizePackageManifest, type PackageDescription } from "./_helpers";
+import { LogPrefixes } from "./logger";
+import type { PackageUrlFactory } from "./factories";
 
 export class BomBuilder {
 
-  readonly componentBuilder: CDX.Contrib.FromNodePackageJson.Builders.ComponentBuilder
+  readonly componentBuilder: FromNodePackageJsonBuilders.ComponentBuilder
   readonly purlFactory: PackageUrlFactory
-  readonly leGatherer: CDX.Contrib.License.Utils.LicenseEvidenceGatherer
+  readonly leGatherer: LicenseUtils.LicenseEvidenceGatherer
 
   constructor(
     componentBuilder: BomBuilder['componentBuilder'],
@@ -48,9 +52,9 @@ export class BomBuilder {
     buildWorkingDir: string,
     collectEvidence: boolean,
     logger: Console
-  ): CDX.Models.Bom {
+  ): Bom {
     logger.debug(LogPrefixes.DEBUG, `metafile:`, metafile)
-    const bom = new CDX.Models.Bom()
+    const bom = new Bom()
 
     logger.info(LogPrefixes.INFO, 'generating components...')
     const components = this.generateComponents(buildWorkingDir, metafile, collectEvidence, logger)
@@ -70,7 +74,7 @@ export class BomBuilder {
     return bom
   }
 
-  public* getLicenseEvidence(packageDir: string, logger: Console): Generator<CDX.Models.License> {
+  public* getLicenseEvidence(packageDir: string, logger: Console): Generator<License> {
     const files = this.leGatherer.getFileAttachments(
       packageDir,
       (error: Error): void => {
@@ -81,7 +85,7 @@ export class BomBuilder {
     )
     try {
       for (const {file, text} of files) {
-        yield new CDX.Models.NamedLicense(`file: ${file}`, {text})
+        yield new NamedLicense(`file: ${file}`, {text})
       }
     }
       /* c8 ignore next 3 */ catch (e) {
@@ -95,9 +99,9 @@ export class BomBuilder {
     metafile: esbuild.Metafile,
     collectEvidence: boolean,
     logger: Console
-  ): Map<string, CDX.Models.Component> {
-    const pkgs = new Map<string, CDX.Models.Component>
-    const components = new Map<string, CDX.Models.Component>
+  ): Map<string, Component> {
+    const pkgs = new Map<string, Component>
+    const components = new Map<string, Component>
 
     const modulePaths = new Set<string>()
     for (const {inputs, entryPoint} of Object.values(metafile.outputs)) {
@@ -143,7 +147,7 @@ export class BomBuilder {
   }
 
   /* @ts-expect-error TS6133 -- TODO */
-  private linkDependencies(metafile: esbuild.Metafile, modulesComponents: Map<string, CDX.Models.Component>): void {
+  private linkDependencies(metafile: esbuild.Metafile, modulesComponents: Map<string, Component>): void {
     // TODO: link deps based on inputs - https://github.com/CycloneDX/cyclonedx-esbuild/issues/11
     // idea: take the metadata.input
     // then cut the "externals" and copy their content to all the ones that used it
@@ -154,7 +158,7 @@ export class BomBuilder {
   /**
    * @throws {@link Error} when no component could be fetched
    */
-  private makeComponent(pkg: PackageDescription, collectEvidence: boolean, logger: Console): CDX.Models.Component {
+  private makeComponent(pkg: PackageDescription, collectEvidence: boolean, logger: Console): Component {
     try {
       // work with a deep copy, because `normalizePackageManifest()` might modify the data
       /* eslint-disable-next-line @typescript-eslint/no-unsafe-assignment -- ach */
@@ -173,13 +177,13 @@ export class BomBuilder {
 
     component.licenses.forEach(l => {
       /* eslint-disable no-param-reassign -- intended */
-      l.acknowledgement = CDX.Enums.LicenseAcknowledgement.Declared
+      l.acknowledgement = LicenseAcknowledgement.Declared
       /* eslint-enable no-param-reassign -- intended */
     })
 
     if (collectEvidence) {
-      component.evidence = new CDX.Models.ComponentEvidence({
-        licenses: new CDX.Models.LicenseRepository(this.getLicenseEvidence(dirname(pkg.path), logger))
+      component.evidence = new ComponentEvidence({
+        licenses: new LicenseRepository(this.getLicenseEvidence(dirname(pkg.path), logger))
       })
     }
 

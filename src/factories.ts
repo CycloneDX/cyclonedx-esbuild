@@ -17,9 +17,10 @@ SPDX-License-Identifier: Apache-2.0
 Copyright (c) OWASP Foundation. All Rights Reserved.
 */
 
-import { Utils as FromNodePackageJsonUtils } from '@cyclonedx/cyclonedx-library/Contrib/FromNodePackageJson';
-import type normalizePackageData from "normalize-package-data";
-import { PackageURL, PurlQualifierNames, type PurlQualifiers } from 'packageurl-js';
+import { Utils as FromNodePackageJsonUtils } from "@cyclonedx/cyclonedx-library/Contrib/FromNodePackageJson"
+import { PackageURL, PurlQualifierNames } from "packageurl-js"
+import type normalizePackageData from "normalize-package-data"
+import type { PurlQualifiers } from "packageurl-js"
 
 
 export class PackageUrlFactory {

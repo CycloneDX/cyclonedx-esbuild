@@ -17,13 +17,15 @@ SPDX-License-Identifier: Apache-2.0
 Copyright (c) OWASP Foundation. All Rights Reserved.
 */
 
-import {existsSync, readFileSync, writeSync} from "node:fs";
-import {dirname, isAbsolute, join, resolve, sep} from "node:path";
+import {existsSync, readFileSync, writeSync} from "node:fs"
+import {dirname, isAbsolute, join, resolve, sep} from "node:path"
 
-import * as CDX from "@cyclonedx/cyclonedx-library"
-import normalizePackageData from 'normalize-package-data'
+import {ComponentType} from "@cyclonedx/cyclonedx-library/Enums"
+import normalizePackageData from "normalize-package-data"
+import type { Builders as FromNodePackageJsonBuilders } from "@cyclonedx/cyclonedx-library/Contrib/FromNodePackageJson"
+import type { Component } from "@cyclonedx/cyclonedx-library/Models"
 
-import {LogPrefixes} from "./logger";
+import {LogPrefixes} from "./logger"
 
 export function loadJsonFile(path: string): any {
   return JSON.parse(readFileSync(path, 'utf8'))
@@ -89,11 +91,11 @@ export interface PackageDescription<PJ = any> {
 }
 
 export function * makeToolCs(
-  selfCTyp: CDX.Enums.ComponentType,
-  builder: CDX.Contrib.FromNodePackageJson.Builders.ComponentBuilder,
+  selfCTyp: ComponentType,
+  builder: FromNodePackageJsonBuilders.ComponentBuilder,
   logger: Console
-): Generator<CDX.Models.Component> {
-  const packageJsonPaths: Array<[string, CDX.Enums.ComponentType]> = [
+): Generator<Component> {
+  const packageJsonPaths: Array<[string, ComponentType]> = [
     // this plugin is an optional enhancement, not a standalone application -- use as `Library`
     [resolve(module.path, '..', 'package.json'), selfCTyp]
   ]
@@ -108,7 +110,7 @@ export function * makeToolCs(
       for (const nodeModulePath of nodeModulePaths) {
         const packageJsonPath = resolve(nodeModulePath, ...lib, 'package.json')
         if (existsSync(packageJsonPath)) {
-          packageJsonPaths.push([packageJsonPath, CDX.Enums.ComponentType.Library])
+          packageJsonPaths.push([packageJsonPath, ComponentType.Library])
           continue libsLoop
         }
       }

@@ -17,18 +17,32 @@ SPDX-License-Identifier: Apache-2.0
 Copyright (c) OWASP Foundation. All Rights Reserved.
 */
 
-import {existsSync, mkdirSync, openSync} from "node:fs";
-import {dirname, resolve} from "node:path";
+import {existsSync, mkdirSync, openSync} from "node:fs"
+import {dirname, resolve} from "node:path"
 
-import * as CDX from "@cyclonedx/cyclonedx-library";
+import {
+  Builders as FromNodePackageJsonBuilders,
+  Factories as FromNodePackageJsonFactories
+} from "@cyclonedx/cyclonedx-library/Contrib/FromNodePackageJson"
+import {
+  Factories as LicenseFactories,
+  Utils as LicenseUtils
+} from "@cyclonedx/cyclonedx-library/Contrib/License"
+import { Utils as BomUtils } from "@cyclonedx/cyclonedx-library/Contrib/Bom"
+import { JsonSerializer, JSON as SerializeJSON } from "@cyclonedx/cyclonedx-library/Serialize"
+import { Version as SpecVersion, SpecVersionDict} from "@cyclonedx/cyclonedx-library/Spec"
+import { JsonStrictValidator, MissingOptionalDependencyError } from "@cyclonedx/cyclonedx-library/Validation"
+import { ComponentType } from "@cyclonedx/cyclonedx-library/Enums"
 import {Argument, Command, Option} from 'commander'
-import type * as esbuild from 'esbuild';
-import spdxExpressionParse from 'spdx-expression-parse';
+import spdxExpressionParse from 'spdx-expression-parse'
+import type { Types as SerializeTypes } from "@cyclonedx/cyclonedx-library/Serialize"
+import type * as esbuild from 'esbuild'
 
-import {loadJsonFile, makeToolCs, ValidationError, writeAllSync} from "./_helpers";
-import {BomBuilder} from "./builders";
-import {PackageUrlFactory} from "./factories";
-import {LogPrefixes, makeConsoleLogger} from "./logger";
+import {loadJsonFile, makeToolCs, ValidationError, writeAllSync} from "./_helpers"
+import {BomBuilder} from "./builders"
+import {PackageUrlFactory} from "./factories"
+import {LogPrefixes, makeConsoleLogger} from "./logger"
+
 
 const OutputStdOut = '-'
 
@@ -36,10 +50,10 @@ interface CommandOptions {
   esbuildWorkingDir: string,
   gatherLicenseTexts: boolean
   outputReproducible: boolean
-  specVersion: CDX.Spec.Version
+  specVersion: SpecVersion
   outputFile: string
   validate: boolean | undefined
-  mcType: CDX.Enums.ComponentType
+  mcType: ComponentType
   verbose: number
 }
 
@@ -66,9 +80,9 @@ function makeCommand(process_: NodeJS.Process): Command {
       '--sv, --spec-version <version>',
       'Which version of CycloneDX spec to use.'
     ).choices(
-      Object.keys(CDX.Spec.SpecVersionDict).sort()
+      Object.keys(SpecVersionDict).sort()
     ).default(
-      CDX.Spec.Version.v1dot6
+      SpecVersion.v1dot6
     )
   ).addOption(
     new Option(
@@ -105,11 +119,11 @@ function makeCommand(process_: NodeJS.Process): Command {
     ).choices(
       // Object.values(Enums.ComponentType) -- use all possible values
       [ // for the NPM context only the following make sense:
-        CDX.Enums.ComponentType.Application,
-        CDX.Enums.ComponentType.Firmware,
-        CDX.Enums.ComponentType.Library
+        ComponentType.Application,
+        ComponentType.Firmware,
+        ComponentType.Library
       ].sort()
-    ).default(CDX.Enums.ComponentType.Application)
+    ).default(ComponentType.Application)
   ).addOption(
     new Option(
       '-v, --verbose',
@@ -147,7 +161,7 @@ export async function run(process_: NodeJS.Process): Promise<number> {
   logger.debug(`${LogPrefixes.DEBUG} options: %j`, options)
   logger.debug(`${LogPrefixes.DEBUG} args: %j`, program.args)
 
-  const serializeSpec = CDX.Spec.SpecVersionDict[options.specVersion]
+  const serializeSpec = SpecVersionDict[options.specVersion]
   if (serializeSpec === undefined) {
     throw new Error(`Unknown specVersion: ${options.specVersion}`)
   }
@@ -159,14 +173,14 @@ export async function run(process_: NodeJS.Process): Promise<number> {
   }
   /* eslint-enable @typescript-eslint/strict-boolean-expressions */
 
-  const cdxComponentBuilder = new CDX.Contrib.FromNodePackageJson.Builders.ComponentBuilder(
-    new CDX.Contrib.FromNodePackageJson.Factories.ExternalReferenceFactory(),
-    new CDX.Contrib.License.Factories.LicenseFactory(spdxExpressionParse)
+  const cdxComponentBuilder = new FromNodePackageJsonBuilders.ComponentBuilder(
+    new FromNodePackageJsonFactories.ExternalReferenceFactory(),
+    new LicenseFactories.LicenseFactory(spdxExpressionParse)
   )
   const bomBuilder = new BomBuilder(
     cdxComponentBuilder,
     new PackageUrlFactory(),
-    new CDX.Contrib.License.Utils.LicenseEvidenceGatherer(),
+    new LicenseUtils.LicenseEvidenceGatherer(),
   )
 
   // region make BOM
@@ -176,12 +190,12 @@ export async function run(process_: NodeJS.Process): Promise<number> {
     options.esbuildWorkingDir,
     options.gatherLicenseTexts,
     logger)
-  for (const toolC of makeToolCs(CDX.Enums.ComponentType.Application, cdxComponentBuilder, logger)) {
+  for (const toolC of makeToolCs(ComponentType.Application, cdxComponentBuilder, logger)) {
     bom.metadata.tools.components.add(toolC)
   }
   bom.serialNumber = options.outputReproducible
     ? undefined
-    : CDX.Contrib.Bom.Utils.randomSerialNumber()
+    : BomUtils.randomSerialNumber()
   bom.metadata.timestamp = options.outputReproducible
     ? undefined
     : new Date()
@@ -190,16 +204,16 @@ export async function run(process_: NodeJS.Process): Promise<number> {
   }
   // endregion make BOM
 
-  const serializer = new CDX.Serialize.JsonSerializer(
-    new CDX.Serialize.JSON.Normalize.Factory(serializeSpec))
-  const serializeOptions: CDX.Serialize.Types.SerializerOptions & CDX.Serialize.Types.NormalizerOptions = {
+  const serializer = new JsonSerializer(
+    new SerializeJSON.Normalize.Factory(serializeSpec))
+  const serializeOptions: SerializeTypes.SerializerOptions & SerializeTypes.NormalizerOptions = {
     sortLists: options.outputReproducible,
     space: 2 // TODO add option to have this configurable
   }
   const serialized = serializer.serialize(bom, serializeOptions)
 
   if (options.validate !== false) {
-    const validator = new CDX.Validation.JsonStrictValidator(serializeSpec.version)
+    const validator = new JsonStrictValidator(serializeSpec.version)
     try {
       /* eslint-disable-next-line @typescript-eslint/no-unsafe-assignment -- expected */
       const validationErrors = await validator.validate(serialized)
@@ -213,7 +227,7 @@ export async function run(process_: NodeJS.Process): Promise<number> {
         )
       }
     } catch (err) {
-      if (err instanceof CDX.Validation.MissingOptionalDependencyError && !options.validate) {
+      if (err instanceof MissingOptionalDependencyError && !options.validate) {
         logger.info(LogPrefixes.INFO, 'skipped validate BOM:', err.message)
       } else {
         logger.error(LogPrefixes.ERROR, 'unexpected error')
