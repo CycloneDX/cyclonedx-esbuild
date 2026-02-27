@@ -12,7 +12,7 @@ All notable changes to this project will be documented in this file.
   * Take care of PackageURL generation ourselves, now (via [#65])  
     Previously, this was done at best-effort by a 3rd-party library.
 * Style
-  * Applied latest code style (via [#42]) 
+  * Applied latest code style (via [#42])
 * Dependencies
   * Bumped dependency `@cyclonedx/cyclonedx-library@^10.0.0` now, was `@^9.2.0` (via [#65]) 
   * Added dependency `packageurl-js@^2.0.1` (via [#65])
