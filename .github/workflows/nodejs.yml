@@ -137,6 +137,8 @@ jobs:
         include:
           - node: "25"
             experimental: true
+          - node: "20"
+            experimental: true
     continue-on-error: ${{ matrix.experimental == true }}
     steps:
       - name: Checkout
