@@ -27,7 +27,7 @@ import { Bom, ComponentEvidence, LicenseRepository, NamedLicense } from "@cyclon
 import type * as esbuild from "esbuild"
 import type normalizePackageData from "normalize-package-data"
 
-import { getPackageDescription, normalizePackageManifest, type PackageDescription } from "./_helpers";
+import { getPackageConfig, normalizePackageManifest, type PackageDescription } from "./_helpers";
 import type { PackageUrlFactory } from "./factories";
 import { LogPrefixes } from "./logger";
 
@@ -58,7 +58,7 @@ export class BomBuilder {
 
     logger.info(LogPrefixes.INFO, 'generating components...')
     const components = this.generateComponents(buildWorkingDir, metafile, collectEvidence, logger)
-    const rcPath = getPackageDescription(buildWorkingDir)?.path
+    const rcPath = getPackageConfig(buildWorkingDir)?.path
       ?? buildWorkingDir
     const mainComponent = components.get(rcPath)
     if (undefined !== mainComponent) {
@@ -118,7 +118,7 @@ export class BomBuilder {
 
     logger.info(LogPrefixes.INFO, 'start building Components from modules...')
     for (const modulePath of modulePaths) {
-      const pkg = getPackageDescription(resolve(rootDir, modulePath))
+      const pkg = getPackageConfig(resolve(rootDir, modulePath))
       if (pkg === undefined) {
         logger.debug('skipped package for', modulePath)
         continue

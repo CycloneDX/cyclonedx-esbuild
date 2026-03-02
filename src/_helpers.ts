@@ -146,7 +146,7 @@ export class ValidationError extends Error {
 
 export const PACKAGE_MANIFEST_FILENAME = 'package.json'
 
-export function getPackageDescription(ppath: string): PackageDescription<ValidPackageJSON> | undefined {
+export function getPackageConfig(ppath: string): PackageDescription<ValidPackageJSON> | undefined {
   if (!existsSync(ppath)) {
     return undefined
   }
