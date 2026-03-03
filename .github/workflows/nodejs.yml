@@ -48,7 +48,7 @@ jobs:
         run: npm run build-dev
       - name: artifact build result
         # see https://github.com/actions/upload-artifact
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v6
         with:
           name: dist
           path: dist
@@ -93,7 +93,7 @@ jobs:
           eslint-report: ${{ env.REPORTS_DIR }}/eslint.json
       - name: artifact eslint result
         # see https://github.com/actions/upload-artifact
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v6
         if: ${{ failure() }}
         with:
           name: ${{ env.STANDARD_REPORTS_ARTIFACT }}
@@ -135,11 +135,17 @@ jobs:
         node-version:
           # action based on https://github.com/actions/node-versions/releases
           # see also: https://nodejs.org/en/about/previous-releases
-          - "25"      # current
+          - "25"      # Current
           - "24"      # active LTS
           - "22"
-          # - "20"
+          - "20"
           - "20.18.0" # lowest supported
+        include:
+          - node: "25"
+            experimental: true
+          - node: "20"
+            experimental: true
+    continue-on-error: ${{ matrix.experimental == true }}
     steps:
       - name: Checkout
         # see https://github.com/actions/checkout
@@ -181,7 +187,7 @@ jobs:
           npm i --ignore-scripts --loglevel=silly --no-save $dev_requirements
       - name: fetch build artifact
         # see https://github.com/actions/download-artifact
-        uses: actions/download-artifact@v6
+        uses: actions/download-artifact@v7
         with:
           name: dist
           path: dist
@@ -190,7 +196,7 @@ jobs:
       - name: artifact npm errors
         if: ${{ failure() }}
         # see https://github.com/actions/upload-artifact
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v6
         with:
           name: 'npm-errors_${{ matrix.os }}_node${{ matrix.node-version }}'
           path: '/home/runner/.npm/_logs/*.log'
@@ -210,7 +216,7 @@ jobs:
       - name: artifact test reports
         if: ${{ ! cancelled() }}
         # see https://github.com/actions/upload-artifact
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v6
         with:
           name: '${{ env.TESTS_REPORTS_ARTIFACT }}_${{ matrix.os }}_node${{ matrix.node-version }}'
           path: ${{ env.REPORTS_DIR }}
@@ -226,7 +232,7 @@ jobs:
     steps:
       - name: fetch test artifacts
         # see https://github.com/actions/download-artifact
-        uses: actions/download-artifact@v6
+        uses: actions/download-artifact@v7
         with:
           pattern: '${{ env.TESTS_REPORTS_ARTIFACT }}_*'
           merge-multiple: true

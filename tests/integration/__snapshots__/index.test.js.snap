@@ -80,8 +80,7 @@ exports[`integration functional: angular20 on yarn generated json file: dist/fir
       "name": "cyclonedx-eslint-testbed-angular20-yarn",
       "group": "@cyclonedx",
       "version": "0.0.0",
-      "bom-ref": "pkg:npm/%40cyclonedx/cyclonedx-eslint-testbed-angular20-yarn@0.0.0",
-      "purl": "pkg:npm/%40cyclonedx/cyclonedx-eslint-testbed-angular20-yarn@0.0.0",
+      "bom-ref": "@cyclonedx/cyclonedx-eslint-testbed-angular20-yarn@0.0.0",
       "evidence": {}
     }
   },
@@ -91,7 +90,7 @@ exports[`integration functional: angular20 on yarn generated json file: dist/fir
       "name": "cdk",
       "group": "@angular",
       "version": "20.2.2",
-      "bom-ref": "pkg:npm/%40angular/cdk@20.2.2?vcs_url=git%2Bhttps%3A%2F%2Fgithub.com%2Fangular%2Fcomponents.git",
+      "bom-ref": "@angular/cdk@20.2.2",
       "description": "Angular Material Component Development Kit",
       "licenses": [
         {
@@ -139,7 +138,7 @@ exports[`integration functional: angular20 on yarn generated json file: dist/fir
       "name": "common",
       "group": "@angular",
       "version": "20.2.2",
-      "bom-ref": "pkg:npm/%40angular/common@20.2.2?vcs_url=git%2Bhttps%3A%2F%2Fgithub.com%2Fangular%2Fangular.git#packages/common",
+      "bom-ref": "@angular/common@20.2.2",
       "author": "angular",
       "description": "Angular - commonly needed directives and services",
       "licenses": [
@@ -150,7 +149,7 @@ exports[`integration functional: angular20 on yarn generated json file: dist/fir
           }
         }
       ],
-      "purl": "pkg:npm/%40angular/common@20.2.2?vcs_url=git%2Bhttps%3A%2F%2Fgithub.com%2Fangular%2Fangular.git#packages/common",
+      "purl": "pkg:npm/%40angular/common@20.2.2?vcs_url=git%2Bhttps%3A%2F%2Fgithub.com%2Fangular%2Fangular.git%23packages%2Fcommon",
       "externalReferences": [
         {
           "url": "https://github.com/angular/angular/issues",
@@ -188,7 +187,7 @@ exports[`integration functional: angular20 on yarn generated json file: dist/fir
       "name": "core",
       "group": "@angular",
       "version": "20.2.2",
-      "bom-ref": "pkg:npm/%40angular/core@20.2.2?vcs_url=git%2Bhttps%3A%2F%2Fgithub.com%2Fangular%2Fangular.git#packages/core",
+      "bom-ref": "@angular/core@20.2.2",
       "author": "angular",
       "description": "Angular - the core framework",
       "licenses": [
@@ -199,7 +198,7 @@ exports[`integration functional: angular20 on yarn generated json file: dist/fir
           }
         }
       ],
-      "purl": "pkg:npm/%40angular/core@20.2.2?vcs_url=git%2Bhttps%3A%2F%2Fgithub.com%2Fangular%2Fangular.git#packages/core",
+      "purl": "pkg:npm/%40angular/core@20.2.2?vcs_url=git%2Bhttps%3A%2F%2Fgithub.com%2Fangular%2Fangular.git%23packages%2Fcore",
       "externalReferences": [
         {
           "url": "https://github.com/angular/angular/issues",
@@ -237,7 +236,7 @@ exports[`integration functional: angular20 on yarn generated json file: dist/fir
       "name": "forms",
       "group": "@angular",
       "version": "20.2.2",
-      "bom-ref": "pkg:npm/%40angular/forms@20.2.2?vcs_url=git%2Bhttps%3A%2F%2Fgithub.com%2Fangular%2Fangular.git#packages/forms",
+      "bom-ref": "@angular/forms@20.2.2",
       "author": "angular",
       "description": "Angular - directives and services for creating forms",
       "licenses": [
@@ -248,7 +247,7 @@ exports[`integration functional: angular20 on yarn generated json file: dist/fir
           }
         }
       ],
-      "purl": "pkg:npm/%40angular/forms@20.2.2?vcs_url=git%2Bhttps%3A%2F%2Fgithub.com%2Fangular%2Fangular.git#packages/forms",
+      "purl": "pkg:npm/%40angular/forms@20.2.2?vcs_url=git%2Bhttps%3A%2F%2Fgithub.com%2Fangular%2Fangular.git%23packages%2Fforms",
       "externalReferences": [
         {
           "url": "https://github.com/angular/angular/issues",
@@ -286,7 +285,7 @@ exports[`integration functional: angular20 on yarn generated json file: dist/fir
       "name": "material",
       "group": "@angular",
       "version": "20.2.2",
-      "bom-ref": "pkg:npm/%40angular/material@20.2.2?vcs_url=git%2Bhttps%3A%2F%2Fgithub.com%2Fangular%2Fcomponents.git",
+      "bom-ref": "@angular/material@20.2.2",
       "description": "Angular Material",
       "licenses": [
         {
@@ -334,7 +333,7 @@ exports[`integration functional: angular20 on yarn generated json file: dist/fir
       "name": "platform-browser",
       "group": "@angular",
       "version": "20.2.2",
-      "bom-ref": "pkg:npm/%40angular/platform-browser@20.2.2?vcs_url=git%2Bhttps%3A%2F%2Fgithub.com%2Fangular%2Fangular.git#packages/platform-browser",
+      "bom-ref": "@angular/platform-browser@20.2.2",
       "author": "angular",
       "description": "Angular - library for using Angular in a web browser",
       "licenses": [
@@ -345,7 +344,7 @@ exports[`integration functional: angular20 on yarn generated json file: dist/fir
           }
         }
       ],
-      "purl": "pkg:npm/%40angular/platform-browser@20.2.2?vcs_url=git%2Bhttps%3A%2F%2Fgithub.com%2Fangular%2Fangular.git#packages/platform-browser",
+      "purl": "pkg:npm/%40angular/platform-browser@20.2.2?vcs_url=git%2Bhttps%3A%2F%2Fgithub.com%2Fangular%2Fangular.git%23packages%2Fplatform-browser",
       "externalReferences": [
         {
           "url": "https://github.com/angular/angular/issues",
@@ -383,7 +382,7 @@ exports[`integration functional: angular20 on yarn generated json file: dist/fir
       "name": "cyclonedx-eslint-testing-custom-package",
       "group": "@cyclonedx",
       "version": "0.0.1",
-      "bom-ref": "pkg:npm/%40cyclonedx/cyclonedx-eslint-testing-custom-package@0.0.1",
+      "bom-ref": "@cyclonedx/cyclonedx-eslint-testing-custom-package@0.0.1",
       "description": "this is a dummy package for showcasing purposes only.\\n",
       "licenses": [
         {
@@ -393,7 +392,6 @@ exports[`integration functional: angular20 on yarn generated json file: dist/fir
           }
         }
       ],
-      "purl": "pkg:npm/%40cyclonedx/cyclonedx-eslint-testing-custom-package@0.0.1",
       "evidence": {
         "licenses": [
           {
@@ -413,7 +411,7 @@ exports[`integration functional: angular20 on yarn generated json file: dist/fir
       "type": "library",
       "name": "rxjs",
       "version": "7.8.2",
-      "bom-ref": "pkg:npm/rxjs@7.8.2?vcs_url=git%2Bhttps%3A%2F%2Fgithub.com%2Freactivex%2Frxjs.git",
+      "bom-ref": "rxjs@7.8.2",
       "author": "Ben Lesh",
       "description": "Reactive Extensions for modern JavaScript",
       "licenses": [
@@ -461,7 +459,7 @@ exports[`integration functional: angular20 on yarn generated json file: dist/fir
       "type": "library",
       "name": "tslib",
       "version": "2.8.1",
-      "bom-ref": "pkg:npm/tslib@2.8.1?vcs_url=git%2Bhttps%3A%2F%2Fgithub.com%2FMicrosoft%2Ftslib.git",
+      "bom-ref": "tslib@2.8.1",
       "author": "Microsoft Corp.",
       "description": "Runtime library for TypeScript helper functions",
       "licenses": [
@@ -509,7 +507,7 @@ exports[`integration functional: angular20 on yarn generated json file: dist/fir
       "type": "library",
       "name": "zone.js",
       "version": "0.15.1",
-      "bom-ref": "pkg:npm/zone.js@0.15.1?vcs_url=git%3A%2F%2Fgithub.com%2Fangular%2Fangular.git#packages/zone.js",
+      "bom-ref": "zone.js@0.15.1",
       "author": "Brian Ford",
       "description": "Zones for JavaScript",
       "licenses": [
@@ -520,7 +518,7 @@ exports[`integration functional: angular20 on yarn generated json file: dist/fir
           }
         }
       ],
-      "purl": "pkg:npm/zone.js@0.15.1?vcs_url=git%3A%2F%2Fgithub.com%2Fangular%2Fangular.git#packages/zone.js",
+      "purl": "pkg:npm/zone.js@0.15.1?vcs_url=git%3A%2F%2Fgithub.com%2Fangular%2Fangular.git%23packages%2Fzone.js",
       "externalReferences": [
         {
           "url": "https://github.com/angular/angular/issues",
@@ -556,37 +554,37 @@ exports[`integration functional: angular20 on yarn generated json file: dist/fir
   ],
   "dependencies": [
     {
-      "ref": "pkg:npm/%40angular/cdk@20.2.2?vcs_url=git%2Bhttps%3A%2F%2Fgithub.com%2Fangular%2Fcomponents.git"
+      "ref": "@angular/cdk@20.2.2"
     },
     {
-      "ref": "pkg:npm/%40angular/common@20.2.2?vcs_url=git%2Bhttps%3A%2F%2Fgithub.com%2Fangular%2Fangular.git#packages/common"
+      "ref": "@angular/common@20.2.2"
     },
     {
-      "ref": "pkg:npm/%40angular/core@20.2.2?vcs_url=git%2Bhttps%3A%2F%2Fgithub.com%2Fangular%2Fangular.git#packages/core"
+      "ref": "@angular/core@20.2.2"
     },
     {
-      "ref": "pkg:npm/%40angular/forms@20.2.2?vcs_url=git%2Bhttps%3A%2F%2Fgithub.com%2Fangular%2Fangular.git#packages/forms"
+      "ref": "@angular/forms@20.2.2"
     },
     {
-      "ref": "pkg:npm/%40angular/material@20.2.2?vcs_url=git%2Bhttps%3A%2F%2Fgithub.com%2Fangular%2Fcomponents.git"
+      "ref": "@angular/material@20.2.2"
     },
     {
-      "ref": "pkg:npm/%40angular/platform-browser@20.2.2?vcs_url=git%2Bhttps%3A%2F%2Fgithub.com%2Fangular%2Fangular.git#packages/platform-browser"
+      "ref": "@angular/platform-browser@20.2.2"
     },
     {
-      "ref": "pkg:npm/%40cyclonedx/cyclonedx-eslint-testbed-angular20-yarn@0.0.0"
+      "ref": "@cyclonedx/cyclonedx-eslint-testbed-angular20-yarn@0.0.0"
     },
     {
-      "ref": "pkg:npm/%40cyclonedx/cyclonedx-eslint-testing-custom-package@0.0.1"
+      "ref": "@cyclonedx/cyclonedx-eslint-testing-custom-package@0.0.1"
     },
     {
-      "ref": "pkg:npm/rxjs@7.8.2?vcs_url=git%2Bhttps%3A%2F%2Fgithub.com%2Freactivex%2Frxjs.git"
+      "ref": "rxjs@7.8.2"
     },
     {
-      "ref": "pkg:npm/tslib@2.8.1?vcs_url=git%2Bhttps%3A%2F%2Fgithub.com%2FMicrosoft%2Ftslib.git"
+      "ref": "tslib@2.8.1"
     },
     {
-      "ref": "pkg:npm/zone.js@0.15.1?vcs_url=git%3A%2F%2Fgithub.com%2Fangular%2Fangular.git#packages/zone.js"
+      "ref": "zone.js@0.15.1"
     }
   ]
 }"
@@ -682,7 +680,7 @@ exports[`integration functional: esbuild latest generated json file: dist/bom.js
       "name": "cyclonedx-eslint-testbed-esbuild-latest",
       "group": "@cyclonedx",
       "version": "1.0.0",
-      "bom-ref": "pkg:npm/%40cyclonedx/cyclonedx-eslint-testbed-esbuild-latest@1.0.0",
+      "bom-ref": "@cyclonedx/cyclonedx-eslint-testbed-esbuild-latest@1.0.0",
       "description": "Example using esbuild wit the latest supported version",
       "licenses": [
         {
@@ -692,7 +690,6 @@ exports[`integration functional: esbuild latest generated json file: dist/bom.js
           }
         }
       ],
-      "purl": "pkg:npm/%40cyclonedx/cyclonedx-eslint-testbed-esbuild-latest@1.0.0",
       "evidence": {}
     }
   },
@@ -702,7 +699,7 @@ exports[`integration functional: esbuild latest generated json file: dist/bom.js
       "name": "cyclonedx-eslint-testing-custom-package",
       "group": "@cyclonedx",
       "version": "0.0.1",
-      "bom-ref": "pkg:npm/%40cyclonedx/cyclonedx-eslint-testing-custom-package@0.0.1",
+      "bom-ref": "@cyclonedx/cyclonedx-eslint-testing-custom-package@0.0.1",
       "description": "this is a dummy package for showcasing purposes only.\\n",
       "licenses": [
         {
@@ -712,7 +709,6 @@ exports[`integration functional: esbuild latest generated json file: dist/bom.js
           }
         }
       ],
-      "purl": "pkg:npm/%40cyclonedx/cyclonedx-eslint-testing-custom-package@0.0.1",
       "evidence": {
         "licenses": [
           {
@@ -731,10 +727,10 @@ exports[`integration functional: esbuild latest generated json file: dist/bom.js
   ],
   "dependencies": [
     {
-      "ref": "pkg:npm/%40cyclonedx/cyclonedx-eslint-testbed-esbuild-latest@1.0.0"
+      "ref": "@cyclonedx/cyclonedx-eslint-testbed-esbuild-latest@1.0.0"
     },
     {
-      "ref": "pkg:npm/%40cyclonedx/cyclonedx-eslint-testing-custom-package@0.0.1"
+      "ref": "@cyclonedx/cyclonedx-eslint-testing-custom-package@0.0.1"
     }
   ]
 }"
@@ -829,7 +825,7 @@ exports[`integration functional: esbuild lowest generated json file: dist/bom.js
       "name": "cyclonedx-eslint-testbed-esbuild-lowest",
       "group": "@cyclonedx",
       "version": "1.0.0",
-      "bom-ref": "pkg:npm/%40cyclonedx/cyclonedx-eslint-testbed-esbuild-lowest@1.0.0",
+      "bom-ref": "@cyclonedx/cyclonedx-eslint-testbed-esbuild-lowest@1.0.0",
       "description": "Example using esbuild wit the lowest supported version",
       "licenses": [
         {
@@ -839,7 +835,6 @@ exports[`integration functional: esbuild lowest generated json file: dist/bom.js
           }
         }
       ],
-      "purl": "pkg:npm/%40cyclonedx/cyclonedx-eslint-testbed-esbuild-lowest@1.0.0",
       "evidence": {}
     }
   },
@@ -849,7 +844,7 @@ exports[`integration functional: esbuild lowest generated json file: dist/bom.js
       "name": "cyclonedx-eslint-testing-custom-package",
       "group": "@cyclonedx",
       "version": "0.0.1",
-      "bom-ref": "pkg:npm/%40cyclonedx/cyclonedx-eslint-testing-custom-package@0.0.1",
+      "bom-ref": "@cyclonedx/cyclonedx-eslint-testing-custom-package@0.0.1",
       "description": "this is a dummy package for showcasing purposes only.\\n",
       "licenses": [
         {
@@ -859,7 +854,6 @@ exports[`integration functional: esbuild lowest generated json file: dist/bom.js
           }
         }
       ],
-      "purl": "pkg:npm/%40cyclonedx/cyclonedx-eslint-testing-custom-package@0.0.1",
       "evidence": {
         "licenses": [
           {
@@ -878,10 +872,10 @@ exports[`integration functional: esbuild lowest generated json file: dist/bom.js
   ],
   "dependencies": [
     {
-      "ref": "pkg:npm/%40cyclonedx/cyclonedx-eslint-testbed-esbuild-lowest@1.0.0"
+      "ref": "@cyclonedx/cyclonedx-eslint-testbed-esbuild-lowest@1.0.0"
     },
     {
-      "ref": "pkg:npm/%40cyclonedx/cyclonedx-eslint-testing-custom-package@0.0.1"
+      "ref": "@cyclonedx/cyclonedx-eslint-testing-custom-package@0.0.1"
     }
   ]
 }"
@@ -977,7 +971,7 @@ exports[`integration functional: simple typescript bundling on npm generated jso
       "name": "cyclonedx-eslint-testbed-typescript-npm",
       "group": "@cyclonedx",
       "version": "1.0.0",
-      "bom-ref": "pkg:npm/%40cyclonedx/cyclonedx-eslint-testbed-typescript-npm@1.0.0",
+      "bom-ref": "@cyclonedx/cyclonedx-eslint-testbed-typescript-npm@1.0.0",
       "description": "TypeScript example using esbuild with npm",
       "licenses": [
         {
@@ -987,7 +981,6 @@ exports[`integration functional: simple typescript bundling on npm generated jso
           }
         }
       ],
-      "purl": "pkg:npm/%40cyclonedx/cyclonedx-eslint-testbed-typescript-npm@1.0.0",
       "evidence": {}
     }
   },
@@ -997,7 +990,7 @@ exports[`integration functional: simple typescript bundling on npm generated jso
       "name": "cyclonedx-eslint-testing-custom-package",
       "group": "@cyclonedx",
       "version": "0.0.1",
-      "bom-ref": "pkg:npm/%40cyclonedx/cyclonedx-eslint-testing-custom-package@0.0.1",
+      "bom-ref": "@cyclonedx/cyclonedx-eslint-testing-custom-package@0.0.1",
       "description": "this is a dummy package for showcasing purposes only.\\n",
       "licenses": [
         {
@@ -1007,7 +1000,6 @@ exports[`integration functional: simple typescript bundling on npm generated jso
           }
         }
       ],
-      "purl": "pkg:npm/%40cyclonedx/cyclonedx-eslint-testing-custom-package@0.0.1",
       "evidence": {
         "licenses": [
           {
@@ -1026,10 +1018,10 @@ exports[`integration functional: simple typescript bundling on npm generated jso
   ],
   "dependencies": [
     {
-      "ref": "pkg:npm/%40cyclonedx/cyclonedx-eslint-testbed-typescript-npm@1.0.0"
+      "ref": "@cyclonedx/cyclonedx-eslint-testbed-typescript-npm@1.0.0"
     },
     {
-      "ref": "pkg:npm/%40cyclonedx/cyclonedx-eslint-testing-custom-package@0.0.1"
+      "ref": "@cyclonedx/cyclonedx-eslint-testing-custom-package@0.0.1"
     }
   ]
 }"
@@ -1125,7 +1117,7 @@ exports[`integration functional: simple typescript bundling on yarn generated js
       "name": "cyclonedx-eslint-testbed-typescript-yarn",
       "group": "@cyclonedx",
       "version": "1.0.0",
-      "bom-ref": "pkg:npm/%40cyclonedx/cyclonedx-eslint-testbed-typescript-yarn@1.0.0",
+      "bom-ref": "@cyclonedx/cyclonedx-eslint-testbed-typescript-yarn@1.0.0",
       "description": "TypeScript example using esbuild with Yarn 4",
       "licenses": [
         {
@@ -1135,7 +1127,6 @@ exports[`integration functional: simple typescript bundling on yarn generated js
           }
         }
       ],
-      "purl": "pkg:npm/%40cyclonedx/cyclonedx-eslint-testbed-typescript-yarn@1.0.0",
       "evidence": {}
     }
   },
@@ -1145,7 +1136,7 @@ exports[`integration functional: simple typescript bundling on yarn generated js
       "name": "cyclonedx-eslint-testing-custom-package",
       "group": "@cyclonedx",
       "version": "0.0.1",
-      "bom-ref": "pkg:npm/%40cyclonedx/cyclonedx-eslint-testing-custom-package@0.0.1",
+      "bom-ref": "@cyclonedx/cyclonedx-eslint-testing-custom-package@0.0.1",
       "description": "this is a dummy package for showcasing purposes only.\\n",
       "licenses": [
         {
@@ -1155,7 +1146,6 @@ exports[`integration functional: simple typescript bundling on yarn generated js
           }
         }
       ],
-      "purl": "pkg:npm/%40cyclonedx/cyclonedx-eslint-testing-custom-package@0.0.1",
       "evidence": {
         "licenses": [
           {
@@ -1174,10 +1164,10 @@ exports[`integration functional: simple typescript bundling on yarn generated js
   ],
   "dependencies": [
     {
-      "ref": "pkg:npm/%40cyclonedx/cyclonedx-eslint-testbed-typescript-yarn@1.0.0"
+      "ref": "@cyclonedx/cyclonedx-eslint-testbed-typescript-yarn@1.0.0"
     },
     {
-      "ref": "pkg:npm/%40cyclonedx/cyclonedx-eslint-testing-custom-package@0.0.1"
+      "ref": "@cyclonedx/cyclonedx-eslint-testing-custom-package@0.0.1"
     }
   ]
 }"

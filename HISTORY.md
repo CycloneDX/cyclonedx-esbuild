@@ -6,10 +6,20 @@ All notable changes to this project will be documented in this file.
 
 <!-- add unreleased items here -->
 
-* Refactored
-  * Applied latest code style (via [#42]) 
+* Fixed
+  * Qualified PackageURLs (via [#65])
+* Changed
+  * Take care of PackageURL generation ourselves, now (via [#65])  
+    Previously, this was done at best-effort by a 3rd-party library.
+* Style
+  * Applied latest code style (via [#42])
+* Dependencies
+  * Upgraded runtime-dependency `@cyclonedx/cyclonedx-library@^10.0.0` now, was `@^9.2.0` (via [#65])
+  * Added runtime-dependency `packageurl-js@^2.0.1` (via [#65])
+  * Added runtime-dependency `spdx-expression-parse@^3.0.1||^4.0.0` (via [#65])
 
 [#42]: https://github.com/CycloneDX/cyclonedx-esbuild/pull/42
+[#65]: https://github.com/CycloneDX/cyclonedx-esbuild/pull/65
 
 ## 1.0.0 - 2025-11-18
 
