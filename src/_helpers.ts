@@ -17,13 +17,15 @@ SPDX-License-Identifier: Apache-2.0
 Copyright (c) OWASP Foundation. All Rights Reserved.
 */
 
-import {existsSync, readFileSync, writeSync} from "node:fs";
-import {dirname, isAbsolute, join, resolve, sep} from "node:path";
+import {existsSync, readFileSync, writeSync} from "node:fs"
+import {dirname, isAbsolute, join, resolve, sep} from "node:path"
 
-import * as CDX from "@cyclonedx/cyclonedx-library"
-import normalizePackageData from 'normalize-package-data'
+import type { Builders as FromNodePackageJsonBuilders } from "@cyclonedx/cyclonedx-library/Contrib/FromNodePackageJson"
+import {ComponentType} from "@cyclonedx/cyclonedx-library/Enums"
+import type { Component } from "@cyclonedx/cyclonedx-library/Models"
+import normalizePackageData from "normalize-package-data"
 
-import {LogPrefixes} from "./logger";
+import {LogPrefixes} from "./logger"
 
 export function loadJsonFile(path: string): any {
   return JSON.parse(readFileSync(path, 'utf8'))
@@ -88,8 +90,12 @@ export interface PackageDescription<PJ = any> {
   packageJson: NonNullable<PJ>
 }
 
-export function* makeToolCs(selfCTyp: CDX.Enums.ComponentType, builder: CDX.Builders.FromNodePackageJson.ComponentBuilder, logger: Console): Generator<CDX.Models.Component> {
-  const packageJsonPaths: Array<[string, CDX.Enums.ComponentType]> = [
+export function * makeToolCs(
+  selfCTyp: ComponentType,
+  builder: FromNodePackageJsonBuilders.ComponentBuilder,
+  logger: Console
+): Generator<Component> {
+  const packageJsonPaths: Array<[string, ComponentType]> = [
     // this plugin is an optional enhancement, not a standalone application -- use as `Library`
     [resolve(module.path, '..', 'package.json'), selfCTyp]
   ]
@@ -104,7 +110,7 @@ export function* makeToolCs(selfCTyp: CDX.Enums.ComponentType, builder: CDX.Buil
       for (const nodeModulePath of nodeModulePaths) {
         const packageJsonPath = resolve(nodeModulePath, ...lib, 'package.json')
         if (existsSync(packageJsonPath)) {
-          packageJsonPaths.push([packageJsonPath, CDX.Enums.ComponentType.Library])
+          packageJsonPaths.push([packageJsonPath, ComponentType.Library])
           continue libsLoop
         }
       }
@@ -140,7 +146,7 @@ export class ValidationError extends Error {
 
 export const PACKAGE_MANIFEST_FILENAME = 'package.json'
 
-export function getPackageDescription(ppath: string): PackageDescription<ValidPackageJSON> | undefined {
+export function getPackageConfig(ppath: string): PackageDescription<ValidPackageJSON> | undefined {
   if (!existsSync(ppath)) {
     return undefined
   }
@@ -190,7 +196,7 @@ export function isValidPackageJSON(pkg: any): pkg is ValidPackageJSON {
   // both are required for a valid package.json according to https://docs.npmjs.com/cli/v10/configuring-npm/package-json
   return isNonNullable(pkg)
     /* eslint-disable @typescript-eslint/no-unsafe-member-access -- false-positive */
-    && typeof pkg.name === 'string'
-    && typeof pkg.version === 'string'
-  /* eslint-enable @typescript-eslint/no-unsafe-member-access */
+    && isString(pkg.name)
+    && isString(pkg.version)
+    /* eslint-enable @typescript-eslint/no-unsafe-member-access */
 }
