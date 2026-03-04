@@ -20,7 +20,7 @@ Copyright (c) OWASP Foundation. All Rights Reserved.
 "use strict"
 
 import * as  esbuild from 'esbuild'
-import {cyclonedxEsbuildPlugin} from 'cyclonedx-esbuild'
+import {cyclonedxEsbuildPlugin} from '@cyclonedx/cyclonedx-esbuild'
 
 async function build() {
     try {
