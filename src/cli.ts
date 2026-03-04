@@ -148,7 +148,7 @@ function makeCommand(process_: NodeJS.Process): Command {
 
 
 /** @internal */
-/* eslint-disable-next-line complexity -- TODO  */
+
 export async function run(process_: NodeJS.Process): Promise<number> {
   process_.title = 'cyclonedx-esbuild' /* eslint-disable-line  no-param-reassign -- ack */
 
@@ -189,6 +189,7 @@ export async function run(process_: NodeJS.Process): Promise<number> {
     loadJsonFile(metafile) as esbuild.Metafile,
     options.esbuildWorkingDir,
     options.gatherLicenseTexts,
+    options.outputReproducible,
     logger)
   for (const toolC of makeToolCs(ComponentType.Application, cdxComponentBuilder, logger)) {
     bom.metadata.tools.components.add(toolC)
@@ -199,8 +200,11 @@ export async function run(process_: NodeJS.Process): Promise<number> {
   bom.metadata.timestamp = options.outputReproducible
     ? undefined
     : new Date()
-  if (bom.metadata.component !== undefined) {
-    bom.metadata.component.type = options.mcType
+  const rComponent = bom.metadata.component
+  if (undefined !== rComponent) {
+    rComponent.type = options.mcType
+    /* eslint-disable-next-line  @typescript-eslint/prefer-nullish-coalescing -- intended for empty strings */
+    rComponent.bomRef.value ||= '__root_component__'
   }
   // endregion make BOM
 
