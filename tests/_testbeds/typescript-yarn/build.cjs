@@ -20,7 +20,7 @@ Copyright (c) OWASP Foundation. All Rights Reserved.
 "use strict"
 
 const esbuild = require('esbuild')
-const {cyclonedxEsbuildPlugin} = require('cyclonedx-esbuild')
+const {cyclonedxEsbuildPlugin} = require('@cyclonedx/cyclonedx-esbuild')
 
 async function build() {
     try {

@@ -5,13 +5,19 @@ __metadata:
   version: 8
   cacheKey: 10c0
 
+"@cyclonedx/cyclonedx-esbuild@link:../../../::locator=%40cyclonedx%2Fcyclonedx-eslint-testbed-typescript-yarn%40workspace%3A.":
+  version: 0.0.0-use.local
+  resolution: "@cyclonedx/cyclonedx-esbuild@link:../../../::locator=%40cyclonedx%2Fcyclonedx-eslint-testbed-typescript-yarn%40workspace%3A."
+  languageName: node
+  linkType: soft
+
 "@cyclonedx/cyclonedx-eslint-testbed-typescript-yarn@workspace:.":
   version: 0.0.0-use.local
   resolution: "@cyclonedx/cyclonedx-eslint-testbed-typescript-yarn@workspace:."
   dependencies:
+    "@cyclonedx/cyclonedx-esbuild": "link:../../../"
     "@types/node": "npm:ts5.9"
     custom-package: "file:../../_data/custom-package/package.tgz"
-    cyclonedx-esbuild: "link:../../../"
     esbuild: "npm:0.27.0"
     typescript: "npm:5.9.3"
   languageName: unknown
@@ -214,12 +220,6 @@ __metadata:
   checksum: 10c0/7ff078461a78bf832e2d660387b2c930f39767379edaf396580eedd3439d9ef7ea1a48db61e3267c1195c4d733a7c80a4d6b0a993b67860ce4c94b47ab75c004
   languageName: node
   linkType: hard
-
-"cyclonedx-esbuild@link:../../../::locator=%40cyclonedx%2Fcyclonedx-eslint-testbed-typescript-yarn%40workspace%3A.":
-  version: 0.0.0-use.local
-  resolution: "cyclonedx-esbuild@link:../../../::locator=%40cyclonedx%2Fcyclonedx-eslint-testbed-typescript-yarn%40workspace%3A."
-  languageName: node
-  linkType: soft
 
 "esbuild@npm:0.27.0":
   version: 0.27.0
