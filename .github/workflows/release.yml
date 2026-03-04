@@ -21,7 +21,7 @@ on:
           - rc
           - beta
           - alpha
-        default: rcnpm i -g npm@^
+        default: rc
         required: false
       prerelease:
         description: "This is a pre-release"
