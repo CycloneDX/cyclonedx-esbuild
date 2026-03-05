@@ -35,7 +35,7 @@
     "watch": "ng build --watch --configuration development",
     "build:ng": "ng build --stats-json",
     "build:sbom": "yarn node ../../../bin/cyclonedx-esbuild-cli.js -vvv --gather-license-texts --output-reproducible -o dist/first-app/bom.json dist/first-app/stats.json",
-    "build": "echo 'skip yarn run build:ng' && yarn run build:sbom"
+    "build": "yarn run build:ng && yarn run build:sbom"
   },
   "packageManager": "yarn@4.11.0"
 }
