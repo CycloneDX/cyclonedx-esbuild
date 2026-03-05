@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
-exports[`integration functional: angular20 on yarn generated json file: dist/first-app/bom.json 1`] = `
+exports[`integration functional: angular20 on npm generated json file: dist/first-app/bom.json 1`] = `
 "{
   "$schema": "http://cyclonedx.org/schema/bom-1.6.schema.json",
   "bomFormat": "CycloneDX",
