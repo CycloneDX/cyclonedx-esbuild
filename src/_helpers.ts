@@ -205,6 +205,7 @@ export function isValidPackageJSON(pkg: any): pkg is ValidPackageJSON {
     /* eslint-enable @typescript-eslint/no-unsafe-member-access */
 }
 
+// @ts-ignore // TODO
 function sha256(data: BinaryLike): string  {
   return createHash('sha256').update(data).digest('hex')
 }
@@ -270,7 +271,7 @@ function getBunCacheFolder(cwd: string): string | null {
 function mkRelativePath(absRoot: string, absPath: string): string {
   const ybvcf = YarnBerryVirtualCacheRE.exec(absPath)?.[0]
   if (ybvcf !== undefined) {
-    return `yarnCache:${absPath.slice(ybvcf.length)}`
+    return `yarnVBCache:${absPath.slice(ybvcf.length)}`
   }
 
   const ycf = getYarnCacheFolder(absRoot)
@@ -287,7 +288,7 @@ function mkRelativePath(absRoot: string, absPath: string): string {
 }
 
 export function mkRelativePathReproducibleHash(absRoot: string, absPath: string): string {
-  return sha256(
+  return (//sha256( // TODO
     mkRelativePath(absRoot, absPath).replace(sep, '/')
   )
 }
