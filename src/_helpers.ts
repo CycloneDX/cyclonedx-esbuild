@@ -210,6 +210,8 @@ function sha256(data: BinaryLike): string  {
   return createHash('sha256').update(data).digest('hex')
 }
 
+const spawRequiresShell = process.platform === "win32"
+
 // region relative paths
 
 // TODO use `yarn config get virtualFolder` result
@@ -224,7 +226,8 @@ function getYarnCacheFolder(cwd: string): string | null {
     const sr2 = spawnSync('yarn', ['config', 'get', 'cacheFolder'], {
       stdio: ['ignore', 'pipe', 'ignore'],
       encoding: 'utf-8',
-      cwd
+      cwd,
+        shell: spawRequiresShell,
     })
     if (sr2.status === 0) {
       cf = sr2.stdout.trim()
@@ -233,7 +236,8 @@ function getYarnCacheFolder(cwd: string): string | null {
       const sr1 = spawnSync('yarn', ['cache', 'dir'], {
           stdio: ['ignore', 'pipe', 'ignore'],
           encoding: 'utf-8',
-          cwd
+          cwd,
+        shell: spawRequiresShell,
         })
       if (sr1.status === 0) {
         cf = sr1.stdout.trim()
@@ -255,7 +259,8 @@ function getBunCacheFolder(cwd: string): string | null {
     const sr = spawnSync('bun', ['pm', 'cache'], {
         stdio: ['ignore', 'pipe', 'ignore'],
         encoding: 'utf-8',
-        cwd
+        cwd,
+        shell: spawRequiresShell,
       })
     if (sr.status === 0) {
       cf = sr.stdout.trim()
@@ -289,7 +294,7 @@ function mkRelativePath(absRoot: string, absPath: string): string {
 
 export function mkRelativePathReproducibleHash(absRoot: string, absPath: string): string {
   return (//sha256( // TODO
-    mkRelativePath(absRoot, absPath).replace(sep, '/')
+    mkRelativePath(absRoot, absPath).replaceAll(sep, '/')
   )
 }
 
