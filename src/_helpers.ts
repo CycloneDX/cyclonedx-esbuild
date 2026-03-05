@@ -205,8 +205,7 @@ export function isValidPackageJSON(pkg: any): pkg is ValidPackageJSON {
     /* eslint-enable @typescript-eslint/no-unsafe-member-access */
 }
 
-// @ts-ignore // TODO
-function sha256(data: BinaryLike): string  {
+function sha256hex(data: BinaryLike): string  {
   return createHash('sha256').update(data).digest('hex')
 }
 
@@ -215,7 +214,7 @@ const spawRequiresShell = process.platform === "win32"
 // region relative paths
 
 // TODO use `yarn config get virtualFolder` result
-const YarnBerryVirtualCacheRE = /^.*[/\\].yarn[/\\]__virtual__[/\\][^/\\]+[/\\]\d[/\\].yarn[/\\]berry[/\\]cache[/\\]/
+const YarnBerryVirtualCacheRE = /^.*[/\\]__virtual__[/\\][^/\\]+[/\\]\d[/\\].yarn[/\\]berry[/\\]cache[/\\]/
 
 const _YarnCacheFolders = new Map<string, string | null | undefined>()
 function getYarnCacheFolder(cwd: string): string | null {
@@ -293,9 +292,7 @@ function mkRelativePath(absRoot: string, absPath: string): string {
 }
 
 export function mkRelativePathReproducibleHash(absRoot: string, absPath: string): string {
-  return (//sha256( // TODO
-    mkRelativePath(absRoot, absPath).replaceAll(sep, '/')
-  )
+  return sha256hex(mkRelativePath(absRoot, absPath).replaceAll(sep, '/'))
 }
 
 // endregion relative paths
