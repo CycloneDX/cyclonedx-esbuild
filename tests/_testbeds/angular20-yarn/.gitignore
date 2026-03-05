@@ -43,3 +43,11 @@ yarn-error.log*
 ## override: we do want locks
 !/package-lock.json
 !/yarn.lock
+
+## override: we do need the prepared build stats.json
+!/dist
+/dist/*
+!/dist/first-app
+/dist/first-app/*
+!/dist/first-app/stats.json
+
