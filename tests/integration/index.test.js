@@ -28,9 +28,9 @@ const { version: thisVersion } = require('../../package.json')
 
 const testSetups = [
   {
-    dir: 'angular20-yarn',
-    purpose: 'functional: angular20 on yarn',
-    packageManager: 'yarn',
+    dir: 'angular20-npm',
+    purpose: 'functional: angular20 on npm',
+    packageManager: 'npm',
     results: [ // paths relative to `dir`
       {
         format: 'json',

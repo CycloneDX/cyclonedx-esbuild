@@ -32,6 +32,7 @@ const MANAGERS = {
     cmd: 'npm',
     args: ['ci', '--ignore-scripts'],
     dirs: [
+      'angular20-npm',
       'typescript-npm'
     ]
   },
@@ -53,7 +54,6 @@ const MANAGERS = {
     cmd: 'yarn',
     args: ['install', '--immutable', '--mode=skip-build'],
     dirs: [
-      'angular20-yarn',
       'typescript-yarn',
     ]
   },

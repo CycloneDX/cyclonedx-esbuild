@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "devEngines": {
     "packageManager": {
-      "name": "yarn",
+      "name": "npm",
       "onFail": "error"
     }
   },
@@ -26,7 +26,6 @@
     "@angular/build": "20.2.2",
     "@angular/cli": "20.2.2",
     "@angular/compiler-cli": "20.2.2",
-    "@cyclonedx/cyclonedx-esbuild": "link:../../../",
     "typescript": "5.8.3"
   },
   "scripts": {
@@ -34,8 +33,7 @@
     "start": "ng serve",
     "watch": "ng build --watch --configuration development",
     "build:ng": "ng build --stats-json",
-    "build:sbom": "yarn node ../../../bin/cyclonedx-esbuild-cli.js -vvv --gather-license-texts --output-reproducible -o dist/first-app/bom.json dist/first-app/stats.json",
-    "build": "yarn run build:ng && yarn run build:sbom"
-  },
-  "packageManager": "yarn@4.11.0"
+    "build:sbom": "node ../../../bin/cyclonedx-esbuild-cli.js -vvv --gather-license-texts --output-reproducible -o dist/first-app/bom.json dist/first-app/stats.json",
+    "build": "npm run build:ng && npm run build:sbom"
+  }
 }
