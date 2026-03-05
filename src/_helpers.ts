@@ -226,7 +226,7 @@ function getYarnCacheFolder(cwd: string): string | null {
       stdio: ['ignore', 'pipe', 'ignore'],
       encoding: 'utf-8',
       cwd,
-        shell: spawRequiresShell,
+      shell: spawRequiresShell,
     })
     if (sr2.status === 0) {
       cf = sr2.stdout.trim()
@@ -236,7 +236,7 @@ function getYarnCacheFolder(cwd: string): string | null {
           stdio: ['ignore', 'pipe', 'ignore'],
           encoding: 'utf-8',
           cwd,
-        shell: spawRequiresShell,
+          shell: spawRequiresShell,
         })
       if (sr1.status === 0) {
         cf = sr1.stdout.trim()
