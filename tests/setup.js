@@ -33,7 +33,8 @@ const MANAGERS = {
     args: ['ci', '--ignore-scripts'],
     dirs: [
       'angular20-npm',
-      'typescript-npm'
+      'typescript-npm',
+      'juice-shop-frontend'
     ]
   },
   npm_with_scripts: {

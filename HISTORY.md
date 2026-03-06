@@ -6,6 +6,11 @@ All notable changes to this project will be documented in this file.
 
 <!-- add unreleased items here -->
 
+* Fixed
+  * Reproducible BomRef values (via [#74])
+
+[#74]: https://github.com/CycloneDX/cyclonedx-esbuild/pull/74
+
 ## 1.1.0 - 2026-03-03
 
 * Fixed

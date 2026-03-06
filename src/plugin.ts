@@ -167,6 +167,7 @@ export const cyclonedxEsbuildPlugin = (opts: CycloneDxEsbuildPluginOptions = {})
         result.metafile,
         esbuildWorkingDir,
         options.gatherLicenseTexts,
+        options.outputReproducible,
         logger)
       bom.metadata.lifecycles.add(LifecyclePhase.Build)
       bom.metadata.tools.components.add(new Component(
@@ -186,9 +187,12 @@ export const cyclonedxEsbuildPlugin = (opts: CycloneDxEsbuildPluginOptions = {})
       bom.metadata.timestamp = options.outputReproducible
         ? undefined
         : new Date()
-      if (bom.metadata.component !== undefined) {
+      const rComponent = bom.metadata.component
+      if (undefined !== rComponent) {
         /* eslint-disable-next-line  @typescript-eslint/no-unsafe-type-assertion -- ack */
-        bom.metadata.component.type = options.mcType as ComponentType
+        rComponent.type = options.mcType as ComponentType
+        /* eslint-disable-next-line  @typescript-eslint/prefer-nullish-coalescing -- intended for empty strings */
+        rComponent.bomRef.value ||= '__root_component__'
       }
       // endregion make BOM
 

@@ -17,7 +17,7 @@ SPDX-License-Identifier: Apache-2.0
 Copyright (c) OWASP Foundation. All Rights Reserved.
 */
 
-import {dirname, resolve} from "node:path";
+import { dirname, resolve } from "node:path";
 
 import type { Builders as FromNodePackageJsonBuilders } from "@cyclonedx/cyclonedx-library/Contrib/FromNodePackageJson"
 import type { Utils as LicenseUtils } from "@cyclonedx/cyclonedx-library/Contrib/License"
@@ -27,7 +27,12 @@ import { Bom, ComponentEvidence, LicenseRepository, NamedLicense } from "@cyclon
 import type * as esbuild from "esbuild"
 import type normalizePackageData from "normalize-package-data"
 
-import { getPackageConfig, normalizePackageManifest, type PackageDescription } from "./_helpers";
+import type { PackageDescription } from "./_helpers";
+import {
+  getPackageConfig,
+  mkRelativePathReproducibleHash,
+  normalizePackageManifest,
+} from "./_helpers";
 import type { PackageUrlFactory } from "./factories";
 import { LogPrefixes } from "./logger";
 
@@ -47,10 +52,12 @@ export class BomBuilder {
     this.leGatherer = leFetcher
   }
 
+  /* eslint-disable-next-line @typescript-eslint/max-params -- ack */
   public fromMetafile(
     metafile: esbuild.Metafile,
     buildWorkingDir: string,
     collectEvidence: boolean,
+    outputReproducible: boolean,
     logger: Console
   ): Bom {
     logger.debug(LogPrefixes.DEBUG, `metafile:`, metafile)
@@ -58,14 +65,22 @@ export class BomBuilder {
 
     logger.info(LogPrefixes.INFO, 'generating components...')
     const components = this.generateComponents(buildWorkingDir, metafile, collectEvidence, logger)
+    if ( outputReproducible ) {
+      components.forEach((component, pkgPath) => {
+        /* eslint-disable-next-line no-param-reassign -- ack */
+        component.bomRef.value = mkRelativePathReproducibleHash(buildWorkingDir, pkgPath)
+      })
+    }
+
     const rcPath = getPackageConfig(buildWorkingDir)?.path
-      ?? buildWorkingDir
-    const mainComponent = components.get(rcPath)
+    const mainComponent = rcPath === undefined ? undefined : components.get(rcPath)
     if (undefined !== mainComponent) {
       logger.debug(LogPrefixes.DEBUG, 'set bom.metadata.component', mainComponent)
       bom.metadata.component = mainComponent
-      components.delete(rcPath)
+      /* eslint-disable-next-line @typescript-eslint/no-non-null-assertion -- ack */
+      components.delete(rcPath!)
     }
+
     for (const component of new Set(components.values())) {
       logger.debug(LogPrefixes.DEBUG, `add to bom.components`, component)
       bom.components.add(component)

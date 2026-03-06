@@ -39,6 +39,17 @@ const testSetups = [
     ]
   },
   {
+    dir: 'juice-shop-frontend',
+    purpose: 'functional: juice-shop frontend on npm',
+    packageManager: 'npm',
+    results: [ // paths relative to `dir`
+      {
+        format: 'json',
+        file: 'dist/bom/bom.json'
+      },
+    ]
+  },
+  {
     dir: 'esbuild-lowest',
     purpose: 'functional: esbuild lowest',
     packageManager: 'npm',
