@@ -125,7 +125,11 @@ jobs:
 
   test-jest:
     needs: [ 'build' ]
-    name: test:Jest (node${{ matrix.node-version }}, ${{ matrix.os }})
+    name: >
+      test:Jest
+      node${{ matrix.node-version }}
+      ${{ matrix.os }}
+      ${{ (matrix.experimental == true) && '[experimental]' || '' }}
     timeout-minutes: 30
     runs-on: ${{ matrix.os }}
     strategy:
@@ -144,9 +148,7 @@ jobs:
           - "20"
           - "20.18.0" # lowest supported
         include:
-          - node: "25"
-            experimental: true
-          - node: "20"
+          - node-version: "25"
             experimental: true
     continue-on-error: ${{ matrix.experimental == true }}
     steps:
