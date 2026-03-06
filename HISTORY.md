@@ -8,8 +8,10 @@ All notable changes to this project will be documented in this file.
 
 * Fixed
   * Reproducible BomRef values (via [#74])
+  * Properly generate PackageURLs for private packages (via [#])
 
 [#74]: https://github.com/CycloneDX/cyclonedx-esbuild/pull/74
+[#]: 
 
 ## 1.1.0 - 2026-03-03
 
