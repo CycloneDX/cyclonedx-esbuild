@@ -81,6 +81,7 @@ exports[`integration functional: angular20 on npm generated json file: dist/firs
       "group": "@cyclonedx",
       "version": "0.0.0",
       "bom-ref": "7ae45ad102eab3b6d7e7896acd08c427a9b25b346470d7bc6507b6481575d519",
+      "purl": "pkg:npm/%40cyclonedx/cyclonedx-eslint-testbed-angular20-yarn@0.0.0",
       "evidence": {}
     }
   },
@@ -100,6 +101,7 @@ exports[`integration functional: angular20 on npm generated json file: dist/firs
           }
         }
       ],
+      "purl": "pkg:npm/%40cyclonedx/cyclonedx-eslint-testing-custom-package@0.0.1",
       "evidence": {
         "licenses": [
           {
@@ -690,6 +692,7 @@ exports[`integration functional: esbuild latest generated json file: dist/bom.js
           }
         }
       ],
+      "purl": "pkg:npm/%40cyclonedx/cyclonedx-eslint-testbed-esbuild-latest@1.0.0",
       "evidence": {}
     }
   },
@@ -709,6 +712,7 @@ exports[`integration functional: esbuild latest generated json file: dist/bom.js
           }
         }
       ],
+      "purl": "pkg:npm/%40cyclonedx/cyclonedx-eslint-testing-custom-package@0.0.1",
       "evidence": {
         "licenses": [
           {
@@ -835,6 +839,7 @@ exports[`integration functional: esbuild lowest generated json file: dist/bom.js
           }
         }
       ],
+      "purl": "pkg:npm/%40cyclonedx/cyclonedx-eslint-testbed-esbuild-lowest@1.0.0",
       "evidence": {}
     }
   },
@@ -854,6 +859,7 @@ exports[`integration functional: esbuild lowest generated json file: dist/bom.js
           }
         }
       ],
+      "purl": "pkg:npm/%40cyclonedx/cyclonedx-eslint-testing-custom-package@0.0.1",
       "evidence": {
         "licenses": [
           {
@@ -4590,6 +4596,7 @@ exports[`integration functional: simple typescript bundling on npm generated jso
           }
         }
       ],
+      "purl": "pkg:npm/%40cyclonedx/cyclonedx-eslint-testbed-typescript-npm@1.0.0",
       "evidence": {}
     }
   },
@@ -4609,6 +4616,7 @@ exports[`integration functional: simple typescript bundling on npm generated jso
           }
         }
       ],
+      "purl": "pkg:npm/%40cyclonedx/cyclonedx-eslint-testing-custom-package@0.0.1",
       "evidence": {
         "licenses": [
           {
@@ -4736,6 +4744,7 @@ exports[`integration functional: simple typescript bundling on yarn generated js
           }
         }
       ],
+      "purl": "pkg:npm/%40cyclonedx/cyclonedx-eslint-testbed-typescript-yarn@1.0.0",
       "evidence": {}
     }
   },
@@ -4755,6 +4764,7 @@ exports[`integration functional: simple typescript bundling on yarn generated js
           }
         }
       ],
+      "purl": "pkg:npm/%40cyclonedx/cyclonedx-eslint-testing-custom-package@0.0.1",
       "evidence": {
         "licenses": [
           {
