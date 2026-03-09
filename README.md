@@ -17,6 +17,7 @@ Create _[CycloneDX]_ Software Bill of Materials (SBOM) from projects built with 
 This package provides both an **[esbuild plugin](#esbuild-plugin)** and a **[CLI tool](#cli-tool)** to generate CycloneDX SBOMs from your builds.
 
 This package provides:
+
 * a **plugin for _esbuild_-compatible bundlers** — works with _esbuild_ and _Bun_
 * a **CLI tool** for generating SBOMs from esbuild-compatible build [metafiles](https://esbuild.github.io/api/#metafile)
 
@@ -29,7 +30,7 @@ The resulting SBOM documents follow [official specifications and standards](http
 * 🔌 **Plugin for esbuild-compatible bundlers** (_esbuild_, _Bun_)
 * 🖥️ **CLI tool** for generating SBOMs from esbuild-compatible metafiles
 * 🎯 Supports multiple **CycloneDX spec versions** (1.2, 1.3, 1.4, 1.5, 1.6, 1.7)
-* 🔍 Extracts components and dependencies from bundled projects
+* 🔍 Extracts components and dependencies from bundled projects <!-- dependencies components are gathered, but dependency graph is not yet built -->
 * 📝 **License evidence gathering**
 * ✅ **Validates** generated SBOMs against CycloneDX schema
 * 🔄 **Reproducible output** option for consistent SBOM generation
@@ -38,10 +39,12 @@ The resulting SBOM documents follow [official specifications and standards](http
 ## Requirements
 
 One of the following runtimes:
+
 * _Node.js_ `>= 20.18`
 * _Bun_ `>= 1.3.6`
  
 Some features require optional (peer) dependencies — see `package.json` for version constraints.
+
 * _esbuild_ — required when using the plugin with esbuild
 * _ajv_, _ajv-formats_ & _ajv-formats-draft2019_ — required for SBOM JSON result validation
 
