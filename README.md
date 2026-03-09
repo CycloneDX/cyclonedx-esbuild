@@ -1,4 +1,4 @@
-# CycloneDX SBOM generator for _esbuild_
+# CycloneDX SBOM generator for _esbuild_ and _Bun_
 
 [![shield_npm-version]][link_npm]
 [![shield_gh-workflow-test]][link_gh-workflow-test]
