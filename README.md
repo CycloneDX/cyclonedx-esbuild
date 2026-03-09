@@ -160,7 +160,7 @@ See an example here: [integration with Angular20](https://github.com/CycloneDX/c
 
 ### Use with Bun
 
-Since Bun's plugin API is loosely based on esbuild, this plugin can also be used in _Bun_ projects that use the built-in bundler (Bun v1.3.6+).
+Since _Bun_'s plugin API is loosely based on _esbuild_'s, this plugin can also be used in _Bun_ projects that use the built-in bundler (Bun v1.3.6+).
 
 ```typescript
 // build.ts
