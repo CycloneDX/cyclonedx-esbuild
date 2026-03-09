@@ -48,6 +48,7 @@ Use your preferred package manager and install as a dev-dependency:
 npm install --save-dev @cyclonedx/cyclonedx-esbuild
 pnpm add --save-dev @cyclonedx/cyclonedx-esbuild
 yarn add --dev @cyclonedx/cyclonedx-esbuild
+bun add --dev @cyclonedx/cyclonedx-esbuild
 ```
 
 ## Usage
