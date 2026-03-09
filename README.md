@@ -64,7 +64,7 @@ bun add --dev @cyclonedx/cyclonedx-esbuild
 The plugin works with **esbuild-compatible bundlers**.  
 Since Bun provides a plugin API compatible with esbuild, the same plugin can be used in both environments.
 
-#### Esbuild Plugin Options & Configuration
+#### Plugin Options & Configuration
 
 <!-- the following table is based on `src/plugin.ts`::`CycloneDxEsbuildPluginOptions` -->
 
