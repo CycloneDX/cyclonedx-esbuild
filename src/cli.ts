@@ -61,11 +61,11 @@ function makeCommand(process_: NodeJS.Process): Command {
   return new Command(
     /* auto-set the name */
   ).description(
-    'Create CycloneDX Software Bill of Materials (SBOM) from esbuild metafile.'
+    'Create CycloneDX Software Bill of Materials (SBOM) from esbuild-compatible metafile.'
   ).addOption(
     new Option(
       '--ewd, --esbuild-working-dir',
-      'Working dir used in the esbuild process.'
+      'Working dir used in the build process.'
     ).default(
       process_.cwd(),
       'current working dir'
@@ -135,7 +135,7 @@ function makeCommand(process_: NodeJS.Process): Command {
   ).addArgument(
     new Argument(
       '<metafile>',
-      'Path to esbuild metafile'
+      'Path to esbuild-compatible metafile'
     )
   ).version(
     // that is supposed to be the last option in the list on the help page.
