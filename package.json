@@ -7,7 +7,7 @@
   "keywords": [
     "esbuild", "bun",
     "plugin",
-    "esbuild-plugin",
+    "esbuild-plugin", "bun-plugin",
     "CycloneDX",
     "bill-of-materials",
     "BOM",
