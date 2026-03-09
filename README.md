@@ -72,6 +72,7 @@ The _esbuild_ plugin automatically generates an SBOM during your build process.
 #### Esbuild Plugin Example
 
 ```javascript
+// build.js
 const esbuild = require('esbuild');
 const { cyclonedxEsbuildPlugin } = require('@cyclonedx/cyclonedx-esbuild');
 
@@ -155,6 +156,32 @@ For _Angular_ projects using _esbuild_ (Angular 17+), you can generate SBOMs fro
 ```
 
 See an example here: [integration with Angular20](https://github.com/CycloneDX/cyclonedx-esbuild/tree/main/tests/_testbeds/angular20-npm).
+
+
+### Use with Bun
+
+"Bun's plugin API is loosely based on esbuild."  
+Therefore, this plugin may be utilized during __Bun__ build processes just fine.
+
+```typescript
+// build.ts
+import { cyclonedxEsbuildPlugin } from "@cyclonedx/cyclonedx-esbuild"
+
+const result = await Bun.build({
+    // ... 
+    metafile: true, // required for `cyclonedxEsbuildPlugin` to work
+    plugins: [
+        cyclonedxEsbuildPlugin({
+            outputFile: "bom.json",
+            // ...
+        }),
+    ],
+})
+
+export {}
+```
+
+See an example here: [integration with Bun](https://github.com/CycloneDX/cyclonedx-esbuild/tree/main/tests/_testbeds/react19-bun).
 
 ## Internals
 
