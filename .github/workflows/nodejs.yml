@@ -177,11 +177,16 @@ jobs:
           npm i -g npm@^10
           ;;
           esac
-      - name: enable yarn
+      - name: enable yarn   # needed in some tests
         run: |-
           corepack enable yarn
           yarn --version
         working-directory: ..  # prevent evaluation of package.json
+      - name: setup bun   # needed in some tests
+        # see https://github.com/oven-sh/setup-bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
       - name: install project
         shell: bash
         run: |
