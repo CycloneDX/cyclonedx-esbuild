@@ -168,14 +168,14 @@ Therefore, this plugin may be utilized during __Bun__ build processes just fine.
 import { cyclonedxEsbuildPlugin } from "@cyclonedx/cyclonedx-esbuild"
 
 const result = await Bun.build({
-    // ... 
-    metafile: true, // required for `cyclonedxEsbuildPlugin` to work
-    plugins: [
-        cyclonedxEsbuildPlugin({
-            outputFile: "bom.json",
-            // ...
-        }),
-    ],
+  // ... 
+  metafile: true, // required for `cyclonedxEsbuildPlugin` to work
+  plugins: [
+    cyclonedxEsbuildPlugin({
+      outputFile: "bom.json",
+      // ...
+    }),
+  ],
 })
 
 export {}
