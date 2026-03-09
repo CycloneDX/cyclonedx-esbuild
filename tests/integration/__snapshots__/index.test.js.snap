@@ -77,11 +77,11 @@ exports[`integration functional: angular20 on npm generated json file: dist/firs
     },
     "component": {
       "type": "application",
-      "name": "cyclonedx-eslint-testbed-angular20-yarn",
+      "name": "cyclonedx-eslint-testbed-angular20-npm",
       "group": "@cyclonedx",
       "version": "0.0.0",
       "bom-ref": "7ae45ad102eab3b6d7e7896acd08c427a9b25b346470d7bc6507b6481575d519",
-      "purl": "pkg:npm/%40cyclonedx/cyclonedx-eslint-testbed-angular20-yarn@0.0.0",
+      "purl": "pkg:npm/%40cyclonedx/cyclonedx-eslint-testbed-angular20-npm@0.0.0",
       "evidence": {}
     }
   },

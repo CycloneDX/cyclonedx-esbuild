@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": "@cyclonedx/cyclonedx-eslint-testbed-angular20-yarn",
+  "name": "@cyclonedx/cyclonedx-eslint-testbed-angular20-npm",
   "version": "0.0.0",
   "devEngines": {
     "packageManager": {

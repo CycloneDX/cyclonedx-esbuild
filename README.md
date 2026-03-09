@@ -154,7 +154,7 @@ For _Angular_ projects using _esbuild_ (Angular 17+), you can generate SBOMs fro
 }
 ```
 
-See an example here: [integration with Angular20](https://github.com/CycloneDX/cyclonedx-esbuild/tree/main/tests/_testbeds/angular20-yarn).
+See an example here: [integration with Angular20](https://github.com/CycloneDX/cyclonedx-esbuild/tree/main/tests/_testbeds/angular20-npm).
 
 ## Internals
 
