@@ -11,9 +11,7 @@
   "type": "module",
   "scripts": {
     "dev": "bun --hot src/index.ts",
-    "build:bundle": "bun run build.ts",
-    "bun:sbom": "bunx cyclonedx-esbuild ",
-    "build": "bun run build:bundle &&bun run bun:sbom",
+    "build": "bun run build.ts",
     "start": "NODE_ENV=production bun src/index.ts"
   },
   "dependencies": {

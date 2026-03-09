@@ -50,6 +50,17 @@ const testSetups = [
     ]
   },
   {
+    dir: 'react19-bun',
+    purpose: 'functional: react19 on bun',
+    packageManager: 'bun',
+    results: [ // paths relative to `dir`
+      {
+        format: 'json',
+        file: 'dist/bom.json'
+      },
+    ]
+  },
+  {
     dir: 'esbuild-lowest',
     purpose: 'functional: esbuild lowest',
     packageManager: 'npm',
