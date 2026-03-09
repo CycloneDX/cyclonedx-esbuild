@@ -166,7 +166,7 @@ Since _Bun_'s plugin API is loosely based on _esbuild_'s, this plugin can also b
 // build.ts
 import { cyclonedxEsbuildPlugin } from "@cyclonedx/cyclonedx-esbuild"
 
-const result = await Bun.build({
+await Bun.build({
   // ... 
   metafile: true, // required for `cyclonedxEsbuildPlugin` to work
   plugins: [
