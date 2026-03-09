@@ -12,7 +12,7 @@
 
 ----
 
-Create _[CycloneDX]_ Software Bill of Materials (SBOM) from _[esbuild]_ projects.
+Create _[CycloneDX]_ Software Bill of Materials (SBOM) from projects built with _[esbuild]_ or _[Bun]_.
 
 This package provides both an **[esbuild plugin](#esbuild-plugin)** and a **[CLI tool](#cli-tool)** to generate CycloneDX SBOMs from your builds.
 
@@ -219,6 +219,7 @@ See the [LICENSE][license_file] file for the full license.
 
 [CycloneDX]: https://cyclonedx.org/
 [esbuild]: https://esbuild.github.io
+[Bun]: https://bun.com/
 [CycloneDX-javascript-library]: https://github.com/CycloneDX/cyclonedx-javascript-library/
 
 [shield_gh-workflow-test]: https://img.shields.io/github/actions/workflow/status/CycloneDX/cyclonedx-esbuild/nodejs.yml?branch=main&logo=GitHub&logoColor=white "tests"
