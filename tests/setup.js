@@ -25,7 +25,7 @@ const { spawnSync } = require('node:child_process')
 const { existsSync } = require('node:fs')
 const path = require('node:path')
 
-const { TB_ROOTDIR } = require('./')
+const { PROJECT_ROOTDIR, TB_ROOTDIR } = require('./')
 
 const MANAGERS = {
   npm: {
@@ -80,6 +80,15 @@ function setup () {
   `)
 
   process.exitCode = 0
+
+  if (MANAGERS.bun.dirs.length > 0) {
+    console.log(`>>> bun link: ${PROJECT_ROOTDIR}`)
+    spawnSync('bun', ['link'], {
+      cwd: PROJECT_ROOTDIR,
+      stdio: 'inherit',
+      shell: true
+    })
+  }
 
   for (const [name, config] of Object.entries(MANAGERS)) {
     for (const dir of config.dirs) {

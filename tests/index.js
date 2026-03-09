@@ -19,8 +19,10 @@ Copyright (c) OWASP Foundation. All Rights Reserved.
 
 const path = require('node:path')
 
+const PROJECT_ROOTDIR = path.resolve(__dirname, '..')
 const TB_ROOTDIR = path.resolve(__dirname, '_testbeds')
 
 module.exports = {
+  PROJECT_ROOTDIR,
   TB_ROOTDIR
 }

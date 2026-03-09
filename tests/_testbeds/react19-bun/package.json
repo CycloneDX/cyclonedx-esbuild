@@ -11,7 +11,7 @@
   "type": "module",
   "scripts": {
     "dev": "bun --hot src/index.ts",
-    "build": "bun run build.ts",
+    "build": "bun build.ts",
     "start": "NODE_ENV=production bun src/index.ts"
   },
   "dependencies": {
@@ -22,6 +22,6 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "@types/bun": "latest",
-    "@cyclonedx/cyclonedx-esbuild": "1.1.1"
+    "@cyclonedx/cyclonedx-esbuild": "link:@cyclonedx/cyclonedx-esbuild"
   }
 }
