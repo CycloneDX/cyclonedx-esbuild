@@ -33,7 +33,9 @@ The resulting SBOM documents follow [official specifications and standards](http
 
 ## Requirements
 
+One of the following:
 * _Node.js_ `>= 20.18`
+* _Bun_ `>= 1.3.6`
  
 Some features require optional (peer) dependencies — see `package.json` for version constraints.
 
