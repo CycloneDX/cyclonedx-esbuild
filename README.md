@@ -157,7 +157,6 @@ For _Angular_ projects using _esbuild_ (Angular 17+), you can generate SBOMs fro
 
 See an example here: [integration with Angular20](https://github.com/CycloneDX/cyclonedx-esbuild/tree/main/tests/_testbeds/angular20-npm).
 
-
 ### Use with Bun
 
 Since _Bun_'s plugin API is loosely based on _esbuild_'s, this plugin can also be used in _Bun_ projects that use the built-in bundler (Bun v1.3.6+).
