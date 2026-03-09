@@ -5,7 +5,7 @@
   "license": "Apache-2.0",
   "copyright": "Copyright OWASP Foundation",
   "keywords": [
-    "esbuild",
+    "esbuild", "bun",
     "plugin",
     "esbuild-plugin",
     "CycloneDX",
