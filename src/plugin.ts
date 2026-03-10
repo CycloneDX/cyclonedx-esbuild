@@ -38,7 +38,7 @@ import { JsonStrictValidator, MissingOptionalDependencyError } from "@cyclonedx/
 import type * as esbuild from "esbuild"
 import spdxExpressionParse from "spdx-expression-parse"
 
-import {isNonNullable, isString, makeToolCs, ValidationError, writeAllSync} from "./_helpers"
+import {isString, makeToolCs, ValidationError, writeAllSync} from "./_helpers"
 import {BomBuilder} from "./builders"
 import {PackageUrlFactory} from "./factories"
 import {LogPrefixes, makeConsoleLogger} from "./logger"
