@@ -222,6 +222,7 @@ See the [LICENSE][license_file] file for the full license.
 [license_file]: https://github.com/CycloneDX/cyclonedx-esbuild/blob/main/LICENSE
 [contributing_file]: https://github.com/CycloneDX/cyclonedx-esbuild/blob/main/CONTRIBUTING.md
 [example-plugin-esbuild]: https://github.com/CycloneDX/cyclonedx-esbuild/tree/main/examples/plugin-esbuild
+[example-plugin-esbuild]: https://github.com/CycloneDX/cyclonedx-esbuild/tree/main/examples/plugin-bun
 
 [CycloneDX]: https://cyclonedx.org/
 [esbuild]: https://esbuild.github.io

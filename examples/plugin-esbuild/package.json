@@ -1,8 +1,8 @@
 {
-  "name": "simple",
+  "private": true,
+  "name": "@cyclonedx/cyclonedx-esbuild-example-plugin-esbuild",
   "version": "0.1.0-dev",
   "description": "demo",
-  "private": true,
   "main": "./dist/app.js",
   "dependencies": {
     "@popperjs/core": "^2",
