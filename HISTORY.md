@@ -7,12 +7,14 @@ All notable changes to this project will be documented in this file.
 <!-- add unreleased items here -->
 
 * Docs
-  * Showcase usage with Bun ([#62] via [#81])
+  * Showcase usage with Bun ([#62], [#82] via [#81], [#83])
 * Tests
   * Added testbeds for integration with Bun ([#62] via [#81])
 
 [#62]: https://github.com/CycloneDX/cyclonedx-esbuild/issues/62
 [#81]: https://github.com/CycloneDX/cyclonedx-esbuild/pull/81
+[#82]: https://github.com/CycloneDX/cyclonedx-esbuild/issues/82
+[#83]: https://github.com/CycloneDX/cyclonedx-esbuild/pull/83
 
 ## 1.1.1 - 2026-03-09
 

@@ -17,30 +17,25 @@ SPDX-License-Identifier: Apache-2.0
 Copyright (c) OWASP Foundation. All Rights Reserved.
 */
 
-'use strict'
+import {cyclonedxEsbuildPlugin} from "@cyclonedx/cyclonedx-esbuild"
 
-import { cyclonedxEsbuildPlugin } from '@cyclonedx/cyclonedx-esbuild'
-import * as esbuild from 'esbuild'
-
-async function build () {
+async function build() {
   try {
-    await esbuild.build({
-      entryPoints: ['src/index.js'],
-      bundle: true,
-      outfile: 'dist/app.js',
-      platform: 'browser',
-      format: 'cjs',
-      sourcemap: true,
+    await Bun.build({
+      target: "browser",
       minify: true,
-      treeShaking: true,
-      target: 'es2020',
-      plugins: [cyclonedxEsbuildPlugin({
-        gatherLicenseTexts: true,
-        outputReproducible: true,
-        validateResults: true,
-        outputFile: '.well-known/sbom',
-      })],
-      logLevel: 'debug',
+      sourcemap: "linked",
+      entrypoints: ["./src/index.js"],
+      outdir: "./dist",
+      metafile: true, // required for `cyclonedxEsbuildPlugin` to work
+      plugins: [
+        cyclonedxEsbuildPlugin({
+          gatherLicenseTexts: true,
+          outputReproducible: true,
+          validate: true,
+          outputFile: '.well-known/sbom',
+        }),
+      ],
     })
     console.log('✅ Build completed successfully!')
   } catch (error) {
@@ -50,3 +45,5 @@ async function build () {
 }
 
 build()
+
+export {}

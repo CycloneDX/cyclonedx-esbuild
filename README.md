@@ -98,7 +98,7 @@ esbuild.build({
 });
 ```
 
-See extended [examples].
+See example: [integration with esbuild][example-plugin-esbuild].
 
 #### Plugin Example: Bun
 
@@ -122,7 +122,7 @@ await Bun.build({
 export {}
 ```
 
-See example: [integration with Bun](https://github.com/CycloneDX/cyclonedx-esbuild/tree/main/tests/_testbeds/react19-bun).
+See example: [integration with Bun][example-plugin-bun].
 
 ### CLI Tool
 
@@ -221,7 +221,8 @@ See the [LICENSE][license_file] file for the full license.
 
 [license_file]: https://github.com/CycloneDX/cyclonedx-esbuild/blob/main/LICENSE
 [contributing_file]: https://github.com/CycloneDX/cyclonedx-esbuild/blob/main/CONTRIBUTING.md
-[examples]: https://github.com/CycloneDX/cyclonedx-esbuild/tree/main/examples
+[example-plugin-esbuild]: https://github.com/CycloneDX/cyclonedx-esbuild/tree/main/examples/plugin-esbuild
+[example-plugin-bun]: https://github.com/CycloneDX/cyclonedx-esbuild/tree/main/examples/plugin-bun
 
 [CycloneDX]: https://cyclonedx.org/
 [esbuild]: https://esbuild.github.io
