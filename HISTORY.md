@@ -6,8 +6,13 @@ All notable changes to this project will be documented in this file.
 
 <!-- add unreleased items here -->
 
+## `1.3.0` - 2026-03-10
+
 * Added
-  * CLI option `--build-working-dir` (via [#87]) 
+  * CLI option `--build-working-dir <dir>` (via [#87])
+* Removed
+  * CLI option `--esbuild-working-dir`  (via [#87])  
+    Considered a fix rather than a breaking change. The option previously broke the CLI, so removing it does not introduce new breakage.
 
 [#87]: https://github.com/CycloneDX/cyclonedx-esbuild/pull/87
 
