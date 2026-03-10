@@ -14,13 +14,13 @@
         {
           "type": "application",
           "name": "esbuild",
-          "version": "0.14.54"
+          "version": "0.27.3"
         },
         {
           "type": "library",
           "name": "cyclonedx-esbuild",
           "group": "@cyclonedx",
-          "version": "1.0.0-rc.6",
+          "version": "1.1.1",
           "author": "Jan Kowalleck",
           "description": "Creates CycloneDX Software Bill of Materials (SBoM) from esbuild projects",
           "licenses": [
@@ -52,7 +52,7 @@
           "type": "library",
           "name": "cyclonedx-library",
           "group": "@cyclonedx",
-          "version": "9.2.0",
+          "version": "10.0.0",
           "author": "Jan Kowalleck",
           "description": "Core functionality of CycloneDX for JavaScript (Node.js or WebBrowser).",
           "licenses": [
@@ -84,11 +84,12 @@
     },
     "component": {
       "type": "application",
-      "name": "simple",
+      "name": "cyclonedx-esbuild-example-plugin-esbuild",
+      "group": "@cyclonedx",
       "version": "0.1.0-dev",
-      "bom-ref": "pkg:npm/simple@0.1.0-dev",
-      "description": "demo",
-      "purl": "pkg:npm/simple@0.1.0-dev",
+      "bom-ref": "7ae45ad102eab3b6d7e7896acd08c427a9b25b346470d7bc6507b6481575d519",
+      "description": "demo integration as a plugin for esbuild",
+      "purl": "pkg:npm/%40cyclonedx/cyclonedx-esbuild-example-plugin-esbuild@0.1.0-dev",
       "evidence": {}
     }
   },
@@ -98,7 +99,7 @@
       "name": "core",
       "group": "@popperjs",
       "version": "2.11.8",
-      "bom-ref": "pkg:npm/%40popperjs/core@2.11.8?vcs_url=git%2Bhttps%3A%2F%2Fgithub.com%2Fpopperjs%2Fpopper-core.git",
+      "bom-ref": "e2b18ca226c83eb39d4534e5c9118962ac64657141b0efde7474cc084f839902",
       "author": "Federico Zivolo",
       "description": "Tooltip and Popover Positioning Engine",
       "licenses": [
@@ -146,7 +147,7 @@
       "type": "library",
       "name": "bootstrap",
       "version": "5.3.8",
-      "bom-ref": "pkg:npm/bootstrap@5.3.8?vcs_url=git%2Bhttps%3A%2F%2Fgithub.com%2Ftwbs%2Fbootstrap.git",
+      "bom-ref": "f69c6dbe42f2df903ae6a87ae6491bde586b4ad9a4cd16deeb5421a085e5bc9a",
       "author": "The Bootstrap Authors",
       "description": "The most popular front-end framework for developing responsive, mobile first projects on the web.",
       "licenses": [
@@ -193,13 +194,13 @@
   ],
   "dependencies": [
     {
-      "ref": "pkg:npm/%40popperjs/core@2.11.8?vcs_url=git%2Bhttps%3A%2F%2Fgithub.com%2Fpopperjs%2Fpopper-core.git"
+      "ref": "7ae45ad102eab3b6d7e7896acd08c427a9b25b346470d7bc6507b6481575d519"
     },
     {
-      "ref": "pkg:npm/bootstrap@5.3.8?vcs_url=git%2Bhttps%3A%2F%2Fgithub.com%2Ftwbs%2Fbootstrap.git"
+      "ref": "e2b18ca226c83eb39d4534e5c9118962ac64657141b0efde7474cc084f839902"
     },
     {
-      "ref": "pkg:npm/simple@0.1.0-dev"
+      "ref": "f69c6dbe42f2df903ae6a87ae6491bde586b4ad9a4cd16deeb5421a085e5bc9a"
     }
   ]
 }

@@ -12,10 +12,6 @@
     "tools": {
       "components": [
         {
-          "type": "application",
-          "name": "esbuild"
-        },
-        {
           "type": "library",
           "name": "cyclonedx-esbuild",
           "group": "@cyclonedx",

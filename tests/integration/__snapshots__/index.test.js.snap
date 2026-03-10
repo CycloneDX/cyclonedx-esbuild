@@ -755,10 +755,6 @@ exports[`integration functional: esbuild lowest generated json file: dist/bom.js
     "tools": {
       "components": [
         {
-          "type": "application",
-          "name": "esbuild"
-        },
-        {
           "type": "library",
           "name": "cyclonedx-esbuild",
           "group": "@cyclonedx",
@@ -4510,10 +4506,6 @@ exports[`integration functional: react19 on bun generated json file: dist/bom.js
     ],
     "tools": {
       "components": [
-        {
-          "type": "application",
-          "name": "esbuild"
-        },
         {
           "type": "library",
           "name": "cyclonedx-esbuild",
