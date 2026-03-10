@@ -47,8 +47,6 @@ import {LogPrefixes, makeConsoleLogger} from "./logger"
 const OutputStdOut = '-'
 
 interface CommandOptions {
-  /** @deprecated - use buildWorkingDir instead */
-  esbuildWorkingDir: string,
   buildWorkingDir: string,
   gatherLicenseTexts: boolean
   outputReproducible: boolean
@@ -59,22 +57,25 @@ interface CommandOptions {
   verbose: number
 }
 
-function makeCommand(process_: NodeJS.Process): Command {
+function makeCommand(): Command {
   return new Command(
     /* auto-set the name */
   ).description(
     'Create CycloneDX Software Bill of Materials (SBOM) from esbuild-compatible metafile.'
-  ).addOption( // deprecated
+  ).addOption(
+    /* deprecated
+       missed the <dir> value in the original implementation - so this was never working as intended
+     */
     new Option(
       '--ewd, --esbuild-working-dir',
-      'DEPRECATED; use instead: --build-working-dir'
+      'DEPRECATED'
     ).hideHelp()
-  ).addOption( // deprecated
+  ).addOption(
     new Option(
-      '--bwd, --build-working-dir',
+      '--bwd, --build-working-dir <dir>',
       'Working dir used in the build process.'
     ).default(
-      process_.cwd(),
+      '.',
       'current working dir'
     )
   ).addOption(
@@ -159,7 +160,7 @@ function makeCommand(process_: NodeJS.Process): Command {
 export async function run(process_: NodeJS.Process): Promise<number> {
   process_.title = 'cyclonedx-esbuild' /* eslint-disable-line  no-param-reassign -- ack */
 
-  const program = makeCommand(process_)
+  const program = makeCommand()
   program.parse(process_.argv)
 
   const options: CommandOptions = program.opts()
@@ -167,11 +168,6 @@ export async function run(process_: NodeJS.Process): Promise<number> {
   const logger = makeConsoleLogger(process_.stderr, process_.stderr, options.verbose)
   logger.debug(`${LogPrefixes.DEBUG} options: %j`, options)
   logger.debug(`${LogPrefixes.DEBUG} args: %j`, program.args)
-
-  if (options.esbuildWorkingDir) {
-    logger.warn('Option --esbuild-working-dir is deprecated. Use --build-working-dir')
-    options.buildWorkingDir = options.esbuildWorkingDir
-  }
 
   const serializeSpec = SpecVersionDict[options.specVersion]
   if (serializeSpec === undefined) {
@@ -199,7 +195,7 @@ export async function run(process_: NodeJS.Process): Promise<number> {
   const bom = bomBuilder.fromMetafile(
     /* eslint-disable-next-line  @typescript-eslint/no-unsafe-type-assertion -- ack */
     loadJsonFile(metafile) as esbuild.Metafile,
-    options.buildWorkingDir,
+    resolve(process_.cwd(), options.buildWorkingDir),
     options.gatherLicenseTexts,
     options.outputReproducible,
     logger)

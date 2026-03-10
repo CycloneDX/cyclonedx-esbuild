@@ -148,30 +148,31 @@ Usage: cyclonedx-esbuild [options] <metafile>
 Create CycloneDX Software Bill of Materials (SBOM) from esbuild-compatible metafile.
 
 Arguments:
-  metafile                        Path to esbuild-compatible metafile
+  metafile                          Path to esbuild-compatible metafile
 
 Options:
-  --bwd, --build-working-dir      Working dir used in the build process.
-  --gather-license-texts          Search for license files in components and include them as license evidence.
-                                  This feature is experimental. 
-                                  (default: false)
-  --sv, --spec-version <version>  Which version of CycloneDX spec to use. 
-                                  (choices: "1.2", "1.3", "1.4", "1.5", "1.6", "1.7", default: "1.6")
-  --output-reproducible           Whether to go the extra mile and make the output reproducible.
-                                  This requires more resources, and might result in loss of time- and random-based-values. 
-                                  (env: BOM_REPRODUCIBLE)
-  -o, --output-file <file>        Path to the output file.
-                                  Set to "-" to write to STDOUT.
-                                  (default: write to STDOUT)
-  --validate                      Validate resulting BOM before outputting.
-                                  Validation is skipped, if requirements not met.
-  --no-validate                   Disable validation of resulting BOM.
-  --mc-type <type>                Type of the main component.
-                                  (choices: "application", "firmware", "library", default: "application")
-  -v, --verbose                   Increase the verbosity of messages.
-                                  Use multiple times to increase the verbosity even more.
-  -V, --version                   output the version number
-  -h, --help                      display help for command
+  --bwd, --build-working-dir <dir>  Working dir used in the build process.
+                                    (default: current working dir)
+  --gather-license-texts            Search for license files in components and include them as license evidence.
+                                    This feature is experimental. 
+                                    (default: false)
+  --sv, --spec-version <version>    Which version of CycloneDX spec to use. 
+                                    (choices: "1.2", "1.3", "1.4", "1.5", "1.6", "1.7", default: "1.6")
+  --output-reproducible             Whether to go the extra mile and make the output reproducible.
+                                    This requires more resources, and might result in loss of time- and random-based-values. 
+                                    (env: BOM_REPRODUCIBLE)
+  -o, --output-file <file>          Path to the output file.
+                                    Set to "-" to write to STDOUT.
+                                    (default: write to STDOUT)
+  --validate                        Validate resulting BOM before outputting.
+                                    Validation is skipped, if requirements not met.
+  --no-validate                     Disable validation of resulting BOM.
+  --mc-type <type>                  Type of the main component.
+                                    (choices: "application", "firmware", "library", default: "application")
+  -v, --verbose                     Increase the verbosity of messages.
+                                    Use multiple times to increase the verbosity even more.
+  -V, --version                     output the version number
+  -h, --help                        display help for command
 ```
 
 ### Use with Angular
