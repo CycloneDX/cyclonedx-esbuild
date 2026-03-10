@@ -6,7 +6,7 @@ All notable changes to this project will be documented in this file.
 
 <!-- add unreleased items here -->
 
-## `1.3.0` - 2026-03-10
+## 1.3.0 - 2026-03-10
 
 * Added
   * CLI option `--build-working-dir <dir>` (via [#87])
