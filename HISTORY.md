@@ -7,7 +7,7 @@ All notable changes to this project will be documented in this file.
 <!-- add unreleased items here -->
 
 * Fixed
-  * Better runtime detection ([#82]) 
+  * Better runtime detection ([#82] via [#84]) 
 * Docs
   * Showcase usage with Bun ([#62], [#82] via [#81], [#83])
 * Tests
@@ -17,6 +17,7 @@ All notable changes to this project will be documented in this file.
 [#81]: https://github.com/CycloneDX/cyclonedx-esbuild/pull/81
 [#82]: https://github.com/CycloneDX/cyclonedx-esbuild/issues/82
 [#83]: https://github.com/CycloneDX/cyclonedx-esbuild/pull/83
+[#84]: https://github.com/CycloneDX/cyclonedx-esbuild/pull/84
 
 ## 1.1.1 - 2026-03-09
 
