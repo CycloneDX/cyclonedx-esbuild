@@ -7,7 +7,7 @@ All notable changes to this project will be documented in this file.
 <!-- add unreleased items here -->
 
 * Fixed
-  * Better runtime detection ([#82] via [#84]) 
+  * Better runtime detection ([#82] via [#84])
 * Docs
   * Showcase usage with Bun ([#62], [#82] via [#81], [#83])
 * Tests
