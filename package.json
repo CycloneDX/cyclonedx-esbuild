@@ -5,9 +5,11 @@
   "license": "Apache-2.0",
   "copyright": "Copyright OWASP Foundation",
   "keywords": [
-    "esbuild", "bun",
+    "esbuild",
+    "bun",
     "plugin",
-    "esbuild-plugin", "bun-plugin",
+    "esbuild-plugin",
+    "bun-plugin",
     "CycloneDX",
     "bill-of-materials",
     "BOM",

@@ -1,6 +1,6 @@
-# Example: simple usage as an esbuild plugin
+# Example: simple usage as a Bun  plugin
 
-This is a showcase how to configure and run the _CycloneDX esbuild_ plugin with _esbuild_.
+This is a showcase how to configure and run the _CycloneDX esbuild_ plugin with _Bun_.
 
 Se the [build script](build.mjs) for the applied settings.
 
@@ -16,26 +16,14 @@ For development’s sake, the [base project](../../) was built and is ready to r
 
 ## setup 
 
-### npm
-
 ```shell
-npm i
-```
-
-### yarn
-
-```shell
-touch yarn.lock
-yarn 
+bun install
 ```
 
 ## usage
 
-use one of these, depending on the setup you used: 
-
 ```shell
-npm run build 
-yarn run build
+bun run build 
 ```
 
 [draft-ietf-opsawg-sbom-access]: https://datatracker.ietf.org/doc/html/draft-ietf-opsawg-sbom-access
