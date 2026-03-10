@@ -267,7 +267,6 @@ export const cyclonedxEsbuildPlugin = (opts: CycloneDxEsbuildPluginOptions = {})
 /**
  * LogLevels from {@link esbuild.LogLevel}
  * Loglevels from {@link https://bun.sh/docs/runtime/bunfig#loglevel}
- * @public
  */
 type LogLevel = 'silent' | 'error' | 'warning' | 'warn' | 'info' | 'debug' | 'verbose'
 
