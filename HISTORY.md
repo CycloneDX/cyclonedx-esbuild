@@ -6,18 +6,21 @@ All notable changes to this project will be documented in this file.
 
 <!-- add unreleased items here -->
 
+* Added
+  * Plugin option `logLevel` to control own verbosity individually ([#82] via [#85])
 * Fixed
   * Better runtime detection ([#82] via [#84])
 * Docs
-  * Showcase usage with Bun ([#62], [#82] via [#81], [#83])
+  * Showcase usage as Bun-plugin ([#62], [#82] via [#81], [#83])
 * Tests
-  * Added testbeds for integration with Bun ([#62] via [#81])
+  * Added testbeds for integration as Bun-plugin ([#62] via [#81])
 
 [#62]: https://github.com/CycloneDX/cyclonedx-esbuild/issues/62
 [#81]: https://github.com/CycloneDX/cyclonedx-esbuild/pull/81
 [#82]: https://github.com/CycloneDX/cyclonedx-esbuild/issues/82
 [#83]: https://github.com/CycloneDX/cyclonedx-esbuild/pull/83
 [#84]: https://github.com/CycloneDX/cyclonedx-esbuild/pull/84
+[#85]: https://github.com/CycloneDX/cyclonedx-esbuild/pull/85
 
 ## 1.1.1 - 2026-03-09
 

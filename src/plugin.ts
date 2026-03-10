@@ -113,7 +113,14 @@ export interface CycloneDxEsbuildPluginOptions {
    */
   validate?: boolean | undefined
 
-  logLevel?: LogLevel
+  /**
+   * Override own verbosity.
+   *
+   * If undefined, the default value from the build config is used.
+   *
+   * @defaultValue `undefined`
+   */
+  logLevel?: LogLevel | undefined
 }
 
 /** @public */
