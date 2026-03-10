@@ -87,7 +87,7 @@
       "group": "@cyclonedx",
       "version": "0.1.0-dev",
       "bom-ref": "7ae45ad102eab3b6d7e7896acd08c427a9b25b346470d7bc6507b6481575d519",
-      "description": "demo as a plugin for bun",
+      "description": "demo integration as a plugin for bun",
       "purl": "pkg:npm/%40cyclonedx/cyclonedx-esbuild-example-plugin-bun@0.1.0-dev",
       "evidence": {}
     }

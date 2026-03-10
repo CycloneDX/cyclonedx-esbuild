@@ -12,7 +12,8 @@ See [draft-ietf-opsawg-sbom-access] for more information on the specification, c
 
 ## Prerequisite
 
-For development’s sake, the [base project](../../) was built and is ready to run.
+For development’s sake, the [base project](../../) was built and is ready to run,
+and was lined for Bun via `bun link`.
 
 ## setup 
 

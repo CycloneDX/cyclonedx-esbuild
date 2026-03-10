@@ -2,7 +2,7 @@
   "private": true,
   "name": "@cyclonedx/cyclonedx-esbuild-example-plugin-bun",
   "version": "0.1.0-dev",
-  "description": "demo as a plugin for bun",
+  "description": "demo integration as a plugin for bun",
   "engines": {
     "bun": "*"
   },
@@ -13,7 +13,7 @@
     "bootstrap": "^5"
   },
   "devDependencies": {
-    "@cyclonedx/cyclonedx-esbuild": "file:../.."
+    "@cyclonedx/cyclonedx-esbuild": "link:@cyclonedx/cyclonedx-esbuild"
   },
   "scripts": {
     "build": "bun build.ts"
