@@ -112,6 +112,8 @@ export interface CycloneDxEsbuildPluginOptions {
    * @defaultValue `undefined`
    */
   validate?: boolean | undefined
+
+  logLevel?: LogLevel
 }
 
 /** @public */
@@ -122,7 +124,10 @@ export const cyclonedxEsbuildPlugin = (opts: CycloneDxEsbuildPluginOptions = {})
     build.initialOptions.metafile = true;
 
     const logger = makeConsoleLogger(process.stdout, process.stderr,
-      LogLevelMap[build.initialOptions.logLevel ?? 'warning'] // er act on build-level, so we default alike
+      /* eslint-disable-next-line @typescript-eslint/no-unnecessary-condition -- safety */
+    LogLevelMap[
+        opts.logLevel ?? build.initialOptions.logLevel ?? 'warn'
+      ] ?? LogLevelMap.warn
     )
 
     logger.debug(`${LogPrefixes.DEBUG} setup => opt: %j`, opts)
@@ -252,13 +257,21 @@ export const cyclonedxEsbuildPlugin = (opts: CycloneDxEsbuildPluginOptions = {})
 })
 
 /**
- * from {@link esbuild.LogLevel} to {@link makeConsoleLogger}
+ * LogLevels from {@link esbuild.LogLevel}
+ * Loglevels from {@link https://bun.sh/docs/runtime/bunfig#loglevel}
+ * @public
  */
-const LogLevelMap: Record<esbuild.LogLevel, number> = {
+type LogLevel = 'silent' | 'error' | 'warning' | 'warn' | 'info' | 'debug' | 'verbose'
+
+/**
+ * map {@link LogLevel} to numbers for {@link makeConsoleLogger}
+ */
+const LogLevelMap: Readonly<Record<LogLevel, number>> = Object.freeze({
   'silent': 0,
   'error': 1,
   'warning': 1,
+  'warn': 1,
   'info': 2,
   'debug': 3,
   'verbose': 4,
-}
+})
