@@ -22,6 +22,12 @@ For development’s sake, the [base project](../../) was built and is ready to r
 npm i
 ```
 
+### pnpm
+
+```shell
+pnpm i
+```
+
 ### yarn
 
 ```shell
@@ -34,7 +40,8 @@ yarn
 use one of these, depending on the setup you used: 
 
 ```shell
-npm run build 
+npm run build
+pnpm run build
 yarn run build
 ```
 
