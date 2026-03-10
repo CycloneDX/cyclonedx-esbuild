@@ -7,7 +7,7 @@ All notable changes to this project will be documented in this file.
 <!-- add unreleased items here -->
 
 * Added
-  * Plugin option `logLevel` to control own verbosity individually ([#82] via [#85])
+  * Plugin option `logLevel` to control own verbosity individually ([#82] via [#86])
 * Fixed
   * Better runtime detection ([#82] via [#84])
 * Docs
@@ -20,7 +20,7 @@ All notable changes to this project will be documented in this file.
 [#82]: https://github.com/CycloneDX/cyclonedx-esbuild/issues/82
 [#83]: https://github.com/CycloneDX/cyclonedx-esbuild/pull/83
 [#84]: https://github.com/CycloneDX/cyclonedx-esbuild/pull/84
-[#85]: https://github.com/CycloneDX/cyclonedx-esbuild/pull/85
+[#86]: https://github.com/CycloneDX/cyclonedx-esbuild/pull/86
 
 ## 1.1.1 - 2026-03-09
 
