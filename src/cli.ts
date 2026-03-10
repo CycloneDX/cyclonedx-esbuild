@@ -47,7 +47,9 @@ import {LogPrefixes, makeConsoleLogger} from "./logger"
 const OutputStdOut = '-'
 
 interface CommandOptions {
+  /** @deprecated - use buildWorkingDir instead */
   esbuildWorkingDir: string,
+  buildWorkingDir: string,
   gatherLicenseTexts: boolean
   outputReproducible: boolean
   specVersion: SpecVersion
@@ -62,9 +64,14 @@ function makeCommand(process_: NodeJS.Process): Command {
     /* auto-set the name */
   ).description(
     'Create CycloneDX Software Bill of Materials (SBOM) from esbuild-compatible metafile.'
-  ).addOption(
+  ).addOption( // deprecated
     new Option(
       '--ewd, --esbuild-working-dir',
+      'DEPRECATED; use instead: --build-working-dir'
+    ).hideHelp()
+  ).addOption( // deprecated
+    new Option(
+      '--bwd, --build-working-dir',
       'Working dir used in the build process.'
     ).default(
       process_.cwd(),
@@ -161,6 +168,11 @@ export async function run(process_: NodeJS.Process): Promise<number> {
   logger.debug(`${LogPrefixes.DEBUG} options: %j`, options)
   logger.debug(`${LogPrefixes.DEBUG} args: %j`, program.args)
 
+  if (options.esbuildWorkingDir) {
+    logger.warn('Option --esbuild-working-dir is deprecated. Use --build-working-dir')
+    options.buildWorkingDir = options.esbuildWorkingDir
+  }
+
   const serializeSpec = SpecVersionDict[options.specVersion]
   if (serializeSpec === undefined) {
     throw new Error(`Unknown specVersion: ${options.specVersion}`)
@@ -187,7 +199,7 @@ export async function run(process_: NodeJS.Process): Promise<number> {
   const bom = bomBuilder.fromMetafile(
     /* eslint-disable-next-line  @typescript-eslint/no-unsafe-type-assertion -- ack */
     loadJsonFile(metafile) as esbuild.Metafile,
-    options.esbuildWorkingDir,
+    options.buildWorkingDir,
     options.gatherLicenseTexts,
     options.outputReproducible,
     logger)

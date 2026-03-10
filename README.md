@@ -151,7 +151,7 @@ Arguments:
   metafile                        Path to esbuild-compatible metafile
 
 Options:
-  --ewd, --esbuild-working-dir    Working dir used in the esbuild process.
+  --bwd, --build-working-dir      Working dir used in the build process.
   --gather-license-texts          Search for license files in components and include them as license evidence.
                                   This feature is experimental. 
                                   (default: false)
