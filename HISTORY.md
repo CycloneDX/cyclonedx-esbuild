@@ -6,6 +6,8 @@ All notable changes to this project will be documented in this file.
 
 <!-- add unreleased items here -->
 
+## 1.2.0 - 2026-03-10
+
 * Added
   * Plugin option `logLevel` to control own verbosity individually ([#82] via [#86])
 * Fixed
