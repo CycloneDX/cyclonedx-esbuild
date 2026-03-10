@@ -110,6 +110,11 @@ jobs:
           corepack enable
           yarn --version
         working-directory: ../  # prevent evaluation of package.json
+      - name: setup bun   # needed in some tests
+        # see https://github.com/oven-sh/setup-bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
       - name: setup project
         run: |
           npm install --ignore-scripts --include=optional --loglevel=silly

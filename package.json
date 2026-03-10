@@ -5,9 +5,9 @@
   "license": "Apache-2.0",
   "copyright": "Copyright OWASP Foundation",
   "keywords": [
-    "esbuild",
+    "esbuild", "bun",
     "plugin",
-    "esbuild-plugin",
+    "esbuild-plugin", "bun-plugin",
     "CycloneDX",
     "bill-of-materials",
     "BOM",
@@ -46,7 +46,8 @@
   ],
   "type": "commonjs",
   "engines": {
-    "node": ">=20.18.0"
+    "node": ">=20.18.0",
+    "bun": ">=1.3.6"
   },
   "types": "./dist/plugin.d.ts",
   "main": "./dist/plugin.js",
@@ -123,6 +124,5 @@
     "suiteName": "jest tests",
     "outputDirectory": "reports/jest",
     "outputName": "tests.junit.xml"
-  },
-  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
+  }
 }

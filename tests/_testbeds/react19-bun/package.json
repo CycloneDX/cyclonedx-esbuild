@@ -1,0 +1,27 @@
+{
+  "private": true,
+  "name": "@cyclonedx/cyclonedx-eslint-testbed-react19-bun",
+  "version": "0.1.0",
+  "devEngines": {
+    "packageManager": {
+      "name": "bun",
+      "onFail": "error"
+    }
+  },
+  "type": "module",
+  "scripts": {
+    "dev": "bun --hot src/index.ts",
+    "build": "bun build.ts",
+    "start": "NODE_ENV=production bun src/index.ts"
+  },
+  "dependencies": {
+    "react": "^19",
+    "react-dom": "^19"
+  },
+  "devDependencies": {
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "@types/bun": "latest",
+    "@cyclonedx/cyclonedx-esbuild": "link:@cyclonedx/cyclonedx-esbuild"
+  }
+}
