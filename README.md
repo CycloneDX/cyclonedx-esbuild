@@ -76,6 +76,7 @@ Since Bun provides a plugin API compatible with esbuild, the same plugin can be 
 | **outputReproducible** | `{boolean}` | `false` | Whether to go the extra mile and make the output reproducible.<br/> This requires more resources, and might result in loss of time- and random-based-values. |
 | **mcType** | `{string}` | `"application"` | Set the MainComponent's type.<br/> See [list of valid values](https://cyclonedx.org/docs/1.7/json/#metadata_component_type). |
 | **validate** | `{boolean \| undefined}` | `undefined` | Validate resulting BOM before outputting.<br/> Validation is skipped, if requirements not met. |
+| **logLevel** | `{string \| undefined}` | `undefined` | Controls the plugin's verbosity. Accepts the same values supported by [esbuild's `logLevel`](https://esbuild.github.io/api/#log-level) or the corresponding setting in Bun.<br/> If not set, the plugin inherits the `logLevel` from the build configuration. If that value is also undefined, it falls back to `"warning"`. |
 
 #### Plugin Example: esbuild
 
