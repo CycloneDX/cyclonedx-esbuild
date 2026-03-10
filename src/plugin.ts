@@ -117,7 +117,7 @@ export interface CycloneDxEsbuildPluginOptions {
    * Set the plugin's verbosity level.
    *
    * If not specified, the plugin uses the logLevel from the build configuration.
-   * If that value is also undefined, "warn" is used as a fallback.
+   * If that value is also undefined, "warning" is used as a fallback.
    *
    * @defaultValue `undefined`
    */
@@ -134,8 +134,8 @@ export const cyclonedxEsbuildPlugin = (opts: CycloneDxEsbuildPluginOptions = {})
     const logger = makeConsoleLogger(process.stdout, process.stderr,
       /* eslint-disable-next-line @typescript-eslint/no-unnecessary-condition -- safety */
     LogLevelMap[
-        opts.logLevel ?? build.initialOptions.logLevel ?? 'warn'
-      ] ?? LogLevelMap.warn
+        opts.logLevel ?? build.initialOptions.logLevel ?? 'warning'
+      ] ?? LogLevelMap.warning
     )
 
     logger.debug(`${LogPrefixes.DEBUG} setup => opt: %j`, opts)
