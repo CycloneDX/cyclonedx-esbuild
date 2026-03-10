@@ -25,6 +25,7 @@ import { LicenseAcknowledgement } from "@cyclonedx/cyclonedx-library/Enums"
 import type { Component, License } from "@cyclonedx/cyclonedx-library/Models"
 import { Bom, ComponentEvidence, LicenseRepository, NamedLicense } from "@cyclonedx/cyclonedx-library/Models"
 import type * as esbuild from "esbuild"
+import type * as bun from "bun"
 import type normalizePackageData from "normalize-package-data"
 
 import type { PackageDescription } from "./_helpers";
@@ -54,7 +55,7 @@ export class BomBuilder {
 
   /* eslint-disable-next-line @typescript-eslint/max-params -- ack */
   public fromMetafile(
-    metafile: esbuild.Metafile,
+    metafile: esbuild.Metafile | bun.BuildMetafile,
     buildWorkingDir: string,
     collectEvidence: boolean,
     outputReproducible: boolean,
@@ -111,7 +112,7 @@ export class BomBuilder {
 
   private generateComponents(
     rootDir: string,
-    metafile: esbuild.Metafile,
+    metafile: esbuild.Metafile | bun.BuildMetafile,
     collectEvidence: boolean,
     logger: Console
   ): Map<string, Component> {
@@ -162,7 +163,7 @@ export class BomBuilder {
   }
 
   /* @ts-expect-error TS6133 -- TODO */
-  private linkDependencies(metafile: esbuild.Metafile, modulesComponents: Map<string, Component>): void {
+  private linkDependencies(metafile: esbuild.Metafile | bun.BuildMetafile, modulesComponents: Map<string, Component>): void {
     // TODO: link deps based on inputs - https://github.com/CycloneDX/cyclonedx-esbuild/issues/11
     // idea: take the metadata.input
     // then cut the "externals" and copy their content to all the ones that used it

@@ -36,19 +36,18 @@ import { JSON as SerializeJSON, JsonSerializer } from "@cyclonedx/cyclonedx-libr
 import { SpecVersionDict, Version as SpecVersion} from "@cyclonedx/cyclonedx-library/Spec"
 import { JsonStrictValidator, MissingOptionalDependencyError } from "@cyclonedx/cyclonedx-library/Validation"
 import type * as esbuild from "esbuild"
+import type * as bun from "bun"
 import spdxExpressionParse from "spdx-expression-parse"
 
-import {makeToolCs, ValidationError, writeAllSync} from "./_helpers"
+import {isNonNullable, isString, makeToolCs, ValidationError, writeAllSync} from "./_helpers"
 import {BomBuilder} from "./builders"
 import {PackageUrlFactory} from "./factories"
 import {LogPrefixes, makeConsoleLogger} from "./logger"
 
 
-/** @public */
 export const PLUGIN_NAME = 'cyclonedx-esbuild'
 
-/** @public */
-export interface CycloneDxEsbuildPluginOptions {
+export interface PluginOptions {
   // IMPORTANT: keep the table in the `README` in sync!
 
   /**
@@ -114,12 +113,16 @@ export interface CycloneDxEsbuildPluginOptions {
   validate?: boolean | undefined
 }
 
-/** @public */
-export const cyclonedxEsbuildPlugin = (opts: CycloneDxEsbuildPluginOptions = {}): esbuild.Plugin => ({
+export const Plugin = (opts: PluginOptions = {}): esbuild.Plugin | bun.BunPlugin => ({
   name: PLUGIN_NAME,
-  setup(build: esbuild.PluginBuild): void {
+  setup(build: esbuild.PluginBuild | bun.PluginBuilder): void {
     /* eslint-disable-next-line no-param-reassign -- required */
     build.initialOptions.metafile = true;
+    // @ts-ignore // TODO
+    if (isNonNullable(build.config)) {
+      // @ts-ignore
+      build.config.metafile = true;
+    }
 
     const logger = makeConsoleLogger(process.stdout, process.stderr,
       LogLevelMap[build.initialOptions.logLevel ?? 'warning'] // er act on build-level, so we default alike
@@ -134,7 +137,7 @@ export const cyclonedxEsbuildPlugin = (opts: CycloneDxEsbuildPluginOptions = {})
       outputFile: opts.outputFile || 'bom.json',
       validate: opts.validate,
       mcType: opts.mcType ?? ComponentType.Application
-    } as const satisfies CycloneDxEsbuildPluginOptions
+    } as const satisfies PluginOptions
     logger.debug(`${LogPrefixes.DEBUG} setup => options: %j`, options)
 
     const serializeSpec = SpecVersionDict[options.specVersion]
@@ -146,7 +149,7 @@ export const cyclonedxEsbuildPlugin = (opts: CycloneDxEsbuildPluginOptions = {})
     const esbuildWorkingDir = build.initialOptions.absWorkingDir || process.cwd()
 
 
-    build.onEnd(async (result: esbuild.BuildResult): Promise<void> => {
+    build.onEnd(async (result: esbuild.BuildResult | bun.BuildOutput): Promise<void> => {
       if (result.metafile === undefined) {
         /* c8 ignore next */
         throw new Error('missing result.metafile')
@@ -170,14 +173,19 @@ export const cyclonedxEsbuildPlugin = (opts: CycloneDxEsbuildPluginOptions = {})
         options.outputReproducible,
         logger)
       bom.metadata.lifecycles.add(LifecyclePhase.Build)
-      bom.metadata.tools.components.add(new Component(
-        ComponentType.Application,
-        'esbuild',
-        {
-          /* eslint-disable-next-line @typescript-eslint/no-unnecessary-condition -- backwards compatibility */
-          version: build.esbuild?.version // requires esbuild v0.14.3
-        }
-      ))
+
+      // region detect build environment
+      // we might run in Bun, or esbuild, or whatever...
+      /* eslint-disable-next-line @typescript-eslint/no-unnecessary-condition -- Bun-compatibility */
+      if (isString(build.esbuild?.version)) { // requires esbuild v0.14.3+
+        bom.metadata.tools.components.add(new Component(
+          ComponentType.Application,
+          'esbuild',
+          { version: build.esbuild.version }
+        ))
+      }
+      // endregion detect build environment
+
       for (const toolC of makeToolCs(ComponentType.Library, cdxComponentBuilder, logger)) {
         bom.metadata.tools.components.add(toolC)
       }

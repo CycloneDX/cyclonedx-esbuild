@@ -36,6 +36,7 @@ async function build() {
           outputFile: '.well-known/sbom',
         }),
       ],
+      logLevel: 'warn'
     })
     console.log('✅ Build completed successfully!')
   } catch (error) {
