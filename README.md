@@ -98,7 +98,7 @@ esbuild.build({
 });
 ```
 
-See extended [examples].
+See extended [examples][example-plugin-esbuild].
 
 #### Plugin Example: Bun
 
@@ -221,7 +221,7 @@ See the [LICENSE][license_file] file for the full license.
 
 [license_file]: https://github.com/CycloneDX/cyclonedx-esbuild/blob/main/LICENSE
 [contributing_file]: https://github.com/CycloneDX/cyclonedx-esbuild/blob/main/CONTRIBUTING.md
-[examples]: https://github.com/CycloneDX/cyclonedx-esbuild/tree/main/examples
+[example-plugin-esbuild]: https://github.com/CycloneDX/cyclonedx-esbuild/tree/main/examples/plugin-esbuild
 
 [CycloneDX]: https://cyclonedx.org/
 [esbuild]: https://esbuild.github.io
