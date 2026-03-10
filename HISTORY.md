@@ -6,6 +6,11 @@ All notable changes to this project will be documented in this file.
 
 <!-- add unreleased items here -->
 
+* Added
+  * CLI option `--build-working-dir` (via [#87]) 
+
+[#87]: https://github.com/CycloneDX/cyclonedx-esbuild/pull/87
+
 ## 1.2.0 - 2026-03-10
 
 * Added
