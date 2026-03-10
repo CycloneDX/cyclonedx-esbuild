@@ -91,6 +91,7 @@ export default [
       'docs/_build/',
       'docs/.venv/',
       'examples/**/dist/',
+      'examples/**/build.*',
       'tools/',
       'tests/_testbeds/',
       'tests/_data/'

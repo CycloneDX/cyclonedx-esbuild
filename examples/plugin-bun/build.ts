@@ -32,7 +32,7 @@ async function build() {
         cyclonedxEsbuildPlugin({
           gatherLicenseTexts: true,
           outputReproducible: true,
-          validateResults: true,
+          validate: true,
           outputFile: '.well-known/sbom',
         }),
       ],
