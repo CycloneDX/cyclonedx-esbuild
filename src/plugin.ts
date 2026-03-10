@@ -114,9 +114,10 @@ export interface CycloneDxEsbuildPluginOptions {
   validate?: boolean | undefined
 
   /**
-   * Override own verbosity.
+   * Set the plugin's verbosity level.
    *
-   * If undefined, the default value from the build config is used.
+   * If not specified, the plugin uses the logLevel from the build configuration.
+   * If that value is also undefined, "warn" is used as a fallback.
    *
    * @defaultValue `undefined`
    */
