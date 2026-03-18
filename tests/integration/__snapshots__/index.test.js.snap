@@ -15,7 +15,7 @@ exports[`integration functional: angular20 on npm generated json file: dist/firs
           "group": "@cyclonedx",
           "version": "thisVersion-testing",
           "author": "Jan Kowalleck",
-          "description": "Creates CycloneDX Software Bill of Materials (SBoM) from esbuild projects",
+          "description": "Create CycloneDX Software Bill of Materials (SBOM) from projects built with esbuild or Bun.",
           "licenses": [
             {
               "license": {
@@ -617,7 +617,7 @@ exports[`integration functional: esbuild latest generated json file: dist/bom.js
           "group": "@cyclonedx",
           "version": "thisVersion-testing",
           "author": "Jan Kowalleck",
-          "description": "Creates CycloneDX Software Bill of Materials (SBoM) from esbuild projects",
+          "description": "Create CycloneDX Software Bill of Materials (SBOM) from projects built with esbuild or Bun.",
           "licenses": [
             {
               "license": {
@@ -760,7 +760,7 @@ exports[`integration functional: esbuild lowest generated json file: dist/bom.js
           "group": "@cyclonedx",
           "version": "thisVersion-testing",
           "author": "Jan Kowalleck",
-          "description": "Creates CycloneDX Software Bill of Materials (SBoM) from esbuild projects",
+          "description": "Create CycloneDX Software Bill of Materials (SBOM) from projects built with esbuild or Bun.",
           "licenses": [
             {
               "license": {
@@ -898,7 +898,7 @@ exports[`integration functional: juice-shop frontend on npm generated json file:
           "group": "@cyclonedx",
           "version": "thisVersion-testing",
           "author": "Jan Kowalleck",
-          "description": "Creates CycloneDX Software Bill of Materials (SBoM) from esbuild projects",
+          "description": "Create CycloneDX Software Bill of Materials (SBOM) from projects built with esbuild or Bun.",
           "licenses": [
             {
               "license": {
@@ -4512,7 +4512,7 @@ exports[`integration functional: react19 on bun generated json file: dist/bom.js
           "group": "@cyclonedx",
           "version": "thisVersion-testing",
           "author": "Jan Kowalleck",
-          "description": "Creates CycloneDX Software Bill of Materials (SBoM) from esbuild projects",
+          "description": "Create CycloneDX Software Bill of Materials (SBOM) from projects built with esbuild or Bun.",
           "licenses": [
             {
               "license": {
@@ -4767,7 +4767,7 @@ exports[`integration functional: simple typescript bundling on npm generated jso
           "group": "@cyclonedx",
           "version": "thisVersion-testing",
           "author": "Jan Kowalleck",
-          "description": "Creates CycloneDX Software Bill of Materials (SBoM) from esbuild projects",
+          "description": "Create CycloneDX Software Bill of Materials (SBOM) from projects built with esbuild or Bun.",
           "licenses": [
             {
               "license": {
@@ -4915,7 +4915,7 @@ exports[`integration functional: simple typescript bundling on yarn generated js
           "group": "@cyclonedx",
           "version": "thisVersion-testing",
           "author": "Jan Kowalleck",
-          "description": "Creates CycloneDX Software Bill of Materials (SBoM) from esbuild projects",
+          "description": "Create CycloneDX Software Bill of Materials (SBOM) from projects built with esbuild or Bun.",
           "licenses": [
             {
               "license": {
