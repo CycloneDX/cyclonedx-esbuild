@@ -170,7 +170,7 @@ jobs:
           '25' )
           npm install -g npm@latest
           ;;
-          '24' | '22')
+          '24')
           npm i -g npm@^11
           ;;
           '20' | '20.18.0')
