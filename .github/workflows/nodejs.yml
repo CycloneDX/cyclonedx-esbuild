@@ -180,6 +180,7 @@ jobs:
       - name: enable yarn   # needed in some tests
         run: |-
           corepack enable yarn
+          corepack prepare yarn@4 --activate
           yarn --version
         working-directory: ..  # prevent evaluation of package.json
       - name: setup bun   # needed in some tests

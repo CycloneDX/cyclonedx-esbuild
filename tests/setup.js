@@ -101,6 +101,15 @@ function setup () {
         continue
       }
 
+      if (config.cmd === 'yarn') {
+        console.log('>>> corepack install')
+        spawnSync('corepack', ['install'], {
+          cwd: testbedPath,
+          stdio: 'inherit',
+          shell: true
+        })
+      }
+
       const result = spawnSync(config.cmd, config.args, {
         cwd: testbedPath,
         stdio: 'inherit',
