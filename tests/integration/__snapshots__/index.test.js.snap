@@ -917,7 +917,10 @@ exports[`integration functional: esbuild lowest generated json file: dist/bom.js
       "ref": "1d915e815557a4aa642dc18d66e9ed6d2f4c1194ba4645e27172d2b012d85f90"
     },
     {
-      "ref": "7ae45ad102eab3b6d7e7896acd08c427a9b25b346470d7bc6507b6481575d519"
+      "ref": "7ae45ad102eab3b6d7e7896acd08c427a9b25b346470d7bc6507b6481575d519",
+      "dependsOn": [
+        "1d915e815557a4aa642dc18d66e9ed6d2f4c1194ba4645e27172d2b012d85f90"
+      ]
     }
   ]
 }"
