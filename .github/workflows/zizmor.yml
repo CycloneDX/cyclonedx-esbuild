@@ -1,0 +1,37 @@
+# docs: https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions
+# tool: https://github.com/zizmorcore/zizmor
+
+name: Zizmor
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/**'
+  schedule:
+    # every Saturday 00:00 UTC
+    - cron: '0 0 * * 6'
+
+permissions: {}
+
+jobs:
+  zizmor:
+    name: Zizmor audit
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout
+        # see https://github.com/actions/checkout
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
+        with:
+          persist-credentials: false
+      - name: Run zizmor
+        # see https://github.com/zizmorcore/zizmor-action
+        uses: zizmorcore/zizmor-action@b1d7e1fb5de872772f31590499237e7cce841e8e # v0.5.3
+        with:
+          inputs: '.github/workflows/'
+          advanced-security: 'false'
+          annotations: 'true'
+          online-audits: 'true'
+          min-severity: 'low'
