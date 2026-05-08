@@ -142,14 +142,14 @@ jobs:
         node-version:
           # action based on https://github.com/actions/node-versions/releases
           # see also: https://nodejs.org/en/about/previous-releases
-          - "25"      # Current
+          - "26"      # Current
           - "24"      # active LTS
           - "22"
           - "20"
           - "20.18.0" # lowest supported
-        include:
-          - node-version: "25"
-            experimental: true
+        # include:
+        #  - node-version: "27"
+        #    experimental: true
     continue-on-error: ${{ matrix.experimental == true }}
     steps:
       - name: Checkout
@@ -167,7 +167,7 @@ jobs:
           NODE_VERSION: '${{ matrix.node-version }}'
         run:
           case "$NODE_VERSION" in
-          '25' )
+          '26' )
           npm install -g npm@latest
           ;;
           '24' | '22')
