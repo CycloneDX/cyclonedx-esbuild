@@ -48,7 +48,8 @@ const MANAGERS = {
     cmd: 'npm',
     args: ['i', '--ignore-scripts'],
     dirs: [
-      'esbuild-latest'
+      'esbuild-latest',
+      'dep-graph-coverage'
     ]
   },
   yarn: {
