@@ -178,7 +178,7 @@ jobs:
           ;;
           esac
       - name: Remove Yarn 1 from PATH (Windows)
-        if: runner.os == 'Windows'
+        if: ${{ runner.os == 'Windows' }}
         shell: pwsh
         run: |
           where yarn
