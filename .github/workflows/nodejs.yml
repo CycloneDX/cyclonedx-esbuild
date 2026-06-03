@@ -166,6 +166,7 @@ jobs:
         env:
           NODE_VERSION: '${{ matrix.node-version }}'
         run: |
+          set -eux
           case "$NODE_VERSION" in
           '26' )
             npm install -g npm@latest
