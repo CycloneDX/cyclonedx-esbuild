@@ -96,6 +96,9 @@
     "npm-run-all2": "^8.0.1",
     "typescript": "^5.9.3"
   },
+  "overrides": {
+    "yargs": ">=17.7.2 && <19"
+  },
   "devEngines": {
     "runtime": {
       "name": "node",
