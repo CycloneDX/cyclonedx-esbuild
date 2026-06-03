@@ -181,16 +181,15 @@ jobs:
         if: ${{ runner.os == 'Windows' }}
         shell: pwsh
         run: |
-          $VerbosePreference = "Continue"
           Set-PSDebug -Trace 1
           # find yarn
           Get-Alias yarn -ErrorAction SilentlyContinue
           Get-ChildItem Function:\yarn -ErrorAction SilentlyContinue
           Get-Command yarn
           # remove yarn
-          Remove-Item Alias:\yarn -ErrorAction SilentlyContinue
-          Remove-Item Function:\yarn -ErrorAction SilentlyContinue
-          Remove-Item "C:\npm\prefix\yarn*" -Force -ErrorAction SilentlyContinue
+          Remove-Item Alias:\yarn -Verbose -ErrorAction SilentlyContinue
+          Remove-Item Function:\yarn -Verbose -ErrorAction SilentlyContinue
+          Remove-Item "C:\npm\prefix\yarn*" -Verbose -Force -ErrorAction SilentlyContinue
           # verify
           Get-Alias yarn -ErrorAction SilentlyContinue
           Get-ChildItem Function:\yarn -ErrorAction SilentlyContinue
