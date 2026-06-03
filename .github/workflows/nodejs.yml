@@ -181,7 +181,7 @@ jobs:
         if: ${{ runner.os == 'Windows' }}
         shell: pwsh
         run: |
-          where yarn
+          Get-Command yarn
       - name: enable yarn   # needed in some tests
         run: |-
           corepack enable yarn
