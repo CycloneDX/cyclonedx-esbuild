@@ -177,6 +177,12 @@ jobs:
           npm i -g npm@^10
           ;;
           esac
+      - name: Remove any global Yarn 1 (Windows only)
+        if: runner.os == 'Windows'
+        run: |
+          Remove-Item "C:\Program Files\nodejs\yarn*" -Force -ErrorAction SilentlyContinue
+          Remove-Item "C:\Program Files\nodejs\yarnpkg*" -Force -ErrorAction SilentlyContinue
+        working-directory: ..  # prevent evaluation of package.json
       - name: enable yarn   # needed in some tests
         run: |-
           corepack enable yarn
