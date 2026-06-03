@@ -101,14 +101,6 @@ function setup () {
         continue
       }
 
-      if (name === 'yarn') {
-        spawnSync('yarn', [], {
-          cwd: testbedPath,
-          stdio: 'inherit',
-          shell: true
-        })
-      }
-
       const result = spawnSync(config.cmd, config.args, {
         cwd: testbedPath,
         stdio: 'inherit',
