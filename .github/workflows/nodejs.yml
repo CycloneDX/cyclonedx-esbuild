@@ -182,7 +182,6 @@ jobs:
         shell: pwsh
         run: |
           where yarn
-          yarn --version
       - name: enable yarn   # needed in some tests
         run: |-
           corepack enable yarn
