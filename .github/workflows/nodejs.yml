@@ -197,6 +197,7 @@ jobs:
           Get-Command yarn -ErrorAction SilentlyContinue
       - name: enable yarn   # needed in some tests
         run: |-
+          npm uninstall -g yarn
           corepack enable yarn
           corepack install --global yarn@stable
           yarn --version
