@@ -181,12 +181,8 @@ jobs:
         if: runner.os == 'Windows'
         shell: pwsh
         run: |
-          # Remove Yarn 1 files
-          Remove-Item "C:\Program Files\nodejs\yarn*" -Force -ErrorAction SilentlyContinue
-          Remove-Item "C:\Program Files\nodejs\yarnpkg*" -Force -ErrorAction SilentlyContinue
-          # Remove Yarn 1 from PATH
-          $env:Path = ($env:Path -split ';' | Where-Object { $_ -notmatch 'nodejs' }) -join ';'
-          Write-Host "Updated PATH: $env:Path"
+          where yarn
+          yarn --version
       - name: enable yarn   # needed in some tests
         run: |-
           corepack enable yarn
