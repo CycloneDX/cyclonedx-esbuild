@@ -179,36 +179,46 @@ export class BomBuilder {
     pkgComponents: Map<string, Component>,
     rootDir: string
   ): void {
+    const componentMaps = { modulesComponents, pkgComponents }
     for (const [filePath, input] of Object.entries(metafile.inputs)) {
       const sourceComponent = modulesComponents.get(filePath)
       if (sourceComponent === undefined) continue
 
       for (const imp of input.imports) {
-        if (imp.external === true) continue
-        // Bun emits absolute paths in imports; normalize to relative (matching metafile.inputs keys)
-        const impPath = isAbsolute(imp.path) ? relative(rootDir, imp.path).split('\\').join('/') : imp.path
-        let targetComponent = modulesComponents.get(impPath)
-        // Fallback: resolve the import path using Node's module resolution from the importing
-        // file's directory, then find the owning package via getPackageConfig.
-        // This handles Bun's unresolved bare specifiers (e.g. "react") and any other case
-        // where the import path doesn't directly match a metafile.inputs key.
-        if (targetComponent === undefined) {
-          try {
-            const contextDir = dirname(resolve(rootDir, filePath))
-            const resolved = createRequire(resolve(contextDir, '_')).resolve(imp.path)
-            const pkg = getPackageConfig(resolved)
-            if (pkg !== undefined) {
-              targetComponent = pkgComponents.get(pkg.path)
-            }
-          } catch {
-            // Module not resolvable from this context — skip this edge
-          }
-        }
+        const targetComponent = this.resolveImportComponent(imp, filePath, componentMaps, rootDir)
         if (targetComponent === undefined) continue
         if (targetComponent === sourceComponent) continue
         sourceComponent.dependencies.add(targetComponent.bomRef)
       }
     }
+  }
+
+  private resolveImportComponent(
+    imp: esbuild.Metafile['inputs'][string]['imports'][number],
+    filePath: string,
+    { modulesComponents, pkgComponents }: { modulesComponents: Map<string, Component>; pkgComponents: Map<string, Component> },
+    rootDir: string
+  ): Component | undefined {
+    if (imp.external === true) return undefined
+    // Bun emits absolute paths in imports; normalize to relative (matching metafile.inputs keys)
+    const impPath = isAbsolute(imp.path) ? relative(rootDir, imp.path).split('\\').join('/') : imp.path
+    const direct = modulesComponents.get(impPath)
+    if (direct !== undefined) return direct
+    // Fallback: resolve the import path using Node's module resolution from the importing
+    // file's directory, then find the owning package via getPackageConfig.
+    // This handles Bun's unresolved bare specifiers (e.g. "react") and any other case
+    // where the import path doesn't directly match a metafile.inputs key.
+    try {
+      const contextDir = dirname(resolve(rootDir, filePath))
+      const resolved = createRequire(resolve(contextDir, '_')).resolve(imp.path)
+      const pkg = getPackageConfig(resolved)
+      if (pkg !== undefined) {
+        return pkgComponents.get(pkg.path)
+      }
+    } catch {
+      // Module not resolvable from this context — skip this edge
+    }
+    return undefined
   }
 
   /**
