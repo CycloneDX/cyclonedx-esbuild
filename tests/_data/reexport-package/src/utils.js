@@ -1,3 +1,5 @@
+"use strict";
+
 /*!
 This file is part of CycloneDX generator for esbuild.
 
@@ -17,8 +19,6 @@ SPDX-License-Identifier: Apache-2.0
 Copyright (c) OWASP Foundation. All Rights Reserved.
 */
 
-"use strict";
-
-module.exports = {
-  moo: () => 'moo'
-};
+export function moo() {
+  return 'moo'
+}

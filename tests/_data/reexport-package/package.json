@@ -2,7 +2,8 @@
   "private": true,
   "name": "@cyclonedx/cyclonedx-eslint-testing-reexport-package",
   "version": "0.0.1",
-  "description": "this is a dummy package for showcasing purposes only.\n",
+  "description": "this is a dummy package for showcasing purposes only.",
+  "type": "module",
   "main": "./src/index.js",
   "types": "./src/index.d.ts",
   "files": [

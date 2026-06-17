@@ -711,17 +711,52 @@ exports[`integration functional: esbuild latest generated json file: dist/bom.js
   "components": [
     {
       "type": "library",
+      "name": "cyclonedx-eslint-testing-custom-package",
+      "group": "@cyclonedx",
+      "version": "0.0.1",
+      "bom-ref": "1d915e815557a4aa642dc18d66e9ed6d2f4c1194ba4645e27172d2b012d85f90",
+      "description": "this is a dummy package for showcasing purposes only.\\n",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "name": "dummy-license",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40cyclonedx/cyclonedx-eslint-testing-custom-package@0.0.1",
+      "evidence": {
+        "licenses": [
+          {
+            "license": {
+              "name": "file: LICENSE.txt",
+              "text": {
+                "content": "SlVTVCBBIERVTU1ZIExJQ0VOU0UgVEVYVAoKTG9yZW0gaXBzdW0gZG9sb3Igc2l0IGFtZXQsIGNvbnNlY3RldHVyIGFkaXBpc2NpbmcgZWxpdC4gUGVsbGVudGVzcXVlIHRlbXB1cyBwcmV0aXVtIGFudGUgaGVuZHJlcml0IHBoYXJldHJhLiBDdXJhYml0dXIgYmxhbmRpdCBhdWN0b3IgbWFnbmEgZXQgcHVsdmluYXIuIFZpdmFtdXMgZXVpc21vZCBtYXVyaXMgc2l0IGFtZXQgdGluY2lkdW50IHRpbmNpZHVudC4gTmFtIGxlY3R1cyB0b3J0b3IsIHVsdHJpY2VzIHF1aXMgdWx0cmljZXMgYXQsIHBoYXJldHJhIGluIGxhY3VzLiBOdWxsYSBsb2JvcnRpcyBudW5jIHNpdCBhbWV0IHRvcnRvciBibGFuZGl0IHNhZ2l0dGlzLiBJbiBlbGVtZW50dW0gc2NlbGVyaXNxdWUgZmV1Z2lhdC4gUGVsbGVudGVzcXVlIGVsZWlmZW5kIHZlbmVuYXRpcyBjb25zZWN0ZXR1ci4gU3VzcGVuZGlzc2UgcG90ZW50aS4gTWF1cmlzIHBsYWNlcmF0LCBtaSBpbiBhdWN0b3IgbG9ib3J0aXMsIHJpc3VzIGxvcmVtIHVsbGFtY29ycGVyIHNhcGllbiwgcXVpcyBwbGFjZXJhdCBlcm9zIGFudGUgbm9uIGxvcmVtLiBOYW0gdGVtcHVzIGNvbmd1ZSBkaWFtIGZpbmlidXMgcnV0cnVtLiBQaGFzZWxsdXMgdHJpc3RpcXVlIHNhcGllbiBpbiBtYXNzYSBhbGlxdWFtLCB2aXRhZSBsdWN0dXMgbWV0dXMgY29uZ3VlLiBRdWlzcXVlIGVsZW1lbnR1bSBhbGlxdWFtIHRpbmNpZHVudC4K",
+                "contentType": "text/plain",
+                "encoding": "base64"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "library",
       "name": "cyclonedx-eslint-testing-reexport-package",
       "group": "@cyclonedx",
       "version": "0.0.1",
       "bom-ref": "cc7a934df5e7f8d19a76cf395d05904df21efa3524ddc11f70b7121a1635a778",
-      "description": "this is a dummy package for showcasing purposes only.\\n",
-      "scope": "required",
+      "description": "this is a dummy package for showcasing purposes only.",
+      "scope": "excluded",
       "purl": "pkg:npm/%40cyclonedx/cyclonedx-eslint-testing-reexport-package@0.0.1",
       "evidence": {}
     }
   ],
   "dependencies": [
+    {
+      "ref": "1d915e815557a4aa642dc18d66e9ed6d2f4c1194ba4645e27172d2b012d85f90"
+    },
     {
       "ref": "7ae45ad102eab3b6d7e7896acd08c427a9b25b346470d7bc6507b6481575d519"
     },

@@ -124,11 +124,7 @@ export class BomBuilder {
         modulePaths.add([entryPoint, NaN])
       }
       for (const [filePath, {bytesInOutput}] of Object.entries(inputs)) {
-        if (bytesInOutput > 0) {
-          modulePaths.add([filePath, bytesInOutput])
-        } else {
-          logger.debug(LogPrefixes.DEBUG, `skipped filePath:`, filePath)
-        }
+        modulePaths.add([filePath, bytesInOutput])
       }
     }
     logger.debug(LogPrefixes.DEBUG, `used modulePaths:`, modulePaths)

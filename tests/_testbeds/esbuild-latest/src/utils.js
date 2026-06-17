@@ -19,17 +19,17 @@ Copyright (c) OWASP Foundation. All Rights Reserved.
 
 // TypeScript utility functions and classes
 
-const { Utils: { moo } } = require('reexport-package')
+import {moo} from 'reexport-package'
 
-function sayMoo() {
+export function sayMoo() {
   console.info(moo())
 }
 
-function greet(name) {
+export function greet(name) {
   return `Hello, ${name}!`;
 }
 
-class Calculator {
+export class Calculator {
   add(a, b) {
     return a + b;
   }
@@ -44,10 +44,4 @@ class Calculator {
     }
     return a / b;
   }
-}
-
-module.exports = {
-  greet,
-  Calculator,
-  sayMoo,
 }
