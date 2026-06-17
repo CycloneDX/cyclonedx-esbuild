@@ -81,7 +81,6 @@ exports[`integration functional: angular20 on npm generated json file: dist/firs
       "group": "@cyclonedx",
       "version": "0.0.0",
       "bom-ref": "7ae45ad102eab3b6d7e7896acd08c427a9b25b346470d7bc6507b6481575d519",
-      "scope": "required",
       "purl": "pkg:npm/%40cyclonedx/cyclonedx-eslint-testbed-angular20-npm@0.0.0",
       "evidence": {}
     }
@@ -695,7 +694,6 @@ exports[`integration functional: esbuild latest generated json file: dist/bom.js
       "version": "1.0.0",
       "bom-ref": "7ae45ad102eab3b6d7e7896acd08c427a9b25b346470d7bc6507b6481575d519",
       "description": "Example using esbuild wit the latest supported version",
-      "scope": "required",
       "licenses": [
         {
           "license": {
@@ -854,7 +852,6 @@ exports[`integration functional: esbuild lowest generated json file: dist/bom.js
       "version": "1.0.0",
       "bom-ref": "7ae45ad102eab3b6d7e7896acd08c427a9b25b346470d7bc6507b6481575d519",
       "description": "Example using esbuild wit the lowest supported version",
-      "scope": "required",
       "licenses": [
         {
           "license": {
@@ -3342,7 +3339,6 @@ exports[`integration functional: juice-shop frontend on npm generated json file:
       "bom-ref": "b3dfb133d42f90885db89be033e4dadda7fd7e388b712c72e8e84c8087144a5a",
       "author": "Murhaf Sousli",
       "description": "Instant code highlighting, auto-detect language, super easy to use.",
-      "scope": "required",
       "licenses": [
         {
           "license": {
@@ -3448,7 +3444,6 @@ exports[`integration functional: juice-shop frontend on npm generated json file:
       "bom-ref": "c1d30dea75fae9e9fe5989dab26cd6fe656001eb7dec0dbe9ba453ecb1ae56d3",
       "author": "Marijn Haverbeke",
       "description": "Full-featured in-browser code editor",
-      "scope": "required",
       "licenses": [
         {
           "license": {
@@ -4083,7 +4078,6 @@ exports[`integration functional: juice-shop frontend on npm generated json file:
       "bom-ref": "f0ca8ac44951a4aa19a6a395957f8f8adbd96046fecdafd203c1a7fd10676c18",
       "author": "Josh Goebel",
       "description": "Syntax highlighting with language autodetection.",
-      "scope": "required",
       "licenses": [
         {
           "license": {
@@ -4703,7 +4697,6 @@ exports[`integration functional: react19 on bun generated json file: dist/bom.js
       "group": "@cyclonedx",
       "version": "0.1.0",
       "bom-ref": "7ae45ad102eab3b6d7e7896acd08c427a9b25b346470d7bc6507b6481575d519",
-      "scope": "required",
       "purl": "pkg:npm/%40cyclonedx/cyclonedx-eslint-testbed-react19-bun@0.1.0",
       "evidence": {}
     }
@@ -4963,7 +4956,6 @@ exports[`integration functional: simple typescript bundling on npm generated jso
       "version": "1.0.0",
       "bom-ref": "7ae45ad102eab3b6d7e7896acd08c427a9b25b346470d7bc6507b6481575d519",
       "description": "TypeScript example using esbuild with npm",
-      "scope": "required",
       "licenses": [
         {
           "license": {
@@ -5113,7 +5105,6 @@ exports[`integration functional: simple typescript bundling on yarn generated js
       "version": "1.0.0",
       "bom-ref": "7ae45ad102eab3b6d7e7896acd08c427a9b25b346470d7bc6507b6481575d519",
       "description": "TypeScript example using esbuild with Yarn 4",
-      "scope": "required",
       "licenses": [
         {
           "license": {
