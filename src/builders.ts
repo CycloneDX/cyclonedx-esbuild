@@ -21,7 +21,7 @@ import { dirname, resolve } from "node:path";
 
 import type { Builders as FromNodePackageJsonBuilders } from "@cyclonedx/cyclonedx-library/Contrib/FromNodePackageJson"
 import type { Utils as LicenseUtils } from "@cyclonedx/cyclonedx-library/Contrib/License"
-import { LicenseAcknowledgement, ComponentScope } from "@cyclonedx/cyclonedx-library/Enums"
+import { ComponentScope,LicenseAcknowledgement } from "@cyclonedx/cyclonedx-library/Enums"
 import type { Component, License } from "@cyclonedx/cyclonedx-library/Models"
 import { Bom, ComponentEvidence, LicenseRepository, NamedLicense } from "@cyclonedx/cyclonedx-library/Models"
 import type * as esbuild from "esbuild"
@@ -146,15 +146,17 @@ export class BomBuilder {
           logger.warn(LogPrefixes.WARN, 'skipped Component from PkgPath', pkg.path)
           continue
         }
-        component.scope = bytesInOutput === 0
-          ? ComponentScope.Excluded
-          : ComponentScope.Required
+        if (bytesInOutput > 0) {
+          component.scope = ComponentScope.Required
+        } else if (bytesInOutput <= 0) {
+          component.scope = ComponentScope.Excluded
+        } else {
+          // bytesInOutput is NaN or something -> we cannot tell the scope
+        }
         logger.debug(LogPrefixes.DEBUG, 'built', component, 'based on', pkg, 'for modulePaths', modulePaths)
         pkgs.set(pkg.path, component)
-      } else {
-        if (component.scope === ComponentScope.Excluded && bytesInOutput !== 0 ) {
-          component.scope = ComponentScope.Required
-        }
+      } else if (component.scope === ComponentScope.Excluded && bytesInOutput > 0 ) {
+        component.scope = ComponentScope.Required
       }
       components.set(modulePath, component)
     }

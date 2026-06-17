@@ -23,7 +23,7 @@ import {cyclonedxEsbuildPlugin} from '@cyclonedx/cyclonedx-esbuild'
 
 async function build() {
     try {
-        const built = await esbuild.build({
+        await esbuild.build({
             entryPoints: ['src/index.js'],
             bundle: true,
             outfile: 'dist/bundle.js',
