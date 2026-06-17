@@ -42,7 +42,6 @@ async function build() {
           logLevel: 'debug',
         })
         console.log('✅ Build completed successfully!')
-        console.debug('built', JSON.stringify(built.metafile))
     } catch (error) {
         console.error('❌ Build failed:', error)
         process.exit(1)
