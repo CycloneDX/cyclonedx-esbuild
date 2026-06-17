@@ -18,9 +18,9 @@ Copyright (c) OWASP Foundation. All Rights Reserved.
 */
 
 // TypeScript application to test esbuild
-const { utils: CPUtils } = require('reexport-package')
+const { CustomPackageReexport: { utils: CPUtils } } = require('reexport-package')
 
-const { Calculator } = require('./utils')
+const { Calculator, sayMoo } = require('./utils')
 const { greet } = require('./interim')
 
 console.log('TypeScript esbuild example with npm');
@@ -49,3 +49,5 @@ console.log(
     'from custom-package:',
     CPUtils.foo()
 )
+
+sayMoo()
