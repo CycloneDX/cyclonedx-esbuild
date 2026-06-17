@@ -18,7 +18,7 @@ Copyright (c) OWASP Foundation. All Rights Reserved.
 */
 
 // TypeScript application to test esbuild
-const { utils: CPUtils } = require('custom-package')
+const { utils: CPUtils } = require('reexport-package')
 
 const { Calculator } = require('./utils')
 const { greet } = require('./interim')

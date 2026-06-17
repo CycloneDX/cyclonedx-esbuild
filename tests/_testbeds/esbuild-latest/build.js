@@ -24,7 +24,7 @@ const {cyclonedxEsbuildPlugin} = require('@cyclonedx/cyclonedx-esbuild')
 
 async function build() {
     try {
-        await esbuild.build({
+        const built = await esbuild.build({
             entryPoints: ['src/index.js'],
             bundle: true,
             outfile: 'dist/bundle.js',
@@ -43,6 +43,7 @@ async function build() {
           logLevel: 'debug',
         })
         console.log('✅ Build completed successfully!')
+        console.debug('built', JSON.stringify(built.metafile))
     } catch (error) {
         console.error('❌ Build failed:', error)
         process.exit(1)

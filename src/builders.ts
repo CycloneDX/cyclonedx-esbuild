@@ -21,7 +21,7 @@ import { dirname, resolve } from "node:path";
 
 import type { Builders as FromNodePackageJsonBuilders } from "@cyclonedx/cyclonedx-library/Contrib/FromNodePackageJson"
 import type { Utils as LicenseUtils } from "@cyclonedx/cyclonedx-library/Contrib/License"
-import { LicenseAcknowledgement } from "@cyclonedx/cyclonedx-library/Enums"
+import { LicenseAcknowledgement, ComponentScope } from "@cyclonedx/cyclonedx-library/Enums"
 import type { Component, License } from "@cyclonedx/cyclonedx-library/Models"
 import { Bom, ComponentEvidence, LicenseRepository, NamedLicense } from "@cyclonedx/cyclonedx-library/Models"
 import type * as esbuild from "esbuild"
@@ -118,21 +118,23 @@ export class BomBuilder {
     const pkgs = new Map<string, Component>
     const components = new Map<string, Component>
 
-    const modulePaths = new Set<string>()
+    const modulePaths = new Set<[string, number]>()
     for (const {inputs, entryPoint} of Object.values(metafile.outputs)) {
       if (entryPoint !== undefined) {
-        modulePaths.add(entryPoint)
+        modulePaths.add([entryPoint, NaN])
       }
       for (const [filePath, {bytesInOutput}] of Object.entries(inputs)) {
         if (bytesInOutput > 0) {
-          modulePaths.add(filePath)
+          modulePaths.add([filePath, bytesInOutput])
+        } else {
+          logger.debug(LogPrefixes.DEBUG, `skipped filePath:`, filePath)
         }
       }
     }
     logger.debug(LogPrefixes.DEBUG, `used modulePaths:`, modulePaths)
 
     logger.info(LogPrefixes.INFO, 'start building Components from modules...')
-    for (const modulePath of modulePaths) {
+    for (const [modulePath, bytesInOutput] of modulePaths) {
       const pkg = getPackageConfig(resolve(rootDir, modulePath))
       if (pkg === undefined) {
         logger.debug('skipped package for', modulePath)
@@ -148,8 +150,15 @@ export class BomBuilder {
           logger.warn(LogPrefixes.WARN, 'skipped Component from PkgPath', pkg.path)
           continue
         }
+        component.scope = bytesInOutput === 0
+          ? ComponentScope.Excluded
+          : ComponentScope.Required
         logger.debug(LogPrefixes.DEBUG, 'built', component, 'based on', pkg, 'for modulePaths', modulePaths)
         pkgs.set(pkg.path, component)
+      } else {
+        if (component.scope === ComponentScope.Excluded && bytesInOutput !== 0 ) {
+          component.scope = ComponentScope.Required
+        }
       }
       components.set(modulePath, component)
     }

@@ -12,7 +12,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "custom-package": "file:../../_data/custom-package/package.tgz",
+    "reexport-package": "file:../../_data/reexport-package/package.tgz",
     "@cyclonedx/cyclonedx-esbuild": "file:../../../",
     "esbuild": "latest"
   }

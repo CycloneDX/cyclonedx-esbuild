@@ -17,7 +17,4 @@ SPDX-License-Identifier: Apache-2.0
 Copyright (c) OWASP Foundation. All Rights Reserved.
 */
 
-/** @internal*/
-export function used_private() {
-    return 'used_private'
-}
+export * from "custom-package";
