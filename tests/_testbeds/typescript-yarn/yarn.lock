@@ -25,8 +25,8 @@ __metadata:
 
 "@cyclonedx/cyclonedx-eslint-testing-custom-package@file:../../_data/custom-package/package.tgz::locator=%40cyclonedx%2Fcyclonedx-eslint-testbed-typescript-yarn%40workspace%3A.":
   version: 0.0.1
-  resolution: "@cyclonedx/cyclonedx-eslint-testing-custom-package@file:../../_data/custom-package/package.tgz#../../_data/custom-package/package.tgz::hash=5d2e15&locator=%40cyclonedx%2Fcyclonedx-eslint-testbed-typescript-yarn%40workspace%3A."
-  checksum: 10c0/49f4eaf3a76bd7316a8b462a75c1c15ec10d98e7acbab074fabafda25923eae6f2c39004ac0dc3d4dda56c0de1ac1f813c5267f3262ba0403ec3a15354a9cbaa
+  resolution: "@cyclonedx/cyclonedx-eslint-testing-custom-package@file:../../_data/custom-package/package.tgz#../../_data/custom-package/package.tgz::hash=894783&locator=%40cyclonedx%2Fcyclonedx-eslint-testbed-typescript-yarn%40workspace%3A."
+  checksum: 10c0/e0a125b56e1d81363ed12c616fd35223b0589066ad980eb286f7432074506576afc9d445d8482b323195791d376f03455ba6e5014b10945d0fea18246c8116fd
   languageName: node
   linkType: hard
 
