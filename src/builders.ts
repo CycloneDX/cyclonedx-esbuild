@@ -140,7 +140,8 @@ export class BomBuilder {
 
     logger.info(LogPrefixes.INFO, 'start building Components from modules...')
     for (const [modulePath, moduleRequired] of modulePathsRequired) {
-      let component: Component | undefined = undefined
+      /* eslint-disable-next-line @typescript-eslint/init-declarations -- ack */
+      let component: Component | undefined
       const pkg = getPackageConfig(resolve(rootDir, modulePath))
       if (pkg === undefined) {
         component = vrts.get(modulePath)
