@@ -18,10 +18,10 @@ Copyright (c) OWASP Foundation. All Rights Reserved.
 */
 
 // TypeScript application to test esbuild
-const { utils: CPUtils } = require('custom-package')
+import {CustomPackageReexport} from '@cyclonedx/cyclonedx-eslint-testing-reexport-package'
 
-const { Calculator } = require('./utils')
-const { greet } = require('./interim')
+import {Calculator} from './utils'
+import {greet} from './interim'
 
 console.log('TypeScript esbuild example with npm');
 console.log(greet('World'));
@@ -46,6 +46,6 @@ async function fetchData() {
 fetchData().then(data => console.log(data));
 
 console.log(
-    'from custom-package:',
-    CPUtils.foo()
+  'from custom-package:',
+  CustomPackageReexport.utils.foo()
 )

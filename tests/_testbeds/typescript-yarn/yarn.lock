@@ -16,12 +16,28 @@ __metadata:
   resolution: "@cyclonedx/cyclonedx-eslint-testbed-typescript-yarn@workspace:."
   dependencies:
     "@cyclonedx/cyclonedx-esbuild": "link:../../../"
+    "@cyclonedx/cyclonedx-eslint-testing-reexport-package": "file:../../_data/reexport-package/package.tgz"
     "@types/node": "npm:ts5.9"
-    custom-package: "file:../../_data/custom-package/package.tgz"
     esbuild: "npm:0.27.0"
     typescript: "npm:5.9.3"
   languageName: unknown
   linkType: soft
+
+"@cyclonedx/cyclonedx-eslint-testing-custom-package@file:../../_data/custom-package/package.tgz::locator=%40cyclonedx%2Fcyclonedx-eslint-testbed-typescript-yarn%40workspace%3A.":
+  version: 0.0.1
+  resolution: "@cyclonedx/cyclonedx-eslint-testing-custom-package@file:../../_data/custom-package/package.tgz#../../_data/custom-package/package.tgz::hash=5d2e15&locator=%40cyclonedx%2Fcyclonedx-eslint-testbed-typescript-yarn%40workspace%3A."
+  checksum: 10c0/49f4eaf3a76bd7316a8b462a75c1c15ec10d98e7acbab074fabafda25923eae6f2c39004ac0dc3d4dda56c0de1ac1f813c5267f3262ba0403ec3a15354a9cbaa
+  languageName: node
+  linkType: hard
+
+"@cyclonedx/cyclonedx-eslint-testing-reexport-package@file:../../_data/reexport-package/package.tgz::locator=%40cyclonedx%2Fcyclonedx-eslint-testbed-typescript-yarn%40workspace%3A.":
+  version: 0.0.1
+  resolution: "@cyclonedx/cyclonedx-eslint-testing-reexport-package@file:../../_data/reexport-package/package.tgz#../../_data/reexport-package/package.tgz::hash=2d5fc7&locator=%40cyclonedx%2Fcyclonedx-eslint-testbed-typescript-yarn%40workspace%3A."
+  dependencies:
+    "@cyclonedx/cyclonedx-eslint-testing-custom-package": "file:../custom-package/package.tgz"
+  checksum: 10c0/45cf396ea7c432f238d283ed345901571bbc0d65cfe1758b48f79eff6cde4491dbda8148f9ad8644f9a7176b1ec52b1d4dc1cdc46e3e216a53018b583cfa82ca
+  languageName: node
+  linkType: hard
 
 "@esbuild/aix-ppc64@npm:0.27.0":
   version: 0.27.0
@@ -211,13 +227,6 @@ __metadata:
   dependencies:
     undici-types: "npm:~7.16.0"
   checksum: 10c0/d6bca7a78f550fbb376f236f92b405d676003a8a09a1b411f55920ef34286ee3ee51f566203920e835478784df52662b5b2af89159d9d319352e9ea21801c002
-  languageName: node
-  linkType: hard
-
-"custom-package@file:../../_data/custom-package/package.tgz::locator=%40cyclonedx%2Fcyclonedx-eslint-testbed-typescript-yarn%40workspace%3A.":
-  version: 0.0.1
-  resolution: "custom-package@file:../../_data/custom-package/package.tgz#../../_data/custom-package/package.tgz::hash=5d2e15&locator=%40cyclonedx%2Fcyclonedx-eslint-testbed-typescript-yarn%40workspace%3A."
-  checksum: 10c0/7ff078461a78bf832e2d660387b2c930f39767379edaf396580eedd3439d9ef7ea1a48db61e3267c1195c4d733a7c80a4d6b0a993b67860ce4c94b47ab75c004
   languageName: node
   linkType: hard
 

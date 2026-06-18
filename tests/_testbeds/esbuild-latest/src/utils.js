@@ -19,7 +19,7 @@ Copyright (c) OWASP Foundation. All Rights Reserved.
 
 // TypeScript utility functions and classes
 
-import {moo} from 'reexport-package'
+import {moo} from '@cyclonedx/cyclonedx-eslint-testing-reexport-package'
 
 export function sayMoo() {
   console.info(moo())

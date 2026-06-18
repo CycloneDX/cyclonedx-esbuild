@@ -17,10 +17,13 @@
   },
   "devDependencies": {
     "@cyclonedx/cyclonedx-esbuild": "link:../../../",
+    "@cyclonedx/cyclonedx-eslint-testing-reexport-package": "file:../../_data/reexport-package/package.tgz",
     "@types/node": "ts5.9",
-    "custom-package": "file:../../_data/custom-package/package.tgz",
     "esbuild": "0.27.0",
     "typescript": "5.9.3"
+  },
+  "resolutions": {
+    "@cyclonedx/cyclonedx-eslint-testing-custom-package": "file:../../_data/custom-package/package.tgz"
   },
   "scripts": {
     "build": "node build.cjs",

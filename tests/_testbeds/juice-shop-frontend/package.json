@@ -82,5 +82,6 @@
     "stylelint-scss": "^6.0.0",
     "ts-node": "^10.9.2",
     "typescript-eslint": "^8.42.0"
-  }
+  },
+  "packageManager": "npm"
 }

@@ -18,7 +18,7 @@ Copyright (c) OWASP Foundation. All Rights Reserved.
 */
 
 // TypeScript application to test esbuild
-import { utils as CPUtils } from 'custom-package'
+import { CustomPackageReexport } from '@cyclonedx/cyclonedx-eslint-testing-reexport-package'
 
 import { Calculator } from './utils';
 import { greet } from './interim';
@@ -47,5 +47,5 @@ fetchData().then((data: string) => console.log(data));
 
 console.log(
     'from custom-package:',
-    CPUtils.foo()
+  CustomPackageReexport.utils.foo()
 )

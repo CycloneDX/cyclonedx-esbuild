@@ -12,8 +12,12 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "reexport-package": "file:../../_data/reexport-package/package.tgz",
+    "@cyclonedx/cyclonedx-eslint-testing-reexport-package": "file:../../_data/reexport-package/package.tgz",
     "@cyclonedx/cyclonedx-esbuild": "file:../../../",
     "esbuild": "latest"
-  }
+  },
+  "overrides": {
+    "@cyclonedx/cyclonedx-eslint-testing-custom-package": "file:../../_data/custom-package/package.tgz"
+  },
+  "packageManager": "npm"
 }

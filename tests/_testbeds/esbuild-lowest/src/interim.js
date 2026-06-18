@@ -20,8 +20,4 @@ Copyright (c) OWASP Foundation. All Rights Reserved.
 // simply re-export foo ...
 
 
-const { greet } = require('./utils')
-
-module.exports = {
-  greet
-}
+export {greet} from './utils'
