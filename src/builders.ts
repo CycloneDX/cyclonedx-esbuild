@@ -133,6 +133,7 @@ export class BomBuilder {
     for (const [modulePath, bytesInOutput] of modulePaths) {
       const pkg = getPackageConfig(resolve(rootDir, modulePath))
       if (pkg === undefined) {
+        // TODO: add vitual component
         logger.debug('skipped package for', modulePath)
         continue
       }

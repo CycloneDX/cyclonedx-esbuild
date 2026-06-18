@@ -140,6 +140,9 @@ vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 .vite/
 
+# dont keep the generated files
+/types/
+
 #--> customs
 # we want to vendor the package.
 /!package.tgz

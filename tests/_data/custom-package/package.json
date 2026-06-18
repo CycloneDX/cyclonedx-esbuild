@@ -22,5 +22,6 @@
     "make-types": "tsc --declaration --allowJs --emitDeclarationOnly --outDir types lib/*.js",
     "prebuild": "node -r fs -e 'fs.rmSync(`package.tgz`,{force:true})'",
     "build": "npm run make-types && npm pack && mv *.tgz package.tgz"
-  }
+  },
+  "packageManager": "npm"
 }
