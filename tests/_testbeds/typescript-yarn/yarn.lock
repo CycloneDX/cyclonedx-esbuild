@@ -2,7 +2,7 @@
 # Manual changes might be lost - proceed with caution!
 
 __metadata:
-  version: 8
+  version: 10
   cacheKey: 10c0
 
 "@cyclonedx/cyclonedx-esbuild@link:../../../::locator=%40cyclonedx%2Fcyclonedx-eslint-testbed-typescript-yarn%40workspace%3A.":
@@ -20,6 +20,9 @@ __metadata:
     "@types/node": "npm:ts5.9"
     esbuild: "npm:latest"
     typescript: "npm:5.9.3"
+  dependenciesMeta:
+    "@cyclonedx/cyclonedx-eslint-testing-reexport-package@0.0.1":
+      unplugged: true
   languageName: unknown
   linkType: soft
 

@@ -22,6 +22,11 @@
     "esbuild": "latest",
     "typescript": "5.9.3"
   },
+  "dependenciesMeta": {
+    "@cyclonedx/cyclonedx-eslint-testing-reexport-package@0.0.1": {
+      "unplugged": true
+    }
+  },
   "resolutions": {
     "@cyclonedx/cyclonedx-eslint-testing-custom-package": "file:../../_data/custom-package/package.tgz"
   },
@@ -30,5 +35,5 @@
     "start": "yarn build && node dist/bundle.js",
     "typecheck": "tsc --noEmit"
   },
-  "packageManager": "yarn@4.11.0"
+  "packageManager": "yarn@4.17.0"
 }
