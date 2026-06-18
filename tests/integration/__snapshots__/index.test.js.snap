@@ -712,7 +712,7 @@ exports[`integration functional: esbuild latest generated json file: dist/bom.js
       "name": "cyclonedx-eslint-testing-custom-package",
       "group": "@cyclonedx",
       "version": "0.0.1",
-      "bom-ref": "1d915e815557a4aa642dc18d66e9ed6d2f4c1194ba4645e27172d2b012d85f90",
+      "bom-ref": "934cae484a0df083dc3c0dc4dfccd2d691cf53edd0986e89190924f73e840668",
       "description": "this is a dummy package for showcasing purposes only.\\n",
       "scope": "required",
       "licenses": [
@@ -744,7 +744,7 @@ exports[`integration functional: esbuild latest generated json file: dist/bom.js
       "name": "cyclonedx-eslint-testing-reexport-package",
       "group": "@cyclonedx",
       "version": "0.0.1",
-      "bom-ref": "cc7a934df5e7f8d19a76cf395d05904df21efa3524ddc11f70b7121a1635a778",
+      "bom-ref": "eef61cb816b4870cc41baae9389ed9b4f74713feb1532232bdb0bd65efa268d0",
       "description": "this is a dummy package for showcasing purposes only.",
       "scope": "excluded",
       "purl": "pkg:npm/%40cyclonedx/cyclonedx-eslint-testing-reexport-package@0.0.1",
@@ -753,13 +753,13 @@ exports[`integration functional: esbuild latest generated json file: dist/bom.js
   ],
   "dependencies": [
     {
-      "ref": "1d915e815557a4aa642dc18d66e9ed6d2f4c1194ba4645e27172d2b012d85f90"
-    },
-    {
       "ref": "7ae45ad102eab3b6d7e7896acd08c427a9b25b346470d7bc6507b6481575d519"
     },
     {
-      "ref": "cc7a934df5e7f8d19a76cf395d05904df21efa3524ddc11f70b7121a1635a778"
+      "ref": "934cae484a0df083dc3c0dc4dfccd2d691cf53edd0986e89190924f73e840668"
+    },
+    {
+      "ref": "eef61cb816b4870cc41baae9389ed9b4f74713feb1532232bdb0bd65efa268d0"
     }
   ]
 }"
@@ -870,7 +870,7 @@ exports[`integration functional: esbuild lowest generated json file: dist/bom.js
       "name": "cyclonedx-eslint-testing-custom-package",
       "group": "@cyclonedx",
       "version": "0.0.1",
-      "bom-ref": "1d915e815557a4aa642dc18d66e9ed6d2f4c1194ba4645e27172d2b012d85f90",
+      "bom-ref": "934cae484a0df083dc3c0dc4dfccd2d691cf53edd0986e89190924f73e840668",
       "description": "this is a dummy package for showcasing purposes only.\\n",
       "scope": "required",
       "licenses": [
@@ -896,14 +896,28 @@ exports[`integration functional: esbuild lowest generated json file: dist/bom.js
           }
         ]
       }
+    },
+    {
+      "type": "library",
+      "name": "cyclonedx-eslint-testing-reexport-package",
+      "group": "@cyclonedx",
+      "version": "0.0.1",
+      "bom-ref": "eef61cb816b4870cc41baae9389ed9b4f74713feb1532232bdb0bd65efa268d0",
+      "description": "this is a dummy package for showcasing purposes only.",
+      "scope": "excluded",
+      "purl": "pkg:npm/%40cyclonedx/cyclonedx-eslint-testing-reexport-package@0.0.1",
+      "evidence": {}
     }
   ],
   "dependencies": [
     {
-      "ref": "1d915e815557a4aa642dc18d66e9ed6d2f4c1194ba4645e27172d2b012d85f90"
+      "ref": "7ae45ad102eab3b6d7e7896acd08c427a9b25b346470d7bc6507b6481575d519"
     },
     {
-      "ref": "7ae45ad102eab3b6d7e7896acd08c427a9b25b346470d7bc6507b6481575d519"
+      "ref": "934cae484a0df083dc3c0dc4dfccd2d691cf53edd0986e89190924f73e840668"
+    },
+    {
+      "ref": "eef61cb816b4870cc41baae9389ed9b4f74713feb1532232bdb0bd65efa268d0"
     }
   ]
 }"
@@ -4974,7 +4988,7 @@ exports[`integration functional: simple typescript bundling on npm generated jso
       "name": "cyclonedx-eslint-testing-custom-package",
       "group": "@cyclonedx",
       "version": "0.0.1",
-      "bom-ref": "1d915e815557a4aa642dc18d66e9ed6d2f4c1194ba4645e27172d2b012d85f90",
+      "bom-ref": "934cae484a0df083dc3c0dc4dfccd2d691cf53edd0986e89190924f73e840668",
       "description": "this is a dummy package for showcasing purposes only.\\n",
       "scope": "required",
       "licenses": [
@@ -5000,14 +5014,28 @@ exports[`integration functional: simple typescript bundling on npm generated jso
           }
         ]
       }
+    },
+    {
+      "type": "library",
+      "name": "cyclonedx-eslint-testing-reexport-package",
+      "group": "@cyclonedx",
+      "version": "0.0.1",
+      "bom-ref": "eef61cb816b4870cc41baae9389ed9b4f74713feb1532232bdb0bd65efa268d0",
+      "description": "this is a dummy package for showcasing purposes only.",
+      "scope": "excluded",
+      "purl": "pkg:npm/%40cyclonedx/cyclonedx-eslint-testing-reexport-package@0.0.1",
+      "evidence": {}
     }
   ],
   "dependencies": [
     {
-      "ref": "1d915e815557a4aa642dc18d66e9ed6d2f4c1194ba4645e27172d2b012d85f90"
+      "ref": "7ae45ad102eab3b6d7e7896acd08c427a9b25b346470d7bc6507b6481575d519"
     },
     {
-      "ref": "7ae45ad102eab3b6d7e7896acd08c427a9b25b346470d7bc6507b6481575d519"
+      "ref": "934cae484a0df083dc3c0dc4dfccd2d691cf53edd0986e89190924f73e840668"
+    },
+    {
+      "ref": "eef61cb816b4870cc41baae9389ed9b4f74713feb1532232bdb0bd65efa268d0"
     }
   ]
 }"
@@ -5120,10 +5148,21 @@ exports[`integration functional: simple typescript bundling on yarn generated js
   "components": [
     {
       "type": "library",
+      "name": "cyclonedx-eslint-testing-reexport-package",
+      "group": "@cyclonedx",
+      "version": "0.0.1",
+      "bom-ref": "46cd7fd3eb73e0e6516037cb3f1f6462c8e40a2429d9e700c87573ee55e7a6be",
+      "description": "this is a dummy package for showcasing purposes only.",
+      "scope": "excluded",
+      "purl": "pkg:npm/%40cyclonedx/cyclonedx-eslint-testing-reexport-package@0.0.1",
+      "evidence": {}
+    },
+    {
+      "type": "library",
       "name": "cyclonedx-eslint-testing-custom-package",
       "group": "@cyclonedx",
       "version": "0.0.1",
-      "bom-ref": "987baf09aca5d8b31d74cadd4736036167170ebb316afa8a8fefff2643c04141",
+      "bom-ref": "8d3479266730a6faba45f6427916e6c305cdb1a8c2e7238863aad01d4474db25",
       "description": "this is a dummy package for showcasing purposes only.\\n",
       "scope": "required",
       "licenses": [
@@ -5153,10 +5192,13 @@ exports[`integration functional: simple typescript bundling on yarn generated js
   ],
   "dependencies": [
     {
+      "ref": "46cd7fd3eb73e0e6516037cb3f1f6462c8e40a2429d9e700c87573ee55e7a6be"
+    },
+    {
       "ref": "7ae45ad102eab3b6d7e7896acd08c427a9b25b346470d7bc6507b6481575d519"
     },
     {
-      "ref": "987baf09aca5d8b31d74cadd4736036167170ebb316afa8a8fefff2643c04141"
+      "ref": "8d3479266730a6faba45f6427916e6c305cdb1a8c2e7238863aad01d4474db25"
     }
   ]
 }"
