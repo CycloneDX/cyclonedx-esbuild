@@ -211,7 +211,6 @@ export async function run(process_: NodeJS.Process): Promise<number> {
   const rComponent = bom.metadata.component
   if (undefined !== rComponent) {
     rComponent.type = options.mcType
-    rComponent.scope = undefined
     /* eslint-disable-next-line  @typescript-eslint/prefer-nullish-coalescing -- intended for empty strings */
     rComponent.bomRef.value ||= '__root_component__'
   }
