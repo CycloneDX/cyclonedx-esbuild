@@ -20,8 +20,8 @@ Copyright (c) OWASP Foundation. All Rights Reserved.
 // JavaScript application to test esbuild
 import {CustomPackageReexport} from '@cyclonedx/cyclonedx-eslint-testing-reexport-package'
 
-import {Calculator} from './utils'
-import {greet} from './interim'
+import {Calculator} from './utils.js'
+import {greet} from './interim.js'
 
 console.log('JavaScript esbuild example with npm');
 console.log(greet('World'));

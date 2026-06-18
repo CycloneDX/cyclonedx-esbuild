@@ -20,4 +20,4 @@ Copyright (c) OWASP Foundation. All Rights Reserved.
 // simply re-export foo ...
 
 
-export {greet} from './utils'
+export {greet} from './utils.js'
