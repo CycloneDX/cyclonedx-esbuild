@@ -19,4 +19,4 @@ Copyright (c) OWASP Foundation. All Rights Reserved.
 
 export * as CustomPackageReexport from '@cyclonedx/cyclonedx-eslint-testing-custom-package';
 
-export { moo } from './utils';
+export { moo } from './utils.js';

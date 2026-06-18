@@ -1,3 +1,4 @@
+"use strict";
 /*!
 This file is part of CycloneDX generator for esbuild.
 
@@ -17,16 +18,15 @@ SPDX-License-Identifier: Apache-2.0
 Copyright (c) OWASP Foundation. All Rights Reserved.
 */
 
-// TypeScript application to test esbuild
-import {CustomPackageReexport} from '@cyclonedx/cyclonedx-eslint-testing-reexport-package'
+const {CustomPackageReexport} = require('@cyclonedx/cyclonedx-eslint-testing-reexport-package')
 
-import {Calculator} from './utils'
-import {greet} from './interim'
+const {Calculator} = require('./utils')
+const {greet} = require('./interim')
 
-console.log('TypeScript esbuild example with npm');
+console.log('JavaScript esbuild example with npm');
 console.log(greet('World'));
 
-// Example of TypeScript features
+// Example of JavaScript features
 const numbers = [1, 2, 3, 4, 5];
 const doubled = numbers.map(n => n * 2);
 console.log('Doubled numbers:', doubled);

@@ -1,3 +1,4 @@
+"use strict";
 /*!
 This file is part of CycloneDX generator for esbuild.
 
@@ -19,17 +20,17 @@ Copyright (c) OWASP Foundation. All Rights Reserved.
 
 // TypeScript utility functions and classes
 
-import {moo} from '@cyclonedx/cyclonedx-eslint-testing-reexport-package'
+const {moo} = require('@cyclonedx/cyclonedx-eslint-testing-reexport-package')
 
-export function sayMoo() {
+function sayMoo() {
   console.info(moo())
 }
 
-export function greet(name) {
+function greet(name) {
   return `Hello, ${name}!`;
 }
 
-export class Calculator {
+class Calculator {
   add(a, b) {
     return a + b;
   }
@@ -44,4 +45,10 @@ export class Calculator {
     }
     return a / b;
   }
+}
+
+module.exports = {
+  sayMoo,
+  greet,
+  Calculator
 }
