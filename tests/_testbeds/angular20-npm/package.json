@@ -30,7 +30,7 @@
     "start": "ng serve",
     "watch": "ng build --watch --configuration development",
     "build:ng": "ng build --stats-json",
-    "build:sbom": "node ../../../bin/cyclonedx-esbuild-cli.js -vvv --gather-license-texts --output-reproducible -o dist/first-app/bom.json dist/first-app/stats.json",
+    "build:sbom": "node ../../../bin/cyclonedx-esbuild-cli.js -vvv --gather-license-texts --output-reproducible -o dist/first-app/bom.json --validate dist/first-app/stats.json",
     "build": "npm run build:ng && npm run build:sbom"
   },
   "packageManager": "npm",
