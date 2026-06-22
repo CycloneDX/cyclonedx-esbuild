@@ -18,7 +18,6 @@ Copyright (c) OWASP Foundation. All Rights Reserved.
 */
 
 import {spawnSync} from "node:child_process";
-import type {BinaryLike} from "node:crypto";
 import {createHash} from "node:crypto";
 import {existsSync, readFileSync, writeSync} from "node:fs"
 import {dirname, isAbsolute, join, relative, resolve, sep} from "node:path"
@@ -205,11 +204,11 @@ export function isValidPackageJSON(pkg: any): pkg is ValidPackageJSON {
     /* eslint-enable @typescript-eslint/no-unsafe-member-access */
 }
 
-function sha256hex(data: BinaryLike): string  {
+function sha256hex(data: string): string  {
   return createHash('sha256').update(data).digest('hex')
 }
 
-const spawRequiresShell = process.platform === "win32"
+const spawnRequiresShell = process.platform.startsWith('win')
 
 // region relative paths
 
@@ -226,7 +225,7 @@ function getYarnCacheFolder(cwd: string): string | null {
       stdio: ['ignore', 'pipe', 'ignore'],
       encoding: 'utf-8',
       cwd,
-      shell: spawRequiresShell,
+      shell: spawnRequiresShell,
     })
     if (sr2.status === 0) {
       cf = sr2.stdout.trim()
@@ -236,7 +235,7 @@ function getYarnCacheFolder(cwd: string): string | null {
           stdio: ['ignore', 'pipe', 'ignore'],
           encoding: 'utf-8',
           cwd,
-          shell: spawRequiresShell,
+          shell: spawnRequiresShell,
         })
       if (sr1.status === 0) {
         cf = sr1.stdout.trim()
@@ -259,7 +258,7 @@ function getBunCacheFolder(cwd: string): string | null {
         stdio: ['ignore', 'pipe', 'ignore'],
         encoding: 'utf-8',
         cwd,
-        shell: spawRequiresShell,
+        shell: spawnRequiresShell,
       })
     if (sr.status === 0) {
       cf = sr.stdout.trim()
@@ -272,7 +271,7 @@ function getBunCacheFolder(cwd: string): string | null {
   return cf
 }
 
-function mkRelativePath(absRoot: string, absPath: string): string {
+export function mkRelativePath(absRoot: string, absPath: string): string {
   const ybvcf = YarnBerryVirtualCacheRE.exec(absPath)?.[0]
   if (ybvcf !== undefined) {
     return `yarnVBCache:${absPath.slice(ybvcf.length)}`

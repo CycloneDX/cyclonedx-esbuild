@@ -13,6 +13,7 @@ await Bun.build({
       gatherLicenseTexts: true,
       mcType: "application",
       outputFile: "bom.json",
+      validate: true,
     }),
   ],
 })

@@ -1,4 +1,3 @@
-"use strict";
 /*!
 This file is part of CycloneDX generator for esbuild.
 
@@ -18,37 +17,23 @@ SPDX-License-Identifier: Apache-2.0
 Copyright (c) OWASP Foundation. All Rights Reserved.
 */
 
-// TypeScript utility functions and classes
+/* c8 ignore start -- const enums are not compiled to any code */
 
-const {moo} = require('@cyclonedx/cyclonedx-eslint-testing-reexport-package')
-
-function sayMoo() {
-  console.info(moo())
+/**
+ * CDX properties' names - specific to this very tool.
+ * @see {@link https://github.com/CycloneDX/cyclonedx-property-taxonomy/blob/main/cdx/esbuild.md | esbuild property taxonomy}
+ */
+export const enum PropertyNames {
+  InputIsVirtual = 'cdx:esbuild:input:isVirtual'
 }
 
-function greet(name) {
-  return `Hello, ${name}!`;
+/**
+ * CDX properties' values' boolean representation - specific to this very tool.
+ * @see {@link https://github.com/CycloneDX/cyclonedx-property-taxonomy/blob/main/cdx/esbuild.md | esbuild property taxonomy}
+ */
+export const enum PropertyValueBool {
+  True = 'true',
+  False = 'false',
 }
 
-class Calculator {
-  add(a, b) {
-    return a + b;
-  }
-
-  multiply(a, b) {
-    return a * b;
-  }
-
-  divide(a, b) {
-    if (b === 0) {
-      throw new Error('Cannot divide by zero');
-    }
-    return a / b;
-  }
-}
-
-module.exports = {
-  sayMoo,
-  greet,
-  Calculator
-}
+/* c8 ignore stop */

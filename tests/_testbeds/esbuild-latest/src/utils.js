@@ -19,11 +19,17 @@ Copyright (c) OWASP Foundation. All Rights Reserved.
 
 // TypeScript utility functions and classes
 
-function greet(name) {
+import {moo} from '@cyclonedx/cyclonedx-eslint-testing-reexport-package'
+
+export function sayMoo() {
+  console.info(moo())
+}
+
+export function greet(name) {
   return `Hello, ${name}!`;
 }
 
-class Calculator {
+export class Calculator {
   add(a, b) {
     return a + b;
   }
@@ -38,9 +44,4 @@ class Calculator {
     }
     return a / b;
   }
-}
-
-module.exports = {
-  greet,
-  Calculator
 }
