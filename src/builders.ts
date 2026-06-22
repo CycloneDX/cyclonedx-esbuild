@@ -121,8 +121,8 @@ export class BomBuilder {
     metafile: esbuild.Metafile,
     collectEvidence: boolean,
     logger: Console
-  ): [Map<string, PackageComponent | DummyComponent>, Map<string, VirtualComponent>] {
-    const pkgs = new Map<string, PackageComponent | DummyComponent>
+  ): [Map<string, Component | DummyComponent>, Map<string, VirtualComponent>] {
+    const pkgs = new Map<string, Component | DummyComponent>
     const vrts = new Map<string, VirtualComponent>
     const components = new Map<string, Component>
 
@@ -162,7 +162,7 @@ export class BomBuilder {
         if (component === undefined) {
           logger.info(LogPrefixes.INFO, 'try to build new Component from PkgPath:', pkg.path)
           try {
-            component = this.makeComponent(pkg, collectEvidence, logger) as PackageComponent
+            component = this.makeComponent(pkg, collectEvidence, logger)
           } catch (err) {
             logger.debug(LogPrefixes.DEBUG, 'unexpected error:', err)
             logger.warn(LogPrefixes.WARN, 'building new DummyComponent from PkgPath', pkg.path)
@@ -260,7 +260,3 @@ class DummyComponent extends Component {
     })
   }
 }
-
-class PackageComponent extends Component {
-}
-
