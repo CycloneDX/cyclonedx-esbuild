@@ -30,9 +30,9 @@ import type normalizePackageData from "normalize-package-data"
 import type { PackageDescription } from "./_helpers";
 import {
   getPackageConfig,
+  mkRelativePath,
   mkRelativePathReproducibleHash,
   normalizePackageManifest,
-  mkRelativePath,
 } from "./_helpers";
 import type { PackageUrlFactory } from "./factories";
 import { LogPrefixes } from "./logger";
