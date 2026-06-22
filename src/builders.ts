@@ -74,7 +74,7 @@ export class BomBuilder {
     const bom = new Bom()
 
     logger.info(LogPrefixes.INFO, 'generating components...')
-    const [componentsPkg, componentsVrt]= this.generateComponents(buildWorkingDir, metafile, collectEvidence, logger)
+    const [componentsPkg, componentsVrt] = this.generateComponents(buildWorkingDir, metafile, collectEvidence, logger)
     if ( outputReproducible ) {
       componentsPkg.forEach((component, pkgPath) => {
         if (component instanceof DummyComponent) { return }
