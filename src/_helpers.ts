@@ -18,7 +18,6 @@ Copyright (c) OWASP Foundation. All Rights Reserved.
 */
 
 import {spawnSync} from "node:child_process";
-import type {BinaryLike} from "node:crypto";
 import {createHash} from "node:crypto";
 import {existsSync, readFileSync, writeSync} from "node:fs"
 import {dirname, isAbsolute, join, relative, resolve, sep} from "node:path"
@@ -205,7 +204,7 @@ export function isValidPackageJSON(pkg: any): pkg is ValidPackageJSON {
     /* eslint-enable @typescript-eslint/no-unsafe-member-access */
 }
 
-function sha256hex(data: string | BinaryLike): string  {
+function sha256hex(data: string): string  {
   return createHash('sha256').update(data).digest('hex')
 }
 
