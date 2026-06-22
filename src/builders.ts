@@ -256,7 +256,7 @@ class VirtualComponent extends Component {
       description: `This is a virtual component "${name}".`,
       properties: new PropertyRepository([
         new Property(
-          PropertyNames.IsVirtual,
+          PropertyNames.InputIsVirtual,
           PropertyValueBool.True
         )
       ])

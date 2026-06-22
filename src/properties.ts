@@ -24,7 +24,7 @@ Copyright (c) OWASP Foundation. All Rights Reserved.
  * @see {@link https://github.com/CycloneDX/cyclonedx-property-taxonomy/blob/main/cdx/esbuild.md | esbuild property taxonomy}
  */
 export const enum PropertyNames {
-  IsVirtual = 'cdx:esbuild:isVirtual'
+  InputIsVirtual = 'cdx:esbuild:input:isVirtual'
 }
 
 /**
