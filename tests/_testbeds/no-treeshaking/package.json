@@ -14,10 +14,15 @@
   "devDependencies": {
     "@cyclonedx/cyclonedx-eslint-testing-reexport-package": "file:../../_data/reexport-package/package.tgz",
     "@cyclonedx/cyclonedx-esbuild": "file:../../../",
-    "esbuild": "latest"
+    "esbuild": "0.28.1"
   },
   "overrides": {
     "@cyclonedx/cyclonedx-eslint-testing-custom-package": "file:../../_data/custom-package/package.tgz"
   },
-  "packageManager": "npm"
+  "devEngines": {
+    "runtime": {
+      "name": "node",
+      "onFail": "error"
+    }
+  }
 }
