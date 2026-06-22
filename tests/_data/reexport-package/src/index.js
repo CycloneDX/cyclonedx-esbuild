@@ -1,4 +1,3 @@
-"use strict";
 /*!
 This file is part of CycloneDX generator for esbuild.
 
@@ -18,37 +17,6 @@ SPDX-License-Identifier: Apache-2.0
 Copyright (c) OWASP Foundation. All Rights Reserved.
 */
 
-// TypeScript utility functions and classes
+export * as CustomPackageReexport from '@cyclonedx/cyclonedx-eslint-testing-custom-package';
 
-const {moo} = require('@cyclonedx/cyclonedx-eslint-testing-reexport-package')
-
-function sayMoo() {
-  console.info(moo())
-}
-
-function greet(name) {
-  return `Hello, ${name}!`;
-}
-
-class Calculator {
-  add(a, b) {
-    return a + b;
-  }
-
-  multiply(a, b) {
-    return a * b;
-  }
-
-  divide(a, b) {
-    if (b === 0) {
-      throw new Error('Cannot divide by zero');
-    }
-    return a / b;
-  }
-}
-
-module.exports = {
-  sayMoo,
-  greet,
-  Calculator
-}
+export { moo } from './utils.js';

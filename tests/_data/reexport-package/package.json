@@ -1,25 +1,26 @@
 {
   "private": true,
-  "name": "@cyclonedx/cyclonedx-eslint-testing-custom-package",
+  "name": "@cyclonedx/cyclonedx-eslint-testing-reexport-package",
   "version": "0.0.1",
-  "description": "this is a dummy package for showcasing purposes only.\n",
-  "license": "dummy-license",
+  "description": "this is a dummy package for showcasing purposes only.",
   "type": "module",
-  "main": "./lib/index.js",
+  "main": "./src/index.js",
   "types": "./types/index.d.ts",
   "files": [
-    "lib",
+    "src",
     "types",
-    "README.md",
-    "LICENSE.txt"
+    "README.md"
   ],
+  "dependencies": {
+    "@cyclonedx/cyclonedx-eslint-testing-custom-package": "file:../custom-package/package.tgz"
+  },
   "sideEffects": false,
   "devDependencies": {
     "typescript": "^5.9.3"
   },
   "scripts": {
     "premake-types": "node -r fs -e 'fs.rmSync(`types`,{recursive:true,force:true})'",
-    "make-types": "tsc --declaration --allowJs --emitDeclarationOnly --outDir types lib/*.js",
+    "make-types": "tsc --declaration --allowJs --emitDeclarationOnly --outDir types src/*.js",
     "prebuild": "node -r fs -e 'fs.rmSync(`package.tgz`,{force:true})'",
     "build": "npm run make-types && npm pack && mv *.tgz package.tgz"
   },

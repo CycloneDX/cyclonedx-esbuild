@@ -17,16 +17,16 @@ SPDX-License-Identifier: Apache-2.0
 Copyright (c) OWASP Foundation. All Rights Reserved.
 */
 
-// TypeScript application to test esbuild
-const { utils: CPUtils } = require('custom-package')
+// JavaScript application to test esbuild
+import {CustomPackageReexport} from '@cyclonedx/cyclonedx-eslint-testing-reexport-package'
 
-const { Calculator } = require('./utils')
-const { greet } = require('./interim')
+import {Calculator} from './utils.js'
+import {greet} from './interim.js'
 
-console.log('TypeScript esbuild example with npm');
+console.log('JavaScript esbuild example with npm');
 console.log(greet('World'));
 
-// Example of TypeScript features
+// Example of JavaScript features
 const numbers = [1, 2, 3, 4, 5];
 const doubled = numbers.map(n => n * 2);
 console.log('Doubled numbers:', doubled);
@@ -46,6 +46,6 @@ async function fetchData() {
 fetchData().then(data => console.log(data));
 
 console.log(
-    'from custom-package:',
-    CPUtils.foo()
+  'from custom-package:',
+  CustomPackageReexport.utils.foo()
 )

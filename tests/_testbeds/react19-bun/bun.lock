@@ -5,6 +5,7 @@
     "": {
       "name": "@cyclonedx/cyclonedx-eslint-testbed-react-bun",
       "dependencies": {
+        "@cyclonedx/cyclonedx-eslint-testing-custom-package": "file:../../_data/custom-package/package.tgz",
         "react": "^19",
         "react-dom": "^19",
       },
@@ -18,6 +19,8 @@
   },
   "packages": {
     "@cyclonedx/cyclonedx-esbuild": ["@cyclonedx/cyclonedx-esbuild@link:@cyclonedx/cyclonedx-esbuild", { "bin": { "cyclonedx-esbuild": "bin/cyclonedx-esbuild-cli.js" } }],
+
+    "@cyclonedx/cyclonedx-eslint-testing-custom-package": ["@cyclonedx/cyclonedx-eslint-testing-custom-package@../../_data/custom-package/package.tgz", {}, "sha512-bevFRAXBrRRagCR688Fa8AoY1b+MpDujpF+q0mIFefwoY9lOBwJpn/8o6eRuSlIEgAc1qay/uyqN12ZgEyJ5Yw=="],
 
     "@types/bun": ["@types/bun@1.3.10", "", { "dependencies": { "bun-types": "1.3.10" } }, "sha512-0+rlrUrOrTSskibryHbvQkDOWRJwJZqZlxrUs1u4oOoTln8+WIXBPmAuCF35SWB2z4Zl3E84Nl/D0P7803nigQ=="],
 

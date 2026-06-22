@@ -3,7 +3,7 @@
   "name": "@cyclonedx/cyclonedx-eslint-testbed-esbuild-latest",
   "version": "1.0.0",
   "description": "Example using esbuild wit the latest supported version",
-  "type": "commonjs",
+  "type": "module",
   "main": "dist/bundle.js",
   "scripts": {
     "build": "node build.js",
@@ -12,8 +12,12 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "custom-package": "file:../../_data/custom-package/package.tgz",
+    "@cyclonedx/cyclonedx-eslint-testing-reexport-package": "file:../../_data/reexport-package/package.tgz",
     "@cyclonedx/cyclonedx-esbuild": "file:../../../",
     "esbuild": "latest"
-  }
+  },
+  "overrides": {
+    "@cyclonedx/cyclonedx-eslint-testing-custom-package": "file:../../_data/custom-package/package.tgz"
+  },
+  "packageManager": "npm"
 }
