@@ -16,7 +16,7 @@
     "@types/node": "ts5.9",
     "@cyclonedx/cyclonedx-eslint-testing-reexport-package": "file:../../_data/reexport-package/package.tgz",
     "@cyclonedx/cyclonedx-esbuild": "file:../../../",
-    "esbuild": "latest",
+    "esbuild": "0.28.1",
     "typescript": "5.9.3"
   },
   "overrides": {

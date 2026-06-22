@@ -1,6 +1,6 @@
 import { cyclonedxEsbuildPlugin } from "@cyclonedx/cyclonedx-esbuild"
 
-const built = await Bun.build({
+await Bun.build({
   target: "browser",
   minify: true,
   sourcemap: "linked",
@@ -16,7 +16,5 @@ const built = await Bun.build({
     }),
   ],
 })
-
-console.debug('built', JSON.stringify(built.metafile))
 
 export {}

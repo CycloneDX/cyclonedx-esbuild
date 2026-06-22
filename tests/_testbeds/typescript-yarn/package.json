@@ -9,7 +9,7 @@
     "@cyclonedx/cyclonedx-esbuild": "link:../../../",
     "@cyclonedx/cyclonedx-eslint-testing-reexport-package": "file:../../_data/reexport-package/package.tgz",
     "@types/node": "ts5.9",
-    "esbuild": "latest",
+    "esbuild": "0.28.1",
     "typescript": "5.9.3"
   },
   "dependenciesMeta": {

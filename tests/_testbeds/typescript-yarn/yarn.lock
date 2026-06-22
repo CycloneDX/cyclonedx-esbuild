@@ -18,7 +18,7 @@ __metadata:
     "@cyclonedx/cyclonedx-esbuild": "link:../../../"
     "@cyclonedx/cyclonedx-eslint-testing-reexport-package": "file:../../_data/reexport-package/package.tgz"
     "@types/node": "npm:ts5.9"
-    esbuild: "npm:latest"
+    esbuild: "npm:0.28.1"
     typescript: "npm:5.9.3"
   dependenciesMeta:
     "@cyclonedx/cyclonedx-eslint-testing-reexport-package@0.0.1":
@@ -233,7 +233,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"esbuild@npm:latest":
+"esbuild@npm:0.28.1":
   version: 0.28.1
   resolution: "esbuild@npm:0.28.1"
   dependencies:
