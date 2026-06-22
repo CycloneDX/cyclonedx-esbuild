@@ -17,13 +17,13 @@ SPDX-License-Identifier: Apache-2.0
 Copyright (c) OWASP Foundation. All Rights Reserved.
 */
 
-import {dirname, resolve} from "node:path";
+import { dirname, resolve } from "node:path";
 
-import type {Builders as FromNodePackageJsonBuilders} from "@cyclonedx/cyclonedx-library/Contrib/FromNodePackageJson"
-import type {Utils as LicenseUtils} from "@cyclonedx/cyclonedx-library/Contrib/License"
-import {ComponentScope, ComponentType, LicenseAcknowledgement} from "@cyclonedx/cyclonedx-library/Enums"
-import type {License} from "@cyclonedx/cyclonedx-library/Models"
-import {Bom, Component, ComponentEvidence, LicenseRepository, NamedLicense} from "@cyclonedx/cyclonedx-library/Models"
+import type { Builders as FromNodePackageJsonBuilders } from "@cyclonedx/cyclonedx-library/Contrib/FromNodePackageJson"
+import type { Utils as LicenseUtils } from "@cyclonedx/cyclonedx-library/Contrib/License"
+import { ComponentScope, ComponentType, LicenseAcknowledgement } from "@cyclonedx/cyclonedx-library/Enums"
+import type { License } from "@cyclonedx/cyclonedx-library/Models"
+import { Bom, Component, ComponentEvidence, LicenseRepository, NamedLicense } from "@cyclonedx/cyclonedx-library/Models"
 import type * as esbuild from "esbuild"
 import type normalizePackageData from "normalize-package-data"
 
