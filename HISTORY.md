@@ -6,6 +6,14 @@ All notable changes to this project will be documented in this file.
 
 <!-- add unreleased items here -->
 
+* Added
+  * SBOM result now includes components’ `scope` (via [#143])
+  * SBOM result may now include excluded, tree‑shaken components ([#142] via [#143])  
+    The respective component’s `scope` is properly set to `"excluded"`.
+
+[#142]: https://github.com/CycloneDX/cyclonedx-esbuild/issues/142
+[#143]: https://github.com/CycloneDX/cyclonedx-esbuild/pull/143
+
 ## 1.3.1 - 2026-03-18
 
 Maintenance release.

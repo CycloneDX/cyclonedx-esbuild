@@ -271,7 +271,7 @@ function getBunCacheFolder(cwd: string): string | null {
   return cf
 }
 
-function mkRelativePath(absRoot: string, absPath: string): string {
+export function mkRelativePath(absRoot: string, absPath: string): string {
   const ybvcf = YarnBerryVirtualCacheRE.exec(absPath)?.[0]
   if (ybvcf !== undefined) {
     return `yarnVBCache:${absPath.slice(ybvcf.length)}`
