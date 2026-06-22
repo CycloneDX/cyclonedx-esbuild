@@ -77,7 +77,6 @@ export class BomBuilder {
     const [componentsPkg, componentsVrt] = this.generateComponents(buildWorkingDir, metafile, collectEvidence, logger)
     if ( outputReproducible ) {
       componentsPkg.forEach((component, pkgPath) => {
-        if (component instanceof DummyComponent) { return }
         /* eslint-disable-next-line no-param-reassign -- ack */
         component.bomRef.value = mkRelativePathReproducibleHash(buildWorkingDir, pkgPath)
       })
