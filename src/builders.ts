@@ -32,6 +32,7 @@ import {
   getPackageConfig,
   mkRelativePathReproducibleHash,
   normalizePackageManifest,
+  mkRelativePath,
 } from "./_helpers";
 import type { PackageUrlFactory } from "./factories";
 import { LogPrefixes } from "./logger";
@@ -165,7 +166,7 @@ export class BomBuilder {
           } catch (err) {
             logger.debug(LogPrefixes.DEBUG, 'unexpected error:', err)
             logger.warn(LogPrefixes.WARN, 'building new DummyComponent from PkgPath', pkg.path)
-            component = new DummyComponent(modulePath)
+            component = new DummyComponent(mkRelativePath(rootDir, pkg.path))
           }
           logger.debug(LogPrefixes.DEBUG, 'built', component, 'based on', pkg, 'for modulePath', modulePath)
           pkgs.set(pkg.path, component)
