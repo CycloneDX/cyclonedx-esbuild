@@ -23,7 +23,15 @@ import type { Builders as FromNodePackageJsonBuilders } from "@cyclonedx/cyclone
 import type { Utils as LicenseUtils } from "@cyclonedx/cyclonedx-library/Contrib/License"
 import { ComponentScope, ComponentType, LicenseAcknowledgement } from "@cyclonedx/cyclonedx-library/Enums"
 import type { License } from "@cyclonedx/cyclonedx-library/Models"
-import { Bom, Component, ComponentEvidence, LicenseRepository, NamedLicense, Property,PropertyRepository } from "@cyclonedx/cyclonedx-library/Models"
+import {
+  Bom,
+  Component,
+  ComponentEvidence,
+  LicenseRepository,
+  NamedLicense,
+  Property,
+  PropertyRepository,
+} from "@cyclonedx/cyclonedx-library/Models"
 import type * as esbuild from "esbuild"
 import type normalizePackageData from "normalize-package-data"
 
@@ -36,7 +44,7 @@ import {
 } from "./_helpers";
 import type { PackageUrlFactory } from "./factories";
 import { LogPrefixes } from "./logger";
-import {PropertyNames, PropertyValueBool} from "./properties";
+import { PropertyNames, PropertyValueBool } from "./properties";
 
 export class BomBuilder {
 
