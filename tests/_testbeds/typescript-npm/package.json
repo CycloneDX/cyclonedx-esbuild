@@ -12,21 +12,21 @@
   },
   "author": "",
   "license": "ISC",
-  "devEngines": {
-    "runtime": {
-      "name": "node",
-      "onFail": "error"
-    }
-  },
   "devDependencies": {
     "@types/node": "ts5.9",
     "@cyclonedx/cyclonedx-eslint-testing-reexport-package": "file:../../_data/reexport-package/package.tgz",
     "@cyclonedx/cyclonedx-esbuild": "file:../../../",
-    "esbuild": "0.27.0",
+    "esbuild": "0.28.1",
     "typescript": "5.9.3"
   },
   "overrides": {
     "@cyclonedx/cyclonedx-eslint-testing-custom-package": "file:../../_data/custom-package/package.tgz"
   },
-  "packageManager": "npm"
+  "packageManager": "npm",
+  "devEngines": {
+    "runtime": {
+      "name": "node",
+      "onFail": "error"
+    }
+  }
 }

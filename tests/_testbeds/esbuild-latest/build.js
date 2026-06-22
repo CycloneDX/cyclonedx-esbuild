@@ -28,7 +28,7 @@ async function build() {
             bundle: true,
             outfile: 'dist/bundle.js',
             platform: 'node',
-            format: 'cjs',
+            format: 'esm',
             sourcemap: true,
             minify: true,
             treeShaking: true,
@@ -36,7 +36,7 @@ async function build() {
             plugins: [cyclonedxEsbuildPlugin({
                 gatherLicenseTexts: true,
                 outputReproducible: true,
-                validateResults: true,
+                validate: true,
                 outputFile: 'bom.json',
             })],
           logLevel: 'debug',

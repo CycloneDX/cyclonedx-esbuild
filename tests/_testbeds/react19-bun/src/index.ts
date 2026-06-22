@@ -1,3 +1,4 @@
+import { utils as CPUtils } from '@cyclonedx/cyclonedx-eslint-testing-custom-package'
 import { serve } from "bun";
 import index from "./index.html";
 
@@ -39,3 +40,8 @@ const server = serve({
 });
 
 console.log(`🚀 Server running at ${server.url}`);
+
+console.log(
+  'from custom-package:',
+  CPUtils.foo()
+)

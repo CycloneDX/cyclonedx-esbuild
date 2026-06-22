@@ -4,7 +4,7 @@
   "version": "19.2.0-SNAPSHOT",
   "scripts": {
     "build": "echo 'original angular build was stripped' && npm run sbom",
-    "sbom": "node ../../../bin/cyclonedx-esbuild-cli.js --output-reproducible -o dist/bom/bom.json dist/frontend/stats.json"
+    "sbom": "node ../../../bin/cyclonedx-esbuild-cli.js --output-reproducible -o dist/bom/bom.json --validate dist/frontend/stats.json"
   },
   "dependencies": {
     "@angular-devkit/build-angular": "^20.1.0",
