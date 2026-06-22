@@ -145,4 +145,4 @@ vite.config.ts.timestamp-*
 
 #--> customs
 # we want to vendor the package.
-/!package.tgz
+!/package.tgz

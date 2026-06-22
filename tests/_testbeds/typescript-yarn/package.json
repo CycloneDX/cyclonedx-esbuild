@@ -35,5 +35,5 @@
     "start": "yarn build && node dist/bundle.js",
     "typecheck": "tsc --noEmit"
   },
-  "packageManager": "yarn@4.17.0"
+  "packageManager": "yarn@we"
 }
