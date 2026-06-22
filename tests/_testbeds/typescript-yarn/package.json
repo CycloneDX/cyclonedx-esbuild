@@ -5,16 +5,6 @@
   "description": "TypeScript example using esbuild with Yarn 4",
   "license": "ISC",
   "main": "dist/bundle.js",
-  "devEngines": {
-    "runtime": {
-      "name": "node",
-      "onFail": "error"
-    },
-    "packageManager": {
-      "name": "yarn",
-      "onFail": "error"
-    }
-  },
   "devDependencies": {
     "@cyclonedx/cyclonedx-esbuild": "link:../../../",
     "@cyclonedx/cyclonedx-eslint-testing-reexport-package": "file:../../_data/reexport-package/package.tgz",
@@ -35,5 +25,15 @@
     "start": "yarn build && node dist/bundle.js",
     "typecheck": "tsc --noEmit"
   },
-  "packageManager": "yarn@4.17.0"
+  "packageManager": "yarn@4.17.0",
+  "devEngines": {
+    "runtime": {
+      "name": "node",
+      "onFail": "error"
+    },
+    "packageManager": {
+      "name": "yarn",
+      "onFail": "error"
+    }
+  }
 }
