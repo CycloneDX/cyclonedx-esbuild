@@ -28,17 +28,17 @@ __metadata:
 
 "@cyclonedx/cyclonedx-eslint-testing-custom-package@file:../../_data/custom-package/package.tgz::locator=%40cyclonedx%2Fcyclonedx-eslint-testbed-typescript-yarn%40workspace%3A.":
   version: 0.0.1
-  resolution: "@cyclonedx/cyclonedx-eslint-testing-custom-package@file:../../_data/custom-package/package.tgz#../../_data/custom-package/package.tgz::hash=5d2e15&locator=%40cyclonedx%2Fcyclonedx-eslint-testbed-typescript-yarn%40workspace%3A."
-  checksum: 10c0/49f4eaf3a76bd7316a8b462a75c1c15ec10d98e7acbab074fabafda25923eae6f2c39004ac0dc3d4dda56c0de1ac1f813c5267f3262ba0403ec3a15354a9cbaa
+  resolution: "@cyclonedx/cyclonedx-eslint-testing-custom-package@file:../../_data/custom-package/package.tgz#../../_data/custom-package/package.tgz::hash=6debc5&locator=%40cyclonedx%2Fcyclonedx-eslint-testbed-typescript-yarn%40workspace%3A."
+  checksum: 10c0/9300a4eb42c4619d6c7fa129a36dba90e26ac638b73f66811ffb304c688a21a4bda3adf933d85e5890ac8f75cf9307ed6e1b8aa97c80e67bcb86f20c8410a7ec
   languageName: node
   linkType: hard
 
 "@cyclonedx/cyclonedx-eslint-testing-reexport-package@file:../../_data/reexport-package/package.tgz::locator=%40cyclonedx%2Fcyclonedx-eslint-testbed-typescript-yarn%40workspace%3A.":
   version: 0.0.1
-  resolution: "@cyclonedx/cyclonedx-eslint-testing-reexport-package@file:../../_data/reexport-package/package.tgz#../../_data/reexport-package/package.tgz::hash=942c1d&locator=%40cyclonedx%2Fcyclonedx-eslint-testbed-typescript-yarn%40workspace%3A."
+  resolution: "@cyclonedx/cyclonedx-eslint-testing-reexport-package@file:../../_data/reexport-package/package.tgz#../../_data/reexport-package/package.tgz::hash=07522e&locator=%40cyclonedx%2Fcyclonedx-eslint-testbed-typescript-yarn%40workspace%3A."
   dependencies:
     "@cyclonedx/cyclonedx-eslint-testing-custom-package": "file:../custom-package/package.tgz"
-  checksum: 10c0/b93983c9dd8b7638edd9f862333319ec6525a69636b419ba4f086dee6c89898c874204619a8355be08dd0bcb27e128ff35fdd90fb6e295185d5864d2446dcbdb
+  checksum: 10c0/5bc664822368d4949a6e3f8074adae8c1bd34997be7db702bb8c8daf259ca1ba2818f4865d17a84f1ac4b9e1d343b54d3e2caad648538f5227f6c57404c398cd
   languageName: node
   linkType: hard
 
