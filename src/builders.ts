@@ -192,17 +192,6 @@ export class BomBuilder {
     }
 
     logger.info(LogPrefixes.INFO, `linking Component.dependencies...`)
-    // Expand the components map to cover all metafile.inputs files that belong to known packages.
-    // This is needed because import targets may point to tree-shaken files (bytesInOutput=0)
-    // within packages that do have other files in the bundle.
-    for (const filePath of Object.keys(metafile.inputs)) {
-      if (components.has(filePath)) continue
-      const pkg = getPackageConfig(resolve(rootDir, filePath))
-      if (pkg === undefined) continue
-      const component = pkgs.get(pkg.path)
-      if (component === undefined) continue
-      components.set(filePath, component)
-    }
     this.linkDependencies(metafile, components, pkgs, rootDir)
 
     logger.info(LogPrefixes.INFO, 'done building Components from modules...')
