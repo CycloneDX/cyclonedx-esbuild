@@ -3,7 +3,7 @@ import {CommonModule} from '@angular/common';
 import {Component, ElementRef, ViewChild, computed, signal} from '@angular/core';
 import {MatSlideToggleChange, MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {bootstrapApplication} from '@angular/platform-browser';
-import { utils as CPUtils } from 'custom-package'
+import {CustomPackageReexport} from '@cyclonedx/cyclonedx-eslint-testing-reexport-package'
 
 const RESULT_QUOTES = [
   [
@@ -225,5 +225,5 @@ bootstrapApplication(Playground);
 
 console.log(
     'from custom-package:',
-    CPUtils.foo()
+    CustomPackageReexport.utils.foo()
 )

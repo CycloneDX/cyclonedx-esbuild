@@ -6,9 +6,9 @@ This demo/example app was pulled from <https://angular.dev/playground?templateId
 
 Angular 17+ uses _esbuild_ to generate web-deliverables.
 
-The SBOM is built by analysing the esbuild metafile.  
+The SBOM is built by analyzing the esbuild metafile.  
 1. _esbuild_ metafile is emitted with as file `.../stats.json` during Angular's build process if called with the `--stats-json` switch.
-2. _esbuild_ metafile is analysed by the `cyclonedx-esbuild` CLI to generate the SBOM.
+2. _esbuild_ metafile is analyzed by the `cyclonedx-esbuild` CLI to generate the SBOM.
 
 All the process is setup as a build script in the [`package.json`](package.json):
 ```jsonc
@@ -17,7 +17,7 @@ All the process is setup as a build script in the [`package.json`](package.json)
   "scripts": {
     "build:ng": "ng build --stats-json",
     "build:sbom": "cyclonedx-esbuild -vvv --gather-license-texts --output-reproducible -o dist/first-app/bom.json dist/first-app/stats.json",
-    "build": "yarn run build:ng && yarn run build:sbom"
+    "build": "npm run build:ng && npm run build:sbom"
   }
 }
 ```
