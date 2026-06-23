@@ -1,0 +1,6 @@
+*  linguist-vendored
+**  linguist-vendored
+
+types/*   linguist-generated
+
+package.tgz   linguist-generated

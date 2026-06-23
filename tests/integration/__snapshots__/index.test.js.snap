@@ -945,6 +945,25 @@ exports[`integration functional: esbuild lowest generated json file: dist/bom.js
     },
     {
       "type": "library",
+      "name": "cyclonedx-eslint-testing-unused-package",
+      "group": "@cyclonedx",
+      "version": "0.0.1",
+      "bom-ref": "edb24c99c0b34b54504b1427abbf4d88c1f41af337010b8df77f7de36fa712d8",
+      "description": "this is a dummy package for showcasing purposes only. It shall never be used.",
+      "scope": "required",
+      "licenses": [
+        {
+          "license": {
+            "name": "dummy-license",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40cyclonedx/cyclonedx-eslint-testing-unused-package@0.0.1",
+      "evidence": {}
+    },
+    {
+      "type": "library",
       "name": "cyclonedx-eslint-testing-reexport-package",
       "group": "@cyclonedx",
       "version": "0.0.1",
@@ -961,6 +980,9 @@ exports[`integration functional: esbuild lowest generated json file: dist/bom.js
     },
     {
       "ref": "934cae484a0df083dc3c0dc4dfccd2d691cf53edd0986e89190924f73e840668"
+    },
+    {
+      "ref": "edb24c99c0b34b54504b1427abbf4d88c1f41af337010b8df77f7de36fa712d8"
     },
     {
       "ref": "eef61cb816b4870cc41baae9389ed9b4f74713feb1532232bdb0bd65efa268d0"

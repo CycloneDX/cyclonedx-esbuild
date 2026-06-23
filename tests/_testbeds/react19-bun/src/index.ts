@@ -1,5 +1,7 @@
 import { utils as CPUtils } from '@cyclonedx/cyclonedx-eslint-testing-custom-package'
+import { unused } from '@cyclonedx/cyclonedx-eslint-testing-unused-package'
 import { serve } from "bun";
+
 import index from "./index.html";
 
 const server = serve({
