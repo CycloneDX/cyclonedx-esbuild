@@ -115,6 +115,28 @@ const testSetups = [
       },
     ]
   },
+  {
+    dir: 'no-treeshaking',
+    purpose: 'functional: no tree-shaking',
+    packageManager: 'npm',
+    results: [ // paths relative to `dir`
+      {
+        format: 'json',
+        file: 'dist/bom.json'
+      },
+    ]
+  },
+  {
+    dir: 'with-externals',
+    purpose: 'functional: runtime-dependencies are external',
+    packageManager: 'npm',
+    results: [ // paths relative to `dir`
+      {
+        format: 'json',
+        file: 'dist/bom.json'
+      },
+    ]
+  },
 ]
 
 describe('integration', () => {
