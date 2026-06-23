@@ -51,7 +51,6 @@ const MANAGERS = {
     args: ['i', '--ignore-scripts'],
     dirs: [
       'esbuild-latest',
-      'dep-graph-coverage',
     ]
   },
   yarn: {
