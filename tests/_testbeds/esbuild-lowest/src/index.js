@@ -19,6 +19,7 @@ Copyright (c) OWASP Foundation. All Rights Reserved.
 */
 
 const {CustomPackageReexport} = require('@cyclonedx/cyclonedx-eslint-testing-reexport-package')
+const {unused} = require('@cyclonedx/cyclonedx-eslint-testing-unused-package')
 
 const {Calculator} = require('./utils')
 const {greet} = require('./interim')

@@ -19,6 +19,7 @@ Copyright (c) OWASP Foundation. All Rights Reserved.
 
 // JavaScript application to test esbuild
 import {CustomPackageReexport} from '@cyclonedx/cyclonedx-eslint-testing-reexport-package'
+import {unused} from '@cyclonedx/cyclonedx-eslint-testing-unused-package'
 
 import {Calculator} from './utils.js'
 import {greet} from './interim.js'

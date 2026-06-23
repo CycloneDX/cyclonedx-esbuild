@@ -17,6 +17,7 @@ __metadata:
   dependencies:
     "@cyclonedx/cyclonedx-esbuild": "link:../../../"
     "@cyclonedx/cyclonedx-eslint-testing-reexport-package": "file:../../_data/reexport-package/package.tgz"
+    "@cyclonedx/cyclonedx-eslint-testing-unused-package": "file:../../_data/unused-package/package.tgz"
     "@types/node": "npm:ts5.9"
     esbuild: "npm:0.28.1"
     typescript: "npm:5.9.3"
@@ -39,6 +40,13 @@ __metadata:
   dependencies:
     "@cyclonedx/cyclonedx-eslint-testing-custom-package": "file:../custom-package/package.tgz"
   checksum: 10c0/5bc664822368d4949a6e3f8074adae8c1bd34997be7db702bb8c8daf259ca1ba2818f4865d17a84f1ac4b9e1d343b54d3e2caad648538f5227f6c57404c398cd
+  languageName: node
+  linkType: hard
+
+"@cyclonedx/cyclonedx-eslint-testing-unused-package@file:../../_data/unused-package/package.tgz::locator=%40cyclonedx%2Fcyclonedx-eslint-testbed-typescript-yarn%40workspace%3A.":
+  version: 0.0.1
+  resolution: "@cyclonedx/cyclonedx-eslint-testing-unused-package@file:../../_data/unused-package/package.tgz#../../_data/unused-package/package.tgz::hash=ae2b9f&locator=%40cyclonedx%2Fcyclonedx-eslint-testbed-typescript-yarn%40workspace%3A."
+  checksum: 10c0/9349f8c9ddfe76ff3f877e52882ec53c059e4461851e6a1f3df176f8a50a41518efc689b1bef43d7088d4cb8508568760d72ed6558dd4b9dce119176ccb92447
   languageName: node
   linkType: hard
 
