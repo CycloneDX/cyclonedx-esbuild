@@ -141,8 +141,3 @@ vite.config.ts.timestamp-*
 .vite/
 
 ### customs
-
-# dont keep locks - intended to use "latest"
-/package-lock.json
-/yarn.lock
-
