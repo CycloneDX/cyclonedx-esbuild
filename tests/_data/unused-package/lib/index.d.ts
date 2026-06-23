@@ -22,6 +22,4 @@ Copyright (c) OWASP Foundation. All Rights Reserved.
  *
  * @throws {Error} Always throws with the provided message.
  */
-export function unused() {
-  throw new Error('this function may be imported but must not be called')
-}
+export function unused(): never;
