@@ -13,9 +13,10 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@types/node": "ts5.9",
-    "@cyclonedx/cyclonedx-eslint-testing-reexport-package": "file:../../_data/reexport-package/package.tgz",
     "@cyclonedx/cyclonedx-esbuild": "file:../../../",
+    "@cyclonedx/cyclonedx-eslint-testing-reexport-package": "file:../../_data/reexport-package/package.tgz",
+    "@cyclonedx/cyclonedx-eslint-testing-unused-package": "file:../../_data/unused-package/package.tgz",
+    "@types/node": "ts5.9",
     "esbuild": "0.28.1",
     "typescript": "5.9.3"
   },

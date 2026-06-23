@@ -12,7 +12,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@cyclonedx/cyclonedx-eslint-testing-reexport-package": "file:../../_data/reexport-package/package.tgz"
+    "@cyclonedx/cyclonedx-eslint-testing-reexport-package": "file:../../_data/reexport-package/package.tgz",
+    "@cyclonedx/cyclonedx-eslint-testing-unused-package": "file:../../_data/unused-package/package.tgz"
   },
   "devDependencies": {
     "@cyclonedx/cyclonedx-esbuild": "file:../../../",

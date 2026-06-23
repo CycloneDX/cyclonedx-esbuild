@@ -2,16 +2,19 @@
   "private": true,
   "name": "@cyclonedx/cyclonedx-eslint-testing-unused-package",
   "version": "0.0.1",
-  "description": "dummy package that is imported but not used, to test tree-shaking behavior",
+  "description": "this is a dummy package for showcasing purposes only. It shall never be used.",
   "license": "dummy-license",
   "type": "module",
   "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
   "files": [
-    "lib"
+    "lib",
+    "README.md"
   ],
   "sideEffects": false,
   "scripts": {
-    "prebuild": "node -r fs -e \"fs.rmSync('package.tgz',{force:true})\"",
+    "prebuild": "node -r fs -e 'fs.rmSync(`package.tgz`,{force:true})'",
     "build": "npm pack && mv *.tgz package.tgz"
-  }
+  },
+  "packageManager": "npm"
 }

@@ -9,9 +9,10 @@
     "start": "NODE_ENV=production bun src/index.ts"
   },
   "dependencies": {
+    "@cyclonedx/cyclonedx-eslint-testing-custom-package": "file:../../_data/custom-package/package.tgz",
+    "@cyclonedx/cyclonedx-eslint-testing-unused-package": "file:../../_data/unused-package/package.tgz",
     "react": "^19",
-    "react-dom": "^19",
-    "@cyclonedx/cyclonedx-eslint-testing-custom-package": "file:../../_data/custom-package/package.tgz"
+    "react-dom": "^19"
   },
   "devDependencies": {
     "@types/react": "^19",

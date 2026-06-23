@@ -12,6 +12,7 @@
     "@angular/material": "20.2.2",
     "@angular/platform-browser": "20.2.2",
     "@cyclonedx/cyclonedx-eslint-testing-reexport-package": "file:../../_data/reexport-package/package.tgz",
+    "@cyclonedx/cyclonedx-eslint-testing-unused-package": "file:../../_data/unused-package/package.tgz",
     "rxjs": "7.8.2",
     "tslib": "2.8.1",
     "zone.js": "0.15.1"
