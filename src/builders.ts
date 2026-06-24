@@ -197,13 +197,46 @@ export class BomBuilder {
     return [pkgs, vrts]
   }
 
-  /* @ts-expect-error TS6133 -- TODO */
   private linkDependencies(metafile: esbuild.Metafile, modulesComponents: Map<string, Component>): void {
-    // TODO: link deps based on inputs - https://github.com/CycloneDX/cyclonedx-esbuild/issues/11
-    // idea: take the metadata.input
-    // then cut the "externals" and copy their content to all the ones that used it
-    // then cut the "unknown" and copy their content to all the ones that used it
-    // the rest should all be known components -> so set their dependencies as expected
+    // Collect the set of direct component-level dependencies per component.
+    // Multiple module files can map to the same Component (e.g. all files inside
+    // one npm package). We use a Map<Component, Set<Component>> so deduplication
+    // is automatic and we never add intra-package edges.
+    const depSets = new Map<Component, Set<Component>>()
+
+    for (const [modulePath, {imports}] of Object.entries(metafile.inputs)) {
+      const ownerComponent = modulesComponents.get(modulePath)
+      if (ownerComponent === undefined) {
+        // module was not collected (pruned / not in any output) — skip
+        continue
+      }
+
+      let ownerDeps = depSets.get(ownerComponent)
+      if (ownerDeps === undefined) {
+        ownerDeps = new Set<Component>()
+        depSets.set(ownerComponent, ownerDeps)
+      }
+
+      for (const {path: importedPath} of imports) {
+        const importedComponent = modulesComponents.get(importedPath)
+        if (importedComponent === undefined) {
+          // external / unknown import — not tracked as a component, skip
+          continue
+        }
+        if (importedComponent === ownerComponent) {
+          // intra-package import (two files in the same package) — skip
+          continue
+        }
+        ownerDeps.add(importedComponent)
+      }
+    }
+
+    // Write the collected BomRefs onto each component's dependency set.
+    for (const [component, deps] of depSets) {
+      for (const dep of deps) {
+        component.dependencies.add(dep.bomRef)
+      }
+    }
   }
 
   /**

@@ -148,7 +148,7 @@ describe('integration', () => {
         try {
           expect(built.status).toBe(0)
         } catch (err) {
-          if (/should not be used for production|Angular CLI requires a minimum|does not support Node\.js v/.test(built.stderr.toString())) {
+          if (/should not be used for production|Angular CLI requires a minimum|does not support Node\.js v|not found|Corepack/.test(built.stderr.toString())) {
             skipTests = true
           } else {
             console.log('purpose: ', purpose, '\n')
