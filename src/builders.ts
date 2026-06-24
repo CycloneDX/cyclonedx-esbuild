@@ -203,10 +203,9 @@ export class BomBuilder {
     moduleComponents: Map<string, Component>,
     logger: Console
   ): void {
-    console.log('metafile--', JSON.stringify(metafile))
     for (const [module, component] of moduleComponents.entries()) {
       for (const imported of metafile.inputs[module].imports) {
-          if (imported.external) {
+          if (imported.external === true) {
             // externals are not part of the build result anyway
             continue
           }
