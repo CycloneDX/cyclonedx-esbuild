@@ -199,22 +199,23 @@ export class BomBuilder {
 
   private linkDependencies(
     metafile: esbuild.Metafile,
-    modulesComponents: Map<string, Component>,
+    moduleComponents: Map<string, Component>,
     logger: Console
   ): void {
-    for (const [module, component] of modulesComponents.entries()) {
+    for (const [module, component] of moduleComponents.entries()) {
       for (const imported of metafile.inputs[module].imports) {
           if (imported.external) {
             // externals are not part of the build result anyway
             continue
           }
-          const importedComponent = modulesComponents.get(imported.path)
+          const importedComponent = moduleComponents.get(imported.path)
           if (importedComponent === undefined) {
             // tree-shaken are not part of the build result anyway
             continue
           }
+          if (component === importedComponent) { continue }
           component.dependencies.add(importedComponent.bomRef)
-          logger.debug('%s lined dependency error %j -> %j', LogPrefixes.DEBUG, component, importedComponent)
+          logger.debug('%s linked dependency %j -> %j', LogPrefixes.DEBUG, component, importedComponent)
       }
     }
   }
