@@ -217,13 +217,13 @@ export class BomBuilder {
           }
           const importedComponent = moduleComponents.get(importedPath)
           if (importedComponent === undefined) {
-            logger.debug('%s skipped missing dependency module %s -> %s', LogPrefixes.DEBUG, module, imported.path)
+            logger.debug('%s skipped missing dependency %s -> %s', LogPrefixes.DEBUG, module, imported.path)
             // tree-shaken are not part of the build result anyway
             continue
           }
           if (component === importedComponent) { continue }
           component.dependencies.add(importedComponent.bomRef)
-          logger.debug('%s linked dependency %j -> %j', LogPrefixes.DEBUG, module, imported.path)
+          logger.debug('%s linked dependency %s -> %s', LogPrefixes.DEBUG, module, imported.path)
       }
     }
   }
