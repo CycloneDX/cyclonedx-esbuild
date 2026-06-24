@@ -3,7 +3,7 @@
   "configVersion": 0,
   "workspaces": {
     "": {
-      "name": "@cyclonedx/cyclonedx-eslint-testbed-react-bun",
+      "name": "@cyclonedx/cyclonedx-eslint-testbed-react19-bun",
       "dependencies": {
         "@cyclonedx/cyclonedx-eslint-testing-custom-package": "file:../../_data/custom-package/package.tgz",
         "@cyclonedx/cyclonedx-eslint-testing-unused-package": "file:../../_data/unused-package/package.tgz",
