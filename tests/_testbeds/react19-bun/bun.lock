@@ -6,7 +6,6 @@
       "name": "@cyclonedx/cyclonedx-eslint-testbed-react-bun",
       "dependencies": {
         "@cyclonedx/cyclonedx-eslint-testing-custom-package": "file:../../_data/custom-package/package.tgz",
-        "@cyclonedx/cyclonedx-eslint-testing-unused-package": "../../_data/unused-package/package.tgz",
         "@cyclonedx/cyclonedx-eslint-testing-unused-package": "file:../../_data/unused-package/package.tgz",
         "react": "^19",
         "react-dom": "^19",
