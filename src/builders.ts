@@ -17,7 +17,7 @@ SPDX-License-Identifier: Apache-2.0
 Copyright (c) OWASP Foundation. All Rights Reserved.
 */
 
-import { dirname, resolve } from "node:path";
+import {dirname, isAbsolute, relative, resolve} from "node:path";
 
 import type { Builders as FromNodePackageJsonBuilders } from "@cyclonedx/cyclonedx-library/Contrib/FromNodePackageJson"
 import type { Utils as LicenseUtils } from "@cyclonedx/cyclonedx-library/Contrib/License"
@@ -191,31 +191,39 @@ export class BomBuilder {
     }
 
     logger.info(LogPrefixes.INFO, `linking Component.dependencies...`)
-    this.linkDependencies(metafile, components, logger)
+    this.linkDependencies(rootDir, metafile, components, logger)
 
     logger.info(LogPrefixes.INFO, 'done building Components from modules...')
     return [pkgs, vrts]
   }
 
   private linkDependencies(
+    rootDir: string,
     metafile: esbuild.Metafile,
     moduleComponents: Map<string, Component>,
     logger: Console
   ): void {
+    console.log('metafile--', JSON.stringify(metafile))
     for (const [module, component] of moduleComponents.entries()) {
       for (const imported of metafile.inputs[module].imports) {
           if (imported.external) {
             // externals are not part of the build result anyway
             continue
           }
-          const importedComponent = moduleComponents.get(imported.path)
+          let importedPath = imported.path
+          if (isAbsolute(importedPath)) {
+            // bun specific implementation
+            importedPath = relative(rootDir, importedPath)
+          }
+          const importedComponent = moduleComponents.get(importedPath)
           if (importedComponent === undefined) {
+            logger.debug('%s skipped missing dependency module %s -> %s', LogPrefixes.DEBUG, module, imported.path)
             // tree-shaken are not part of the build result anyway
             continue
           }
           if (component === importedComponent) { continue }
           component.dependencies.add(importedComponent.bomRef)
-          logger.debug('%s linked dependency %j -> %j', LogPrefixes.DEBUG, component, importedComponent)
+          logger.debug('%s linked dependency %j -> %j', LogPrefixes.DEBUG, module, imported.path)
       }
     }
   }
