@@ -191,19 +191,32 @@ export class BomBuilder {
     }
 
     logger.info(LogPrefixes.INFO, `linking Component.dependencies...`)
-    this.linkDependencies(metafile, components)
+    this.linkDependencies(metafile, components, logger)
 
     logger.info(LogPrefixes.INFO, 'done building Components from modules...')
     return [pkgs, vrts]
   }
 
-  /* @ts-expect-error TS6133 -- TODO */
-  private linkDependencies(metafile: esbuild.Metafile, modulesComponents: Map<string, Component>): void {
-    // TODO: link deps based on inputs - https://github.com/CycloneDX/cyclonedx-esbuild/issues/11
-    // idea: take the metadata.input
-    // then cut the "externals" and copy their content to all the ones that used it
-    // then cut the "unknown" and copy their content to all the ones that used it
-    // the rest should all be known components -> so set their dependencies as expected
+  private linkDependencies(
+    metafile: esbuild.Metafile,
+    modulesComponents: Map<string, Component>,
+    logger: Console
+  ): void {
+    for (const [module, component] of modulesComponents.entries()) {
+      for (const imported of metafile.inputs[module].imports) {
+          if (imported.external) {
+            // externals are not part of the build result anyway
+            continue
+          }
+          const importedComponent = modulesComponents.get(imported.path)
+          if (importedComponent === undefined) {
+            // tree-shaken are not part of the build result anyway
+            continue
+          }
+          component.dependencies.add(importedComponent.bomRef)
+          logger.debug('%s lined dependency error %j -> %j', LogPrefixes.DEBUG, component, importedComponent)
+      }
+    }
   }
 
   /**
