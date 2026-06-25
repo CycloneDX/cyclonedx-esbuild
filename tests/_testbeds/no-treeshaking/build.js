@@ -1,4 +1,3 @@
-"use strict";
 /*!
 This file is part of CycloneDX generator for esbuild.
 
@@ -23,7 +22,7 @@ import {cyclonedxEsbuildPlugin} from '@cyclonedx/cyclonedx-esbuild'
 
 async function build() {
     try {
-        const built = await esbuild.build({
+        await esbuild.build({
             entryPoints: ['src/index.js'],
             bundle: true,
             outfile: 'dist/bundle.js',
@@ -42,7 +41,6 @@ async function build() {
           logLevel: 'debug',
         })
         console.log('✅ Build completed successfully!')
-      console.log('metafile', JSON.stringify(built.metafile))
     } catch (error) {
         console.error('❌ Build failed:', error)
         process.exit(1)
