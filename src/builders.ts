@@ -38,6 +38,7 @@ import type normalizePackageData from "normalize-package-data"
 import type { PackageDescription } from "./_helpers";
 import {
   getPackageConfig,
+  mkPosixPathLike,
   mkRelativePath,
   mkRelativePathReproducibleHash,
   normalizePackageManifest,
@@ -203,6 +204,7 @@ export class BomBuilder {
     moduleComponents: Map<string, Component>,
     logger: Console
   ): void {
+    // TODO: every entrypoint is a dependency of the root component
     for (const [module, component] of moduleComponents.entries()) {
       for (const imported of metafile.inputs[module].imports) {
           if (imported.external === true) {
@@ -212,7 +214,7 @@ export class BomBuilder {
           let importedPath = imported.path
           if (isAbsolute(importedPath)) {
             // bun specific implementation
-            importedPath = relative(rootDir, importedPath)
+            importedPath = mkPosixPathLike(relative(rootDir, importedPath))
           }
           const importedComponent = moduleComponents.get(importedPath)
           if (importedComponent === undefined) {
