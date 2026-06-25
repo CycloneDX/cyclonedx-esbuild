@@ -17,7 +17,7 @@ SPDX-License-Identifier: Apache-2.0
 Copyright (c) OWASP Foundation. All Rights Reserved.
 */
 
-import {dirname, isAbsolute, relative, resolve} from "node:path";
+import { dirname, isAbsolute, relative, resolve } from "node:path";
 
 import type { Builders as FromNodePackageJsonBuilders } from "@cyclonedx/cyclonedx-library/Contrib/FromNodePackageJson"
 import type { Utils as LicenseUtils } from "@cyclonedx/cyclonedx-library/Contrib/License"
@@ -212,7 +212,7 @@ export class BomBuilder {
     }
 
     // TODO: every entrypoint is a dependency of the root component
-    for (const [module, {imports}] of Object.entries(metafile.inputs)) {
+    for (const [ module, { imports } ] of Object.entries(metafile.inputs)) {
       const component = moduleComponents.get(bunPathCompat(module))
       if (component === undefined) {
         continue
