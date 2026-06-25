@@ -204,27 +204,33 @@ export class BomBuilder {
     moduleComponents: Map<string, Component>,
     logger: Console
   ): void {
+    function bunPathCompat(p: string): string {
+      // bun uses absolute paths in `inputs`
+      return isAbsolute(p)
+        ? mkPosixPathLike(relative(rootDir, p))
+        : p
+    }
+
     // TODO: every entrypoint is a dependency of the root component
-    for (const [module, component] of moduleComponents.entries()) {
-      for (const imported of metafile.inputs[module].imports) {
-          if (imported.external === true) {
-            // externals are not part of the build result anyway
-            continue
-          }
-          let importedPath = imported.path
-          if (isAbsolute(importedPath)) {
-            // bun specific implementation
-            importedPath = mkPosixPathLike(relative(rootDir, importedPath))
-          }
-          const importedComponent = moduleComponents.get(importedPath)
-          if (importedComponent === undefined) {
-            logger.debug('%s skipped missing dependency %s -> %s', LogPrefixes.DEBUG, module, imported.path)
-            // tree-shaken are not part of the build result anyway
-            continue
-          }
-          if (component === importedComponent) { continue }
-          component.dependencies.add(importedComponent.bomRef)
-          logger.debug('%s linked dependency %s -> %s', LogPrefixes.DEBUG, module, imported.path)
+    for (const [module, {imports}] of Object.entries(metafile.inputs)) {
+      const component = moduleComponents.get(bunPathCompat(module))
+      if (component === undefined) {
+        continue
+      }
+      for (const imported of imports) {
+        if (imported.external === true) {
+          // externals are not part of the build result anyway
+          continue
+        }
+        const importedComponent = moduleComponents.get(bunPathCompat(imported.path))
+        if (importedComponent === undefined) {
+          logger.debug('%s skipped missing dependency %s -> %s', LogPrefixes.DEBUG, module, imported.path)
+          // tree-shaken are not part of the build result anyway
+          continue
+        }
+        if (component === importedComponent) { continue }
+        component.dependencies.add(importedComponent.bomRef)
+        logger.debug('%s linked dependency %s -> %s', LogPrefixes.DEBUG, module, imported.path)
       }
     }
   }
