@@ -94,7 +94,7 @@
     "jest": "30.3.0",
     "jest-junit": "16.0.0",
     "npm-run-all2": "^8.0.1",
-    "typescript": "^5.9.3"
+    "typescript": "^6.0.3"
   },
   "overrides": {
     "yargs": ">=17.7.2 && <19"
