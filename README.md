@@ -33,7 +33,7 @@ and [`cdx` Namespace Taxonomy](https://cyclonedx.github.io/cyclonedx-property-ta
 * 🔌 **Plugin for esbuild-compatible bundlers** (_esbuild_, _Bun_)
 * 🖥️ **CLI tool** for generating SBOMs from esbuild-compatible metafiles
 * 🎯 Supports multiple **CycloneDX spec versions** (1.2, 1.3, 1.4, 1.5, 1.6, 1.7)
-* 🔍 Extracts components and dependencies from bundled projects <!-- dependencies components are gathered, but dependency graph is not yet built -->
+* 🔍 Extracts components and dependencies from bundled projects
 * 📝 **License evidence gathering**
 * ✅ **Validates** generated SBOMs against CycloneDX schema
 * 🔄 **Reproducible output** option for consistent SBOM generation
