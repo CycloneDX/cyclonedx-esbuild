@@ -128,9 +128,9 @@ export class BomBuilder {
     collectEvidence: boolean,
     logger: Console
   ): [Component | undefined, Map<string, Component | DummyComponent>, Map<string, VirtualComponent>] {
-    const pkgs = new Map<string, Component | DummyComponent>
-    const vrts = new Map<string, VirtualComponent>
-    const components = new Map<string, Component>
+    const packageComponents = new Map<string, Component | DummyComponent>
+    const virtualComponents = new Map<string, VirtualComponent>
+    const moduleComponents = new Map<string, Component>
 
     const mainPkg = getPackageConfig(rootDir)
     let mainComponent: Component | undefined = undefined
@@ -143,7 +143,7 @@ export class BomBuilder {
         mainComponent = new DummyComponent(mkRelativePath(rootDir, mainPkg.path))
       }
       logger.debug(LogPrefixes.DEBUG, 'built', mainComponent, 'based on', mainPkg, 'for rootDir', rootDir)
-      pkgs.set(mainPkg.path, mainComponent)
+      packageComponents.set(mainPkg.path, mainComponent)
     }
 
     const modulePathsRequired = new Map<string, boolean>()
@@ -165,20 +165,20 @@ export class BomBuilder {
       let component: Component | undefined
       const pkg = getPackageConfig(resolve(rootDir, modulePath))
       if (pkg === undefined) {
-        component = vrts.get(modulePath)
+        component = virtualComponents.get(modulePath)
         if (component === undefined) {
           logger.info(LogPrefixes.INFO, 'building new VirtualComponent for modulePath:', modulePath)
           component = new VirtualComponent(modulePath)
           // TODO: see if we can pull the associated plugin from the virtual's namespace
           // see https://esbuild.github.io/plugins/
           logger.debug(LogPrefixes.DEBUG, 'built', component, 'as virtual for modulePath', modulePath)
-          vrts.set(modulePath, component)
+          virtualComponents.set(modulePath, component)
           if (!moduleRequired) {
             component.scope = ComponentScope.Excluded
           }
         }
       } else {
-        component = pkgs.get(pkg.path)
+        component = packageComponents.get(pkg.path)
         if (component === undefined) {
           logger.info(LogPrefixes.INFO, 'try to build new Component from PkgPath:', pkg.path)
           try {
@@ -189,7 +189,7 @@ export class BomBuilder {
             component = new DummyComponent(mkRelativePath(rootDir, pkg.path))
           }
           logger.debug(LogPrefixes.DEBUG, 'built', component, 'based on', pkg, 'for modulePath', modulePath)
-          pkgs.set(pkg.path, component)
+          packageComponents.set(pkg.path, component)
           if (!moduleRequired) {
             component.scope = ComponentScope.Excluded
           }
@@ -199,14 +199,14 @@ export class BomBuilder {
       if (moduleRequired) {
         component.scope = ComponentScope.Required
       }
-      components.set(modulePath, component)
+      moduleComponents.set(modulePath, component)
     }
 
-    logger.info(LogPrefixes.INFO, 'linking Component.dependencies...')
-    this.linkDependencies(rootDir, metafile, mainComponent, components, logger)
+    logger.info(LogPrefixes.INFO, 'linking Components dependencies...')
+    this.linkDependencies(rootDir, metafile, mainComponent, moduleComponents, logger)
 
     logger.info(LogPrefixes.INFO, 'done building Components from modules...')
-    return [mainComponent, pkgs, vrts]
+    return [mainComponent, packageComponents, virtualComponents]
   }
 
   /* eslint-disable-next-line @typescript-eslint/max-params -- ack */
