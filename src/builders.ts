@@ -75,7 +75,7 @@ export class BomBuilder {
     const bom = new Bom()
 
     logger.info(LogPrefixes.INFO, 'generating components...')
-    const [componentsPkg, componentsVrt] = this.generateComponents(buildWorkingDir, metafile, collectEvidence, logger)
+    const [mainComponent, componentsPkg, componentsVrt] = this.generateComponents(buildWorkingDir, metafile, collectEvidence, logger)
     if ( outputReproducible ) {
       componentsPkg.forEach((component, pkgPath) => {
         /* eslint-disable-next-line no-param-reassign -- ack */
@@ -84,7 +84,6 @@ export class BomBuilder {
     }
 
     const rcPath = getPackageConfig(buildWorkingDir)?.path
-    const mainComponent = rcPath === undefined ? undefined : componentsPkg.get(rcPath)
     if (undefined !== mainComponent) {
       mainComponent.scope = undefined
       logger.debug(LogPrefixes.DEBUG, 'set bom.metadata.component', mainComponent)
@@ -130,10 +129,24 @@ export class BomBuilder {
     metafile: esbuild.Metafile,
     collectEvidence: boolean,
     logger: Console
-  ): [Map<string, Component | DummyComponent>, Map<string, VirtualComponent>] {
+  ): [Component | undefined, Map<string, Component | DummyComponent>, Map<string, VirtualComponent>] {
     const pkgs = new Map<string, Component | DummyComponent>
     const vrts = new Map<string, VirtualComponent>
     const components = new Map<string, Component>
+
+    const rootPkg = getPackageConfig(rootDir)
+    let mainComponent: Component | undefined
+    if (rootPkg !== undefined) {
+      try {
+        mainComponent = this.makeComponent(rootPkg, collectEvidence, logger)
+      } catch (err) {
+        logger.debug(LogPrefixes.DEBUG, 'unexpected error:', err)
+        logger.warn(LogPrefixes.WARN, 'building new DummyComponent from PkgPath', rootPkg.path)
+        mainComponent = new DummyComponent(mkRelativePath(rootDir, rootPkg.path))
+      }
+      logger.debug(LogPrefixes.DEBUG, 'built', mainComponent, 'based on', rootPkg, 'for mainComponent', rootDir)
+      pkgs.set(rootPkg.path, mainComponent)
+    }
 
     const modulePathsRequired = new Map<string, boolean>()
     for (const {inputs} of Object.values(metafile.outputs)) {
@@ -192,15 +205,16 @@ export class BomBuilder {
     }
 
     logger.info(LogPrefixes.INFO, `linking Component.dependencies...`)
-    this.linkDependencies(rootDir, metafile, components, logger)
+    this.linkDependencies(rootDir, metafile, mainComponent, components, logger)
 
     logger.info(LogPrefixes.INFO, 'done building Components from modules...')
-    return [pkgs, vrts]
+    return [mainComponent, pkgs, vrts]
   }
 
   private linkDependencies(
     rootDir: string,
     metafile: esbuild.Metafile,
+    mainComponent: Component | undefined,
     moduleComponents: Map<string, Component>,
     logger: Console
   ): void {
@@ -211,12 +225,24 @@ export class BomBuilder {
         : p
     }
 
-    // TODO: every entrypoint is a dependency of the root component
+    if (mainComponent !== undefined) {
+      for (const { entryPoint } of Object.values(metafile.outputs)) {
+        if (entryPoint === undefined) { continue }
+        const component = moduleComponents.get(entryPoint)
+        if (component === undefined) {
+          logger.debug('%s skipped missing primary dependency -> %s', LogPrefixes.DEBUG, entryPoint)
+          // tree-shaken are not part of the build result anyway
+          continue
+        }
+        if (component === mainComponent) { continue }
+        mainComponent.dependencies.add(component.bomRef)
+        logger.debug('%s linked primary dependency -> %s', LogPrefixes.DEBUG, entryPoint)
+      }
+    }
+
     for (const [ module, { imports } ] of Object.entries(metafile.inputs)) {
       const component = moduleComponents.get(bunPathCompat(module))
-      if (component === undefined) {
-        continue
-      }
+      if (component === undefined) { continue }
       for (const imported of imports) {
         if (imported.external === true) {
           // externals are not part of the build result anyway
