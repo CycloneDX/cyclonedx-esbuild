@@ -135,7 +135,7 @@ export class BomBuilder {
     const components = new Map<string, Component>
 
     const rootPkg = getPackageConfig(rootDir)
-    let mainComponent: Component | undefined
+    let mainComponent: Component | undefined = undefined
     if (rootPkg !== undefined) {
       try {
         mainComponent = this.makeComponent(rootPkg, collectEvidence, logger)
@@ -211,6 +211,7 @@ export class BomBuilder {
     return [mainComponent, pkgs, vrts]
   }
 
+  /* eslint-disable-next-line @typescript-eslint/max-params -- ack */
   private linkDependencies(
     rootDir: string,
     metafile: esbuild.Metafile,
