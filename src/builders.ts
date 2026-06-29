@@ -17,7 +17,8 @@ SPDX-License-Identifier: Apache-2.0
 Copyright (c) OWASP Foundation. All Rights Reserved.
 */
 
-import { dirname, resolve } from "node:path";
+import { createRequire } from "node:module";
+import { dirname, isAbsolute, relative, resolve } from "node:path";
 
 import type { Builders as FromNodePackageJsonBuilders } from "@cyclonedx/cyclonedx-library/Contrib/FromNodePackageJson"
 import type { Utils as LicenseUtils } from "@cyclonedx/cyclonedx-library/Contrib/License"
@@ -202,30 +203,58 @@ export class BomBuilder {
     }
 
     logger.info(LogPrefixes.INFO, 'linking Components dependencies...')
-    this.linkDependencies(rootDir, metafile, mainComponent, moduleComponents, logger)
+    this.linkDependencies(metafile, moduleComponents, packageComponents, rootDir)
 
     logger.info(LogPrefixes.INFO, 'done building Components from modules...')
     return [mainComponent, packageComponents, virtualComponents]
   }
 
-  /* eslint-disable-next-line @typescript-eslint/max-params -- ack */
   private linkDependencies(
-    /* @ts-expect-error TS6133 -- TODO */
-    rootDir: string,
-    /* @ts-expect-error TS6133 -- TODO */
     metafile: esbuild.Metafile,
-    /* @ts-expect-error TS6133 -- TODO */
-    mainComponent: Component | undefined,
-    /* @ts-expect-error TS6133 -- TODO */
     moduleComponents: Map<string, Component>,
-    /* @ts-expect-error TS6133 -- TODO */
-    logger: Console
+    packageComponents: Map<string, Component>,
+    rootDir: string
   ): void {
-    // TODO: link deps based on inputs - https://github.com/CycloneDX/cyclonedx-esbuild/issues/11
-    // idea: take the metadata.input
-    // then cut the "externals" and copy their content to all the ones that used it
-    // then cut the "unknown" and copy their content to all the ones that used it
-    // the rest should all be known components -> so set their dependencies as expected
+    const componentMaps = { moduleComponents, packageComponents }
+    for (const [filePath, input] of Object.entries(metafile.inputs)) {
+      const sourceComponent = moduleComponents.get(filePath)
+      if (sourceComponent === undefined) continue
+
+      for (const imp of input.imports) {
+        const targetComponent = this.resolveImportComponent(imp, filePath, componentMaps, rootDir)
+        if (targetComponent === undefined) continue
+        if (targetComponent === sourceComponent) continue
+        sourceComponent.dependencies.add(targetComponent.bomRef)
+      }
+    }
+  }
+
+  private resolveImportComponent(
+    imp: esbuild.Metafile['inputs'][string]['imports'][number],
+    filePath: string,
+    { moduleComponents, packageComponents }: { moduleComponents: Map<string, Component>; packageComponents: Map<string, Component> },
+    rootDir: string
+  ): Component | undefined {
+    if (imp.external === true) return undefined
+    // Bun emits absolute paths in imports; normalize to relative (matching metafile.inputs keys)
+    const impPath = isAbsolute(imp.path) ? relative(rootDir, imp.path).split('\\').join('/') : imp.path
+    const direct = moduleComponents.get(impPath)
+    if (direct !== undefined) return direct
+    // Fallback: resolve the import path using Node's module resolution from the importing
+    // file's directory, then find the owning package via getPackageConfig.
+    // This handles Bun's unresolved bare specifiers (e.g. "react") and any other case
+    // where the import path doesn't directly match a metafile.inputs key.
+    try {
+      const contextDir = dirname(resolve(rootDir, filePath))
+      const resolved = createRequire(resolve(contextDir, '_')).resolve(imp.path)
+      const pkg = getPackageConfig(resolved)
+      if (pkg !== undefined) {
+        return packageComponents.get(pkg.path)
+      }
+    } catch {
+      // Module not resolvable from this context — skip this edge
+    }
+    return undefined
   }
 
   /**
