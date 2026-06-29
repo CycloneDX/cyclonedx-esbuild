@@ -25,8 +25,7 @@ Only dependencies that are actually included in the final bundle (after [tree-sh
 
 The resulting SBOM documents follow [official specifications and standards](https://github.com/CycloneDX/specification),
 and might have properties following [`cdx:esbuild` Namespace Taxonomy](https://cyclonedx.github.io/cyclonedx-property-taxonomy/cdx/esbuild.html)
-and [`cdx` Namespace Taxonomy](https://cyclonedx.github.io/cyclonedx-property-taxonomy/cdx.html)
-.
+and [`cdx` Namespace Taxonomy](https://cyclonedx.github.io/cyclonedx-property-taxonomy/cdx.html).
 
 ## Features
 
