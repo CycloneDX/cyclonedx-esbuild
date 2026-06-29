@@ -70,11 +70,11 @@ export class BomBuilder {
     outputReproducible: boolean,
     logger: Console
   ): Bom {
-    logger.debug(LogPrefixes.DEBUG, `metafile:`, metafile)
+    logger.debug(LogPrefixes.DEBUG, 'metafile:', metafile)
     const bom = new Bom()
 
     logger.info(LogPrefixes.INFO, 'generating components...')
-    const [componentsPkg, componentsVrt] = this.generateComponents(buildWorkingDir, metafile, collectEvidence, logger)
+    const [mainComponent, componentsPkg, componentsVrt] = this.generateComponents(buildWorkingDir, metafile, collectEvidence, logger)
     if ( outputReproducible ) {
       componentsPkg.forEach((component, pkgPath) => {
         /* eslint-disable-next-line no-param-reassign -- ack */
@@ -82,23 +82,20 @@ export class BomBuilder {
       })
     }
 
-    const rcPath = getPackageConfig(buildWorkingDir)?.path
-    const mainComponent = rcPath === undefined ? undefined : componentsPkg.get(rcPath)
+    for (const component of componentsPkg.values()) {
+      logger.debug(LogPrefixes.DEBUG, 'add to bom.components', component)
+      bom.components.add(component)
+    }
+    for (const component of componentsVrt.values()) {
+      logger.debug(LogPrefixes.DEBUG, 'add to bom.components', component)
+      bom.components.add(component)
+    }
+
     if (undefined !== mainComponent) {
       mainComponent.scope = undefined
       logger.debug(LogPrefixes.DEBUG, 'set bom.metadata.component', mainComponent)
       bom.metadata.component = mainComponent
-      /* eslint-disable-next-line @typescript-eslint/no-non-null-assertion -- ack */
-      componentsPkg.delete(rcPath!)
-    }
-
-    for (const component of new Set(componentsPkg.values())) {
-      logger.debug(LogPrefixes.DEBUG, `add to bom.components`, component)
-      bom.components.add(component)
-    }
-    for (const component of new Set(componentsVrt.values())) {
-      logger.debug(LogPrefixes.DEBUG, `add to bom.components`, component)
-      bom.components.add(component)
+      bom.components.delete(mainComponent)
     }
 
     return bom
@@ -129,10 +126,24 @@ export class BomBuilder {
     metafile: esbuild.Metafile,
     collectEvidence: boolean,
     logger: Console
-  ): [Map<string, Component | DummyComponent>, Map<string, VirtualComponent>] {
+  ): [Component | undefined, Map<string, Component | DummyComponent>, Map<string, VirtualComponent>] {
     const pkgs = new Map<string, Component | DummyComponent>
     const vrts = new Map<string, VirtualComponent>
     const components = new Map<string, Component>
+
+    const mainPkg = getPackageConfig(rootDir)
+    let mainComponent: Component | undefined = undefined
+    if (mainPkg !== undefined) {
+      try {
+        mainComponent = this.makeComponent(mainPkg, collectEvidence, logger)
+      } catch (err) {
+        logger.debug(LogPrefixes.DEBUG, 'unexpected error:', err)
+        logger.warn(LogPrefixes.WARN, 'building new DummyComponent from PkgPath', mainPkg.path)
+        mainComponent = new DummyComponent(mkRelativePath(rootDir, mainPkg.path))
+      }
+      logger.debug(LogPrefixes.DEBUG, 'built', mainComponent, 'based on', mainPkg, 'for rootDir', rootDir)
+      pkgs.set(mainPkg.path, mainComponent)
+    }
 
     const modulePathsRequired = new Map<string, boolean>()
     for (const {inputs} of Object.values(metafile.outputs)) {
@@ -145,7 +156,7 @@ export class BomBuilder {
         }
       }
     }
-    logger.debug(LogPrefixes.DEBUG, `used modulePathsRequired:`, modulePathsRequired)
+    logger.debug(LogPrefixes.DEBUG, 'used modulePathsRequired:', modulePathsRequired)
 
     logger.info(LogPrefixes.INFO, 'start building Components from modules...')
     for (const [modulePath, moduleRequired] of modulePathsRequired) {
@@ -190,15 +201,26 @@ export class BomBuilder {
       components.set(modulePath, component)
     }
 
-    logger.info(LogPrefixes.INFO, `linking Component.dependencies...`)
-    this.linkDependencies(metafile, components)
+    logger.info(LogPrefixes.INFO, 'linking Components dependencies...')
+    this.linkDependencies(rootDir, metafile, mainComponent, components, logger)
 
     logger.info(LogPrefixes.INFO, 'done building Components from modules...')
-    return [pkgs, vrts]
+    return [mainComponent, pkgs, vrts]
   }
 
-  /* @ts-expect-error TS6133 -- TODO */
-  private linkDependencies(metafile: esbuild.Metafile, modulesComponents: Map<string, Component>): void {
+  /* eslint-disable-next-line @typescript-eslint/max-params -- ack */
+  private linkDependencies(
+    /* @ts-expect-error TS6133 -- TODO */
+    rootDir: string,
+    /* @ts-expect-error TS6133 -- TODO */
+    metafile: esbuild.Metafile,
+    /* @ts-expect-error TS6133 -- TODO */
+    mainComponent: Component | undefined,
+    /* @ts-expect-error TS6133 -- TODO */
+    moduleComponents: Map<string, Component>,
+    /* @ts-expect-error TS6133 -- TODO */
+    logger: Console
+  ): void {
     // TODO: link deps based on inputs - https://github.com/CycloneDX/cyclonedx-esbuild/issues/11
     // idea: take the metadata.input
     // then cut the "externals" and copy their content to all the ones that used it
