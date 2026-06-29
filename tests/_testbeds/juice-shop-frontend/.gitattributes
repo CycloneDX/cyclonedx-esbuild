@@ -1,0 +1,6 @@
+src/*  linguist-vendored
+src/**  linguist-vendored
+
+types/*   linguist-generated
+
+package.tgz   linguist-generated
