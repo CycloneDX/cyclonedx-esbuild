@@ -15,12 +15,19 @@ All notable changes to this project will be documented in this file.
   * Components might have properties following [`cdx:esbuild` Namespace Taxonomy](https://cyclonedx.github.io/cyclonedx-property-taxonomy/cdx/esbuild.html)
     and [`cdx` Namespace Taxonomy](https://cyclonedx.github.io/cyclonedx-property-taxonomy/cdx.html)
     . (via [#143])
+* Tests
+  * Added and fixed testbeds for integration (via [#144], [#151], [#152], [#153]. [#159])
 
 [#11]: https://github.com/CycloneDX/cyclonedx-esbuild/issues/11
 [#113]: https://github.com/CycloneDX/cyclonedx-esbuild/pull/113
 [#142]: https://github.com/CycloneDX/cyclonedx-esbuild/issues/142
 [#143]: https://github.com/CycloneDX/cyclonedx-esbuild/pull/143
+[#144]: https://github.com/CycloneDX/cyclonedx-esbuild/pull/144
+[#151]: https://github.com/CycloneDX/cyclonedx-esbuild/pull/151
+[#152]: https://github.com/CycloneDX/cyclonedx-esbuild/pull/152
+[#153]: https://github.com/CycloneDX/cyclonedx-esbuild/pull/153
 [#155]: https://github.com/CycloneDX/cyclonedx-esbuild/pull/155
+[#159]: https://github.com/CycloneDX/cyclonedx-esbuild/pull/159
 [#161]: https://github.com/CycloneDX/cyclonedx-esbuild/pull/161
 
 ## 1.3.1 - 2026-03-18
