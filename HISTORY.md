@@ -7,7 +7,7 @@ All notable changes to this project will be documented in this file.
 <!-- add unreleased items here -->
 
 * Added
-  * SBOM result now includes a dependency graph ([#11] via [#161])  
+  * SBOM result now includes a dependency graph ([#11] via [#113], [#155], [#161])  
     The respective dependency graph reflects the built's input graph.
   * SBOM result now includes components’ `scope` (via [#143])
   * SBOM result may now include excluded, tree‑shaken components ([#142] via [#143])  
@@ -17,8 +17,10 @@ All notable changes to this project will be documented in this file.
     . (via [#143])
 
 [#11]: https://github.com/CycloneDX/cyclonedx-esbuild/issues/11
+[#113]: https://github.com/CycloneDX/cyclonedx-esbuild/pull/113
 [#142]: https://github.com/CycloneDX/cyclonedx-esbuild/issues/142
 [#143]: https://github.com/CycloneDX/cyclonedx-esbuild/pull/143
+[#155]: https://github.com/CycloneDX/cyclonedx-esbuild/pull/155
 [#161]: https://github.com/CycloneDX/cyclonedx-esbuild/pull/161
 
 ## 1.3.1 - 2026-03-18
