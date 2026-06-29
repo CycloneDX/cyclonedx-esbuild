@@ -19,7 +19,8 @@ This package provides:
 * a **plugin for _esbuild_-compatible bundlers** — works with _esbuild_ and _Bun_
 * a **CLI tool** for generating SBOMs from esbuild-compatible build [metafiles](https://esbuild.github.io/api/#metafile)
 
-The tooling uses the dependency linkage information generated during bundling to create an inventory and dependency graph.
+The tooling uses the dependency linkage information generated during bundling to create an inventory
+and dependency graph (i.e., why a component is included in the final bundle).  
 Only dependencies that are actually included in the final bundle (after [tree-shaking](https://esbuild.github.io/api/#tree-shaking)) are listed as such.
 
 The resulting SBOM documents follow [official specifications and standards](https://github.com/CycloneDX/specification),

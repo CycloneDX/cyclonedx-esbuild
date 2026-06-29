@@ -8,7 +8,7 @@ All notable changes to this project will be documented in this file.
 
 * Added
   * SBOM result now includes a dependency graph ([#11] via [#113], [#155], [#161])  
-    The respective dependency graph reflects the built's input graph.
+    The respective dependency graph reflects the built's input graph (i.e., why a component is included in the final bundle).
   * SBOM result now includes components’ `scope` (via [#143])
   * SBOM result may now include excluded, tree‑shaken components ([#142] via [#143])  
     The respective component’s `scope` is properly set to `"excluded"`.
