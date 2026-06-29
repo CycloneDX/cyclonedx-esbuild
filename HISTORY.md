@@ -6,6 +6,8 @@ All notable changes to this project will be documented in this file.
 
 <!-- add unreleased items here -->
 
+## 1.4.0 - 2026-06-29
+
 * Added
   * SBOM result now includes a dependency graph ([#11] via [#113], [#155], [#161])  
     The respective dependency graph reflects the build's input graph (i.e., why a component is included in the final bundle).
