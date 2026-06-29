@@ -22,7 +22,10 @@ This package provides:
 The tooling uses the dependency linkage information generated during bundling to create an inventory and dependency graph.
 Only dependencies that are actually included in the final bundle (after [tree-shaking](https://esbuild.github.io/api/#tree-shaking)) are listed as such.
 
-The resulting SBOM documents follow [official specifications and standards](https://github.com/CycloneDX/specification).
+The resulting SBOM documents follow [official specifications and standards](https://github.com/CycloneDX/specification),
+and might have properties following [`cdx:esbuild` Namespace Taxonomy](https://cyclonedx.github.io/cyclonedx-property-taxonomy/cdx/esbuild.html)
+and [`cdx` Namespace Taxonomy](https://cyclonedx.github.io/cyclonedx-property-taxonomy/cdx.html)
+.
 
 ## Features
 

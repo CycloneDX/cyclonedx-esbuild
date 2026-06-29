@@ -11,6 +11,9 @@ All notable changes to this project will be documented in this file.
   * SBOM result now includes components’ `scope` (via [#143])
   * SBOM result may now include excluded, tree‑shaken components ([#142] via [#143])  
     The respective component’s `scope` is properly set to `"excluded"`.
+  * Components might have properties following [`cdx:esbuild` Namespace Taxonomy](https://cyclonedx.github.io/cyclonedx-property-taxonomy/cdx/esbuild.html)
+    and [`cdx` Namespace Taxonomy](https://cyclonedx.github.io/cyclonedx-property-taxonomy/cdx.html)
+    . (via [#143])
 
 [#11]: https://github.com/CycloneDX/cyclonedx-esbuild/issues/11
 [#142]: https://github.com/CycloneDX/cyclonedx-esbuild/issues/142
