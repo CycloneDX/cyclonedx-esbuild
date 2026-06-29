@@ -225,7 +225,7 @@ export class BomBuilder {
     }
 
     if (mainComponent !== undefined) {
-      logger.log(LogPrefixes.DEBUG, 'linking entryPoint dependencies...')
+      logger.info(LogPrefixes.INFO, 'linking entryPoint dependencies...')
       for (const { entryPoint } of Object.values(metafile.outputs)) {
         if (entryPoint === undefined) { continue }
         const component = moduleComponents.get(entryPoint)
@@ -239,7 +239,7 @@ export class BomBuilder {
       }
     }
 
-    logger.log(LogPrefixes.DEBUG, 'linking inputs dependencies...')
+    logger.info(LogPrefixes.INFO, 'linking inputs dependencies...')
     for (const [ module, { imports } ] of Object.entries(metafile.inputs)) {
       const component = moduleComponents.get(bunPathCompat(module))
       if (component === undefined) { continue }
