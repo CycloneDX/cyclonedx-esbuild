@@ -14,6 +14,7 @@ await Bun.build({
       mcType: "application",
       outputFile: "bom.json",
       validate: true,
+      logLevel: 'debug',
     }),
   ],
 })
