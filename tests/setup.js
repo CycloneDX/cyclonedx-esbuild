@@ -34,21 +34,23 @@ const MANAGERS = {
     dirs: [
       'angular20-npm',
       'typescript-npm',
-      'juice-shop-frontend'
+      'juice-shop-frontend',
+      'with-externals',
+      'no-treeshaking',
     ]
   },
   npm_with_scripts: {
     cmd: 'npm',
     args: ['ci'],
     dirs: [
-      'esbuild-lowest'
+      'esbuild-lowest',
     ]
   },
   npm_not_locked: {
     cmd: 'npm',
     args: ['i', '--ignore-scripts'],
     dirs: [
-      'esbuild-latest'
+      'esbuild-latest',
     ]
   },
   yarn: {
@@ -61,7 +63,8 @@ const MANAGERS = {
   pnpm: {
     cmd: 'pnpm',
     args: ['install', '--frozen-lockfile', '--ignore-scripts'],
-    dirs: []
+    dirs: [
+    ]
   },
   bun: {
     cmd: 'bun',

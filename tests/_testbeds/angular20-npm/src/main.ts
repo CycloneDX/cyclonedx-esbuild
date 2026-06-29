@@ -4,6 +4,7 @@ import {Component, ElementRef, ViewChild, computed, signal} from '@angular/core'
 import {MatSlideToggleChange, MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {bootstrapApplication} from '@angular/platform-browser';
 import {CustomPackageReexport} from '@cyclonedx/cyclonedx-eslint-testing-reexport-package'
+import {unused} from '@cyclonedx/cyclonedx-eslint-testing-unused-package'
 
 const RESULT_QUOTES = [
   [

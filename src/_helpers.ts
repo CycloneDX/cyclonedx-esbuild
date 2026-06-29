@@ -271,7 +271,7 @@ function getBunCacheFolder(cwd: string): string | null {
   return cf
 }
 
-function mkRelativePath(absRoot: string, absPath: string): string {
+export function mkRelativePath(absRoot: string, absPath: string): string {
   const ybvcf = YarnBerryVirtualCacheRE.exec(absPath)?.[0]
   if (ybvcf !== undefined) {
     return `yarnVBCache:${absPath.slice(ybvcf.length)}`
@@ -291,7 +291,11 @@ function mkRelativePath(absRoot: string, absPath: string): string {
 }
 
 export function mkRelativePathReproducibleHash(absRoot: string, absPath: string): string {
-  return sha256hex(mkRelativePath(absRoot, absPath).replaceAll(sep, '/'))
+  return sha256hex(mkPosixPathLike(mkRelativePath(absRoot, absPath)))
+}
+
+export function mkPosixPathLike(p: string): string {
+  return p.replaceAll(sep, '/')
 }
 
 // endregion relative paths

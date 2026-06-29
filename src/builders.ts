@@ -17,24 +17,35 @@ SPDX-License-Identifier: Apache-2.0
 Copyright (c) OWASP Foundation. All Rights Reserved.
 */
 
-import { dirname, resolve } from "node:path";
+import { dirname, isAbsolute, relative, resolve } from "node:path";
 
 import type { Builders as FromNodePackageJsonBuilders } from "@cyclonedx/cyclonedx-library/Contrib/FromNodePackageJson"
 import type { Utils as LicenseUtils } from "@cyclonedx/cyclonedx-library/Contrib/License"
-import { LicenseAcknowledgement } from "@cyclonedx/cyclonedx-library/Enums"
-import type { Component, License } from "@cyclonedx/cyclonedx-library/Models"
-import { Bom, ComponentEvidence, LicenseRepository, NamedLicense } from "@cyclonedx/cyclonedx-library/Models"
+import { ComponentScope, ComponentType, LicenseAcknowledgement } from "@cyclonedx/cyclonedx-library/Enums"
+import type { License } from "@cyclonedx/cyclonedx-library/Models"
+import {
+  Bom,
+  Component,
+  ComponentEvidence,
+  LicenseRepository,
+  NamedLicense,
+  Property,
+  PropertyRepository,
+} from "@cyclonedx/cyclonedx-library/Models"
 import type * as esbuild from "esbuild"
 import type normalizePackageData from "normalize-package-data"
 
 import type { PackageDescription } from "./_helpers";
 import {
   getPackageConfig,
+  mkPosixPathLike,
+  mkRelativePath,
   mkRelativePathReproducibleHash,
   normalizePackageManifest,
 } from "./_helpers";
 import type { PackageUrlFactory } from "./factories";
 import { LogPrefixes } from "./logger";
+import { PropertyNames, PropertyValueBool } from "./properties";
 
 export class BomBuilder {
 
@@ -60,30 +71,32 @@ export class BomBuilder {
     outputReproducible: boolean,
     logger: Console
   ): Bom {
-    logger.debug(LogPrefixes.DEBUG, `metafile:`, metafile)
+    logger.debug(LogPrefixes.DEBUG, 'metafile:', metafile)
     const bom = new Bom()
 
     logger.info(LogPrefixes.INFO, 'generating components...')
-    const components = this.generateComponents(buildWorkingDir, metafile, collectEvidence, logger)
+    const [mainComponent, componentsPkg, componentsVrt] = this.generateComponents(buildWorkingDir, metafile, collectEvidence, logger)
     if ( outputReproducible ) {
-      components.forEach((component, pkgPath) => {
+      componentsPkg.forEach((component, pkgPath) => {
         /* eslint-disable-next-line no-param-reassign -- ack */
         component.bomRef.value = mkRelativePathReproducibleHash(buildWorkingDir, pkgPath)
       })
     }
 
-    const rcPath = getPackageConfig(buildWorkingDir)?.path
-    const mainComponent = rcPath === undefined ? undefined : components.get(rcPath)
-    if (undefined !== mainComponent) {
-      logger.debug(LogPrefixes.DEBUG, 'set bom.metadata.component', mainComponent)
-      bom.metadata.component = mainComponent
-      /* eslint-disable-next-line @typescript-eslint/no-non-null-assertion -- ack */
-      components.delete(rcPath!)
+    for (const component of componentsPkg.values()) {
+      logger.debug(LogPrefixes.DEBUG, 'add to bom.components', component)
+      bom.components.add(component)
+    }
+    for (const component of componentsVrt.values()) {
+      logger.debug(LogPrefixes.DEBUG, 'add to bom.components', component)
+      bom.components.add(component)
     }
 
-    for (const component of new Set(components.values())) {
-      logger.debug(LogPrefixes.DEBUG, `add to bom.components`, component)
-      bom.components.add(component)
+    if (undefined !== mainComponent) {
+      mainComponent.scope = undefined
+      logger.debug(LogPrefixes.DEBUG, 'set bom.metadata.component', mainComponent)
+      bom.metadata.component = mainComponent
+      bom.components.delete(mainComponent)
     }
 
     return bom
@@ -114,60 +127,137 @@ export class BomBuilder {
     metafile: esbuild.Metafile,
     collectEvidence: boolean,
     logger: Console
-  ): Map<string, Component> {
-    const pkgs = new Map<string, Component>
-    const components = new Map<string, Component>
+  ): [Component | undefined, Map<string, Component | DummyComponent>, Map<string, VirtualComponent>] {
+    const packageComponents = new Map<string, Component | DummyComponent>
+    const virtualComponents = new Map<string, VirtualComponent>
+    const moduleComponents = new Map<string, Component>
 
-    const modulePaths = new Set<string>()
-    for (const {inputs, entryPoint} of Object.values(metafile.outputs)) {
-      if (entryPoint !== undefined) {
-        modulePaths.add(entryPoint)
+    const mainPkg = getPackageConfig(rootDir)
+    let mainComponent: Component | undefined = undefined
+    if (mainPkg !== undefined) {
+      try {
+        mainComponent = this.makeComponent(mainPkg, collectEvidence, logger)
+      } catch (err) {
+        logger.debug(LogPrefixes.DEBUG, 'unexpected error:', err)
+        logger.warn(LogPrefixes.WARN, 'building new DummyComponent from PkgPath', mainPkg.path)
+        mainComponent = new DummyComponent(mkRelativePath(rootDir, mainPkg.path))
       }
+      logger.debug(LogPrefixes.DEBUG, 'built', mainComponent, 'based on', mainPkg, 'for rootDir', rootDir)
+      packageComponents.set(mainPkg.path, mainComponent)
+    }
+
+    const modulePathsRequired = new Map<string, boolean>()
+    for (const {inputs} of Object.values(metafile.outputs)) {
       for (const [filePath, {bytesInOutput}] of Object.entries(inputs)) {
-        if (bytesInOutput > 0) {
-          modulePaths.add(filePath)
+        const _ov = modulePathsRequired.get(filePath)
+        if (_ov === undefined) {
+          modulePathsRequired.set(filePath, bytesInOutput > 0)
+        } else if (bytesInOutput > 0) {
+          modulePathsRequired.set(filePath, true)
         }
       }
     }
-    logger.debug(LogPrefixes.DEBUG, `used modulePaths:`, modulePaths)
+    logger.debug(LogPrefixes.DEBUG, 'used modulePathsRequired:', modulePathsRequired)
 
     logger.info(LogPrefixes.INFO, 'start building Components from modules...')
-    for (const modulePath of modulePaths) {
+    for (const [modulePath, moduleRequired] of modulePathsRequired) {
+      /* eslint-disable-next-line @typescript-eslint/init-declarations -- ack */
+      let component: Component | undefined
       const pkg = getPackageConfig(resolve(rootDir, modulePath))
       if (pkg === undefined) {
-        logger.debug('skipped package for', modulePath)
-        continue
-      }
-      let component = pkgs.get(pkg.path)
-      if (component === undefined) {
-        logger.info(LogPrefixes.INFO, 'try to build new Component from PkgPath:', pkg.path)
-        try {
-          component = this.makeComponent(pkg, collectEvidence, logger)
-        } catch (err) {
-          logger.debug(LogPrefixes.DEBUG, 'unexpected error:', err)
-          logger.warn(LogPrefixes.WARN, 'skipped Component from PkgPath', pkg.path)
-          continue
+        component = virtualComponents.get(modulePath)
+        if (component === undefined) {
+          logger.info(LogPrefixes.INFO, 'building new VirtualComponent for modulePath:', modulePath)
+          component = new VirtualComponent(modulePath)
+          // TODO: see if we can pull the associated plugin from the virtual's namespace
+          // see https://esbuild.github.io/plugins/
+          logger.debug(LogPrefixes.DEBUG, 'built', component, 'as virtual for modulePath', modulePath)
+          virtualComponents.set(modulePath, component)
+          if (!moduleRequired) {
+            component.scope = ComponentScope.Excluded
+          }
         }
-        logger.debug(LogPrefixes.DEBUG, 'built', component, 'based on', pkg, 'for modulePaths', modulePaths)
-        pkgs.set(pkg.path, component)
+      } else {
+        component = packageComponents.get(pkg.path)
+        if (component === undefined) {
+          logger.info(LogPrefixes.INFO, 'try to build new Component from PkgPath:', pkg.path)
+          try {
+            component = this.makeComponent(pkg, collectEvidence, logger)
+          } catch (err) {
+            logger.debug(LogPrefixes.DEBUG, 'unexpected error:', err)
+            logger.warn(LogPrefixes.WARN, 'building new DummyComponent from PkgPath', pkg.path)
+            component = new DummyComponent(mkRelativePath(rootDir, pkg.path))
+          }
+          logger.debug(LogPrefixes.DEBUG, 'built', component, 'based on', pkg, 'for modulePath', modulePath)
+          packageComponents.set(pkg.path, component)
+          if (!moduleRequired) {
+            component.scope = ComponentScope.Excluded
+          }
+        }
       }
-      components.set(modulePath, component)
+
+      if (moduleRequired) {
+        component.scope = ComponentScope.Required
+      }
+      moduleComponents.set(modulePath, component)
     }
 
-    logger.info(LogPrefixes.INFO, `linking Component.dependencies...`)
-    this.linkDependencies(metafile, components)
+    logger.info(LogPrefixes.INFO, 'linking Components dependencies...')
+    this.linkDependencies(rootDir, metafile, mainComponent, moduleComponents, logger)
 
     logger.info(LogPrefixes.INFO, 'done building Components from modules...')
-    return pkgs
+    return [mainComponent, packageComponents, virtualComponents]
   }
 
-  /* @ts-expect-error TS6133 -- TODO */
-  private linkDependencies(metafile: esbuild.Metafile, modulesComponents: Map<string, Component>): void {
-    // TODO: link deps based on inputs - https://github.com/CycloneDX/cyclonedx-esbuild/issues/11
-    // idea: take the metadata.input
-    // then cut the "externals" and copy their content to all the ones that used it
-    // then cut the "unknown" and copy their content to all the ones that used it
-    // the rest should all be known components -> so set their dependencies as expected
+  /* eslint-disable-next-line @typescript-eslint/max-params -- ack */
+  private linkDependencies(
+    rootDir: string,
+    metafile: esbuild.Metafile,
+    mainComponent: Component | undefined,
+    moduleComponents: Map<string, Component>,
+    logger: Console
+  ): void {
+    function bunPathCompat(p: string): string {
+      // bun uses absolute paths in `inputs`
+      return isAbsolute(p)
+        ? mkPosixPathLike(relative(rootDir, p))
+        : p
+    }
+
+    if (mainComponent !== undefined) {
+      logger.info(LogPrefixes.INFO, 'linking entryPoint dependencies...')
+      for (const { entryPoint } of Object.values(metafile.outputs)) {
+        if (entryPoint === undefined) { continue }
+        const component = moduleComponents.get(entryPoint)
+        if (component === undefined) {
+          logger.debug(LogPrefixes.DEBUG, 'skipped missing mainComponent dependency ->', entryPoint)
+          continue
+        }
+        if (component === mainComponent) { continue }
+        mainComponent.dependencies.add(component.bomRef)
+        logger.debug(LogPrefixes.DEBUG, 'linked mainComponent dependency ->', entryPoint)
+      }
+    }
+
+    logger.info(LogPrefixes.INFO, 'linking inputs dependencies...')
+    for (const [ module, { imports } ] of Object.entries(metafile.inputs)) {
+      const component = moduleComponents.get(bunPathCompat(module))
+      if (component === undefined) { continue }
+      for (const imported of imports) {
+        if (imported.external === true) {
+          // externals are not part of the build result anyway
+          continue
+        }
+        const importedComponent = moduleComponents.get(bunPathCompat(imported.path))
+        if (importedComponent === undefined) {
+          logger.debug(LogPrefixes.DEBUG, 'skipped missing dependency', module, '->', imported.path)
+          continue
+        }
+        if (component === importedComponent) { continue }
+        component.dependencies.add(importedComponent.bomRef)
+        logger.debug(LogPrefixes.DEBUG, 'linked dependency', module, '->', imported.path)
+      }
+    }
   }
 
   /**
@@ -209,5 +299,29 @@ export class BomBuilder {
     component.bomRef.value = `${pkg.packageJson.name}@${pkg.packageJson.version??'*'}`
 
     return component
+  }
+}
+
+class VirtualComponent extends Component {
+  constructor(name: Component['name']) {
+    super(ComponentType.Library, `VirtualComponent ${name}`, {
+      bomRef: `VirtualComponent ${name}`,
+      description: `This is a virtual component "${name}".`,
+      properties: new PropertyRepository([
+        new Property(
+          PropertyNames.InputIsVirtual,
+          PropertyValueBool.True
+        )
+      ])
+    })
+  }
+}
+
+class DummyComponent extends Component {
+  constructor(name: Component['name']) {
+    super(ComponentType.Library, `DummyComponent ${name}`, {
+      bomRef: `DummyComponent ${name}`,
+      description: `This is a dummy component "${name}" that fills the gap where the actual creation failed.`
+    })
   }
 }

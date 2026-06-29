@@ -1,0 +1,32 @@
+{
+  "private": true,
+  "name": "@cyclonedx/cyclonedx-eslint-testbed-with-externals",
+  "version": "1.0.0",
+  "description": "Example using esbuild wit external components",
+  "type": "module",
+  "main": "dist/bundle.js",
+  "scripts": {
+    "build": "node build.js",
+    "start": "npm run build && node dist/bundle.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@cyclonedx/cyclonedx-eslint-testing-reexport-package": "file:../../_data/reexport-package/package.tgz",
+    "@cyclonedx/cyclonedx-eslint-testing-unused-package": "file:../../_data/unused-package/package.tgz"
+  },
+  "devDependencies": {
+    "@cyclonedx/cyclonedx-esbuild": "file:../../../",
+    "esbuild": "0.28.1"
+  },
+  "overrides": {
+    "@cyclonedx/cyclonedx-eslint-testing-custom-package": "file:../../_data/custom-package/package.tgz"
+  },
+  "packageManager": "npm",
+  "devEngines": {
+    "runtime": {
+      "name": "node",
+      "onFail": "error"
+    }
+  }
+}
