@@ -628,7 +628,9 @@ exports[`integration functional: angular20 on npm generated json file: dist/firs
         "a8ab9714ac8f3afee60feeb69e749289d3bb0e08c37a7e4a7771944016aea0e5",
         "ccf96d519a01e749e889ebc527bae74eb8ca18bedf24ba3616388e9f6ba69d17",
         "e02de73e1997dc4009d55b9bb4282baaf57f3d711520e89384e80ff9807b5c26",
-        "eef61cb816b4870cc41baae9389ed9b4f74713feb1532232bdb0bd65efa268d0"
+        "eef61cb816b4870cc41baae9389ed9b4f74713feb1532232bdb0bd65efa268d0",
+        "VirtualComponent angular:polyfills:angular:polyfills",
+        "VirtualComponent angular:styles/global:styles"
       ]
     },
     {
@@ -1124,6 +1126,14 @@ exports[`integration functional: juice-shop frontend on npm generated json file:
           ]
         }
       ]
+    },
+    "component": {
+      "type": "application",
+      "name": "cyclonedx-eslint-testbed-juice-shop-frontend",
+      "group": "@cyclonedx",
+      "version": "19.2.0-SNAPSHOT",
+      "bom-ref": "7ae45ad102eab3b6d7e7896acd08c427a9b25b346470d7bc6507b6481575d519",
+      "purl": "pkg:npm/%40cyclonedx/cyclonedx-eslint-testbed-juice-shop-frontend@19.2.0-SNAPSHOT"
     }
   },
   "components": [
@@ -14460,35 +14470,9 @@ exports[`integration functional: juice-shop frontend on npm generated json file:
     },
     {
       "type": "library",
-      "name": "VirtualComponent src/hacking-instructor/index.ts",
-      "bom-ref": "VirtualComponent src/hacking-instructor/index.ts",
-      "description": "This is a virtual component \\"src/hacking-instructor/index.ts\\".",
-      "scope": "required",
-      "properties": [
-        {
-          "name": "cdx:esbuild:input:isVirtual",
-          "value": "true"
-        }
-      ]
-    },
-    {
-      "type": "library",
       "name": "VirtualComponent src/hacking-instructor/tutorialUnavailable.ts",
       "bom-ref": "VirtualComponent src/hacking-instructor/tutorialUnavailable.ts",
       "description": "This is a virtual component \\"src/hacking-instructor/tutorialUnavailable.ts\\".",
-      "scope": "required",
-      "properties": [
-        {
-          "name": "cdx:esbuild:input:isVirtual",
-          "value": "true"
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "name": "VirtualComponent src/main.ts",
-      "bom-ref": "VirtualComponent src/main.ts",
-      "description": "This is a virtual component \\"src/main.ts\\".",
       "scope": "required",
       "properties": [
         {
@@ -14829,6 +14813,80 @@ exports[`integration functional: juice-shop frontend on npm generated json file:
         "aa5188dceffe08183a6d9a853dcefd9985f26040130ea31602286c6140b27556",
         "e3886532e4f1634ce87c2148abd3b0ca4780fc5bee3e7e6b78cfb79bf8d5d9ad",
         "fd1fc69cef6438a9e0f179bdf175b6f5c86e3e71c06e8d8b1f484b5507627f72"
+      ]
+    },
+    {
+      "ref": "7ae45ad102eab3b6d7e7896acd08c427a9b25b346470d7bc6507b6481575d519",
+      "dependsOn": [
+        "061ec3972fcd2bf843e949590c0c995be1d6d66f794edcc68d526957eb76d864",
+        "2672f7b819d52ffa2b2bdcd3a0920bb1dc7bff99dd1dd1124f0929e3b134f378",
+        "2b66e0d815fd656395401f2af66dfc700b28bd0cf7d9f3415ae8145fa32b3bd0",
+        "5e91ea783d620d2fd4ea7a5ec9e85d4c8c194e2f9c758a2a47893e4d100b9372",
+        "696641cb855cdee93723c8240382c89a8306a582d3991f0477fc57308d2d8014",
+        "a7422bca70966a5c31971b49a4771d1dd160303eda80fbb06cdd7d4140d5bd48",
+        "a8ab9714ac8f3afee60feeb69e749289d3bb0e08c37a7e4a7771944016aea0e5",
+        "ae416b20d856a72845bd1d8a9a020de20852ea632cd9ecfb2f96f9276cfa6c4c",
+        "b3dfb133d42f90885db89be033e4dadda7fd7e388b712c72e8e84c8087144a5a",
+        "c1d30dea75fae9e9fe5989dab26cd6fe656001eb7dec0dbe9ba453ecb1ae56d3",
+        "ca565f4440a2bcd75007fbed65d41a7c4b6151bcf8a4d48c33024d085bf312ee",
+        "ccf96d519a01e749e889ebc527bae74eb8ca18bedf24ba3616388e9f6ba69d17",
+        "ced3abbccad68251caf80cf1273f1e82f20a10264f38394f27fcd253922a5556",
+        "e02de73e1997dc4009d55b9bb4282baaf57f3d711520e89384e80ff9807b5c26",
+        "f0ca8ac44951a4aa19a6a395957f8f8adbd96046fecdafd203c1a7fd10676c18",
+        "f6c6d90a2f0fb70d0075b453208211ba2e79e559398d84ccbde8713427091759",
+        "VirtualComponent angular:polyfills:angular:polyfills",
+        "VirtualComponent angular:script/global:scripts.js",
+        "VirtualComponent angular:styles/global:styles",
+        "VirtualComponent src/app/app.component.ts",
+        "VirtualComponent src/app/app.guard.ts",
+        "VirtualComponent src/app/app.routing.ts",
+        "VirtualComponent src/app/faucet/faucet.module.ts",
+        "VirtualComponent src/app/Services/address.service.ts",
+        "VirtualComponent src/app/Services/administration.service.ts",
+        "VirtualComponent src/app/Services/basket.service.ts",
+        "VirtualComponent src/app/Services/captcha.service.ts",
+        "VirtualComponent src/app/Services/challenge.service.ts",
+        "VirtualComponent src/app/Services/chatbot.service.ts",
+        "VirtualComponent src/app/Services/complaint.service.ts",
+        "VirtualComponent src/app/Services/configuration.service.ts",
+        "VirtualComponent src/app/Services/data-subject.service.ts",
+        "VirtualComponent src/app/Services/delivery.service.ts",
+        "VirtualComponent src/app/Services/feedback.service.ts",
+        "VirtualComponent src/app/Services/image-captcha.service.ts",
+        "VirtualComponent src/app/Services/keys.service.ts",
+        "VirtualComponent src/app/Services/order-history.service.ts",
+        "VirtualComponent src/app/Services/payment.service.ts",
+        "VirtualComponent src/app/Services/photo-wall.service.ts",
+        "VirtualComponent src/app/Services/product-review.service.ts",
+        "VirtualComponent src/app/Services/product.service.ts",
+        "VirtualComponent src/app/Services/quantity.service.ts",
+        "VirtualComponent src/app/Services/recycle.service.ts",
+        "VirtualComponent src/app/Services/request.interceptor.ts",
+        "VirtualComponent src/app/Services/security-answer.service.ts",
+        "VirtualComponent src/app/Services/security-question.service.ts",
+        "VirtualComponent src/app/Services/track-order.service.ts",
+        "VirtualComponent src/app/Services/user.service.ts",
+        "VirtualComponent src/app/Services/wallet.service.ts",
+        "VirtualComponent src/app/Services/window-ref.service.ts",
+        "VirtualComponent src/app/wallet-web3/wallet-web3.module.ts",
+        "VirtualComponent src/app/web3-sandbox/web3-sandbox.module.ts",
+        "VirtualComponent src/confetti/index.ts",
+        "VirtualComponent src/environments/environment.ts",
+        "VirtualComponent src/hacking-instructor/challenges/adminSection.ts",
+        "VirtualComponent src/hacking-instructor/challenges/bonusPayload.ts",
+        "VirtualComponent src/hacking-instructor/challenges/codingChallenges.ts",
+        "VirtualComponent src/hacking-instructor/challenges/domXss.ts",
+        "VirtualComponent src/hacking-instructor/challenges/exposedCredentials.ts",
+        "VirtualComponent src/hacking-instructor/challenges/forgedFeedback.ts",
+        "VirtualComponent src/hacking-instructor/challenges/loginAdmin.ts",
+        "VirtualComponent src/hacking-instructor/challenges/loginBender.ts",
+        "VirtualComponent src/hacking-instructor/challenges/loginJim.ts",
+        "VirtualComponent src/hacking-instructor/challenges/passwordStrength.ts",
+        "VirtualComponent src/hacking-instructor/challenges/privacyPolicy.ts",
+        "VirtualComponent src/hacking-instructor/challenges/reflectedXss.ts",
+        "VirtualComponent src/hacking-instructor/challenges/scoreBoard.ts",
+        "VirtualComponent src/hacking-instructor/challenges/viewBasket.ts",
+        "VirtualComponent src/hacking-instructor/tutorialUnavailable.ts"
       ]
     },
     {
@@ -18261,12 +18319,12 @@ exports[`integration functional: juice-shop frontend on npm generated json file:
       "ref": "VirtualComponent src/app/score-board/components/challenge-card/challenge-card.component.ts",
       "dependsOn": [
         "2b66e0d815fd656395401f2af66dfc700b28bd0cf7d9f3415ae8145fa32b3bd0",
+        "7ae45ad102eab3b6d7e7896acd08c427a9b25b346470d7bc6507b6481575d519",
         "a7422bca70966a5c31971b49a4771d1dd160303eda80fbb06cdd7d4140d5bd48",
         "a8ab9714ac8f3afee60feeb69e749289d3bb0e08c37a7e4a7771944016aea0e5",
         "ccf96d519a01e749e889ebc527bae74eb8ca18bedf24ba3616388e9f6ba69d17",
         "VirtualComponent src/app/score-board/components/difficulty-stars/difficulty-stars.component.ts",
-        "VirtualComponent src/app/Services/snack-bar-helper.service.ts",
-        "VirtualComponent src/hacking-instructor/index.ts"
+        "VirtualComponent src/app/Services/snack-bar-helper.service.ts"
       ]
     },
     {
@@ -18457,6 +18515,7 @@ exports[`integration functional: juice-shop frontend on npm generated json file:
         "2672f7b819d52ffa2b2bdcd3a0920bb1dc7bff99dd1dd1124f0929e3b134f378",
         "2b66e0d815fd656395401f2af66dfc700b28bd0cf7d9f3415ae8145fa32b3bd0",
         "3e0945a272ea197886256c13e5d9d01ea14c18e8a345d0b5a14c524d3c316053",
+        "7ae45ad102eab3b6d7e7896acd08c427a9b25b346470d7bc6507b6481575d519",
         "964271ed27195d6c61e3da02b45077b583e6f1586488cf90970f3995006a412a",
         "a7422bca70966a5c31971b49a4771d1dd160303eda80fbb06cdd7d4140d5bd48",
         "a8ab9714ac8f3afee60feeb69e749289d3bb0e08c37a7e4a7771944016aea0e5",
@@ -18469,8 +18528,7 @@ exports[`integration functional: juice-shop frontend on npm generated json file:
         "VirtualComponent src/app/Services/product.service.ts",
         "VirtualComponent src/app/Services/quantity.service.ts",
         "VirtualComponent src/app/Services/snack-bar-helper.service.ts",
-        "VirtualComponent src/app/Services/socket-io.service.ts",
-        "VirtualComponent src/hacking-instructor/index.ts"
+        "VirtualComponent src/app/Services/socket-io.service.ts"
       ]
     },
     {
@@ -18836,6 +18894,7 @@ exports[`integration functional: juice-shop frontend on npm generated json file:
       "ref": "VirtualComponent src/app/sidenav/sidenav.component.ts",
       "dependsOn": [
         "2b66e0d815fd656395401f2af66dfc700b28bd0cf7d9f3415ae8145fa32b3bd0",
+        "7ae45ad102eab3b6d7e7896acd08c427a9b25b346470d7bc6507b6481575d519",
         "a7422bca70966a5c31971b49a4771d1dd160303eda80fbb06cdd7d4140d5bd48",
         "a8ab9714ac8f3afee60feeb69e749289d3bb0e08c37a7e4a7771944016aea0e5",
         "a99b7cefcaf9918864bb583ac276159ca0d597212f1304166f00d69a407f4aa1",
@@ -18848,8 +18907,7 @@ exports[`integration functional: juice-shop frontend on npm generated json file:
         "VirtualComponent src/app/Services/configuration.service.ts",
         "VirtualComponent src/app/Services/socket-io.service.ts",
         "VirtualComponent src/app/Services/user.service.ts",
-        "VirtualComponent src/environments/environment.ts",
-        "VirtualComponent src/hacking-instructor/index.ts"
+        "VirtualComponent src/environments/environment.ts"
       ]
     },
     {
@@ -19022,11 +19080,11 @@ exports[`integration functional: juice-shop frontend on npm generated json file:
       "ref": "VirtualComponent src/app/welcome-banner/welcome-banner.component.ts",
       "dependsOn": [
         "2b66e0d815fd656395401f2af66dfc700b28bd0cf7d9f3415ae8145fa32b3bd0",
+        "7ae45ad102eab3b6d7e7896acd08c427a9b25b346470d7bc6507b6481575d519",
         "a7422bca70966a5c31971b49a4771d1dd160303eda80fbb06cdd7d4140d5bd48",
         "ccf96d519a01e749e889ebc527bae74eb8ca18bedf24ba3616388e9f6ba69d17",
         "f6c6d90a2f0fb70d0075b453208211ba2e79e559398d84ccbde8713427091759",
-        "VirtualComponent src/app/Services/configuration.service.ts",
-        "VirtualComponent src/hacking-instructor/index.ts"
+        "VirtualComponent src/app/Services/configuration.service.ts"
       ]
     },
     {
@@ -19145,80 +19203,9 @@ exports[`integration functional: juice-shop frontend on npm generated json file:
       ]
     },
     {
-      "ref": "VirtualComponent src/hacking-instructor/index.ts",
-      "dependsOn": [
-        "ca565f4440a2bcd75007fbed65d41a7c4b6151bcf8a4d48c33024d085bf312ee",
-        "VirtualComponent src/hacking-instructor/challenges/adminSection.ts",
-        "VirtualComponent src/hacking-instructor/challenges/bonusPayload.ts",
-        "VirtualComponent src/hacking-instructor/challenges/codingChallenges.ts",
-        "VirtualComponent src/hacking-instructor/challenges/domXss.ts",
-        "VirtualComponent src/hacking-instructor/challenges/exposedCredentials.ts",
-        "VirtualComponent src/hacking-instructor/challenges/forgedFeedback.ts",
-        "VirtualComponent src/hacking-instructor/challenges/loginAdmin.ts",
-        "VirtualComponent src/hacking-instructor/challenges/loginBender.ts",
-        "VirtualComponent src/hacking-instructor/challenges/loginJim.ts",
-        "VirtualComponent src/hacking-instructor/challenges/passwordStrength.ts",
-        "VirtualComponent src/hacking-instructor/challenges/privacyPolicy.ts",
-        "VirtualComponent src/hacking-instructor/challenges/reflectedXss.ts",
-        "VirtualComponent src/hacking-instructor/challenges/scoreBoard.ts",
-        "VirtualComponent src/hacking-instructor/challenges/viewBasket.ts",
-        "VirtualComponent src/hacking-instructor/tutorialUnavailable.ts"
-      ]
-    },
-    {
       "ref": "VirtualComponent src/hacking-instructor/tutorialUnavailable.ts",
       "dependsOn": [
         "VirtualComponent src/hacking-instructor/helpers/helpers.ts"
-      ]
-    },
-    {
-      "ref": "VirtualComponent src/main.ts",
-      "dependsOn": [
-        "061ec3972fcd2bf843e949590c0c995be1d6d66f794edcc68d526957eb76d864",
-        "2672f7b819d52ffa2b2bdcd3a0920bb1dc7bff99dd1dd1124f0929e3b134f378",
-        "2b66e0d815fd656395401f2af66dfc700b28bd0cf7d9f3415ae8145fa32b3bd0",
-        "5e91ea783d620d2fd4ea7a5ec9e85d4c8c194e2f9c758a2a47893e4d100b9372",
-        "696641cb855cdee93723c8240382c89a8306a582d3991f0477fc57308d2d8014",
-        "a7422bca70966a5c31971b49a4771d1dd160303eda80fbb06cdd7d4140d5bd48",
-        "a8ab9714ac8f3afee60feeb69e749289d3bb0e08c37a7e4a7771944016aea0e5",
-        "ae416b20d856a72845bd1d8a9a020de20852ea632cd9ecfb2f96f9276cfa6c4c",
-        "b3dfb133d42f90885db89be033e4dadda7fd7e388b712c72e8e84c8087144a5a",
-        "ccf96d519a01e749e889ebc527bae74eb8ca18bedf24ba3616388e9f6ba69d17",
-        "ced3abbccad68251caf80cf1273f1e82f20a10264f38394f27fcd253922a5556",
-        "e02de73e1997dc4009d55b9bb4282baaf57f3d711520e89384e80ff9807b5c26",
-        "f0ca8ac44951a4aa19a6a395957f8f8adbd96046fecdafd203c1a7fd10676c18",
-        "f6c6d90a2f0fb70d0075b453208211ba2e79e559398d84ccbde8713427091759",
-        "VirtualComponent src/app/app.component.ts",
-        "VirtualComponent src/app/app.guard.ts",
-        "VirtualComponent src/app/app.routing.ts",
-        "VirtualComponent src/app/Services/address.service.ts",
-        "VirtualComponent src/app/Services/administration.service.ts",
-        "VirtualComponent src/app/Services/basket.service.ts",
-        "VirtualComponent src/app/Services/captcha.service.ts",
-        "VirtualComponent src/app/Services/challenge.service.ts",
-        "VirtualComponent src/app/Services/chatbot.service.ts",
-        "VirtualComponent src/app/Services/complaint.service.ts",
-        "VirtualComponent src/app/Services/configuration.service.ts",
-        "VirtualComponent src/app/Services/data-subject.service.ts",
-        "VirtualComponent src/app/Services/delivery.service.ts",
-        "VirtualComponent src/app/Services/feedback.service.ts",
-        "VirtualComponent src/app/Services/image-captcha.service.ts",
-        "VirtualComponent src/app/Services/keys.service.ts",
-        "VirtualComponent src/app/Services/order-history.service.ts",
-        "VirtualComponent src/app/Services/payment.service.ts",
-        "VirtualComponent src/app/Services/photo-wall.service.ts",
-        "VirtualComponent src/app/Services/product-review.service.ts",
-        "VirtualComponent src/app/Services/product.service.ts",
-        "VirtualComponent src/app/Services/quantity.service.ts",
-        "VirtualComponent src/app/Services/recycle.service.ts",
-        "VirtualComponent src/app/Services/request.interceptor.ts",
-        "VirtualComponent src/app/Services/security-answer.service.ts",
-        "VirtualComponent src/app/Services/security-question.service.ts",
-        "VirtualComponent src/app/Services/track-order.service.ts",
-        "VirtualComponent src/app/Services/user.service.ts",
-        "VirtualComponent src/app/Services/wallet.service.ts",
-        "VirtualComponent src/app/Services/window-ref.service.ts",
-        "VirtualComponent src/environments/environment.ts"
       ]
     },
     {

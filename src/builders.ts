@@ -71,7 +71,7 @@ export class BomBuilder {
     outputReproducible: boolean,
     logger: Console
   ): Bom {
-    logger.debug(LogPrefixes.DEBUG, `metafile:`, metafile)
+    logger.debug(LogPrefixes.DEBUG, 'metafile:', metafile)
     const bom = new Bom()
 
     logger.info(LogPrefixes.INFO, 'generating components...')
@@ -83,22 +83,20 @@ export class BomBuilder {
       })
     }
 
-    const rcPath = getPackageConfig(buildWorkingDir)?.path
+    for (const component of componentsPkg.values()) {
+      logger.debug(LogPrefixes.DEBUG, 'add to bom.components', component)
+      bom.components.add(component)
+    }
+    for (const component of componentsVrt.values()) {
+      logger.debug(LogPrefixes.DEBUG, 'add to bom.components', component)
+      bom.components.add(component)
+    }
+
     if (undefined !== mainComponent) {
       mainComponent.scope = undefined
       logger.debug(LogPrefixes.DEBUG, 'set bom.metadata.component', mainComponent)
       bom.metadata.component = mainComponent
-      /* eslint-disable-next-line @typescript-eslint/no-non-null-assertion -- ack */
-      componentsPkg.delete(rcPath!)
-    }
-
-    for (const component of new Set(componentsPkg.values())) {
-      logger.debug(LogPrefixes.DEBUG, `add to bom.components`, component)
-      bom.components.add(component)
-    }
-    for (const component of new Set(componentsVrt.values())) {
-      logger.debug(LogPrefixes.DEBUG, `add to bom.components`, component)
-      bom.components.add(component)
+      bom.components.delete(mainComponent)
     }
 
     return bom
@@ -134,18 +132,18 @@ export class BomBuilder {
     const vrts = new Map<string, VirtualComponent>
     const components = new Map<string, Component>
 
-    const rootPkg = getPackageConfig(rootDir)
+    const mainPkg = getPackageConfig(rootDir)
     let mainComponent: Component | undefined = undefined
-    if (rootPkg !== undefined) {
+    if (mainPkg !== undefined) {
       try {
-        mainComponent = this.makeComponent(rootPkg, collectEvidence, logger)
+        mainComponent = this.makeComponent(mainPkg, collectEvidence, logger)
       } catch (err) {
         logger.debug(LogPrefixes.DEBUG, 'unexpected error:', err)
-        logger.warn(LogPrefixes.WARN, 'building new DummyComponent from PkgPath', rootPkg.path)
-        mainComponent = new DummyComponent(mkRelativePath(rootDir, rootPkg.path))
+        logger.warn(LogPrefixes.WARN, 'building new DummyComponent from PkgPath', mainPkg.path)
+        mainComponent = new DummyComponent(mkRelativePath(rootDir, mainPkg.path))
       }
-      logger.debug(LogPrefixes.DEBUG, 'built', mainComponent, 'based on', rootPkg, 'for mainComponent', rootDir)
-      pkgs.set(rootPkg.path, mainComponent)
+      logger.debug(LogPrefixes.DEBUG, 'built', mainComponent, 'based on', mainPkg, 'for rootDir', rootDir)
+      pkgs.set(mainPkg.path, mainComponent)
     }
 
     const modulePathsRequired = new Map<string, boolean>()
@@ -159,7 +157,7 @@ export class BomBuilder {
         }
       }
     }
-    logger.debug(LogPrefixes.DEBUG, `used modulePathsRequired:`, modulePathsRequired)
+    logger.debug(LogPrefixes.DEBUG, 'used modulePathsRequired:', modulePathsRequired)
 
     logger.info(LogPrefixes.INFO, 'start building Components from modules...')
     for (const [modulePath, moduleRequired] of modulePathsRequired) {
@@ -204,7 +202,7 @@ export class BomBuilder {
       components.set(modulePath, component)
     }
 
-    logger.info(LogPrefixes.INFO, `linking Component.dependencies...`)
+    logger.info(LogPrefixes.INFO, 'linking Component.dependencies...')
     this.linkDependencies(rootDir, metafile, mainComponent, components, logger)
 
     logger.info(LogPrefixes.INFO, 'done building Components from modules...')
@@ -227,20 +225,21 @@ export class BomBuilder {
     }
 
     if (mainComponent !== undefined) {
+      logger.log(LogPrefixes.DEBUG, 'linking entryPoint dependencies...')
       for (const { entryPoint } of Object.values(metafile.outputs)) {
         if (entryPoint === undefined) { continue }
         const component = moduleComponents.get(entryPoint)
         if (component === undefined) {
-          logger.debug('%s skipped missing primary dependency -> %s', LogPrefixes.DEBUG, entryPoint)
-          // tree-shaken are not part of the build result anyway
+          logger.debug(LogPrefixes.DEBUG, 'skipped missing mainComponent dependency ->', entryPoint)
           continue
         }
         if (component === mainComponent) { continue }
         mainComponent.dependencies.add(component.bomRef)
-        logger.debug('%s linked primary dependency -> %s', LogPrefixes.DEBUG, entryPoint)
+        logger.debug(LogPrefixes.DEBUG, 'linked mainComponent dependency ->', entryPoint)
       }
     }
 
+    logger.log(LogPrefixes.DEBUG, 'linking inputs dependencies...')
     for (const [ module, { imports } ] of Object.entries(metafile.inputs)) {
       const component = moduleComponents.get(bunPathCompat(module))
       if (component === undefined) { continue }
@@ -251,13 +250,12 @@ export class BomBuilder {
         }
         const importedComponent = moduleComponents.get(bunPathCompat(imported.path))
         if (importedComponent === undefined) {
-          logger.debug('%s skipped missing dependency %s -> %s', LogPrefixes.DEBUG, module, imported.path)
-          // tree-shaken are not part of the build result anyway
+          logger.debug(LogPrefixes.DEBUG, 'skipped missing dependency', module, '->', imported.path)
           continue
         }
         if (component === importedComponent) { continue }
         component.dependencies.add(importedComponent.bomRef)
-        logger.debug('%s linked dependency %s -> %s', LogPrefixes.DEBUG, module, imported.path)
+        logger.debug(LogPrefixes.DEBUG, 'linked dependency', module, '->', imported.path)
       }
     }
   }
