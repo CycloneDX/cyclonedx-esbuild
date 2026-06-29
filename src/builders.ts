@@ -17,7 +17,6 @@ SPDX-License-Identifier: Apache-2.0
 Copyright (c) OWASP Foundation. All Rights Reserved.
 */
 
-import { createRequire } from "node:module";
 import { dirname, isAbsolute, relative, resolve } from "node:path";
 
 import type { Builders as FromNodePackageJsonBuilders } from "@cyclonedx/cyclonedx-library/Contrib/FromNodePackageJson"
@@ -39,6 +38,7 @@ import type normalizePackageData from "normalize-package-data"
 import type { PackageDescription } from "./_helpers";
 import {
   getPackageConfig,
+  mkPosixPathLike,
   mkRelativePath,
   mkRelativePathReproducibleHash,
   normalizePackageManifest,
@@ -203,58 +203,61 @@ export class BomBuilder {
     }
 
     logger.info(LogPrefixes.INFO, 'linking Components dependencies...')
-    this.linkDependencies(metafile, moduleComponents, packageComponents, rootDir)
+    this.linkDependencies(rootDir, metafile, mainComponent, moduleComponents, logger)
 
     logger.info(LogPrefixes.INFO, 'done building Components from modules...')
     return [mainComponent, packageComponents, virtualComponents]
   }
 
+  /* eslint-disable-next-line @typescript-eslint/max-params -- ack */
   private linkDependencies(
+    rootDir: string,
     metafile: esbuild.Metafile,
+    mainComponent: Component | undefined,
     moduleComponents: Map<string, Component>,
-    packageComponents: Map<string, Component>,
-    rootDir: string
+    logger: Console
   ): void {
-    const componentMaps = { moduleComponents, packageComponents }
-    for (const [filePath, input] of Object.entries(metafile.inputs)) {
-      const sourceComponent = moduleComponents.get(filePath)
-      if (sourceComponent === undefined) continue
+    function bunPathCompat(p: string): string {
+      // bun uses absolute paths in `inputs`
+      return isAbsolute(p)
+        ? mkPosixPathLike(relative(rootDir, p))
+        : p
+    }
 
-      for (const imp of input.imports) {
-        const targetComponent = this.resolveImportComponent(imp, filePath, componentMaps, rootDir)
-        if (targetComponent === undefined) continue
-        if (targetComponent === sourceComponent) continue
-        sourceComponent.dependencies.add(targetComponent.bomRef)
+    if (mainComponent !== undefined) {
+      logger.log(LogPrefixes.DEBUG, 'linking entryPoint dependencies...')
+      for (const { entryPoint } of Object.values(metafile.outputs)) {
+        if (entryPoint === undefined) { continue }
+        const component = moduleComponents.get(entryPoint)
+        if (component === undefined) {
+          logger.debug(LogPrefixes.DEBUG, 'skipped missing mainComponent dependency ->', entryPoint)
+          continue
+        }
+        if (component === mainComponent) { continue }
+        mainComponent.dependencies.add(component.bomRef)
+        logger.debug(LogPrefixes.DEBUG, 'linked mainComponent dependency ->', entryPoint)
       }
     }
-  }
 
-  private resolveImportComponent(
-    imp: esbuild.Metafile['inputs'][string]['imports'][number],
-    filePath: string,
-    { moduleComponents, packageComponents }: { moduleComponents: Map<string, Component>; packageComponents: Map<string, Component> },
-    rootDir: string
-  ): Component | undefined {
-    if (imp.external === true) return undefined
-    // Bun emits absolute paths in imports; normalize to relative (matching metafile.inputs keys)
-    const impPath = isAbsolute(imp.path) ? relative(rootDir, imp.path).split('\\').join('/') : imp.path
-    const direct = moduleComponents.get(impPath)
-    if (direct !== undefined) return direct
-    // Fallback: resolve the import path using Node's module resolution from the importing
-    // file's directory, then find the owning package via getPackageConfig.
-    // This handles Bun's unresolved bare specifiers (e.g. "react") and any other case
-    // where the import path doesn't directly match a metafile.inputs key.
-    try {
-      const contextDir = dirname(resolve(rootDir, filePath))
-      const resolved = createRequire(resolve(contextDir, '_')).resolve(imp.path)
-      const pkg = getPackageConfig(resolved)
-      if (pkg !== undefined) {
-        return packageComponents.get(pkg.path)
+    logger.log(LogPrefixes.DEBUG, 'linking inputs dependencies...')
+    for (const [ module, { imports } ] of Object.entries(metafile.inputs)) {
+      const component = moduleComponents.get(bunPathCompat(module))
+      if (component === undefined) { continue }
+      for (const imported of imports) {
+        if (imported.external === true) {
+          // externals are not part of the build result anyway
+          continue
+        }
+        const importedComponent = moduleComponents.get(bunPathCompat(imported.path))
+        if (importedComponent === undefined) {
+          logger.debug(LogPrefixes.DEBUG, 'skipped missing dependency', module, '->', imported.path)
+          continue
+        }
+        if (component === importedComponent) { continue }
+        component.dependencies.add(importedComponent.bomRef)
+        logger.debug(LogPrefixes.DEBUG, 'linked dependency', module, '->', imported.path)
       }
-    } catch {
-      // Module not resolvable from this context — skip this edge
     }
-    return undefined
   }
 
   /**

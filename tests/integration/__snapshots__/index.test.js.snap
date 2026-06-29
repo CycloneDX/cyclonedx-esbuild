@@ -628,7 +628,9 @@ exports[`integration functional: angular20 on npm generated json file: dist/firs
         "a8ab9714ac8f3afee60feeb69e749289d3bb0e08c37a7e4a7771944016aea0e5",
         "ccf96d519a01e749e889ebc527bae74eb8ca18bedf24ba3616388e9f6ba69d17",
         "e02de73e1997dc4009d55b9bb4282baaf57f3d711520e89384e80ff9807b5c26",
-        "eef61cb816b4870cc41baae9389ed9b4f74713feb1532232bdb0bd65efa268d0"
+        "eef61cb816b4870cc41baae9389ed9b4f74713feb1532232bdb0bd65efa268d0",
+        "VirtualComponent angular:polyfills:angular:polyfills",
+        "VirtualComponent angular:styles/global:styles"
       ]
     },
     {
@@ -12002,7 +12004,10 @@ exports[`integration functional: juice-shop frontend on npm generated json file:
         "e593fc3d170f3673dcde127c885b2cd6c3a5d4ff59eea51dc518bd6d9d1720f3",
         "f0ca8ac44951a4aa19a6a395957f8f8adbd96046fecdafd203c1a7fd10676c18",
         "f6c6d90a2f0fb70d0075b453208211ba2e79e559398d84ccbde8713427091759",
-        "fe9db2c2dcba6794c74deb46be575c01825056eda6a775af76e34f04db16f42a"
+        "fe9db2c2dcba6794c74deb46be575c01825056eda6a775af76e34f04db16f42a",
+        "VirtualComponent angular:polyfills:angular:polyfills",
+        "VirtualComponent angular:script/global:scripts.js",
+        "VirtualComponent angular:styles/global:styles"
       ]
     },
     {
@@ -14971,8 +14976,7 @@ exports[`integration functional: react19 on bun generated json file: dist/bom.js
     {
       "ref": "23b7e7ebf9d294e4ee70193af7f8c1b262ecfb395ec410ce3bd0ab9ba3c64471",
       "dependsOn": [
-        "ac9b008bbbb7598be92bc6f09ea4991f07e685b10289ffbeb5f159e9ccda0403",
-        "de5f9516e3ab25d34db207368c3e93d42308a55dffacbb8b5bdcf0f9f14c10f6"
+        "ac9b008bbbb7598be92bc6f09ea4991f07e685b10289ffbeb5f159e9ccda0403"
       ]
     },
     {
