@@ -19,7 +19,8 @@ This package provides:
 * a **plugin for _esbuild_-compatible bundlers** — works with _esbuild_ and _Bun_
 * a **CLI tool** for generating SBOMs from esbuild-compatible build [metafiles](https://esbuild.github.io/api/#metafile)
 
-The tooling uses the dependency linkage information generated during bundling to create an inventory <!-- and dependency graph -- not yet -- see https://github.com/CycloneDX/cyclonedx-esbuild/issues/11 -->.
+The tooling uses the dependency linkage information generated during bundling to create an inventory
+and dependency graph (i.e., why a component is included in the final bundle).  
 Only dependencies that are actually included in the final bundle (after [tree-shaking](https://esbuild.github.io/api/#tree-shaking)) are listed as such.
 
 The resulting SBOM documents follow [official specifications and standards](https://github.com/CycloneDX/specification),
@@ -32,7 +33,7 @@ and [`cdx` Namespace Taxonomy](https://cyclonedx.github.io/cyclonedx-property-ta
 * 🔌 **Plugin for esbuild-compatible bundlers** (_esbuild_, _Bun_)
 * 🖥️ **CLI tool** for generating SBOMs from esbuild-compatible metafiles
 * 🎯 Supports multiple **CycloneDX spec versions** (1.2, 1.3, 1.4, 1.5, 1.6, 1.7)
-* 🔍 Extracts components and dependencies from bundled projects <!-- dependencies components are gathered, but dependency graph is not yet built -->
+* 🔍 Extracts components and dependencies from bundled projects
 * 📝 **License evidence gathering**
 * ✅ **Validates** generated SBOMs against CycloneDX schema
 * 🔄 **Reproducible output** option for consistent SBOM generation

@@ -7,6 +7,8 @@ All notable changes to this project will be documented in this file.
 <!-- add unreleased items here -->
 
 * Added
+  * SBOM result now includes a dependency graph ([#11] via [#113], [#155], [#161])  
+    The respective dependency graph reflects the build's input graph (i.e., why a component is included in the final bundle).
   * SBOM result now includes components’ `scope` (via [#143])
   * SBOM result may now include excluded, tree‑shaken components ([#142] via [#143])  
     The respective component’s `scope` is properly set to `"excluded"`.
@@ -14,8 +16,12 @@ All notable changes to this project will be documented in this file.
     and [`cdx` Namespace Taxonomy](https://cyclonedx.github.io/cyclonedx-property-taxonomy/cdx.html)
     . (via [#143])
 
+[#11]: https://github.com/CycloneDX/cyclonedx-esbuild/issues/11
+[#113]: https://github.com/CycloneDX/cyclonedx-esbuild/pull/113
 [#142]: https://github.com/CycloneDX/cyclonedx-esbuild/issues/142
 [#143]: https://github.com/CycloneDX/cyclonedx-esbuild/pull/143
+[#155]: https://github.com/CycloneDX/cyclonedx-esbuild/pull/155
+[#161]: https://github.com/CycloneDX/cyclonedx-esbuild/pull/161
 
 ## 1.3.1 - 2026-03-18
 

@@ -603,46 +603,94 @@ exports[`integration functional: angular20 on npm generated json file: dist/firs
   ],
   "dependencies": [
     {
-      "ref": "2672f7b819d52ffa2b2bdcd3a0920bb1dc7bff99dd1dd1124f0929e3b134f378"
+      "ref": "2672f7b819d52ffa2b2bdcd3a0920bb1dc7bff99dd1dd1124f0929e3b134f378",
+      "dependsOn": [
+        "a8ab9714ac8f3afee60feeb69e749289d3bb0e08c37a7e4a7771944016aea0e5",
+        "ccf96d519a01e749e889ebc527bae74eb8ca18bedf24ba3616388e9f6ba69d17"
+      ]
     },
     {
-      "ref": "2b66e0d815fd656395401f2af66dfc700b28bd0cf7d9f3415ae8145fa32b3bd0"
+      "ref": "2b66e0d815fd656395401f2af66dfc700b28bd0cf7d9f3415ae8145fa32b3bd0",
+      "dependsOn": [
+        "ccf96d519a01e749e889ebc527bae74eb8ca18bedf24ba3616388e9f6ba69d17",
+        "ced3abbccad68251caf80cf1273f1e82f20a10264f38394f27fcd253922a5556",
+        "e02de73e1997dc4009d55b9bb4282baaf57f3d711520e89384e80ff9807b5c26"
+      ]
     },
     {
       "ref": "5b3f5d53e0d9777586349e7e693fbccc5d77389054db817358a0b5bd4476195f"
     },
     {
-      "ref": "7ae45ad102eab3b6d7e7896acd08c427a9b25b346470d7bc6507b6481575d519"
+      "ref": "7ae45ad102eab3b6d7e7896acd08c427a9b25b346470d7bc6507b6481575d519",
+      "dependsOn": [
+        "2672f7b819d52ffa2b2bdcd3a0920bb1dc7bff99dd1dd1124f0929e3b134f378",
+        "2b66e0d815fd656395401f2af66dfc700b28bd0cf7d9f3415ae8145fa32b3bd0",
+        "a8ab9714ac8f3afee60feeb69e749289d3bb0e08c37a7e4a7771944016aea0e5",
+        "ccf96d519a01e749e889ebc527bae74eb8ca18bedf24ba3616388e9f6ba69d17",
+        "e02de73e1997dc4009d55b9bb4282baaf57f3d711520e89384e80ff9807b5c26",
+        "eef61cb816b4870cc41baae9389ed9b4f74713feb1532232bdb0bd65efa268d0",
+        "VirtualComponent angular:polyfills:angular:polyfills",
+        "VirtualComponent angular:styles/global:styles"
+      ]
     },
     {
       "ref": "934cae484a0df083dc3c0dc4dfccd2d691cf53edd0986e89190924f73e840668"
     },
     {
-      "ref": "964271ed27195d6c61e3da02b45077b583e6f1586488cf90970f3995006a412a"
+      "ref": "964271ed27195d6c61e3da02b45077b583e6f1586488cf90970f3995006a412a",
+      "dependsOn": [
+        "cbbb7e65d13628dfd263aa44e9fa95aa00fa9bb6e58379b9fbe1cebc28c627fc"
+      ]
     },
     {
-      "ref": "a8ab9714ac8f3afee60feeb69e749289d3bb0e08c37a7e4a7771944016aea0e5"
+      "ref": "a8ab9714ac8f3afee60feeb69e749289d3bb0e08c37a7e4a7771944016aea0e5",
+      "dependsOn": [
+        "964271ed27195d6c61e3da02b45077b583e6f1586488cf90970f3995006a412a",
+        "ccf96d519a01e749e889ebc527bae74eb8ca18bedf24ba3616388e9f6ba69d17"
+      ]
     },
     {
       "ref": "cbbb7e65d13628dfd263aa44e9fa95aa00fa9bb6e58379b9fbe1cebc28c627fc"
     },
     {
-      "ref": "ccf96d519a01e749e889ebc527bae74eb8ca18bedf24ba3616388e9f6ba69d17"
+      "ref": "ccf96d519a01e749e889ebc527bae74eb8ca18bedf24ba3616388e9f6ba69d17",
+      "dependsOn": [
+        "964271ed27195d6c61e3da02b45077b583e6f1586488cf90970f3995006a412a"
+      ]
     },
     {
-      "ref": "ced3abbccad68251caf80cf1273f1e82f20a10264f38394f27fcd253922a5556"
+      "ref": "ced3abbccad68251caf80cf1273f1e82f20a10264f38394f27fcd253922a5556",
+      "dependsOn": [
+        "964271ed27195d6c61e3da02b45077b583e6f1586488cf90970f3995006a412a",
+        "a8ab9714ac8f3afee60feeb69e749289d3bb0e08c37a7e4a7771944016aea0e5",
+        "ccf96d519a01e749e889ebc527bae74eb8ca18bedf24ba3616388e9f6ba69d17"
+      ]
     },
     {
-      "ref": "e02de73e1997dc4009d55b9bb4282baaf57f3d711520e89384e80ff9807b5c26"
+      "ref": "e02de73e1997dc4009d55b9bb4282baaf57f3d711520e89384e80ff9807b5c26",
+      "dependsOn": [
+        "964271ed27195d6c61e3da02b45077b583e6f1586488cf90970f3995006a412a",
+        "a8ab9714ac8f3afee60feeb69e749289d3bb0e08c37a7e4a7771944016aea0e5",
+        "ccf96d519a01e749e889ebc527bae74eb8ca18bedf24ba3616388e9f6ba69d17"
+      ]
     },
     {
-      "ref": "eef61cb816b4870cc41baae9389ed9b4f74713feb1532232bdb0bd65efa268d0"
+      "ref": "eef61cb816b4870cc41baae9389ed9b4f74713feb1532232bdb0bd65efa268d0",
+      "dependsOn": [
+        "934cae484a0df083dc3c0dc4dfccd2d691cf53edd0986e89190924f73e840668"
+      ]
     },
     {
-      "ref": "VirtualComponent angular:polyfills:angular:polyfills"
+      "ref": "VirtualComponent angular:polyfills:angular:polyfills",
+      "dependsOn": [
+        "5b3f5d53e0d9777586349e7e693fbccc5d77389054db817358a0b5bd4476195f"
+      ]
     },
     {
-      "ref": "VirtualComponent angular:styles/global:styles"
+      "ref": "VirtualComponent angular:styles/global:styles",
+      "dependsOn": [
+        "7ae45ad102eab3b6d7e7896acd08c427a9b25b346470d7bc6507b6481575d519"
+      ]
     }
   ]
 }"
@@ -799,13 +847,19 @@ exports[`integration functional: esbuild latest generated json file: dist/bom.js
   ],
   "dependencies": [
     {
-      "ref": "7ae45ad102eab3b6d7e7896acd08c427a9b25b346470d7bc6507b6481575d519"
+      "ref": "7ae45ad102eab3b6d7e7896acd08c427a9b25b346470d7bc6507b6481575d519",
+      "dependsOn": [
+        "eef61cb816b4870cc41baae9389ed9b4f74713feb1532232bdb0bd65efa268d0"
+      ]
     },
     {
       "ref": "934cae484a0df083dc3c0dc4dfccd2d691cf53edd0986e89190924f73e840668"
     },
     {
-      "ref": "eef61cb816b4870cc41baae9389ed9b4f74713feb1532232bdb0bd65efa268d0"
+      "ref": "eef61cb816b4870cc41baae9389ed9b4f74713feb1532232bdb0bd65efa268d0",
+      "dependsOn": [
+        "934cae484a0df083dc3c0dc4dfccd2d691cf53edd0986e89190924f73e840668"
+      ]
     }
   ]
 }"
@@ -976,7 +1030,11 @@ exports[`integration functional: esbuild lowest generated json file: dist/bom.js
   ],
   "dependencies": [
     {
-      "ref": "7ae45ad102eab3b6d7e7896acd08c427a9b25b346470d7bc6507b6481575d519"
+      "ref": "7ae45ad102eab3b6d7e7896acd08c427a9b25b346470d7bc6507b6481575d519",
+      "dependsOn": [
+        "edb24c99c0b34b54504b1427abbf4d88c1f41af337010b8df77f7de36fa712d8",
+        "eef61cb816b4870cc41baae9389ed9b4f74713feb1532232bdb0bd65efa268d0"
+      ]
     },
     {
       "ref": "934cae484a0df083dc3c0dc4dfccd2d691cf53edd0986e89190924f73e840668"
@@ -985,7 +1043,10 @@ exports[`integration functional: esbuild lowest generated json file: dist/bom.js
       "ref": "edb24c99c0b34b54504b1427abbf4d88c1f41af337010b8df77f7de36fa712d8"
     },
     {
-      "ref": "eef61cb816b4870cc41baae9389ed9b4f74713feb1532232bdb0bd65efa268d0"
+      "ref": "eef61cb816b4870cc41baae9389ed9b4f74713feb1532232bdb0bd65efa268d0",
+      "dependsOn": [
+        "934cae484a0df083dc3c0dc4dfccd2d691cf53edd0986e89190924f73e840668"
+      ]
     }
   ]
 }"
@@ -11589,7 +11650,11 @@ exports[`integration functional: juice-shop frontend on npm generated json file:
   ],
   "dependencies": [
     {
-      "ref": "061ec3972fcd2bf843e949590c0c995be1d6d66f794edcc68d526957eb76d864"
+      "ref": "061ec3972fcd2bf843e949590c0c995be1d6d66f794edcc68d526957eb76d864",
+      "dependsOn": [
+        "a8ab9714ac8f3afee60feeb69e749289d3bb0e08c37a7e4a7771944016aea0e5",
+        "ccf96d519a01e749e889ebc527bae74eb8ca18bedf24ba3616388e9f6ba69d17"
+      ]
     },
     {
       "ref": "0f988efab05ee905ad470522d5386d239cc7a616de02b3f1ca7b7407f1383d3c"
@@ -11601,52 +11666,141 @@ exports[`integration functional: juice-shop frontend on npm generated json file:
       "ref": "1387fa0e934f50384db142905d7f5c576ad88b3fbf172362ba3b14ee03a6a6f1"
     },
     {
-      "ref": "1b7e07a947b8ff6366ba248683391f1bf8bf003b4b2e9d433f970dd6904c185a"
+      "ref": "1b7e07a947b8ff6366ba248683391f1bf8bf003b4b2e9d433f970dd6904c185a",
+      "dependsOn": [
+        "53d4f1bb70d7d72e777c527b0de8ff8d0b603ac8071e58d0e5a58cc529728fb7"
+      ]
     },
     {
       "ref": "1dcf4229ac09993c5669a6bbbd2a2c7781e5cddc8c05791b8007747707c4796d"
     },
     {
-      "ref": "1dda7d82dd765b0f8f2bec33b32522334de7d311fc1765e62c5add1289617225"
+      "ref": "1dda7d82dd765b0f8f2bec33b32522334de7d311fc1765e62c5add1289617225",
+      "dependsOn": [
+        "1b7e07a947b8ff6366ba248683391f1bf8bf003b4b2e9d433f970dd6904c185a",
+        "25b1206104eedabbf17f059036d46af51dff69d8e9aa6149b9b6721c46146316",
+        "2d7d3eb933ddb803c5600683a6b6d12f9d1467b7e017197b071f0208453c57a6",
+        "535e98fd3f445101ccca376b01636c25cd2efa06f9bce2e7dfce2260fb424d38",
+        "53d4f1bb70d7d72e777c527b0de8ff8d0b603ac8071e58d0e5a58cc529728fb7",
+        "8a69234f812645e2ff8abfd21dd3c44af8b652f63a485be52a942c63ec046864",
+        "993e8fad75fe89ff10685c32b3acf9f9e027b64e895a624502e2331ccaa21a15",
+        "e4be0d4c1624ece12211201c928193a25eb5fbbf5f118c547f6c337e022ef7f2",
+        "f6041988eb07fde3e2051ae53348e88c6a6813ad485a9aad86c1810ab9593c31"
+      ]
     },
     {
       "ref": "23aeadff4c49ed6fe259ceedace718a1b3a87758bb84f447a7233d6ef697b01a"
     },
     {
-      "ref": "2443d85f8dcf7aa1b365b5a6ec55cfdef49c350f7e314182d9324ba1ec851876"
+      "ref": "2443d85f8dcf7aa1b365b5a6ec55cfdef49c350f7e314182d9324ba1ec851876",
+      "dependsOn": [
+        "1b7e07a947b8ff6366ba248683391f1bf8bf003b4b2e9d433f970dd6904c185a",
+        "1dda7d82dd765b0f8f2bec33b32522334de7d311fc1765e62c5add1289617225",
+        "25b1206104eedabbf17f059036d46af51dff69d8e9aa6149b9b6721c46146316",
+        "2d7d3eb933ddb803c5600683a6b6d12f9d1467b7e017197b071f0208453c57a6",
+        "393eb6e06a319235e088924b73b4438be43ff12c47f1df9586845cfd047380bf",
+        "4a0ffcfee556a7eac1e912e9af349fa2dc76cf6a2f214a7da9199951284f5890",
+        "535e98fd3f445101ccca376b01636c25cd2efa06f9bce2e7dfce2260fb424d38",
+        "53d4f1bb70d7d72e777c527b0de8ff8d0b603ac8071e58d0e5a58cc529728fb7",
+        "5536aef1348089387c04172edddfa56e2ae144f384aa4871c035ab0d94621a47",
+        "5bd60f2be37c0195a79f0a476d60478006caadb567990f80f017a4f6f734d3c6",
+        "5cd75c38ac3ff733b055fb15fbd89432a0d16e2e00901c0b217407d9b779b162",
+        "7612bef6f1096268d14302da30aaf8521d794b4b8b87aed1611e98531b33d145",
+        "80505eaaecd40e8d632b36a6b414965cfc0b258530b4ff005e2091cb84738e5f",
+        "8a69234f812645e2ff8abfd21dd3c44af8b652f63a485be52a942c63ec046864",
+        "993e8fad75fe89ff10685c32b3acf9f9e027b64e895a624502e2331ccaa21a15",
+        "9da59bdb1a334be465043e4ac03d5a7de191f13ba983ddd8fb71bfbbbfd868ba",
+        "ac17ecc668ea148cef3ae5efafd0da41ee43e041354814546b344e76dd2064b2",
+        "ae162a165d2aa735dec5978f170050131709a7b5f8e20b71b055d4ab7b29798b",
+        "d5154b3442e6ef69e1bec3b78059ba9d51f1db8da869314870df787a796240d2",
+        "d97faa27755f8032c29ea160f91a93366b66fef6f9b5bb52b7fa2a5da5fe1226",
+        "de9a083d93d38da93653212f8c5dff4fc42a1f0306281e64f8b8c2de094703cf",
+        "e46ba3d4d47b59bc2b79075b24164d4d4bfcaa045f9e6290fd91de184e2f1b05",
+        "e4be0d4c1624ece12211201c928193a25eb5fbbf5f118c547f6c337e022ef7f2",
+        "e90ea37b7ba280946e6f55fc762d26f9122d8e6514b50b48a2d174f000526aaf",
+        "ea1676c667dd4ac55f931dac69134c82b39ed09d2031d9698e75fe5b74ce9b67",
+        "f3c01e9a7345dc4da30b88a2bbd076139b38d105e88dfe9e22984964eca03c59",
+        "f6041988eb07fde3e2051ae53348e88c6a6813ad485a9aad86c1810ab9593c31"
+      ]
     },
     {
-      "ref": "25b1206104eedabbf17f059036d46af51dff69d8e9aa6149b9b6721c46146316"
+      "ref": "25b1206104eedabbf17f059036d46af51dff69d8e9aa6149b9b6721c46146316",
+      "dependsOn": [
+        "53d4f1bb70d7d72e777c527b0de8ff8d0b603ac8071e58d0e5a58cc529728fb7"
+      ]
     },
     {
-      "ref": "2672f7b819d52ffa2b2bdcd3a0920bb1dc7bff99dd1dd1124f0929e3b134f378"
+      "ref": "2672f7b819d52ffa2b2bdcd3a0920bb1dc7bff99dd1dd1124f0929e3b134f378",
+      "dependsOn": [
+        "87eef182df0bb2fa38a287832ab97f4779eb488f5af279a4bccf3a9a47a94e36",
+        "a8ab9714ac8f3afee60feeb69e749289d3bb0e08c37a7e4a7771944016aea0e5",
+        "ccf96d519a01e749e889ebc527bae74eb8ca18bedf24ba3616388e9f6ba69d17"
+      ]
     },
     {
-      "ref": "28180490144b46547ccf460a6779a428125f45a469d31d3364fa52049123de5f"
+      "ref": "28180490144b46547ccf460a6779a428125f45a469d31d3364fa52049123de5f",
+      "dependsOn": [
+        "1b7e07a947b8ff6366ba248683391f1bf8bf003b4b2e9d433f970dd6904c185a",
+        "de9a083d93d38da93653212f8c5dff4fc42a1f0306281e64f8b8c2de094703cf"
+      ]
     },
     {
-      "ref": "292292af88dca3107cf13d8343919e4114328ce200be79ac38f881b80dbe7815"
+      "ref": "292292af88dca3107cf13d8343919e4114328ce200be79ac38f881b80dbe7815",
+      "dependsOn": [
+        "1b7e07a947b8ff6366ba248683391f1bf8bf003b4b2e9d433f970dd6904c185a",
+        "25b1206104eedabbf17f059036d46af51dff69d8e9aa6149b9b6721c46146316",
+        "535e98fd3f445101ccca376b01636c25cd2efa06f9bce2e7dfce2260fb424d38",
+        "53d4f1bb70d7d72e777c527b0de8ff8d0b603ac8071e58d0e5a58cc529728fb7"
+      ]
     },
     {
-      "ref": "2b66e0d815fd656395401f2af66dfc700b28bd0cf7d9f3415ae8145fa32b3bd0"
+      "ref": "2b66e0d815fd656395401f2af66dfc700b28bd0cf7d9f3415ae8145fa32b3bd0",
+      "dependsOn": [
+        "2672f7b819d52ffa2b2bdcd3a0920bb1dc7bff99dd1dd1124f0929e3b134f378",
+        "964271ed27195d6c61e3da02b45077b583e6f1586488cf90970f3995006a412a",
+        "a8ab9714ac8f3afee60feeb69e749289d3bb0e08c37a7e4a7771944016aea0e5",
+        "ccf96d519a01e749e889ebc527bae74eb8ca18bedf24ba3616388e9f6ba69d17",
+        "ced3abbccad68251caf80cf1273f1e82f20a10264f38394f27fcd253922a5556",
+        "e02de73e1997dc4009d55b9bb4282baaf57f3d711520e89384e80ff9807b5c26"
+      ]
     },
     {
-      "ref": "2d7d3eb933ddb803c5600683a6b6d12f9d1467b7e017197b071f0208453c57a6"
+      "ref": "2d7d3eb933ddb803c5600683a6b6d12f9d1467b7e017197b071f0208453c57a6",
+      "dependsOn": [
+        "1b7e07a947b8ff6366ba248683391f1bf8bf003b4b2e9d433f970dd6904c185a",
+        "25b1206104eedabbf17f059036d46af51dff69d8e9aa6149b9b6721c46146316",
+        "393eb6e06a319235e088924b73b4438be43ff12c47f1df9586845cfd047380bf",
+        "535e98fd3f445101ccca376b01636c25cd2efa06f9bce2e7dfce2260fb424d38",
+        "53d4f1bb70d7d72e777c527b0de8ff8d0b603ac8071e58d0e5a58cc529728fb7",
+        "8a69234f812645e2ff8abfd21dd3c44af8b652f63a485be52a942c63ec046864",
+        "993e8fad75fe89ff10685c32b3acf9f9e027b64e895a624502e2331ccaa21a15",
+        "e4be0d4c1624ece12211201c928193a25eb5fbbf5f118c547f6c337e022ef7f2"
+      ]
     },
     {
       "ref": "300b86475e3f3e4256117add7926cbafa51c1129115279c84f93649317ba5e3d"
     },
     {
-      "ref": "393eb6e06a319235e088924b73b4438be43ff12c47f1df9586845cfd047380bf"
+      "ref": "393eb6e06a319235e088924b73b4438be43ff12c47f1df9586845cfd047380bf",
+      "dependsOn": [
+        "1b7e07a947b8ff6366ba248683391f1bf8bf003b4b2e9d433f970dd6904c185a"
+      ]
     },
     {
-      "ref": "3d17fdea7fb6a6037f95bf0645b51b98916d161efe0ca72ae4dd55736c4b42b1"
+      "ref": "3d17fdea7fb6a6037f95bf0645b51b98916d161efe0ca72ae4dd55736c4b42b1",
+      "dependsOn": [
+        "VirtualComponent (disabled):buffer"
+      ]
     },
     {
       "ref": "3e0945a272ea197886256c13e5d9d01ea14c18e8a345d0b5a14c524d3c316053"
     },
     {
-      "ref": "419ea612196efe2ed7f267c07dd9133e23f071977196c0ecf4d43589d64d2d91"
+      "ref": "419ea612196efe2ed7f267c07dd9133e23f071977196c0ecf4d43589d64d2d91",
+      "dependsOn": [
+        "1dcf4229ac09993c5669a6bbbd2a2c7781e5cddc8c05791b8007747707c4796d",
+        "300b86475e3f3e4256117add7926cbafa51c1129115279c84f93649317ba5e3d"
+      ]
     },
     {
       "ref": "4463ae507d574f1c1e49f9e4523d3e45d2fb18df2ff83b1153c23aca4862db35"
@@ -11658,43 +11812,106 @@ exports[`integration functional: juice-shop frontend on npm generated json file:
       "ref": "470080acde1191c2f60340adb57cf459ed26b92c63755bf042f1cbb73fd164d6"
     },
     {
-      "ref": "49646800769b71f6867412afd9659b95d3915a506b240b81ed1f154f01ba25cb"
+      "ref": "49646800769b71f6867412afd9659b95d3915a506b240b81ed1f154f01ba25cb",
+      "dependsOn": [
+        "668fbe027e327ad3dae761769c6811220166b2e4087fcd0731a4599b571774f4"
+      ]
     },
     {
-      "ref": "4a0ffcfee556a7eac1e912e9af349fa2dc76cf6a2f214a7da9199951284f5890"
+      "ref": "4a0ffcfee556a7eac1e912e9af349fa2dc76cf6a2f214a7da9199951284f5890",
+      "dependsOn": [
+        "1b7e07a947b8ff6366ba248683391f1bf8bf003b4b2e9d433f970dd6904c185a",
+        "25b1206104eedabbf17f059036d46af51dff69d8e9aa6149b9b6721c46146316",
+        "28180490144b46547ccf460a6779a428125f45a469d31d3364fa52049123de5f",
+        "53d4f1bb70d7d72e777c527b0de8ff8d0b603ac8071e58d0e5a58cc529728fb7",
+        "7612bef6f1096268d14302da30aaf8521d794b4b8b87aed1611e98531b33d145",
+        "8a69234f812645e2ff8abfd21dd3c44af8b652f63a485be52a942c63ec046864",
+        "993e8fad75fe89ff10685c32b3acf9f9e027b64e895a624502e2331ccaa21a15",
+        "ae162a165d2aa735dec5978f170050131709a7b5f8e20b71b055d4ab7b29798b",
+        "b074eb1e67f059f163b11978fc996cde910b48835d456d4b37e2c7479e50eee6",
+        "be31b7812813f6cafff435a2474c37b4ced000ac0a994bd4513e822451a3f2b0",
+        "e46ba3d4d47b59bc2b79075b24164d4d4bfcaa045f9e6290fd91de184e2f1b05",
+        "e4be0d4c1624ece12211201c928193a25eb5fbbf5f118c547f6c337e022ef7f2"
+      ]
     },
     {
-      "ref": "535e98fd3f445101ccca376b01636c25cd2efa06f9bce2e7dfce2260fb424d38"
+      "ref": "535e98fd3f445101ccca376b01636c25cd2efa06f9bce2e7dfce2260fb424d38",
+      "dependsOn": [
+        "1b7e07a947b8ff6366ba248683391f1bf8bf003b4b2e9d433f970dd6904c185a",
+        "3d17fdea7fb6a6037f95bf0645b51b98916d161efe0ca72ae4dd55736c4b42b1",
+        "53d4f1bb70d7d72e777c527b0de8ff8d0b603ac8071e58d0e5a58cc529728fb7"
+      ]
     },
     {
       "ref": "53d4f1bb70d7d72e777c527b0de8ff8d0b603ac8071e58d0e5a58cc529728fb7"
     },
     {
-      "ref": "54f3746bdae3b18da934798c490da1b34044aa8fd98714521bb76e38fd574568"
+      "ref": "54f3746bdae3b18da934798c490da1b34044aa8fd98714521bb76e38fd574568",
+      "dependsOn": [
+        "c1d30dea75fae9e9fe5989dab26cd6fe656001eb7dec0dbe9ba453ecb1ae56d3",
+        "ccf96d519a01e749e889ebc527bae74eb8ca18bedf24ba3616388e9f6ba69d17",
+        "ced3abbccad68251caf80cf1273f1e82f20a10264f38394f27fcd253922a5556"
+      ]
     },
     {
-      "ref": "5536aef1348089387c04172edddfa56e2ae144f384aa4871c035ab0d94621a47"
+      "ref": "5536aef1348089387c04172edddfa56e2ae144f384aa4871c035ab0d94621a47",
+      "dependsOn": [
+        "1b7e07a947b8ff6366ba248683391f1bf8bf003b4b2e9d433f970dd6904c185a",
+        "535e98fd3f445101ccca376b01636c25cd2efa06f9bce2e7dfce2260fb424d38",
+        "53d4f1bb70d7d72e777c527b0de8ff8d0b603ac8071e58d0e5a58cc529728fb7",
+        "8a69234f812645e2ff8abfd21dd3c44af8b652f63a485be52a942c63ec046864",
+        "993e8fad75fe89ff10685c32b3acf9f9e027b64e895a624502e2331ccaa21a15",
+        "de9a083d93d38da93653212f8c5dff4fc42a1f0306281e64f8b8c2de094703cf"
+      ]
     },
     {
       "ref": "58e67da2ac79d3a7fb5463e0e89caa3346e3879ca25c384fc9a58b950e81cea0"
     },
     {
-      "ref": "593e2111acde3c2317ba496deb365ec7f1c6b3a8783dd53ed9572947c1a19079"
+      "ref": "593e2111acde3c2317ba496deb365ec7f1c6b3a8783dd53ed9572947c1a19079",
+      "dependsOn": [
+        "a630b0274ebf498dd93ac568af1ea4352b0f7d942f74cb84eb8c1fda518a45b1"
+      ]
     },
     {
       "ref": "5b3f5d53e0d9777586349e7e693fbccc5d77389054db817358a0b5bd4476195f"
     },
     {
-      "ref": "5bd60f2be37c0195a79f0a476d60478006caadb567990f80f017a4f6f734d3c6"
+      "ref": "5bd60f2be37c0195a79f0a476d60478006caadb567990f80f017a4f6f734d3c6",
+      "dependsOn": [
+        "25b1206104eedabbf17f059036d46af51dff69d8e9aa6149b9b6721c46146316",
+        "2d7d3eb933ddb803c5600683a6b6d12f9d1467b7e017197b071f0208453c57a6",
+        "53d4f1bb70d7d72e777c527b0de8ff8d0b603ac8071e58d0e5a58cc529728fb7"
+      ]
     },
     {
-      "ref": "5cd75c38ac3ff733b055fb15fbd89432a0d16e2e00901c0b217407d9b779b162"
+      "ref": "5cd75c38ac3ff733b055fb15fbd89432a0d16e2e00901c0b217407d9b779b162",
+      "dependsOn": [
+        "1b7e07a947b8ff6366ba248683391f1bf8bf003b4b2e9d433f970dd6904c185a",
+        "25b1206104eedabbf17f059036d46af51dff69d8e9aa6149b9b6721c46146316",
+        "3d17fdea7fb6a6037f95bf0645b51b98916d161efe0ca72ae4dd55736c4b42b1",
+        "419ea612196efe2ed7f267c07dd9133e23f071977196c0ecf4d43589d64d2d91",
+        "53d4f1bb70d7d72e777c527b0de8ff8d0b603ac8071e58d0e5a58cc529728fb7"
+      ]
     },
     {
-      "ref": "5e91ea783d620d2fd4ea7a5ec9e85d4c8c194e2f9c758a2a47893e4d100b9372"
+      "ref": "5e91ea783d620d2fd4ea7a5ec9e85d4c8c194e2f9c758a2a47893e4d100b9372",
+      "dependsOn": [
+        "2672f7b819d52ffa2b2bdcd3a0920bb1dc7bff99dd1dd1124f0929e3b134f378",
+        "87eef182df0bb2fa38a287832ab97f4779eb488f5af279a4bccf3a9a47a94e36",
+        "964271ed27195d6c61e3da02b45077b583e6f1586488cf90970f3995006a412a",
+        "a8ab9714ac8f3afee60feeb69e749289d3bb0e08c37a7e4a7771944016aea0e5",
+        "ccf96d519a01e749e889ebc527bae74eb8ca18bedf24ba3616388e9f6ba69d17",
+        "e02de73e1997dc4009d55b9bb4282baaf57f3d711520e89384e80ff9807b5c26"
+      ]
     },
     {
-      "ref": "5ee3fef5d3e4bd3b22d71ad1e6126d725035e7ad5f4f4c977309af050e7ed6f8"
+      "ref": "5ee3fef5d3e4bd3b22d71ad1e6126d725035e7ad5f4f4c977309af050e7ed6f8",
+      "dependsOn": [
+        "593e2111acde3c2317ba496deb365ec7f1c6b3a8783dd53ed9572947c1a19079",
+        "a8ab9714ac8f3afee60feeb69e749289d3bb0e08c37a7e4a7771944016aea0e5",
+        "ccf96d519a01e749e889ebc527bae74eb8ca18bedf24ba3616388e9f6ba69d17"
+      ]
     },
     {
       "ref": "668fbe027e327ad3dae761769c6811220166b2e4087fcd0731a4599b571774f4"
@@ -11703,7 +11920,13 @@ exports[`integration functional: juice-shop frontend on npm generated json file:
       "ref": "696641cb855cdee93723c8240382c89a8306a582d3991f0477fc57308d2d8014"
     },
     {
-      "ref": "6a0d1d6f94e6c564ed811d8e12383096c32bc5be56ee8ec1348cc932765b57a5"
+      "ref": "6a0d1d6f94e6c564ed811d8e12383096c32bc5be56ee8ec1348cc932765b57a5",
+      "dependsOn": [
+        "VirtualComponent angular:css-resource:node_modules/font-mfizz/dist/font-mfizz.eot",
+        "VirtualComponent angular:css-resource:node_modules/font-mfizz/dist/font-mfizz.svg#font-mfizz",
+        "VirtualComponent angular:css-resource:node_modules/font-mfizz/dist/font-mfizz.ttf",
+        "VirtualComponent angular:css-resource:node_modules/font-mfizz/dist/font-mfizz.woff"
+      ]
     },
     {
       "ref": "70465b851954084600d4d20d0e95204b6741f5a109d78a6f967612fb72974d70"
@@ -11712,16 +11935,80 @@ exports[`integration functional: juice-shop frontend on npm generated json file:
       "ref": "707c94303cf21f2f18fbd2e689f593e0dd2dbeb2cfb65df8e62abc3917f3afd3"
     },
     {
-      "ref": "71cfcf50345fafd2898e8bf30ca83b02511aed3de0296baec389acb50b5798cc"
+      "ref": "71cfcf50345fafd2898e8bf30ca83b02511aed3de0296baec389acb50b5798cc",
+      "dependsOn": [
+        "VirtualComponent angular:css-resource:node_modules/material-icons/iconfont/MaterialIcons-Regular.eot",
+        "VirtualComponent angular:css-resource:node_modules/material-icons/iconfont/MaterialIcons-Regular.ttf",
+        "VirtualComponent angular:css-resource:node_modules/material-icons/iconfont/MaterialIcons-Regular.woff",
+        "VirtualComponent angular:css-resource:node_modules/material-icons/iconfont/MaterialIcons-Regular.woff2"
+      ]
     },
     {
-      "ref": "7612bef6f1096268d14302da30aaf8521d794b4b8b87aed1611e98531b33d145"
+      "ref": "7612bef6f1096268d14302da30aaf8521d794b4b8b87aed1611e98531b33d145",
+      "dependsOn": [
+        "1b7e07a947b8ff6366ba248683391f1bf8bf003b4b2e9d433f970dd6904c185a",
+        "25b1206104eedabbf17f059036d46af51dff69d8e9aa6149b9b6721c46146316",
+        "535e98fd3f445101ccca376b01636c25cd2efa06f9bce2e7dfce2260fb424d38",
+        "53d4f1bb70d7d72e777c527b0de8ff8d0b603ac8071e58d0e5a58cc529728fb7",
+        "5cd75c38ac3ff733b055fb15fbd89432a0d16e2e00901c0b217407d9b779b162",
+        "993e8fad75fe89ff10685c32b3acf9f9e027b64e895a624502e2331ccaa21a15",
+        "d5154b3442e6ef69e1bec3b78059ba9d51f1db8da869314870df787a796240d2",
+        "e4be0d4c1624ece12211201c928193a25eb5fbbf5f118c547f6c337e022ef7f2",
+        "f6041988eb07fde3e2051ae53348e88c6a6813ad485a9aad86c1810ab9593c31"
+      ]
     },
     {
-      "ref": "782d1c52d92feccc4f974775dbac70403aee3f7762a947388268d2ca320c30c8"
+      "ref": "782d1c52d92feccc4f974775dbac70403aee3f7762a947388268d2ca320c30c8",
+      "dependsOn": [
+        "0f988efab05ee905ad470522d5386d239cc7a616de02b3f1ca7b7407f1383d3c",
+        "11741b72fc61b8c67fb779a3f47b201319ae8dfc0812ef22bf7b9c9179e2e11f",
+        "9fa1a339a8e1eeda5a890aed9c55ea71b7aa195f08992042af58a3cdbf54f487",
+        "aa5188dceffe08183a6d9a853dcefd9985f26040130ea31602286c6140b27556",
+        "e3886532e4f1634ce87c2148abd3b0ca4780fc5bee3e7e6b78cfb79bf8d5d9ad",
+        "fd1fc69cef6438a9e0f179bdf175b6f5c86e3e71c06e8d8b1f484b5507627f72"
+      ]
     },
     {
-      "ref": "7ae45ad102eab3b6d7e7896acd08c427a9b25b346470d7bc6507b6481575d519"
+      "ref": "7ae45ad102eab3b6d7e7896acd08c427a9b25b346470d7bc6507b6481575d519",
+      "dependsOn": [
+        "061ec3972fcd2bf843e949590c0c995be1d6d66f794edcc68d526957eb76d864",
+        "1387fa0e934f50384db142905d7f5c576ad88b3fbf172362ba3b14ee03a6a6f1",
+        "23aeadff4c49ed6fe259ceedace718a1b3a87758bb84f447a7233d6ef697b01a",
+        "2443d85f8dcf7aa1b365b5a6ec55cfdef49c350f7e314182d9324ba1ec851876",
+        "2672f7b819d52ffa2b2bdcd3a0920bb1dc7bff99dd1dd1124f0929e3b134f378",
+        "2b66e0d815fd656395401f2af66dfc700b28bd0cf7d9f3415ae8145fa32b3bd0",
+        "3e0945a272ea197886256c13e5d9d01ea14c18e8a345d0b5a14c524d3c316053",
+        "470080acde1191c2f60340adb57cf459ed26b92c63755bf042f1cbb73fd164d6",
+        "54f3746bdae3b18da934798c490da1b34044aa8fd98714521bb76e38fd574568",
+        "5e91ea783d620d2fd4ea7a5ec9e85d4c8c194e2f9c758a2a47893e4d100b9372",
+        "5ee3fef5d3e4bd3b22d71ad1e6126d725035e7ad5f4f4c977309af050e7ed6f8",
+        "696641cb855cdee93723c8240382c89a8306a582d3991f0477fc57308d2d8014",
+        "782d1c52d92feccc4f974775dbac70403aee3f7762a947388268d2ca320c30c8",
+        "7f785beb037a50a59c946f3bb834293e69ab22dbb1682a86fa0528a6c4f2c790",
+        "831f9821b0124146e8b1eb11e80d61f049f39d393a417f0d74415e1a6d3e6970",
+        "87eef182df0bb2fa38a287832ab97f4779eb488f5af279a4bccf3a9a47a94e36",
+        "964271ed27195d6c61e3da02b45077b583e6f1586488cf90970f3995006a412a",
+        "a7422bca70966a5c31971b49a4771d1dd160303eda80fbb06cdd7d4140d5bd48",
+        "a8ab9714ac8f3afee60feeb69e749289d3bb0e08c37a7e4a7771944016aea0e5",
+        "a99b7cefcaf9918864bb583ac276159ca0d597212f1304166f00d69a407f4aa1",
+        "ae416b20d856a72845bd1d8a9a020de20852ea632cd9ecfb2f96f9276cfa6c4c",
+        "b27c1232e59e35a68d72eb621b561abc9d172ccb287f3e8db8d540922feeb403",
+        "b3dfb133d42f90885db89be033e4dadda7fd7e388b712c72e8e84c8087144a5a",
+        "b3f01bcff85de93ebb785b67f734367ea3b74c9d14c3b78b3445a69620f7efbe",
+        "c1d30dea75fae9e9fe5989dab26cd6fe656001eb7dec0dbe9ba453ecb1ae56d3",
+        "ca565f4440a2bcd75007fbed65d41a7c4b6151bcf8a4d48c33024d085bf312ee",
+        "ccf96d519a01e749e889ebc527bae74eb8ca18bedf24ba3616388e9f6ba69d17",
+        "ced3abbccad68251caf80cf1273f1e82f20a10264f38394f27fcd253922a5556",
+        "d5d8583bb1a5f97cd8d06f96692707d51a1b8fcfe49348ded1bfdd156d6ff43e",
+        "e02de73e1997dc4009d55b9bb4282baaf57f3d711520e89384e80ff9807b5c26",
+        "e593fc3d170f3673dcde127c885b2cd6c3a5d4ff59eea51dc518bd6d9d1720f3",
+        "f0ca8ac44951a4aa19a6a395957f8f8adbd96046fecdafd203c1a7fd10676c18",
+        "f6c6d90a2f0fb70d0075b453208211ba2e79e559398d84ccbde8713427091759",
+        "fe9db2c2dcba6794c74deb46be575c01825056eda6a775af76e34f04db16f42a",
+        "VirtualComponent angular:polyfills:angular:polyfills",
+        "VirtualComponent angular:script/global:scripts.js",
+        "VirtualComponent angular:styles/global:styles"
+      ]
     },
     {
       "ref": "7c49e48d5f65924f5e8731ac61343484eacef2248600f5050c75e4737fde12eb"
@@ -11730,31 +12017,60 @@ exports[`integration functional: juice-shop frontend on npm generated json file:
       "ref": "7f785beb037a50a59c946f3bb834293e69ab22dbb1682a86fa0528a6c4f2c790"
     },
     {
-      "ref": "80505eaaecd40e8d632b36a6b414965cfc0b258530b4ff005e2091cb84738e5f"
+      "ref": "80505eaaecd40e8d632b36a6b414965cfc0b258530b4ff005e2091cb84738e5f",
+      "dependsOn": [
+        "535e98fd3f445101ccca376b01636c25cd2efa06f9bce2e7dfce2260fb424d38",
+        "53d4f1bb70d7d72e777c527b0de8ff8d0b603ac8071e58d0e5a58cc529728fb7"
+      ]
     },
     {
       "ref": "831f9821b0124146e8b1eb11e80d61f049f39d393a417f0d74415e1a6d3e6970"
     },
     {
-      "ref": "87eef182df0bb2fa38a287832ab97f4779eb488f5af279a4bccf3a9a47a94e36"
+      "ref": "87eef182df0bb2fa38a287832ab97f4779eb488f5af279a4bccf3a9a47a94e36",
+      "dependsOn": [
+        "ccf96d519a01e749e889ebc527bae74eb8ca18bedf24ba3616388e9f6ba69d17"
+      ]
     },
     {
-      "ref": "8a69234f812645e2ff8abfd21dd3c44af8b652f63a485be52a942c63ec046864"
+      "ref": "8a69234f812645e2ff8abfd21dd3c44af8b652f63a485be52a942c63ec046864",
+      "dependsOn": [
+        "1b7e07a947b8ff6366ba248683391f1bf8bf003b4b2e9d433f970dd6904c185a",
+        "53d4f1bb70d7d72e777c527b0de8ff8d0b603ac8071e58d0e5a58cc529728fb7",
+        "f6041988eb07fde3e2051ae53348e88c6a6813ad485a9aad86c1810ab9593c31"
+      ]
     },
     {
-      "ref": "964271ed27195d6c61e3da02b45077b583e6f1586488cf90970f3995006a412a"
+      "ref": "964271ed27195d6c61e3da02b45077b583e6f1586488cf90970f3995006a412a",
+      "dependsOn": [
+        "cbbb7e65d13628dfd263aa44e9fa95aa00fa9bb6e58379b9fbe1cebc28c627fc"
+      ]
     },
     {
-      "ref": "97d4082d905bd7891eea5dcafbd82c9a89aa2617236cf546deca8231d3e82a58"
+      "ref": "97d4082d905bd7891eea5dcafbd82c9a89aa2617236cf546deca8231d3e82a58",
+      "dependsOn": [
+        "d4068a82eb6fb460927f3e5138673b47d5ea22965e07299d841824491768aa2a"
+      ]
     },
     {
-      "ref": "993e8fad75fe89ff10685c32b3acf9f9e027b64e895a624502e2331ccaa21a15"
+      "ref": "993e8fad75fe89ff10685c32b3acf9f9e027b64e895a624502e2331ccaa21a15",
+      "dependsOn": [
+        "1b7e07a947b8ff6366ba248683391f1bf8bf003b4b2e9d433f970dd6904c185a",
+        "a19681ba3ff7a814b42c241beff8374c98b63794985df87ce6b75af891f67fc6"
+      ]
     },
     {
-      "ref": "9da59bdb1a334be465043e4ac03d5a7de191f13ba983ddd8fb71bfbbbfd868ba"
+      "ref": "9da59bdb1a334be465043e4ac03d5a7de191f13ba983ddd8fb71bfbbbfd868ba",
+      "dependsOn": [
+        "1b7e07a947b8ff6366ba248683391f1bf8bf003b4b2e9d433f970dd6904c185a",
+        "25b1206104eedabbf17f059036d46af51dff69d8e9aa6149b9b6721c46146316"
+      ]
     },
     {
-      "ref": "9fa1a339a8e1eeda5a890aed9c55ea71b7aa195f08992042af58a3cdbf54f487"
+      "ref": "9fa1a339a8e1eeda5a890aed9c55ea71b7aa195f08992042af58a3cdbf54f487",
+      "dependsOn": [
+        "d4068a82eb6fb460927f3e5138673b47d5ea22965e07299d841824491768aa2a"
+      ]
     },
     {
       "ref": "a19681ba3ff7a814b42c241beff8374c98b63794985df87ce6b75af891f67fc6"
@@ -11763,13 +12079,27 @@ exports[`integration functional: juice-shop frontend on npm generated json file:
       "ref": "a630b0274ebf498dd93ac568af1ea4352b0f7d942f74cb84eb8c1fda518a45b1"
     },
     {
-      "ref": "a7422bca70966a5c31971b49a4771d1dd160303eda80fbb06cdd7d4140d5bd48"
+      "ref": "a7422bca70966a5c31971b49a4771d1dd160303eda80fbb06cdd7d4140d5bd48",
+      "dependsOn": [
+        "964271ed27195d6c61e3da02b45077b583e6f1586488cf90970f3995006a412a",
+        "ccf96d519a01e749e889ebc527bae74eb8ca18bedf24ba3616388e9f6ba69d17"
+      ]
     },
     {
-      "ref": "a8ab9714ac8f3afee60feeb69e749289d3bb0e08c37a7e4a7771944016aea0e5"
+      "ref": "a8ab9714ac8f3afee60feeb69e749289d3bb0e08c37a7e4a7771944016aea0e5",
+      "dependsOn": [
+        "964271ed27195d6c61e3da02b45077b583e6f1586488cf90970f3995006a412a",
+        "ccf96d519a01e749e889ebc527bae74eb8ca18bedf24ba3616388e9f6ba69d17"
+      ]
     },
     {
-      "ref": "a99b7cefcaf9918864bb583ac276159ca0d597212f1304166f00d69a407f4aa1"
+      "ref": "a99b7cefcaf9918864bb583ac276159ca0d597212f1304166f00d69a407f4aa1",
+      "dependsOn": [
+        "2672f7b819d52ffa2b2bdcd3a0920bb1dc7bff99dd1dd1124f0929e3b134f378",
+        "964271ed27195d6c61e3da02b45077b583e6f1586488cf90970f3995006a412a",
+        "a8ab9714ac8f3afee60feeb69e749289d3bb0e08c37a7e4a7771944016aea0e5",
+        "ccf96d519a01e749e889ebc527bae74eb8ca18bedf24ba3616388e9f6ba69d17"
+      ]
     },
     {
       "ref": "a9fd1742886a43e2cfcf3eafb8d805733241afaa1ab4dc856406fce056ca0a23"
@@ -11778,16 +12108,589 @@ exports[`integration functional: juice-shop frontend on npm generated json file:
       "ref": "aa5188dceffe08183a6d9a853dcefd9985f26040130ea31602286c6140b27556"
     },
     {
-      "ref": "ac17ecc668ea148cef3ae5efafd0da41ee43e041354814546b344e76dd2064b2"
+      "ref": "ac17ecc668ea148cef3ae5efafd0da41ee43e041354814546b344e76dd2064b2",
+      "dependsOn": [
+        "1b7e07a947b8ff6366ba248683391f1bf8bf003b4b2e9d433f970dd6904c185a",
+        "1dda7d82dd765b0f8f2bec33b32522334de7d311fc1765e62c5add1289617225",
+        "25b1206104eedabbf17f059036d46af51dff69d8e9aa6149b9b6721c46146316",
+        "292292af88dca3107cf13d8343919e4114328ce200be79ac38f881b80dbe7815",
+        "535e98fd3f445101ccca376b01636c25cd2efa06f9bce2e7dfce2260fb424d38",
+        "53d4f1bb70d7d72e777c527b0de8ff8d0b603ac8071e58d0e5a58cc529728fb7",
+        "7612bef6f1096268d14302da30aaf8521d794b4b8b87aed1611e98531b33d145",
+        "e4be0d4c1624ece12211201c928193a25eb5fbbf5f118c547f6c337e022ef7f2",
+        "ea1676c667dd4ac55f931dac69134c82b39ed09d2031d9698e75fe5b74ce9b67"
+      ]
     },
     {
-      "ref": "ac8c40cfc6e68477fae3ea44ce291e60703c173fb49cc3f82f435c0c3fffb8b6"
+      "ref": "ac8c40cfc6e68477fae3ea44ce291e60703c173fb49cc3f82f435c0c3fffb8b6",
+      "dependsOn": [
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/ad.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/ae.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/af.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/ag.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/ai.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/al.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/am.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/ao.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/aq.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/ar.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/arab.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/as.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/at.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/au.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/aw.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/ax.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/az.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/ba.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/bb.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/bd.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/be.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/bf.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/bg.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/bh.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/bi.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/bj.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/bl.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/bm.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/bn.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/bo.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/bq.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/br.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/bs.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/bt.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/bv.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/bw.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/by.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/bz.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/ca.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/cc.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/cd.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/cefta.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/cf.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/cg.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/ch.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/ci.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/ck.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/cl.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/cm.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/cn.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/co.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/cp.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/cr.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/cu.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/cv.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/cw.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/cx.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/cy.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/cz.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/de.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/dg.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/dj.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/dk.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/dm.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/do.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/dz.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/eac.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/ec.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/ee.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/eg.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/eh.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/er.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/es-ct.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/es-ga.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/es-pv.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/es.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/et.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/eu.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/fi.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/fj.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/fk.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/fm.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/fo.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/fr.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/ga.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/gb-eng.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/gb-nir.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/gb-sct.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/gb-wls.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/gb.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/gd.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/ge.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/gf.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/gg.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/gh.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/gi.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/gl.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/gm.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/gn.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/gp.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/gq.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/gr.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/gs.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/gt.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/gu.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/gw.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/gy.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/hk.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/hm.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/hn.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/hr.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/ht.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/hu.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/ic.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/id.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/ie.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/il.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/im.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/in.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/io.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/iq.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/ir.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/is.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/it.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/je.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/jm.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/jo.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/jp.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/ke.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/kg.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/kh.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/ki.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/km.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/kn.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/kp.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/kr.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/kw.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/ky.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/kz.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/la.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/lb.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/lc.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/li.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/lk.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/lr.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/ls.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/lt.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/lu.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/lv.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/ly.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/ma.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/mc.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/md.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/me.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/mf.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/mg.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/mh.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/mk.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/ml.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/mm.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/mn.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/mo.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/mp.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/mq.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/mr.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/ms.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/mt.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/mu.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/mv.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/mw.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/mx.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/my.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/mz.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/na.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/nc.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/ne.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/nf.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/ng.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/ni.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/nl.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/no.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/np.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/nr.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/nu.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/nz.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/om.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/pa.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/pc.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/pe.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/pf.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/pg.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/ph.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/pk.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/pl.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/pm.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/pn.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/pr.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/ps.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/pt.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/pw.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/py.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/qa.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/re.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/ro.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/rs.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/ru.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/rw.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/sa.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/sb.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/sc.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/sd.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/se.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/sg.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/sh-ac.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/sh-hl.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/sh-ta.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/sh.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/si.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/sj.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/sk.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/sl.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/sm.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/sn.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/so.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/sr.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/ss.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/st.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/sv.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/sx.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/sy.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/sz.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/tc.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/td.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/tf.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/tg.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/th.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/tj.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/tk.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/tl.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/tm.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/tn.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/to.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/tr.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/tt.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/tv.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/tw.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/tz.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/ua.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/ug.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/um.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/un.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/us.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/uy.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/uz.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/va.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/vc.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/ve.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/vg.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/vi.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/vn.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/vu.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/wf.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/ws.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/xk.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/xx.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/ye.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/yt.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/za.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/zm.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/1x1/zw.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/ad.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/ae.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/af.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/ag.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/ai.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/al.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/am.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/ao.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/aq.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/ar.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/arab.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/as.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/at.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/au.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/aw.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/ax.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/az.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/ba.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/bb.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/bd.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/be.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/bf.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/bg.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/bh.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/bi.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/bj.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/bl.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/bm.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/bn.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/bo.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/bq.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/br.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/bs.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/bt.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/bv.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/bw.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/by.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/bz.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/ca.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/cc.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/cd.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/cefta.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/cf.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/cg.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/ch.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/ci.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/ck.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/cl.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/cm.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/cn.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/co.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/cp.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/cr.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/cu.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/cv.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/cw.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/cx.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/cy.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/cz.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/de.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/dg.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/dj.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/dk.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/dm.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/do.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/dz.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/eac.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/ec.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/ee.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/eg.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/eh.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/er.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/es-ct.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/es-ga.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/es-pv.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/es.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/et.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/eu.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/fi.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/fj.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/fk.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/fm.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/fo.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/fr.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/ga.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/gb-eng.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/gb-nir.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/gb-sct.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/gb-wls.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/gb.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/gd.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/ge.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/gf.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/gg.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/gh.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/gi.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/gl.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/gm.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/gn.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/gp.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/gq.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/gr.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/gs.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/gt.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/gu.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/gw.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/gy.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/hk.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/hm.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/hn.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/hr.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/ht.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/hu.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/ic.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/id.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/ie.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/il.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/im.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/in.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/io.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/iq.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/ir.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/is.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/it.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/je.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/jm.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/jo.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/jp.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/ke.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/kg.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/kh.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/ki.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/km.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/kn.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/kp.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/kr.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/kw.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/ky.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/kz.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/la.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/lb.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/lc.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/li.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/lk.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/lr.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/ls.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/lt.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/lu.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/lv.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/ly.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/ma.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/mc.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/md.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/me.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/mf.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/mg.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/mh.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/mk.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/ml.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/mm.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/mn.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/mo.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/mp.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/mq.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/mr.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/ms.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/mt.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/mu.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/mv.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/mw.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/mx.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/my.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/mz.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/na.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/nc.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/ne.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/nf.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/ng.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/ni.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/nl.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/no.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/np.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/nr.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/nu.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/nz.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/om.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/pa.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/pc.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/pe.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/pf.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/pg.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/ph.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/pk.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/pl.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/pm.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/pn.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/pr.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/ps.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/pt.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/pw.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/py.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/qa.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/re.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/ro.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/rs.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/ru.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/rw.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/sa.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/sb.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/sc.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/sd.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/se.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/sg.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/sh-ac.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/sh-hl.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/sh-ta.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/sh.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/si.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/sj.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/sk.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/sl.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/sm.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/sn.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/so.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/sr.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/ss.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/st.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/sv.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/sx.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/sy.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/sz.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/tc.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/td.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/tf.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/tg.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/th.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/tj.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/tk.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/tl.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/tm.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/tn.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/to.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/tr.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/tt.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/tv.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/tw.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/tz.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/ua.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/ug.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/um.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/un.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/us.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/uy.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/uz.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/va.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/vc.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/ve.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/vg.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/vi.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/vn.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/vu.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/wf.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/ws.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/xk.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/xx.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/ye.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/yt.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/za.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/zm.svg",
+        "VirtualComponent angular:css-resource:node_modules/flag-icons/flags/4x3/zw.svg"
+      ]
     },
     {
-      "ref": "ae162a165d2aa735dec5978f170050131709a7b5f8e20b71b055d4ab7b29798b"
+      "ref": "ae162a165d2aa735dec5978f170050131709a7b5f8e20b71b055d4ab7b29798b",
+      "dependsOn": [
+        "1b7e07a947b8ff6366ba248683391f1bf8bf003b4b2e9d433f970dd6904c185a",
+        "25b1206104eedabbf17f059036d46af51dff69d8e9aa6149b9b6721c46146316",
+        "28180490144b46547ccf460a6779a428125f45a469d31d3364fa52049123de5f",
+        "535e98fd3f445101ccca376b01636c25cd2efa06f9bce2e7dfce2260fb424d38",
+        "53d4f1bb70d7d72e777c527b0de8ff8d0b603ac8071e58d0e5a58cc529728fb7",
+        "5bd60f2be37c0195a79f0a476d60478006caadb567990f80f017a4f6f734d3c6",
+        "5cd75c38ac3ff733b055fb15fbd89432a0d16e2e00901c0b217407d9b779b162",
+        "7612bef6f1096268d14302da30aaf8521d794b4b8b87aed1611e98531b33d145",
+        "8a69234f812645e2ff8abfd21dd3c44af8b652f63a485be52a942c63ec046864",
+        "9da59bdb1a334be465043e4ac03d5a7de191f13ba983ddd8fb71bfbbbfd868ba",
+        "de9a083d93d38da93653212f8c5dff4fc42a1f0306281e64f8b8c2de094703cf"
+      ]
     },
     {
-      "ref": "ae416b20d856a72845bd1d8a9a020de20852ea632cd9ecfb2f96f9276cfa6c4c"
+      "ref": "ae416b20d856a72845bd1d8a9a020de20852ea632cd9ecfb2f96f9276cfa6c4c",
+      "dependsOn": [
+        "707c94303cf21f2f18fbd2e689f593e0dd2dbeb2cfb65df8e62abc3917f3afd3",
+        "a8ab9714ac8f3afee60feeb69e749289d3bb0e08c37a7e4a7771944016aea0e5",
+        "ccf96d519a01e749e889ebc527bae74eb8ca18bedf24ba3616388e9f6ba69d17",
+        "ced3abbccad68251caf80cf1273f1e82f20a10264f38394f27fcd253922a5556",
+        "e02de73e1997dc4009d55b9bb4282baaf57f3d711520e89384e80ff9807b5c26"
+      ]
     },
     {
       "ref": "b074eb1e67f059f163b11978fc996cde910b48835d456d4b37e2c7479e50eee6"
@@ -11796,10 +12699,21 @@ exports[`integration functional: juice-shop frontend on npm generated json file:
       "ref": "b27c1232e59e35a68d72eb621b561abc9d172ccb287f3e8db8d540922feeb403"
     },
     {
-      "ref": "b3dfb133d42f90885db89be033e4dadda7fd7e388b712c72e8e84c8087144a5a"
+      "ref": "b3dfb133d42f90885db89be033e4dadda7fd7e388b712c72e8e84c8087144a5a",
+      "dependsOn": [
+        "2672f7b819d52ffa2b2bdcd3a0920bb1dc7bff99dd1dd1124f0929e3b134f378",
+        "964271ed27195d6c61e3da02b45077b583e6f1586488cf90970f3995006a412a",
+        "a8ab9714ac8f3afee60feeb69e749289d3bb0e08c37a7e4a7771944016aea0e5",
+        "ccf96d519a01e749e889ebc527bae74eb8ca18bedf24ba3616388e9f6ba69d17"
+      ]
     },
     {
-      "ref": "b3f01bcff85de93ebb785b67f734367ea3b74c9d14c3b78b3445a69620f7efbe"
+      "ref": "b3f01bcff85de93ebb785b67f734367ea3b74c9d14c3b78b3445a69620f7efbe",
+      "dependsOn": [
+        "2443d85f8dcf7aa1b365b5a6ec55cfdef49c350f7e314182d9324ba1ec851876",
+        "a9fd1742886a43e2cfcf3eafb8d805733241afaa1ab4dc856406fce056ca0a23",
+        "d579e4c38840ee6a708f796b6704861f3200d22c47c6d7d462eff784818c5aa0"
+      ]
     },
     {
       "ref": "be31b7812813f6cafff435a2474c37b4ced000ac0a994bd4513e822451a3f2b0"
@@ -11814,16 +12728,28 @@ exports[`integration functional: juice-shop frontend on npm generated json file:
       "ref": "cbbb7e65d13628dfd263aa44e9fa95aa00fa9bb6e58379b9fbe1cebc28c627fc"
     },
     {
-      "ref": "ccf96d519a01e749e889ebc527bae74eb8ca18bedf24ba3616388e9f6ba69d17"
+      "ref": "ccf96d519a01e749e889ebc527bae74eb8ca18bedf24ba3616388e9f6ba69d17",
+      "dependsOn": [
+        "964271ed27195d6c61e3da02b45077b583e6f1586488cf90970f3995006a412a"
+      ]
     },
     {
-      "ref": "ced3abbccad68251caf80cf1273f1e82f20a10264f38394f27fcd253922a5556"
+      "ref": "ced3abbccad68251caf80cf1273f1e82f20a10264f38394f27fcd253922a5556",
+      "dependsOn": [
+        "964271ed27195d6c61e3da02b45077b583e6f1586488cf90970f3995006a412a",
+        "a8ab9714ac8f3afee60feeb69e749289d3bb0e08c37a7e4a7771944016aea0e5",
+        "ccf96d519a01e749e889ebc527bae74eb8ca18bedf24ba3616388e9f6ba69d17"
+      ]
     },
     {
       "ref": "d4068a82eb6fb460927f3e5138673b47d5ea22965e07299d841824491768aa2a"
     },
     {
-      "ref": "d5154b3442e6ef69e1bec3b78059ba9d51f1db8da869314870df787a796240d2"
+      "ref": "d5154b3442e6ef69e1bec3b78059ba9d51f1db8da869314870df787a796240d2",
+      "dependsOn": [
+        "1b7e07a947b8ff6366ba248683391f1bf8bf003b4b2e9d433f970dd6904c185a",
+        "53d4f1bb70d7d72e777c527b0de8ff8d0b603ac8071e58d0e5a58cc529728fb7"
+      ]
     },
     {
       "ref": "d579e4c38840ee6a708f796b6704861f3200d22c47c6d7d462eff784818c5aa0"
@@ -11832,49 +12758,139 @@ exports[`integration functional: juice-shop frontend on npm generated json file:
       "ref": "d5d8583bb1a5f97cd8d06f96692707d51a1b8fcfe49348ded1bfdd156d6ff43e"
     },
     {
-      "ref": "d97faa27755f8032c29ea160f91a93366b66fef6f9b5bb52b7fa2a5da5fe1226"
+      "ref": "d97faa27755f8032c29ea160f91a93366b66fef6f9b5bb52b7fa2a5da5fe1226",
+      "dependsOn": [
+        "1b7e07a947b8ff6366ba248683391f1bf8bf003b4b2e9d433f970dd6904c185a",
+        "25b1206104eedabbf17f059036d46af51dff69d8e9aa6149b9b6721c46146316",
+        "393eb6e06a319235e088924b73b4438be43ff12c47f1df9586845cfd047380bf",
+        "53d4f1bb70d7d72e777c527b0de8ff8d0b603ac8071e58d0e5a58cc529728fb7",
+        "8a69234f812645e2ff8abfd21dd3c44af8b652f63a485be52a942c63ec046864"
+      ]
     },
     {
-      "ref": "de9a083d93d38da93653212f8c5dff4fc42a1f0306281e64f8b8c2de094703cf"
+      "ref": "de9a083d93d38da93653212f8c5dff4fc42a1f0306281e64f8b8c2de094703cf",
+      "dependsOn": [
+        "1b7e07a947b8ff6366ba248683391f1bf8bf003b4b2e9d433f970dd6904c185a",
+        "419ea612196efe2ed7f267c07dd9133e23f071977196c0ecf4d43589d64d2d91",
+        "53d4f1bb70d7d72e777c527b0de8ff8d0b603ac8071e58d0e5a58cc529728fb7"
+      ]
     },
     {
-      "ref": "e02de73e1997dc4009d55b9bb4282baaf57f3d711520e89384e80ff9807b5c26"
+      "ref": "e02de73e1997dc4009d55b9bb4282baaf57f3d711520e89384e80ff9807b5c26",
+      "dependsOn": [
+        "964271ed27195d6c61e3da02b45077b583e6f1586488cf90970f3995006a412a",
+        "a8ab9714ac8f3afee60feeb69e749289d3bb0e08c37a7e4a7771944016aea0e5",
+        "ccf96d519a01e749e889ebc527bae74eb8ca18bedf24ba3616388e9f6ba69d17"
+      ]
     },
     {
-      "ref": "e3886532e4f1634ce87c2148abd3b0ca4780fc5bee3e7e6b78cfb79bf8d5d9ad"
+      "ref": "e3886532e4f1634ce87c2148abd3b0ca4780fc5bee3e7e6b78cfb79bf8d5d9ad",
+      "dependsOn": [
+        "0f988efab05ee905ad470522d5386d239cc7a616de02b3f1ca7b7407f1383d3c",
+        "9fa1a339a8e1eeda5a890aed9c55ea71b7aa195f08992042af58a3cdbf54f487"
+      ]
     },
     {
-      "ref": "e46ba3d4d47b59bc2b79075b24164d4d4bfcaa045f9e6290fd91de184e2f1b05"
+      "ref": "e46ba3d4d47b59bc2b79075b24164d4d4bfcaa045f9e6290fd91de184e2f1b05",
+      "dependsOn": [
+        "1b7e07a947b8ff6366ba248683391f1bf8bf003b4b2e9d433f970dd6904c185a",
+        "53d4f1bb70d7d72e777c527b0de8ff8d0b603ac8071e58d0e5a58cc529728fb7"
+      ]
     },
     {
-      "ref": "e4be0d4c1624ece12211201c928193a25eb5fbbf5f118c547f6c337e022ef7f2"
+      "ref": "e4be0d4c1624ece12211201c928193a25eb5fbbf5f118c547f6c337e022ef7f2",
+      "dependsOn": [
+        "1b7e07a947b8ff6366ba248683391f1bf8bf003b4b2e9d433f970dd6904c185a",
+        "535e98fd3f445101ccca376b01636c25cd2efa06f9bce2e7dfce2260fb424d38",
+        "53d4f1bb70d7d72e777c527b0de8ff8d0b603ac8071e58d0e5a58cc529728fb7",
+        "993e8fad75fe89ff10685c32b3acf9f9e027b64e895a624502e2331ccaa21a15",
+        "d5154b3442e6ef69e1bec3b78059ba9d51f1db8da869314870df787a796240d2"
+      ]
     },
     {
       "ref": "e593fc3d170f3673dcde127c885b2cd6c3a5d4ff59eea51dc518bd6d9d1720f3"
     },
     {
-      "ref": "e90ea37b7ba280946e6f55fc762d26f9122d8e6514b50b48a2d174f000526aaf"
+      "ref": "e90ea37b7ba280946e6f55fc762d26f9122d8e6514b50b48a2d174f000526aaf",
+      "dependsOn": [
+        "1b7e07a947b8ff6366ba248683391f1bf8bf003b4b2e9d433f970dd6904c185a",
+        "25b1206104eedabbf17f059036d46af51dff69d8e9aa6149b9b6721c46146316",
+        "292292af88dca3107cf13d8343919e4114328ce200be79ac38f881b80dbe7815",
+        "2d7d3eb933ddb803c5600683a6b6d12f9d1467b7e017197b071f0208453c57a6",
+        "393eb6e06a319235e088924b73b4438be43ff12c47f1df9586845cfd047380bf",
+        "535e98fd3f445101ccca376b01636c25cd2efa06f9bce2e7dfce2260fb424d38",
+        "53d4f1bb70d7d72e777c527b0de8ff8d0b603ac8071e58d0e5a58cc529728fb7",
+        "58e67da2ac79d3a7fb5463e0e89caa3346e3879ca25c384fc9a58b950e81cea0",
+        "7612bef6f1096268d14302da30aaf8521d794b4b8b87aed1611e98531b33d145",
+        "8a69234f812645e2ff8abfd21dd3c44af8b652f63a485be52a942c63ec046864",
+        "9da59bdb1a334be465043e4ac03d5a7de191f13ba983ddd8fb71bfbbbfd868ba",
+        "d97faa27755f8032c29ea160f91a93366b66fef6f9b5bb52b7fa2a5da5fe1226",
+        "de9a083d93d38da93653212f8c5dff4fc42a1f0306281e64f8b8c2de094703cf",
+        "e46ba3d4d47b59bc2b79075b24164d4d4bfcaa045f9e6290fd91de184e2f1b05",
+        "e4be0d4c1624ece12211201c928193a25eb5fbbf5f118c547f6c337e022ef7f2",
+        "ea1676c667dd4ac55f931dac69134c82b39ed09d2031d9698e75fe5b74ce9b67",
+        "f35ac392b09cf8b99413fc9bfe79c72437a652572314886cc09b0d397308ede7",
+        "f6041988eb07fde3e2051ae53348e88c6a6813ad485a9aad86c1810ab9593c31"
+      ]
     },
     {
-      "ref": "ea1676c667dd4ac55f931dac69134c82b39ed09d2031d9698e75fe5b74ce9b67"
+      "ref": "ea1676c667dd4ac55f931dac69134c82b39ed09d2031d9698e75fe5b74ce9b67",
+      "dependsOn": [
+        "25b1206104eedabbf17f059036d46af51dff69d8e9aa6149b9b6721c46146316",
+        "53d4f1bb70d7d72e777c527b0de8ff8d0b603ac8071e58d0e5a58cc529728fb7"
+      ]
     },
     {
       "ref": "f0ca8ac44951a4aa19a6a395957f8f8adbd96046fecdafd203c1a7fd10676c18"
     },
     {
-      "ref": "f35ac392b09cf8b99413fc9bfe79c72437a652572314886cc09b0d397308ede7"
+      "ref": "f35ac392b09cf8b99413fc9bfe79c72437a652572314886cc09b0d397308ede7",
+      "dependsOn": [
+        "53d4f1bb70d7d72e777c527b0de8ff8d0b603ac8071e58d0e5a58cc529728fb7"
+      ]
     },
     {
-      "ref": "f3c01e9a7345dc4da30b88a2bbd076139b38d105e88dfe9e22984964eca03c59"
+      "ref": "f3c01e9a7345dc4da30b88a2bbd076139b38d105e88dfe9e22984964eca03c59",
+      "dependsOn": [
+        "1b7e07a947b8ff6366ba248683391f1bf8bf003b4b2e9d433f970dd6904c185a",
+        "25b1206104eedabbf17f059036d46af51dff69d8e9aa6149b9b6721c46146316",
+        "292292af88dca3107cf13d8343919e4114328ce200be79ac38f881b80dbe7815",
+        "2d7d3eb933ddb803c5600683a6b6d12f9d1467b7e017197b071f0208453c57a6",
+        "4a0ffcfee556a7eac1e912e9af349fa2dc76cf6a2f214a7da9199951284f5890",
+        "53d4f1bb70d7d72e777c527b0de8ff8d0b603ac8071e58d0e5a58cc529728fb7",
+        "5cd75c38ac3ff733b055fb15fbd89432a0d16e2e00901c0b217407d9b779b162",
+        "7612bef6f1096268d14302da30aaf8521d794b4b8b87aed1611e98531b33d145",
+        "993e8fad75fe89ff10685c32b3acf9f9e027b64e895a624502e2331ccaa21a15",
+        "ae162a165d2aa735dec5978f170050131709a7b5f8e20b71b055d4ab7b29798b",
+        "e46ba3d4d47b59bc2b79075b24164d4d4bfcaa045f9e6290fd91de184e2f1b05",
+        "e4be0d4c1624ece12211201c928193a25eb5fbbf5f118c547f6c337e022ef7f2",
+        "ea1676c667dd4ac55f931dac69134c82b39ed09d2031d9698e75fe5b74ce9b67"
+      ]
     },
     {
-      "ref": "f6041988eb07fde3e2051ae53348e88c6a6813ad485a9aad86c1810ab9593c31"
+      "ref": "f6041988eb07fde3e2051ae53348e88c6a6813ad485a9aad86c1810ab9593c31",
+      "dependsOn": [
+        "535e98fd3f445101ccca376b01636c25cd2efa06f9bce2e7dfce2260fb424d38"
+      ]
     },
     {
-      "ref": "f6c6d90a2f0fb70d0075b453208211ba2e79e559398d84ccbde8713427091759"
+      "ref": "f6c6d90a2f0fb70d0075b453208211ba2e79e559398d84ccbde8713427091759",
+      "dependsOn": [
+        "a8ab9714ac8f3afee60feeb69e749289d3bb0e08c37a7e4a7771944016aea0e5",
+        "ccf96d519a01e749e889ebc527bae74eb8ca18bedf24ba3616388e9f6ba69d17"
+      ]
     },
     {
-      "ref": "fd1fc69cef6438a9e0f179bdf175b6f5c86e3e71c06e8d8b1f484b5507627f72"
+      "ref": "fd1fc69cef6438a9e0f179bdf175b6f5c86e3e71c06e8d8b1f484b5507627f72",
+      "dependsOn": [
+        "0f988efab05ee905ad470522d5386d239cc7a616de02b3f1ca7b7407f1383d3c",
+        "11741b72fc61b8c67fb779a3f47b201319ae8dfc0812ef22bf7b9c9179e2e11f",
+        "4463ae507d574f1c1e49f9e4523d3e45d2fb18df2ff83b1153c23aca4862db35",
+        "460939b68f8053fe278cb6210f7b2d9187940178fca9abf270d11ff80bda5aa0",
+        "49646800769b71f6867412afd9659b95d3915a506b240b81ed1f154f01ba25cb",
+        "7c49e48d5f65924f5e8731ac61343484eacef2248600f5050c75e4737fde12eb",
+        "97d4082d905bd7891eea5dcafbd82c9a89aa2617236cf546deca8231d3e82a58"
+      ]
     },
     {
       "ref": "fe9db2c2dcba6794c74deb46be575c01825056eda6a775af76e34f04db16f42a"
@@ -13527,13 +14543,25 @@ exports[`integration functional: juice-shop frontend on npm generated json file:
       "ref": "VirtualComponent angular:css-resource:node_modules/material-icons/iconfont/MaterialIcons-Regular.woff2"
     },
     {
-      "ref": "VirtualComponent angular:polyfills:angular:polyfills"
+      "ref": "VirtualComponent angular:polyfills:angular:polyfills",
+      "dependsOn": [
+        "5b3f5d53e0d9777586349e7e693fbccc5d77389054db817358a0b5bd4476195f"
+      ]
     },
     {
       "ref": "VirtualComponent angular:script/global:scripts.js"
     },
     {
-      "ref": "VirtualComponent angular:styles/global:styles"
+      "ref": "VirtualComponent angular:styles/global:styles",
+      "dependsOn": [
+        "6a0d1d6f94e6c564ed811d8e12383096c32bc5be56ee8ec1348cc932765b57a5",
+        "70465b851954084600d4d20d0e95204b6741f5a109d78a6f967612fb72974d70",
+        "71cfcf50345fafd2898e8bf30ca83b02511aed3de0296baec389acb50b5798cc",
+        "7ae45ad102eab3b6d7e7896acd08c427a9b25b346470d7bc6507b6481575d519",
+        "ac8c40cfc6e68477fae3ea44ce291e60703c173fb49cc3f82f435c0c3fffb8b6",
+        "c1d30dea75fae9e9fe5989dab26cd6fe656001eb7dec0dbe9ba453ecb1ae56d3",
+        "f0ca8ac44951a4aa19a6a395957f8f8adbd96046fecdafd203c1a7fd10676c18"
+      ]
     }
   ]
 }"
@@ -13690,13 +14718,19 @@ exports[`integration functional: no tree-shaking generated json file: dist/bom.j
   ],
   "dependencies": [
     {
-      "ref": "7ae45ad102eab3b6d7e7896acd08c427a9b25b346470d7bc6507b6481575d519"
+      "ref": "7ae45ad102eab3b6d7e7896acd08c427a9b25b346470d7bc6507b6481575d519",
+      "dependsOn": [
+        "eef61cb816b4870cc41baae9389ed9b4f74713feb1532232bdb0bd65efa268d0"
+      ]
     },
     {
       "ref": "934cae484a0df083dc3c0dc4dfccd2d691cf53edd0986e89190924f73e840668"
     },
     {
-      "ref": "eef61cb816b4870cc41baae9389ed9b4f74713feb1532232bdb0bd65efa268d0"
+      "ref": "eef61cb816b4870cc41baae9389ed9b4f74713feb1532232bdb0bd65efa268d0",
+      "dependsOn": [
+        "934cae484a0df083dc3c0dc4dfccd2d691cf53edd0986e89190924f73e840668"
+      ]
     }
   ]
 }"
@@ -13940,10 +14974,17 @@ exports[`integration functional: react19 on bun generated json file: dist/bom.js
   ],
   "dependencies": [
     {
-      "ref": "23b7e7ebf9d294e4ee70193af7f8c1b262ecfb395ec410ce3bd0ab9ba3c64471"
+      "ref": "23b7e7ebf9d294e4ee70193af7f8c1b262ecfb395ec410ce3bd0ab9ba3c64471",
+      "dependsOn": [
+        "ac9b008bbbb7598be92bc6f09ea4991f07e685b10289ffbeb5f159e9ccda0403"
+      ]
     },
     {
-      "ref": "7ae45ad102eab3b6d7e7896acd08c427a9b25b346470d7bc6507b6481575d519"
+      "ref": "7ae45ad102eab3b6d7e7896acd08c427a9b25b346470d7bc6507b6481575d519",
+      "dependsOn": [
+        "23b7e7ebf9d294e4ee70193af7f8c1b262ecfb395ec410ce3bd0ab9ba3c64471",
+        "de5f9516e3ab25d34db207368c3e93d42308a55dffacbb8b5bdcf0f9f14c10f6"
+      ]
     },
     {
       "ref": "ac9b008bbbb7598be92bc6f09ea4991f07e685b10289ffbeb5f159e9ccda0403"
@@ -14219,13 +15260,19 @@ exports[`integration functional: simple typescript bundling on npm generated jso
   ],
   "dependencies": [
     {
-      "ref": "7ae45ad102eab3b6d7e7896acd08c427a9b25b346470d7bc6507b6481575d519"
+      "ref": "7ae45ad102eab3b6d7e7896acd08c427a9b25b346470d7bc6507b6481575d519",
+      "dependsOn": [
+        "eef61cb816b4870cc41baae9389ed9b4f74713feb1532232bdb0bd65efa268d0"
+      ]
     },
     {
       "ref": "934cae484a0df083dc3c0dc4dfccd2d691cf53edd0986e89190924f73e840668"
     },
     {
-      "ref": "eef61cb816b4870cc41baae9389ed9b4f74713feb1532232bdb0bd65efa268d0"
+      "ref": "eef61cb816b4870cc41baae9389ed9b4f74713feb1532232bdb0bd65efa268d0",
+      "dependsOn": [
+        "934cae484a0df083dc3c0dc4dfccd2d691cf53edd0986e89190924f73e840668"
+      ]
     }
   ]
 }"
@@ -14382,10 +15429,16 @@ exports[`integration functional: simple typescript bundling on yarn generated js
   ],
   "dependencies": [
     {
-      "ref": "4407577ae52a8e0b1426675fc484aef8bcb0be37d7d025e1bf12586b8e5056ce"
+      "ref": "4407577ae52a8e0b1426675fc484aef8bcb0be37d7d025e1bf12586b8e5056ce",
+      "dependsOn": [
+        "ac73be2c234f2bbc42fbdf7561dee01c7d63ad117c6e199b46f9f3f6c651ddba"
+      ]
     },
     {
-      "ref": "7ae45ad102eab3b6d7e7896acd08c427a9b25b346470d7bc6507b6481575d519"
+      "ref": "7ae45ad102eab3b6d7e7896acd08c427a9b25b346470d7bc6507b6481575d519",
+      "dependsOn": [
+        "4407577ae52a8e0b1426675fc484aef8bcb0be37d7d025e1bf12586b8e5056ce"
+      ]
     },
     {
       "ref": "ac73be2c234f2bbc42fbdf7561dee01c7d63ad117c6e199b46f9f3f6c651ddba"

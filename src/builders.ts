@@ -17,7 +17,7 @@ SPDX-License-Identifier: Apache-2.0
 Copyright (c) OWASP Foundation. All Rights Reserved.
 */
 
-import { dirname, resolve } from "node:path";
+import { dirname, isAbsolute, relative, resolve } from "node:path";
 
 import type { Builders as FromNodePackageJsonBuilders } from "@cyclonedx/cyclonedx-library/Contrib/FromNodePackageJson"
 import type { Utils as LicenseUtils } from "@cyclonedx/cyclonedx-library/Contrib/License"
@@ -38,6 +38,7 @@ import type normalizePackageData from "normalize-package-data"
 import type { PackageDescription } from "./_helpers";
 import {
   getPackageConfig,
+  mkPosixPathLike,
   mkRelativePath,
   mkRelativePathReproducibleHash,
   normalizePackageManifest,
@@ -210,22 +211,53 @@ export class BomBuilder {
 
   /* eslint-disable-next-line @typescript-eslint/max-params -- ack */
   private linkDependencies(
-    /* @ts-expect-error TS6133 -- TODO */
     rootDir: string,
-    /* @ts-expect-error TS6133 -- TODO */
     metafile: esbuild.Metafile,
-    /* @ts-expect-error TS6133 -- TODO */
     mainComponent: Component | undefined,
-    /* @ts-expect-error TS6133 -- TODO */
     moduleComponents: Map<string, Component>,
-    /* @ts-expect-error TS6133 -- TODO */
     logger: Console
   ): void {
-    // TODO: link deps based on inputs - https://github.com/CycloneDX/cyclonedx-esbuild/issues/11
-    // idea: take the metadata.input
-    // then cut the "externals" and copy their content to all the ones that used it
-    // then cut the "unknown" and copy their content to all the ones that used it
-    // the rest should all be known components -> so set their dependencies as expected
+    function bunPathCompat(p: string): string {
+      // bun uses absolute paths in `inputs`
+      return isAbsolute(p)
+        ? mkPosixPathLike(relative(rootDir, p))
+        : p
+    }
+
+    if (mainComponent !== undefined) {
+      logger.info(LogPrefixes.INFO, 'linking entryPoint dependencies...')
+      for (const { entryPoint } of Object.values(metafile.outputs)) {
+        if (entryPoint === undefined) { continue }
+        const component = moduleComponents.get(entryPoint)
+        if (component === undefined) {
+          logger.debug(LogPrefixes.DEBUG, 'skipped missing mainComponent dependency ->', entryPoint)
+          continue
+        }
+        if (component === mainComponent) { continue }
+        mainComponent.dependencies.add(component.bomRef)
+        logger.debug(LogPrefixes.DEBUG, 'linked mainComponent dependency ->', entryPoint)
+      }
+    }
+
+    logger.info(LogPrefixes.INFO, 'linking inputs dependencies...')
+    for (const [ module, { imports } ] of Object.entries(metafile.inputs)) {
+      const component = moduleComponents.get(bunPathCompat(module))
+      if (component === undefined) { continue }
+      for (const imported of imports) {
+        if (imported.external === true) {
+          // externals are not part of the build result anyway
+          continue
+        }
+        const importedComponent = moduleComponents.get(bunPathCompat(imported.path))
+        if (importedComponent === undefined) {
+          logger.debug(LogPrefixes.DEBUG, 'skipped missing dependency', module, '->', imported.path)
+          continue
+        }
+        if (component === importedComponent) { continue }
+        component.dependencies.add(importedComponent.bomRef)
+        logger.debug(LogPrefixes.DEBUG, 'linked dependency', module, '->', imported.path)
+      }
+    }
   }
 
   /**
