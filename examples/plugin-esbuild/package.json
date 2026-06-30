@@ -19,5 +19,8 @@
   "scripts": {
     "prebuild": "node -r fs -e 'fs.rmSync(\"dist\",{recursive:true,force:true})'",
     "build": "node build.mjs"
+  },
+  "allowScripts": {
+    "esbuild@0.28.1": true
   }
 }
