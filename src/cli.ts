@@ -261,7 +261,7 @@ export async function run(process_: NodeJS.Process): Promise<number> {
   }
   logger.log(LogPrefixes.LOG, 'writing BOM to:', options.outputFile)
   const written = await writeAllSync(outputFD, serialized)
-  logger.info(LogPrefixes.INFO, 'wrote', written, 'bytes to:', options.outputFile)
+  logger.info('%s wrote %d bytes to %s', LogPrefixes.INFO, written, options.outputFile)
 
   return written > 0
     ? ExitCode.SUCCESS
