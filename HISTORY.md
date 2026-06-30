@@ -6,6 +6,11 @@ All notable changes to this project will be documented in this file.
 
 <!-- add unreleased items here -->
 
+* Tests
+  * Added testbeds for integration (via [#164])
+
+[#164]: https://github.com/CycloneDX/cyclonedx-esbuild/pull/164
+
 ## 1.4.0 - 2026-06-29
 
 * Added
