@@ -4,7 +4,6 @@
   "version": "1.0.0",
   "description": "Example using esbuild wit external entryPoints",
   "type": "module",
-  "main": "dist/bundle.js",
   "scripts": {
     "build": "node build.js",
     "start": "npm run build && node tests/run_dist.js"
