@@ -166,8 +166,8 @@ export async function run(process_: NodeJS.Process): Promise<number> {
   const options: CommandOptions = program.opts()
   // all output shall be bound to stdError - stdOut is for result output only
   const logger = makeConsoleLogger(process_.stderr, process_.stderr, options.verbose)
-  logger.debug(`${LogPrefixes.DEBUG} options: %j`, options)
-  logger.debug(`${LogPrefixes.DEBUG} args: %j`, program.args)
+  logger.debug('%s options: %j', LogPrefixes.DEBUG, options)
+  logger.debug('%s args: %j', LogPrefixes.DEBUG, program.args)
 
   const serializeSpec = SpecVersionDict[options.specVersion]
   if (serializeSpec === undefined) {
@@ -259,9 +259,9 @@ export async function run(process_: NodeJS.Process): Promise<number> {
     }
     outputFD = openSync(outputFPn, 'w')
   }
-  logger.log(`${LogPrefixes.LOG} writing BOM to: %s`, options.outputFile)
+  logger.log(LogPrefixes.LOG, 'writing BOM to:', options.outputFile)
   const written = await writeAllSync(outputFD, serialized)
-  logger.info(`${LogPrefixes.INFO} wrote %d bytes to: %s`, written, options.outputFile)
+  logger.info('%s wrote %d bytes to %s', LogPrefixes.INFO, written, options.outputFile)
 
   return written > 0
     ? ExitCode.SUCCESS

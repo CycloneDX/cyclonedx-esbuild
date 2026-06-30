@@ -71,7 +71,8 @@ export class BomBuilder {
     outputReproducible: boolean,
     logger: Console
   ): Bom {
-    logger.debug(LogPrefixes.DEBUG, 'metafile:', metafile)
+    logger.debug('%s metafile: %j', LogPrefixes.DEBUG, metafile)
+
     const bom = new Bom()
 
     logger.info(LogPrefixes.INFO, 'generating components...')
@@ -180,7 +181,7 @@ export class BomBuilder {
       } else {
         component = packageComponents.get(pkg.path)
         if (component === undefined) {
-          logger.info(LogPrefixes.INFO, 'try to build new Component from PkgPath:', pkg.path)
+          logger.info(LogPrefixes.INFO, 'try building new Component from PkgPath:', pkg.path)
           try {
             component = this.makeComponent(pkg, collectEvidence, logger)
           } catch (err) {
