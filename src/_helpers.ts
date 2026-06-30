@@ -121,7 +121,7 @@ export function * makeToolCs(
   /* eslint-enable no-labels */
 
   for (const [packageJsonPath, cType] of packageJsonPaths) {
-    logger.info(LogPrefixes.INFO, 'try to build new Tool from PkgPath', packageJsonPath)
+    logger.info(LogPrefixes.INFO, 'try building new Tool from PkgPath', packageJsonPath)
     /* eslint-disable-next-line @typescript-eslint/no-unsafe-assignment -- expected */
     const packageJson: PackageDescription['packageJson'] = loadJsonFile(packageJsonPath) ?? {}
     normalizePackageManifest(

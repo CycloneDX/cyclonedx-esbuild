@@ -138,7 +138,7 @@ export const cyclonedxEsbuildPlugin = (opts: CycloneDxEsbuildPluginOptions = {})
       ] ?? LogLevelMap.warning
     )
 
-    logger.debug(`${LogPrefixes.DEBUG} setup => opt: %j`, opts)
+    logger.debug('%s setup => opt: %j', LogPrefixes.DEBUG, opts)
     const options = {
       gatherLicenseTexts: opts.gatherLicenseTexts ?? false,
       outputReproducible: opts.outputReproducible ?? false,
@@ -148,7 +148,7 @@ export const cyclonedxEsbuildPlugin = (opts: CycloneDxEsbuildPluginOptions = {})
       validate: opts.validate,
       mcType: opts.mcType ?? ComponentType.Application
     } as const satisfies CycloneDxEsbuildPluginOptions
-    logger.debug(`${LogPrefixes.DEBUG} setup => options: %j`, options)
+    logger.debug('%s setup => options: %j', LogPrefixes.DEBUG, options)
 
     const serializeSpec = SpecVersionDict[options.specVersion]
     if (serializeSpec === undefined) {
@@ -164,7 +164,7 @@ export const cyclonedxEsbuildPlugin = (opts: CycloneDxEsbuildPluginOptions = {})
         /* c8 ignore next */
         throw new Error('missing result.metafile')
       }
-      logger.info(LogPrefixes.INFO, 'start build BOM ...')
+      logger.info(LogPrefixes.INFO, 'start building BOM...')
 
       const cdxExternalReferenceFactory = new FromNodePackageJsonFactories.ExternalReferenceFactory()
       const cdxLicenseFactory = new LicenseFactories.LicenseFactory(spdxExpressionParse)
@@ -259,7 +259,7 @@ export const cyclonedxEsbuildPlugin = (opts: CycloneDxEsbuildPluginOptions = {})
       }
       logger.log(LogPrefixes.LOG, 'writing BOM to', options.outputFile)
       const written = await writeAllSync(openSync(outputFPn, 'w'), serialized);
-      logger.info(LogPrefixes.INFO, 'wrote %d bytes to %s', written, options.outputFile)
+      logger.info(LogPrefixes.INFO, 'wrote', written, 'bytes to', options.outputFile)
     });
   }
 })
