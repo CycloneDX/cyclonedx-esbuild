@@ -14,15 +14,15 @@
         {
           "type": "application",
           "name": "esbuild",
-          "version": "0.27.3"
+          "version": "0.28.1"
         },
         {
           "type": "library",
           "name": "cyclonedx-esbuild",
           "group": "@cyclonedx",
-          "version": "1.1.1",
+          "version": "1.4.1",
           "author": "Jan Kowalleck",
-          "description": "Creates CycloneDX Software Bill of Materials (SBoM) from esbuild projects",
+          "description": "Create CycloneDX Software Bill of Materials (SBOM) from projects built with esbuild or Bun.",
           "licenses": [
             {
               "license": {
@@ -52,7 +52,7 @@
           "type": "library",
           "name": "cyclonedx-library",
           "group": "@cyclonedx",
-          "version": "10.0.0",
+          "version": "10.1.0",
           "author": "Jan Kowalleck",
           "description": "Core functionality of CycloneDX for JavaScript (Node.js or WebBrowser).",
           "licenses": [
@@ -102,6 +102,7 @@
       "bom-ref": "e2b18ca226c83eb39d4534e5c9118962ac64657141b0efde7474cc084f839902",
       "author": "Federico Zivolo",
       "description": "Tooltip and Popover Positioning Engine",
+      "scope": "required",
       "licenses": [
         {
           "license": {
@@ -150,6 +151,7 @@
       "bom-ref": "f69c6dbe42f2df903ae6a87ae6491bde586b4ad9a4cd16deeb5421a085e5bc9a",
       "author": "The Bootstrap Authors",
       "description": "The most popular front-end framework for developing responsive, mobile first projects on the web.",
+      "scope": "required",
       "licenses": [
         {
           "license": {
@@ -194,13 +196,19 @@
   ],
   "dependencies": [
     {
-      "ref": "7ae45ad102eab3b6d7e7896acd08c427a9b25b346470d7bc6507b6481575d519"
+      "ref": "7ae45ad102eab3b6d7e7896acd08c427a9b25b346470d7bc6507b6481575d519",
+      "dependsOn": [
+        "f69c6dbe42f2df903ae6a87ae6491bde586b4ad9a4cd16deeb5421a085e5bc9a"
+      ]
     },
     {
       "ref": "e2b18ca226c83eb39d4534e5c9118962ac64657141b0efde7474cc084f839902"
     },
     {
-      "ref": "f69c6dbe42f2df903ae6a87ae6491bde586b4ad9a4cd16deeb5421a085e5bc9a"
+      "ref": "f69c6dbe42f2df903ae6a87ae6491bde586b4ad9a4cd16deeb5421a085e5bc9a",
+      "dependsOn": [
+        "e2b18ca226c83eb39d4534e5c9118962ac64657141b0efde7474cc084f839902"
+      ]
     }
   ]
 }
