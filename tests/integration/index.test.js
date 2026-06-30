@@ -116,6 +116,17 @@ const testSetups = [
     ]
   },
   {
+    dir: 'with-external-entryPoints',
+    purpose: 'functional: entryPoints are external',
+    packageManager: 'npm',
+    results: [ // paths relative to `dir`
+      {
+        format: 'json',
+        file: 'dist/bom.json'
+      },
+    ]
+  },
+  {
     dir: 'with-externals',
     purpose: 'functional: runtime-dependencies are external',
     packageManager: 'npm',

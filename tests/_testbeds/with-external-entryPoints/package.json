@@ -1,0 +1,27 @@
+{
+  "private": true,
+  "name": "@cyclonedx/cyclonedx-eslint-testbed-with-external-entryPoints",
+  "version": "1.0.0",
+  "description": "Example using esbuild wit external entryPoints",
+  "type": "module",
+  "main": "dist/bundle.js",
+  "scripts": {
+    "build": "node build.js",
+    "start": "npm run build && node tests/run_dist.js"
+  },
+  "author": "",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "@cyclonedx/cyclonedx-esbuild": "file:../../../",
+    "@cyclonedx/cyclonedx-eslint-testing-custom-package": "file:../../_data/custom-package/package.tgz",
+    "esbuild": "0.28.1"
+  },
+  "packageManager": "npm",
+  "devEngines": {
+    "runtime": {
+      "name": "node",
+      "onFail": "error"
+    }
+  }
+}
