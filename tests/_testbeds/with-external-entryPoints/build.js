@@ -25,7 +25,7 @@ async function build() {
     const built = await esbuild.build({
       entryPoints: {
         // external entryPoint from a external installed package
-        "custom-package.bundle": '@cyclonedx/cyclonedx-eslint-testing-custom-package/lib/index.js',
+        "custom-package.bundle": '@cyclonedx/cyclonedx-eslint-testing-custom-package',
         // external entryPoint from a external file package
         "some-js.bundle": '../../_data/some-js',
       },
