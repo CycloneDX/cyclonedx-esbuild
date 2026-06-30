@@ -20,36 +20,34 @@ Copyright (c) OWASP Foundation. All Rights Reserved.
 import esbuild from 'esbuild'
 import {cyclonedxEsbuildPlugin} from '@cyclonedx/cyclonedx-esbuild'
 
-import pkg from './package.json' with { type: 'json' }
-
 async function build() {
-    try {
-        await esbuild.build({
-            entryPoints: [
-              // external entryPoint from a external package
-              '@cyclonedx/cyclonedx-eslint-testing-custom-package/lib/index.js',
-            ],
-            bundle: true,
-            outfile: 'dist/bundle.js',
-            platform: 'node',
-            format: 'esm',
-            sourcemap: true,
-            minify: true,
-            treeShaking: true,
-            target: 'esnext',
-            plugins: [cyclonedxEsbuildPlugin({
-                gatherLicenseTexts: true,
-                outputReproducible: true,
-                validate: true,
-                outputFile: 'bom.json',
-            })],
-          logLevel: 'debug',
-        })
-        console.log('✅ Build completed successfully!')
-    } catch (error) {
-        console.error('❌ Build failed:', error)
-        process.exit(1)
-    }
+  try {
+    await esbuild.build({
+      entryPoints: [
+        // external entryPoint from a external package
+        '@cyclonedx/cyclonedx-eslint-testing-custom-package/lib/index.js',
+      ],
+      bundle: true,
+      outfile: 'dist/bundle.js',
+      platform: 'node',
+      format: 'esm',
+      sourcemap: true,
+      minify: true,
+      treeShaking: true,
+      target: 'esnext',
+      plugins: [cyclonedxEsbuildPlugin({
+        gatherLicenseTexts: true,
+        outputReproducible: true,
+        validate: true,
+        outputFile: 'bom.json',
+      })],
+      logLevel: 'debug',
+    })
+    console.log('✅ Build completed successfully!')
+  } catch (error) {
+    console.error('❌ Build failed:', error)
+    process.exit(1)
+  }
 }
 
 build()
