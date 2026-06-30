@@ -22,7 +22,7 @@ import {cyclonedxEsbuildPlugin} from '@cyclonedx/cyclonedx-esbuild'
 
 async function build() {
   try {
-    const built = await esbuild.build({
+    await esbuild.build({
       entryPoints: {
         // external entryPoint from a external installed package
         "custom-package.bundle": '@cyclonedx/cyclonedx-eslint-testing-custom-package',
@@ -46,7 +46,6 @@ async function build() {
       logLevel: 'debug',
     })
     console.log('✅ Build completed successfully!')
-    console.log(JSON.stringify(built.metafile))
   } catch (error) {
     console.error('❌ Build failed:', error)
     process.exit(1)
