@@ -824,17 +824,32 @@ exports[`integration functional: entryPoints are external generated json file: d
           }
         ]
       }
+    },
+    {
+      "type": "library",
+      "name": "cyclonedx-eslint-testing-some-js",
+      "group": "@cyclonedx",
+      "version": "0.0.1",
+      "bom-ref": "afdd713844bfa0f7a517f5c864728f1d9e30fe7aaa4de4f50db211574c10fc27",
+      "description": "this is a dummy package for showcasing purposes only.",
+      "scope": "required",
+      "purl": "pkg:npm/%40cyclonedx/cyclonedx-eslint-testing-some-js@0.0.1",
+      "evidence": {}
     }
   ],
   "dependencies": [
     {
       "ref": "7ae45ad102eab3b6d7e7896acd08c427a9b25b346470d7bc6507b6481575d519",
       "dependsOn": [
-        "934cae484a0df083dc3c0dc4dfccd2d691cf53edd0986e89190924f73e840668"
+        "934cae484a0df083dc3c0dc4dfccd2d691cf53edd0986e89190924f73e840668",
+        "afdd713844bfa0f7a517f5c864728f1d9e30fe7aaa4de4f50db211574c10fc27"
       ]
     },
     {
       "ref": "934cae484a0df083dc3c0dc4dfccd2d691cf53edd0986e89190924f73e840668"
+    },
+    {
+      "ref": "afdd713844bfa0f7a517f5c864728f1d9e30fe7aaa4de4f50db211574c10fc27"
     }
   ]
 }"
