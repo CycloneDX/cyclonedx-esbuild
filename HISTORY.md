@@ -6,6 +6,8 @@ All notable changes to this project will be documented in this file.
 
 <!-- add unreleased items here -->
 
+## 1.4.1 - 2026-06-30
+
 * Fixed
   * Log|Info|Debug output are properly formatted (via [#165])
 * Tests
