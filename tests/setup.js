@@ -35,7 +35,7 @@ const MANAGERS = {
       'angular20-npm',
       'typescript-npm',
       'juice-shop-frontend',
-      'with-external-entryPoints',
+      'with-external-entrypoints',
       'with-externals',
       'no-treeshaking',
     ]

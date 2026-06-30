@@ -783,11 +783,11 @@ exports[`integration functional: entryPoints are external generated json file: d
     },
     "component": {
       "type": "application",
-      "name": "cyclonedx-eslint-testbed-with-external-entryPoints",
+      "name": "cyclonedx-eslint-testbed-with-external-entrypoints",
       "group": "@cyclonedx",
       "version": "1.0.0",
       "bom-ref": "7ae45ad102eab3b6d7e7896acd08c427a9b25b346470d7bc6507b6481575d519",
-      "description": "Example using esbuild wit external entryPoints",
+      "description": "Example using esbuild with external entryPoints",
       "purl": "pkg:npm/%40cyclonedx/cyclonedx-eslint-testbed-with-external-entrypoints@1.0.0",
       "evidence": {}
     }

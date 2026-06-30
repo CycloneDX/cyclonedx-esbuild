@@ -1,8 +1,8 @@
 {
   "private": true,
-  "name": "@cyclonedx/cyclonedx-eslint-testbed-with-external-entryPoints",
+  "name": "@cyclonedx/cyclonedx-eslint-testbed-with-external-entrypoints",
   "version": "1.0.0",
-  "description": "Example using esbuild wit external entryPoints",
+  "description": "Example using esbuild with external entryPoints",
   "type": "module",
   "scripts": {
     "build": "node build.js",

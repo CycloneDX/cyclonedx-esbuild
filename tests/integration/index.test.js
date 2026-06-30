@@ -116,7 +116,7 @@ const testSetups = [
     ]
   },
   {
-    dir: 'with-external-entryPoints',
+    dir: 'with-external-entrypoints',
     purpose: 'functional: entryPoints are external',
     packageManager: 'npm',
     results: [ // paths relative to `dir`
