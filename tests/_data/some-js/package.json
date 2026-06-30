@@ -1,0 +1,13 @@
+{
+  "private": true,
+  "name": "@cyclonedx/cyclonedx-eslint-testing-some-js",
+  "version": "0.0.1",
+  "description": "this is a dummy package for showcasing purposes only.",
+  "type": "module",
+  "main": "lib/index.js",
+  "files": [
+    "lib",
+    "README.md"
+  ],
+  "sideEffects": false
+}
