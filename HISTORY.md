@@ -7,7 +7,7 @@ All notable changes to this project will be documented in this file.
 <!-- add unreleased items here -->
 
 * Fixed
-  * Debug output details are more verbose (via [#165])
+  * Log|Info|Debug output are properly formatted (via [#165])
 * Tests
   * Added testbeds for integration (via [#164])
 
