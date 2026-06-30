@@ -20,7 +20,7 @@
           "type": "library",
           "name": "cyclonedx-esbuild",
           "group": "@cyclonedx",
-          "version": "1.4.0",
+          "version": "1.4.1",
           "author": "Jan Kowalleck",
           "description": "Create CycloneDX Software Bill of Materials (SBOM) from projects built with esbuild or Bun.",
           "licenses": [
