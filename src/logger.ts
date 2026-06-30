@@ -17,9 +17,7 @@ SPDX-License-Identifier: Apache-2.0
 Copyright (c) OWASP Foundation. All Rights Reserved.
 */
 
-function noop(): void {
-  // do nothing
-}
+/* c8 ignore start -- const enums are not compiled to any code */
 
 export const enum LogPrefixes {
   DEBUG = 'DEBUG |',
@@ -27,6 +25,12 @@ export const enum LogPrefixes {
   LOG = 'LOG   |',
   WARN = 'WARN  |',
   ERROR = 'ERROR |',
+}
+
+/* c8 ignore stop */
+
+function noop(): void {
+  // do nothing
 }
 
 export function makeConsoleLogger(out: NodeJS.WritableStream, err: NodeJS.WritableStream, level: number): Console {
