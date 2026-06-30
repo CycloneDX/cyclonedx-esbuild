@@ -268,8 +268,12 @@ export async function run(process_: NodeJS.Process): Promise<number> {
     : ExitCode.FAILURE
 }
 
+/* c8 ignore start -- const enums are not compiled to any code */
+
 const enum ExitCode {
   SUCCESS = 0,
   FAILURE = 1,
   INVALID = 2
 }
+
+/* c8 ignore stop */
