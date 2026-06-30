@@ -22,13 +22,15 @@ import {cyclonedxEsbuildPlugin} from '@cyclonedx/cyclonedx-esbuild'
 
 async function build() {
   try {
-    await esbuild.build({
-      entryPoints: [
-        // external entryPoint from a external package
-        '@cyclonedx/cyclonedx-eslint-testing-custom-package/lib/index.js',
-      ],
+    const built = await esbuild.build({
+      entryPoints: {
+        // external entryPoint from a external installed package
+        "custom-package.bundle": '@cyclonedx/cyclonedx-eslint-testing-custom-package/lib/index.js',
+        // external entryPoint from a external file package
+        "some-js.bundle": '../../_data/some-js',
+      },
       bundle: true,
-      outfile: 'dist/bundle.js',
+      outdir: 'dist',
       platform: 'node',
       format: 'esm',
       sourcemap: true,
@@ -44,6 +46,7 @@ async function build() {
       logLevel: 'debug',
     })
     console.log('✅ Build completed successfully!')
+    console.log(JSON.stringify(built.metafile))
   } catch (error) {
     console.error('❌ Build failed:', error)
     process.exit(1)

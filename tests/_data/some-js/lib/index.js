@@ -17,13 +17,4 @@ SPDX-License-Identifier: Apache-2.0
 Copyright (c) OWASP Foundation. All Rights Reserved.
 */
 
-// JavaScript application to test esbuild result
-import * as CP from '../dist/custom-package.bundle.js'
-import * as SJS from '../dist/some-js.bundle.js'
-
-console.log(
-  'from custom-package:',
-  CP.utils.foo()
-)
-
-SJS.greet.hello()
+export * as greet from "./greet.js"
