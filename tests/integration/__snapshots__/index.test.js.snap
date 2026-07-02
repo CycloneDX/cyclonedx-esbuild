@@ -15547,7 +15547,7 @@ exports[`integration functional: simple typescript bundling on yarn generated js
       "name": "cyclonedx-eslint-testing-reexport-package",
       "group": "@cyclonedx",
       "version": "0.0.1",
-      "bom-ref": "4407577ae52a8e0b1426675fc484aef8bcb0be37d7d025e1bf12586b8e5056ce",
+      "bom-ref": "1a440bc527666e56a4d8cdbff4889c9fcaaea9226b191f8359081d4dcc18cded",
       "description": "this is a dummy package for showcasing purposes only.",
       "scope": "excluded",
       "purl": "pkg:npm/%40cyclonedx/cyclonedx-eslint-testing-reexport-package@0.0.1",
@@ -15588,7 +15588,7 @@ exports[`integration functional: simple typescript bundling on yarn generated js
   ],
   "dependencies": [
     {
-      "ref": "4407577ae52a8e0b1426675fc484aef8bcb0be37d7d025e1bf12586b8e5056ce",
+      "ref": "1a440bc527666e56a4d8cdbff4889c9fcaaea9226b191f8359081d4dcc18cded",
       "dependsOn": [
         "ac73be2c234f2bbc42fbdf7561dee01c7d63ad117c6e199b46f9f3f6c651ddba"
       ]
@@ -15596,7 +15596,7 @@ exports[`integration functional: simple typescript bundling on yarn generated js
     {
       "ref": "7ae45ad102eab3b6d7e7896acd08c427a9b25b346470d7bc6507b6481575d519",
       "dependsOn": [
-        "4407577ae52a8e0b1426675fc484aef8bcb0be37d7d025e1bf12586b8e5056ce"
+        "1a440bc527666e56a4d8cdbff4889c9fcaaea9226b191f8359081d4dcc18cded"
       ]
     },
     {

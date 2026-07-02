@@ -106,13 +106,14 @@ export function * makeToolCs(
     '@cyclonedx/cyclonedx-library',
   ]
   for (const lib of libs) {
-    logger.debug(LogPrefixes.DEBUG, 'try resolving paths for tool/lib', lib)
-    for (const libPath of require.resolve.paths(lib) ?? []) {
-      const packageJsonPath = resolve(libPath, 'package.json')
-      if (existsSync(packageJsonPath)) {
-        packageJsonPaths.push([packageJsonPath, ComponentType.Library])
-        break
-      }
+    logger.debug(LogPrefixes.DEBUG, 'try resolving manifest path for tool/lib', lib)
+    try {
+      packageJsonPaths.push([
+        require.resolve(`${lib}/package.json`),
+        ComponentType.Library
+      ])
+    } catch (err) {
+      logger.debug(LogPrefixes.DEBUG, 'failed resolving manifest of ', lib ,' for with error:', err)
     }
   }
 
