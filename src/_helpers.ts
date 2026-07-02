@@ -113,7 +113,7 @@ export function * makeToolCs(
         ComponentType.Library
       ])
     } catch (err) {
-      logger.debug(LogPrefixes.DEBUG, 'failed resolving manifest of ', lib ,' for with error:', err)
+      logger.debug(LogPrefixes.DEBUG, 'failed resolving manifest for', lib ,'with error:', err)
     }
   }
 
