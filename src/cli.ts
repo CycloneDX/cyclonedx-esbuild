@@ -17,7 +17,7 @@ SPDX-License-Identifier: Apache-2.0
 Copyright (c) OWASP Foundation. All Rights Reserved.
 */
 
-import {existsSync, mkdirSync, openSync} from "node:fs"
+import {closeSync, existsSync, mkdirSync, openSync} from "node:fs"
 import {dirname, resolve} from "node:path"
 
 import { Utils as BomUtils } from "@cyclonedx/cyclonedx-library/Contrib/Bom"
@@ -259,13 +259,20 @@ export async function run(process_: NodeJS.Process): Promise<number> {
     }
     outputFD = openSync(outputFPn, 'w')
   }
-  logger.log(LogPrefixes.LOG, 'writing BOM to:', options.outputFile)
-  const written = await writeAllSync(outputFD, serialized)
-  logger.info('%s wrote %d bytes to %s', LogPrefixes.INFO, written, options.outputFile)
 
-  return written > 0
-    ? ExitCode.SUCCESS
-    : ExitCode.FAILURE
+  try {
+    logger.log(LogPrefixes.LOG, 'writing BOM to:', options.outputFile)
+    const written = await writeAllSync(outputFD, serialized)
+    logger.info('%s wrote %d bytes to %s', LogPrefixes.INFO, written, options.outputFile)
+
+    return written > 0
+      ? ExitCode.SUCCESS
+      : ExitCode.FAILURE
+  } finally {
+    if (outputFD !== process_.stdout.fd) {
+      closeSync(outputFD)
+    }
+  }
 }
 
 /* c8 ignore start -- const enums are not compiled to any code */
