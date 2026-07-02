@@ -21,9 +21,6 @@ __metadata:
     "@types/node": "npm:ts5.9"
     esbuild: "npm:0.28.1"
     typescript: "npm:5.9.3"
-  dependenciesMeta:
-    "@cyclonedx/cyclonedx-eslint-testing-reexport-package@0.0.1":
-      unplugged: true
   languageName: unknown
   linkType: soft
 
