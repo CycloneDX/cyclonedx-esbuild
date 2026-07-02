@@ -109,7 +109,7 @@ export function * makeToolCs(
   /* eslint-disable no-labels -- technically needed */
   libsLoop:
     for (const lib of libs) {
-      for (const libPath of require.resolve.paths(lib)!) {
+      for (const libPath of require.resolve.paths(lib) ?? []) {
         const packageJsonPath = resolve(libPath, 'package.json')
         if (existsSync(packageJsonPath)) {
           packageJsonPaths.push([packageJsonPath, ComponentType.Library])
