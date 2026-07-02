@@ -7,9 +7,11 @@ All notable changes to this project will be documented in this file.
 <!-- add unreleased items here -->
 
 * Fixed
-  * Properly closing output file (via [#168]) 
+  * Fix tool detection in yarn envs (via [#169])
+  * Properly closing output file (via [#168])
 
 [#168]: https://github.com/CycloneDX/cyclonedx-esbuild/pull/168
+[#169]: https://github.com/CycloneDX/cyclonedx-esbuild/pull/169
 
 ## 1.4.1 - 2026-06-30
 

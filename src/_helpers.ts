@@ -99,26 +99,23 @@ export function * makeToolCs(
   logger: Console
 ): Generator<Component> {
   const packageJsonPaths: Array<[string, ComponentType]> = [
-    // this plugin is an optional enhancement, not a standalone application -- use as `Library`
-    [resolve(module.path, '..', 'package.json'), selfCTyp]
+    [resolve(module.path, '..', 'package.json'), selfCTyp],
   ]
 
   const libs = [
-    '@cyclonedx/cyclonedx-library'
-  ].map(s => s.split('/', 2))
-  const nodeModulePaths = require.resolve.paths('__some_none-native_package__') ?? []
-  /* eslint-disable no-labels -- technically needed */
-  libsLoop:
-    for (const lib of libs) {
-      for (const nodeModulePath of nodeModulePaths) {
-        const packageJsonPath = resolve(nodeModulePath, ...lib, 'package.json')
-        if (existsSync(packageJsonPath)) {
-          packageJsonPaths.push([packageJsonPath, ComponentType.Library])
-          continue libsLoop
-        }
-      }
+    '@cyclonedx/cyclonedx-library',
+  ]
+  for (const lib of libs) {
+    logger.debug(LogPrefixes.DEBUG, 'try resolving manifest path for tool/lib', lib)
+    try {
+      packageJsonPaths.push([
+        require.resolve(`${lib}/package.json`),
+        ComponentType.Library
+      ])
+    } catch (err) {
+      logger.debug(LogPrefixes.DEBUG, 'failed resolving manifest for', lib ,'with error:', err)
     }
-  /* eslint-enable no-labels */
+  }
 
   for (const [packageJsonPath, cType] of packageJsonPaths) {
     logger.info(LogPrefixes.INFO, 'try building new Tool from PkgPath', packageJsonPath)
