@@ -17,7 +17,7 @@ SPDX-License-Identifier: Apache-2.0
 Copyright (c) OWASP Foundation. All Rights Reserved.
 */
 
-import {existsSync, mkdirSync, openSync} from "node:fs"
+import {closeSync, existsSync, mkdirSync, openSync} from "node:fs"
 import {dirname, resolve} from "node:path"
 
 import { Utils as BomUtils } from "@cyclonedx/cyclonedx-library/Contrib/Bom"
@@ -257,9 +257,15 @@ export const cyclonedxEsbuildPlugin = (opts: CycloneDxEsbuildPluginOptions = {})
         logger.info(LogPrefixes.INFO, 'creating directory', outputFDir)
         mkdirSync(outputFDir, {recursive: true})
       }
-      logger.log(LogPrefixes.LOG, 'writing BOM to', options.outputFile)
-      const written = await writeAllSync(openSync(outputFPn, 'w'), serialized);
-      logger.info('%s wrote %d bytes to %s', LogPrefixes.INFO, written, options.outputFile)
+
+      const outputFD = openSync(outputFPn, 'w')
+      try {
+        logger.log(LogPrefixes.LOG, 'writing BOM to', options.outputFile)
+        const written = await writeAllSync(outputFD, serialized);
+        logger.info('%s wrote %d bytes to %s', LogPrefixes.INFO, written, options.outputFile)
+      } finally {
+        closeSync(outputFD)
+      }
     });
   }
 })
