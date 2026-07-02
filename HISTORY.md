@@ -6,6 +6,8 @@ All notable changes to this project will be documented in this file.
 
 <!-- add unreleased items here -->
 
+## 1.4.2 - 2026-07-02
+
 * Fixed
   * Fix tool detection in yarn envs (via [#169])
   * Properly closing output file (via [#168])
