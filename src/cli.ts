@@ -17,7 +17,7 @@ SPDX-License-Identifier: Apache-2.0
 Copyright (c) OWASP Foundation. All Rights Reserved.
 */
 
-import {existsSync, mkdirSync, openSync} from "node:fs"
+import {closeSync, existsSync, mkdirSync, openSync} from "node:fs"
 import {dirname, resolve} from "node:path"
 
 import { Utils as BomUtils } from "@cyclonedx/cyclonedx-library/Contrib/Bom"
@@ -262,6 +262,9 @@ export async function run(process_: NodeJS.Process): Promise<number> {
   logger.log(LogPrefixes.LOG, 'writing BOM to:', options.outputFile)
   const written = await writeAllSync(outputFD, serialized)
   logger.info('%s wrote %d bytes to %s', LogPrefixes.INFO, written, options.outputFile)
+  if (outputFD !== process_.stdout.fd) {
+    closeSync(outputFD)
+  }
 
   return written > 0
     ? ExitCode.SUCCESS
