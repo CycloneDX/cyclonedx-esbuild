@@ -99,25 +99,22 @@ export function * makeToolCs(
   logger: Console
 ): Generator<Component> {
   const packageJsonPaths: Array<[string, ComponentType]> = [
-    // this plugin is an optional enhancement, not a standalone application -- use as `Library`
     [resolve(module.path, '..', 'package.json'), selfCTyp],
   ]
 
   const libs = [
     '@cyclonedx/cyclonedx-library',
   ]
-  /* eslint-disable no-labels -- technically needed */
-  libsLoop:
-    for (const lib of libs) {
-      for (const libPath of require.resolve.paths(lib) ?? []) {
-        const packageJsonPath = resolve(libPath, 'package.json')
-        if (existsSync(packageJsonPath)) {
-          packageJsonPaths.push([packageJsonPath, ComponentType.Library])
-          continue libsLoop
-        }
+  for (const lib of libs) {
+    logger.debug(LogPrefixes.DEBUG, 'try resolving paths for tool/lib', lib)
+    for (const libPath of require.resolve.paths(lib) ?? []) {
+      const packageJsonPath = resolve(libPath, 'package.json')
+      if (existsSync(packageJsonPath)) {
+        packageJsonPaths.push([packageJsonPath, ComponentType.Library])
+        break
       }
     }
-  /* eslint-enable no-labels */
+  }
 
   for (const [packageJsonPath, cType] of packageJsonPaths) {
     logger.info(LogPrefixes.INFO, 'try building new Tool from PkgPath', packageJsonPath)

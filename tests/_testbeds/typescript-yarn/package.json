@@ -6,7 +6,7 @@
   "license": "ISC",
   "main": "dist/bundle.js",
   "devDependencies": {
-    "@cyclonedx/cyclonedx-esbuild": "link:../../../",
+    "@cyclonedx/cyclonedx-esbuild": "../../../cyclonedx-cyclonedx-esbuild-1.4.1.tgz",
     "@cyclonedx/cyclonedx-eslint-testing-reexport-package": "file:../../_data/reexport-package/package.tgz",
     "@cyclonedx/cyclonedx-eslint-testing-unused-package": "file:../../_data/unused-package/package.tgz",
     "@types/node": "ts5.9",

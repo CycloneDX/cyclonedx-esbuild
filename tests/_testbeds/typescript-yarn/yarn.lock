@@ -5,17 +5,41 @@ __metadata:
   version: 10
   cacheKey: 10c0
 
-"@cyclonedx/cyclonedx-esbuild@link:../../../::locator=%40cyclonedx%2Fcyclonedx-eslint-testbed-typescript-yarn%40workspace%3A.":
-  version: 0.0.0-use.local
-  resolution: "@cyclonedx/cyclonedx-esbuild@link:../../../::locator=%40cyclonedx%2Fcyclonedx-eslint-testbed-typescript-yarn%40workspace%3A."
+"@cyclonedx/cyclonedx-esbuild@file:../../../cyclonedx-cyclonedx-esbuild-1.4.1.tgz::locator=%40cyclonedx%2Fcyclonedx-eslint-testbed-typescript-yarn%40workspace%3A.":
+  version: 1.4.1
+  resolution: "@cyclonedx/cyclonedx-esbuild@file:../../../cyclonedx-cyclonedx-esbuild-1.4.1.tgz#../../../cyclonedx-cyclonedx-esbuild-1.4.1.tgz::hash=b64e6d&locator=%40cyclonedx%2Fcyclonedx-eslint-testbed-typescript-yarn%40workspace%3A."
+  dependencies:
+    "@cyclonedx/cyclonedx-library": "npm:^10.0.0"
+    ajv: "npm:^8.12.0"
+    ajv-formats: "npm:^3.0.1"
+    ajv-formats-draft2019: "npm:^1.6.1"
+    commander: "npm:^14.0.0"
+    normalize-package-data: "npm:^7.0.0 || ^8.0.0"
+    packageurl-js: "npm:^2.0.1"
+    spdx-expression-parse: "npm:^3.0.1 || ^4.0.0"
+  peerDependencies:
+    esbuild: ">=0.11.15"
+  dependenciesMeta:
+    ajv:
+      optional: true
+    ajv-formats:
+      optional: true
+    ajv-formats-draft2019:
+      optional: true
+  peerDependenciesMeta:
+    esbuild:
+      optional: true
+  bin:
+    cyclonedx-esbuild: bin/cyclonedx-esbuild-cli.js
+  checksum: 10c0/33571278780294bac1999d819f3889d00e03fdc86f16fedf707e2e52d98e1cb8d2b53b5102d825e15b36a9b762c8a3927faa5d504fba2f7b30fb8e1335770ba7
   languageName: node
-  linkType: soft
+  linkType: hard
 
 "@cyclonedx/cyclonedx-eslint-testbed-typescript-yarn@workspace:.":
   version: 0.0.0-use.local
   resolution: "@cyclonedx/cyclonedx-eslint-testbed-typescript-yarn@workspace:."
   dependencies:
-    "@cyclonedx/cyclonedx-esbuild": "link:../../../"
+    "@cyclonedx/cyclonedx-esbuild": ../../../cyclonedx-cyclonedx-esbuild-1.4.1.tgz
     "@cyclonedx/cyclonedx-eslint-testing-reexport-package": "file:../../_data/reexport-package/package.tgz"
     "@cyclonedx/cyclonedx-eslint-testing-unused-package": "file:../../_data/unused-package/package.tgz"
     "@types/node": "npm:ts5.9"
@@ -44,6 +68,36 @@ __metadata:
   version: 0.0.1
   resolution: "@cyclonedx/cyclonedx-eslint-testing-unused-package@file:../../_data/unused-package/package.tgz#../../_data/unused-package/package.tgz::hash=ae2b9f&locator=%40cyclonedx%2Fcyclonedx-eslint-testbed-typescript-yarn%40workspace%3A."
   checksum: 10c0/9349f8c9ddfe76ff3f877e52882ec53c059e4461851e6a1f3df176f8a50a41518efc689b1bef43d7088d4cb8508568760d72ed6558dd4b9dce119176ccb92447
+  languageName: node
+  linkType: hard
+
+"@cyclonedx/cyclonedx-library@npm:^10.0.0":
+  version: 10.1.0
+  resolution: "@cyclonedx/cyclonedx-library@npm:10.1.0"
+  peerDependencies:
+    ajv: ^8.12.0
+    ajv-formats: ^3.0.1
+    ajv-formats-draft2019: ^1.6.1
+    libxmljs2: ^0.35||^0.37
+    packageurl-js: "*"
+    spdx-expression-parse: "*"
+    xmlbuilder2: ^3.0.2||^4.0.0
+  peerDependenciesMeta:
+    ajv:
+      optional: true
+    ajv-formats:
+      optional: true
+    ajv-formats-draft2019:
+      optional: true
+    libxmljs2:
+      optional: true
+    packageurl-js:
+      optional: true
+    spdx-expression-parse:
+      optional: true
+    xmlbuilder2:
+      optional: true
+  checksum: 10c0/ec8d4a683fd26d80dde2e0ebf02e41c094a26a8b9505a0841d6e674caf4be230f68c716b4c2be0d45c0dbf5060b829b849137f24a0927271dc253e43a178cc7d
   languageName: node
   linkType: hard
 
@@ -238,6 +292,67 @@ __metadata:
   languageName: node
   linkType: hard
 
+"ajv-formats-draft2019@npm:^1.6.1":
+  version: 1.6.1
+  resolution: "ajv-formats-draft2019@npm:1.6.1"
+  dependencies:
+    punycode: "npm:^2.1.1"
+    schemes: "npm:^1.4.0"
+    smtp-address-parser: "npm:^1.0.3"
+    uri-js: "npm:^4.4.1"
+  peerDependencies:
+    ajv: "*"
+  checksum: 10c0/b7e72eaf6663ba7f71f6f46bb2da5888ca46b9bbd36d87e4ee3b8993885016f77e65d438b165f6a09f1b146e7ac11ab7fd3ebe7e265fa66f226b084842266081
+  languageName: node
+  linkType: hard
+
+"ajv-formats@npm:^3.0.1":
+  version: 3.0.1
+  resolution: "ajv-formats@npm:3.0.1"
+  dependencies:
+    ajv: "npm:^8.0.0"
+  peerDependencies:
+    ajv: ^8.0.0
+  peerDependenciesMeta:
+    ajv:
+      optional: true
+  checksum: 10c0/168d6bca1ea9f163b41c8147bae537e67bd963357a5488a1eaf3abe8baa8eec806d4e45f15b10767e6020679315c7e1e5e6803088dfb84efa2b4e9353b83dd0a
+  languageName: node
+  linkType: hard
+
+"ajv@npm:^8.0.0, ajv@npm:^8.12.0":
+  version: 8.20.0
+  resolution: "ajv@npm:8.20.0"
+  dependencies:
+    fast-deep-equal: "npm:^3.1.3"
+    fast-uri: "npm:^3.0.1"
+    json-schema-traverse: "npm:^1.0.0"
+    require-from-string: "npm:^2.0.2"
+  checksum: 10c0/5df9a1c8f83863cde1bd3a9ddb426f599718f88e3dc9153616c79fb28e0be455335830d7f21d745576519f057b371352daa31047b6a33d7036fe08777d60cf2a
+  languageName: node
+  linkType: hard
+
+"commander@npm:^14.0.0":
+  version: 14.0.3
+  resolution: "commander@npm:14.0.3"
+  checksum: 10c0/755652564bbf56ff2ff083313912b326450d3f8d8c85f4b71416539c9a05c3c67dbd206821ca72635bf6b160e2afdefcb458e86b317827d5cb333b69ce7f1a24
+  languageName: node
+  linkType: hard
+
+"commander@npm:^2.19.0":
+  version: 2.20.3
+  resolution: "commander@npm:2.20.3"
+  checksum: 10c0/74c781a5248c2402a0a3e966a0a2bba3c054aad144f5c023364be83265e796b20565aa9feff624132ff629aa64e16999fa40a743c10c12f7c61e96a794b99288
+  languageName: node
+  linkType: hard
+
+"discontinuous-range@npm:1.0.0":
+  version: 1.0.0
+  resolution: "discontinuous-range@npm:1.0.0"
+  checksum: 10c0/487b105f83c1cc528e25e65d3c4b73958ec79769b7bd0e264414702a23a7e2b282c72982b4bef4af29fcab53f47816c3f0a5c40d85a99a490f4bc35b83dc00f8
+  languageName: node
+  linkType: hard
+
 "esbuild@npm:0.28.1":
   version: 0.28.1
   resolution: "esbuild@npm:0.28.1"
@@ -327,6 +442,201 @@ __metadata:
   languageName: node
   linkType: hard
 
+"extend@npm:^3.0.0":
+  version: 3.0.2
+  resolution: "extend@npm:3.0.2"
+  checksum: 10c0/73bf6e27406e80aa3e85b0d1c4fd987261e628064e170ca781125c0b635a3dabad5e05adbf07595ea0cf1e6c5396cacb214af933da7cbaf24fe75ff14818e8f9
+  languageName: node
+  linkType: hard
+
+"fast-deep-equal@npm:^3.1.3":
+  version: 3.1.3
+  resolution: "fast-deep-equal@npm:3.1.3"
+  checksum: 10c0/40dedc862eb8992c54579c66d914635afbec43350afbbe991235fdcb4e3a8d5af1b23ae7e79bef7d4882d0ecee06c3197488026998fb19f72dc95acff1d1b1d0
+  languageName: node
+  linkType: hard
+
+"fast-uri@npm:^3.0.1":
+  version: 3.1.3
+  resolution: "fast-uri@npm:3.1.3"
+  checksum: 10c0/0ce405815546770ad7e730b8f8fd58db80cefe4533ee99ee1a3263f11d2ccc3b8a0cf10d6cd9ba590e9746eb43b60f2ef2631d0c379a9ebba063ce0d4076b109
+  languageName: node
+  linkType: hard
+
+"hosted-git-info@npm:^9.0.0":
+  version: 9.0.3
+  resolution: "hosted-git-info@npm:9.0.3"
+  dependencies:
+    lru-cache: "npm:^11.1.0"
+  checksum: 10c0/8f216ccb461ca54ae1846745325ced6a880b53101a58c820b813f067caa301576bf974f787df5688b7f0f1b752cdfcbaa2979751d1fcfd604032cc57bc538607
+  languageName: node
+  linkType: hard
+
+"json-schema-traverse@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "json-schema-traverse@npm:1.0.0"
+  checksum: 10c0/71e30015d7f3d6dc1c316d6298047c8ef98a06d31ad064919976583eb61e1018a60a0067338f0f79cabc00d84af3fcc489bd48ce8a46ea165d9541ba17fb30c6
+  languageName: node
+  linkType: hard
+
+"lru-cache@npm:^11.1.0":
+  version: 11.5.1
+  resolution: "lru-cache@npm:11.5.1"
+  checksum: 10c0/7b341cea79a8efe9c6a6f20c8757a77eca5b25d7ff983ccf4e11e547b81f6787824baa1c84705251dff84ab4ffac85717ac354b9d02e465f86a9f8b166409979
+  languageName: node
+  linkType: hard
+
+"moo@npm:^0.5.0":
+  version: 0.5.3
+  resolution: "moo@npm:0.5.3"
+  checksum: 10c0/5c5e00d7c57a69ce1cc2f21a90655ff10556481cc10fa70528c01e91f00deff8a65fa8da6dc7b27d136d66085055aab238fd1b19a75070263e0028e8f07c8213
+  languageName: node
+  linkType: hard
+
+"nearley@npm:^2.20.1":
+  version: 2.20.1
+  resolution: "nearley@npm:2.20.1"
+  dependencies:
+    commander: "npm:^2.19.0"
+    moo: "npm:^0.5.0"
+    railroad-diagrams: "npm:^1.0.0"
+    randexp: "npm:0.4.6"
+  bin:
+    nearley-railroad: bin/nearley-railroad.js
+    nearley-test: bin/nearley-test.js
+    nearley-unparse: bin/nearley-unparse.js
+    nearleyc: bin/nearleyc.js
+  checksum: 10c0/d25e1fd40b19c53a0ada6a688670f4a39063fd9553ab62885e81a82927d51572ce47193b946afa3d85efa608ba2c68f433c421f69b854bfb7f599eacb5fae37e
+  languageName: node
+  linkType: hard
+
+"normalize-package-data@npm:^7.0.0 || ^8.0.0":
+  version: 8.0.0
+  resolution: "normalize-package-data@npm:8.0.0"
+  dependencies:
+    hosted-git-info: "npm:^9.0.0"
+    semver: "npm:^7.3.5"
+    validate-npm-package-license: "npm:^3.0.4"
+  checksum: 10c0/abd9d85912d6435979a5779d30e54b7725a6271e36186f284d00b33886a584d738ca7c2d2569e7f7e1be9cc72d90c1485d58562f546163b49edb87ea30804acf
+  languageName: node
+  linkType: hard
+
+"packageurl-js@npm:^2.0.1":
+  version: 2.0.1
+  resolution: "packageurl-js@npm:2.0.1"
+  checksum: 10c0/8a45bc925243bea0fd7f027b54bf7c363ab70dae2b01676d67856eb788352d7344f38b86c8cfa510410220c6848dc57bc152146bf6518fb06c272d3dbe003b55
+  languageName: node
+  linkType: hard
+
+"punycode@npm:^2.1.0, punycode@npm:^2.1.1":
+  version: 2.3.1
+  resolution: "punycode@npm:2.3.1"
+  checksum: 10c0/14f76a8206bc3464f794fb2e3d3cc665ae416c01893ad7a02b23766eb07159144ee612ad67af5e84fa4479ccfe67678c4feb126b0485651b302babf66f04f9e9
+  languageName: node
+  linkType: hard
+
+"railroad-diagrams@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "railroad-diagrams@npm:1.0.0"
+  checksum: 10c0/81bf8f86870a69fb9ed243102db9ad6416d09c4cb83964490d44717690e07dd982f671503236a1f8af28f4cb79d5d7a87613930f10ac08defa845ceb6764e364
+  languageName: node
+  linkType: hard
+
+"randexp@npm:0.4.6":
+  version: 0.4.6
+  resolution: "randexp@npm:0.4.6"
+  dependencies:
+    discontinuous-range: "npm:1.0.0"
+    ret: "npm:~0.1.10"
+  checksum: 10c0/14ee14b6d7f5ce69609b51cc914fb7a7c82ad337820a141c5f762c5ad1fe868f5191ea6e82359aee019b625ee1359486628fa833909d12c3b5dd9571908c3345
+  languageName: node
+  linkType: hard
+
+"require-from-string@npm:^2.0.2":
+  version: 2.0.2
+  resolution: "require-from-string@npm:2.0.2"
+  checksum: 10c0/aaa267e0c5b022fc5fd4eef49d8285086b15f2a1c54b28240fdf03599cbd9c26049fee3eab894f2e1f6ca65e513b030a7c264201e3f005601e80c49fb2937ce2
+  languageName: node
+  linkType: hard
+
+"ret@npm:~0.1.10":
+  version: 0.1.15
+  resolution: "ret@npm:0.1.15"
+  checksum: 10c0/01f77cad0f7ea4f955852c03d66982609893edc1240c0c964b4c9251d0f9fb6705150634060d169939b096d3b77f4c84d6b6098a5b5d340160898c8581f1f63f
+  languageName: node
+  linkType: hard
+
+"schemes@npm:^1.4.0":
+  version: 1.4.0
+  resolution: "schemes@npm:1.4.0"
+  dependencies:
+    extend: "npm:^3.0.0"
+  checksum: 10c0/4ef20fe8dd2818d9a9d4dbc0b8491770435565978e44d511175e3b900194cbc9280db3648f6e90baed791c3ee65cff5c03b61a7b6f0ce61c65424f850cba5ac9
+  languageName: node
+  linkType: hard
+
+"semver@npm:^7.3.5":
+  version: 7.8.5
+  resolution: "semver@npm:7.8.5"
+  bin:
+    semver: bin/semver.js
+  checksum: 10c0/b1f3127a5be8125a94f37188b361c212466c292c6910adce3ec106cff5dc211ccaedc4739c11bb70fda59d6fc1f040a9bca289f4e093451521a2372e5231fe0c
+  languageName: node
+  linkType: hard
+
+"smtp-address-parser@npm:^1.0.3":
+  version: 1.1.0
+  resolution: "smtp-address-parser@npm:1.1.0"
+  dependencies:
+    nearley: "npm:^2.20.1"
+  checksum: 10c0/054deb78288a3fe9e1da6a4e8f9d53fb4fe9a2cc2d333d582053ff6c5928a2fb0dc2c3d0af425908fd4340c691524f419a36d3d7161c2b80979bd0b98594bdcf
+  languageName: node
+  linkType: hard
+
+"spdx-correct@npm:^3.0.0":
+  version: 3.2.0
+  resolution: "spdx-correct@npm:3.2.0"
+  dependencies:
+    spdx-expression-parse: "npm:^3.0.0"
+    spdx-license-ids: "npm:^3.0.0"
+  checksum: 10c0/49208f008618b9119208b0dadc9208a3a55053f4fd6a0ae8116861bd22696fc50f4142a35ebfdb389e05ccf2de8ad142573fefc9e26f670522d899f7b2fe7386
+  languageName: node
+  linkType: hard
+
+"spdx-exceptions@npm:^2.1.0":
+  version: 2.5.0
+  resolution: "spdx-exceptions@npm:2.5.0"
+  checksum: 10c0/37217b7762ee0ea0d8b7d0c29fd48b7e4dfb94096b109d6255b589c561f57da93bf4e328c0290046115961b9209a8051ad9f525e48d433082fc79f496a4ea940
+  languageName: node
+  linkType: hard
+
+"spdx-expression-parse@npm:^3.0.0":
+  version: 3.0.1
+  resolution: "spdx-expression-parse@npm:3.0.1"
+  dependencies:
+    spdx-exceptions: "npm:^2.1.0"
+    spdx-license-ids: "npm:^3.0.0"
+  checksum: 10c0/6f8a41c87759fa184a58713b86c6a8b028250f158159f1d03ed9d1b6ee4d9eefdc74181c8ddc581a341aa971c3e7b79e30b59c23b05d2436d5de1c30bdef7171
+  languageName: node
+  linkType: hard
+
+"spdx-expression-parse@npm:^3.0.1 || ^4.0.0":
+  version: 4.0.0
+  resolution: "spdx-expression-parse@npm:4.0.0"
+  dependencies:
+    spdx-exceptions: "npm:^2.1.0"
+    spdx-license-ids: "npm:^3.0.0"
+  checksum: 10c0/965c487e77f4fb173f1c471f3eef4eb44b9f0321adc7f93d95e7620da31faa67d29356eb02523cd7df8a7fc1ec8238773cdbf9e45bd050329d2b26492771b736
+  languageName: node
+  linkType: hard
+
+"spdx-license-ids@npm:^3.0.0":
+  version: 3.0.23
+  resolution: "spdx-license-ids@npm:3.0.23"
+  checksum: 10c0/8495620f6f2a237749cce922ea2d593a66f7885c301b1a0f5542183e7041182f27f616a8f13345cefdea0c9b3e0899328e0aa8cec100cf4f3fac4bb3bd975515
+  languageName: node
+  linkType: hard
+
 "typescript@npm:5.9.3":
   version: 5.9.3
   resolution: "typescript@npm:5.9.3"
@@ -351,5 +661,24 @@ __metadata:
   version: 7.24.6
   resolution: "undici-types@npm:7.24.6"
   checksum: 10c0/d9cd8befb643ac904615c280a095ba4240531f6bb4a5e75a22a7483630ca8d3f1016d2ab6ace6ceda1f63b3a2db2fe037fafe121d6917a0187573aa548ff78ca
+  languageName: node
+  linkType: hard
+
+"uri-js@npm:^4.4.1":
+  version: 4.4.1
+  resolution: "uri-js@npm:4.4.1"
+  dependencies:
+    punycode: "npm:^2.1.0"
+  checksum: 10c0/4ef57b45aa820d7ac6496e9208559986c665e49447cb072744c13b66925a362d96dd5a46c4530a6b8e203e5db5fe849369444440cb22ecfc26c679359e5dfa3c
+  languageName: node
+  linkType: hard
+
+"validate-npm-package-license@npm:^3.0.4":
+  version: 3.0.4
+  resolution: "validate-npm-package-license@npm:3.0.4"
+  dependencies:
+    spdx-correct: "npm:^3.0.0"
+    spdx-expression-parse: "npm:^3.0.0"
+  checksum: 10c0/7b91e455a8de9a0beaa9fe961e536b677da7f48c9a493edf4d4d4a87fd80a7a10267d438723364e432c2fcd00b5650b5378275cded362383ef570276e6312f4f
   languageName: node
   linkType: hard
