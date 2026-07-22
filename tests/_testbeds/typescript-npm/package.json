@@ -23,10 +23,9 @@
   "overrides": {
     "@cyclonedx/cyclonedx-eslint-testing-custom-package": "file:../../_data/custom-package/package.tgz"
   },
-  "packageManager": "npm",
   "devEngines": {
-    "runtime": {
-      "name": "node",
+    "packageManager": {
+      "name": "npm",
       "onFail": "error"
     }
   }
