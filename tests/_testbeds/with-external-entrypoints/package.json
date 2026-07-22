@@ -16,10 +16,9 @@
     "@cyclonedx/cyclonedx-eslint-testing-custom-package": "file:../../_data/custom-package/package.tgz",
     "esbuild": "0.28.1"
   },
-  "packageManager": "npm",
   "devEngines": {
-    "runtime": {
-      "name": "node",
+    "packageManager": {
+      "name": "npm",
       "onFail": "error"
     }
   }

@@ -83,5 +83,10 @@
     "ts-node": "^10.9.2",
     "typescript-eslint": "^8.42.0"
   },
-  "packageManager": "npm"
+  "devEngines": {
+    "packageManager": {
+      "name": "npm",
+      "onFail": "error"
+    }
+  }
 }

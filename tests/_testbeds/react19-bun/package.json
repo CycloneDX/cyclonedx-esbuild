@@ -20,8 +20,11 @@
     "@types/bun": "latest",
     "@cyclonedx/cyclonedx-esbuild": "link:@cyclonedx/cyclonedx-esbuild"
   },
-  "packageManager": "bun",
   "devEngines": {
+    "runtime": {
+      "name": "bun",
+      "onFail": "error"
+    },
     "packageManager": {
       "name": "bun",
       "onFail": "error"
