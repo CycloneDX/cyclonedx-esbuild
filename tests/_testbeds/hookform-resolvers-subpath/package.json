@@ -2,7 +2,7 @@
   "private": true,
   "name": "@cyclonedx/cyclonedx-eslint-testbed-hookform-resolvers-subpath",
   "version": "1.0.0",
-  "description": "Regression bed: @hookform/resolvers ships a legacy subpath-directory manifest (e.g. zod/package.json) that must not become a spurious SBOM component",
+  "description": "package `@hookform/resolvers` ships a sub-package `@hookform/resolvers/zod`",
   "type": "module",
   "main": "dist/bundle.js",
   "scripts": {
