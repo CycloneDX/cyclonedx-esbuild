@@ -137,6 +137,17 @@ const testSetups = [
       },
     ]
   },
+  {
+    dir: 'hookform-resolvers-subpath',
+    purpose: 'regression: @hookform/resolvers legacy subpath-directory manifest (issue #181)',
+    packageManager: 'npm',
+    results: [ // paths relative to `dir`
+      {
+        format: 'json',
+        file: 'dist/bom.json'
+      },
+    ]
+  },
 ]
 
 describe('integration', () => {
