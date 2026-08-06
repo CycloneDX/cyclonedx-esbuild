@@ -28,8 +28,6 @@ import {isString} from "./_helpers";
 export class PackageUrlFactory {
 
   makeFromPackageJson(packageJson: normalizePackageData.Package): PackageURL | undefined {
-    // !REMINDER: even private packages may have a PURL
-
     let name: string = packageJson.name
     let namespace: string | undefined = undefined
     if ( name.startsWith('@') ) {
@@ -63,7 +61,8 @@ export class PackageUrlFactory {
 
     if ( !Object.hasOwn(qualifiers, PurlQualifierNames.DownloadUrl)
       && !Object.hasOwn(qualifiers, PurlQualifierNames.VcsUrl)
-      && ( !this._checkPackageNpmjs(packageJson.name)
+      && ( Boolean(packageJson.private)
+        || !this._checkPackageNpmjs(packageJson.name)
         /* eslint-disable-next-line @typescript-eslint/no-unnecessary-condition -- safety */
         || packageJson.version?.length === 0
       )
