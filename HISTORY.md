@@ -6,6 +6,11 @@ All notable changes to this project will be documented in this file.
 
 <!-- add unreleased items here -->
 
+* Fixed
+  * Don't emit purls for non-standard package names without reachability qualifiers ([#])
+
+[#]: 
+
 ## 1.4.3 - 2026-08-10
 
 Maintenance release.
