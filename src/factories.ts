@@ -96,41 +96,42 @@ export class PackageUrlFactory {
    * - https://docs.npmjs.com/cli/v12/configuring-npm/package-json#name
    * - https://docs.npmjs.com/cli/v12/using-npm/scope#publishing-scoped-packages
    */
-  _checkPackageNpmjs (packageName: string): boolean {
-      if (packageName.length > 214 ) {
-        // The name must be less than or equal to 214 characters. This includes the scope for scoped packages.
+  _checkPackageNpmjs(packageName: string): boolean {
+    if (packageName.length > 214) {
+      // The name must be less than or equal to 214 characters. This includes the scope for scoped packages.
+      return false
+    }
+    if (packageName.startsWith('@')) {
+      // scoped package
+      if (packageName.match(/\//g)?.length !== 1
+        || packageName.startsWith('/')
+        || packageName.endsWith('/')
+      ) {
         return false
       }
-      if (packageName.startsWith('@')) {
-        if ( packageName.match(/\//g)?.length !== 1
-          || packageName.startsWith('/')
-          || packageName.endsWith('/')
-        ) {
-          return false
-        }
-      } else {
-        if (packageName.match(/\//g)?.length !== 0) {
-          return false
-        }
-        if (packageName.startsWith('.')
-          || packageName.startsWith(  '_')
-        ) {
-          // The names of scoped packages can begin with a dot or an underscore. This is not permitted without a scope.
-          return false
-        }
-      }
-
-      // TODO: The name ends up being part of a URL, an argument on the command line, and a folder name. Therefore, the name can't contain any non-URL-safe characters.
-
-
-      /* skipped - this does not apply to old packages.
-      if (packageName.toLowerCase() !== packageName) {
-        // New packages must not have uppercase letters in the name.
+    } else {
+      // non-scoped package
+      if (packageName.match(/\//g)?.length !== 0) {
         return false
       }
-      */
+      if (packageName.startsWith('.')
+        || packageName.startsWith('_')
+      ) {
+        // The names of scoped packages can begin with a dot or an underscore. This is not permitted without a scope.
+        return false
+      }
+    }
 
-      return true
+    // TODO: The name ends up being part of a URL, an argument on the command line, and a folder name. Therefore, the name can't contain any non-URL-safe characters.
+
+    /* skipped - this does not apply to old packages that already existed before this rule.
+    if (packageName.toLowerCase() !== packageName) {
+      // New packages must not have uppercase letters in the name.
+      return false
+    }
+    */
+
+    return true
   }
 
 }
