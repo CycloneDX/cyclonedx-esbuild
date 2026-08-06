@@ -14895,6 +14895,119 @@ exports[`integration functional: no tree-shaking generated json file: dist/bom.j
 }"
 `;
 
+exports[`integration functional: package name is non-standard generated json file: dist/bom.json 1`] = `
+"{
+  "$schema": "http://cyclonedx.org/schema/bom-1.6.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.6",
+  "version": 1,
+  "metadata": {
+    "lifecycles": [
+      {
+        "phase": "build"
+      }
+    ],
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "name": "esbuild",
+          "version": "esbuildVersion-testing"
+        },
+        {
+          "type": "library",
+          "name": "cyclonedx-esbuild",
+          "group": "@cyclonedx",
+          "version": "thisVersion-testing",
+          "author": "Jan Kowalleck",
+          "description": "Create CycloneDX Software Bill of Materials (SBOM) from projects built with esbuild or Bun.",
+          "licenses": [
+            {
+              "license": {
+                "id": "Apache-2.0"
+              }
+            }
+          ],
+          "externalReferences": [
+            {
+              "url": "https://github.com/CycloneDX/cyclonedx-esbuild/issues",
+              "type": "issue-tracker",
+              "comment": "as detected from PackageJson property \\"bugs.url\\""
+            },
+            {
+              "url": "git+https://github.com/CycloneDX/cyclonedx-esbuild.git",
+              "type": "vcs",
+              "comment": "as detected from PackageJson property \\"repository.url\\""
+            },
+            {
+              "url": "https://github.com/CycloneDX/cyclonedx-esbuild#readme",
+              "type": "website",
+              "comment": "as detected from PackageJson property \\"homepage\\""
+            }
+          ]
+        },
+        {
+          "type": "library",
+          "name": "cyclonedx-library",
+          "group": "@cyclonedx",
+          "version": "libVersion-testing",
+          "author": "Jan Kowalleck",
+          "description": "Core functionality of CycloneDX for JavaScript (Node.js or WebBrowser).",
+          "licenses": [
+            {
+              "license": {
+                "id": "Apache-2.0"
+              }
+            }
+          ],
+          "externalReferences": [
+            {
+              "url": "https://github.com/CycloneDX/cyclonedx-javascript-library/issues",
+              "type": "issue-tracker",
+              "comment": "as detected from PackageJson property \\"bugs.url\\""
+            },
+            {
+              "url": "git+https://github.com/CycloneDX/cyclonedx-javascript-library.git",
+              "type": "vcs",
+              "comment": "as detected from PackageJson property \\"repository.url\\""
+            },
+            {
+              "url": "https://github.com/CycloneDX/cyclonedx-javascript-library#readme",
+              "type": "website",
+              "comment": "as detected from PackageJson property \\"homepage\\""
+            }
+          ]
+        }
+      ]
+    },
+    "component": {
+      "type": "application",
+      "name": "cyclonedx-eslint-testbed-with-non-standard-name/testbed",
+      "group": "@cyclonedx",
+      "version": "1.0.0",
+      "bom-ref": "7ae45ad102eab3b6d7e7896acd08c427a9b25b346470d7bc6507b6481575d519",
+      "description": "Example using a name that is not standard to https://www.npmjs.com/",
+      "licenses": [
+        {
+          "license": {
+            "id": "ISC",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40cyclonedx/cyclonedx-eslint-testbed-with-non-standard-name%2Ftestbed@1.0.0",
+      "evidence": {}
+    }
+  },
+  "components": [],
+  "dependencies": [
+    {
+      "ref": "7ae45ad102eab3b6d7e7896acd08c427a9b25b346470d7bc6507b6481575d519"
+    }
+  ]
+}"
+`;
+
 exports[`integration functional: react19 on bun generated json file: dist/bom.json 1`] = `
 "{
   "$schema": "http://cyclonedx.org/schema/bom-1.6.schema.json",
