@@ -137,6 +137,17 @@ const testSetups = [
       },
     ]
   },
+  {
+    dir: 'with-non-standard-name',
+    purpose: 'functional: package name is non-standard',
+    packageManager: 'npm',
+    results: [ // paths relative to `dir`
+      {
+        format: 'json',
+        file: 'dist/bom.json'
+      },
+    ]
+  },
 ]
 
 describe('integration', () => {
