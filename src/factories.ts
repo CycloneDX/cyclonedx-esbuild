@@ -62,7 +62,7 @@ export class PackageUrlFactory {
     if ( !Object.hasOwn(qualifiers, PurlQualifierNames.DownloadUrl)
       && !Object.hasOwn(qualifiers, PurlQualifierNames.VcsUrl)
       && ( Boolean(packageJson.private)
-        || !this._checkPackageNpmjs(packageJson.name)
+        || !this.checkPackageNpmjs(packageJson.name)
         /* eslint-disable-next-line @typescript-eslint/no-unnecessary-condition -- safety */
         || packageJson.version?.length === 0
       )
@@ -95,7 +95,7 @@ export class PackageUrlFactory {
    * - https://docs.npmjs.com/cli/v12/configuring-npm/package-json#name
    * - https://docs.npmjs.com/cli/v12/using-npm/scope#publishing-scoped-packages
    */
-  _checkPackageNpmjs(packageName: string): boolean {
+  private checkPackageNpmjs(packageName: string): boolean {
     if (packageName.length > 214) {
       // The name must be less than or equal to 214 characters. This includes the scope for scoped packages.
       return false
