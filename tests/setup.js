@@ -38,6 +38,7 @@ const MANAGERS = {
       'with-external-entrypoints',
       'with-externals',
       'no-treeshaking',
+      'with-non-standard-name',
       'hookform-resolvers-subpath',
     ]
   },
