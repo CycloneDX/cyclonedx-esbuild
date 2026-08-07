@@ -39,6 +39,7 @@ const MANAGERS = {
       'with-externals',
       'no-treeshaking',
       'with-non-standard-name',
+      'hookform-resolvers-subpath',
     ]
   },
   npm_with_scripts: {

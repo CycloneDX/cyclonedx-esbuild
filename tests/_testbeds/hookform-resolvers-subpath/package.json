@@ -1,0 +1,30 @@
+{
+  "private": true,
+  "name": "@cyclonedx/cyclonedx-eslint-testbed-hookform-resolvers-subpath",
+  "version": "1.0.0",
+  "description": "package `@hookform/resolvers` ships a sub-package `@hookform/resolvers/zod`",
+  "type": "module",
+  "main": "dist/bundle.js",
+  "scripts": {
+    "build": "node build.js",
+    "start": "npm run build && node dist/bundle.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@hookform/resolvers": "^5.2.2",
+    "react": "^18.3.1",
+    "react-hook-form": "^7.55.0",
+    "zod": "^3.25.0"
+  },
+  "devDependencies": {
+    "@cyclonedx/cyclonedx-esbuild": "file:../../../",
+    "esbuild": "0.28.1"
+  },
+  "devEngines": {
+    "packageManager": {
+      "name": "npm",
+      "onFail": "error"
+    }
+  }
+}

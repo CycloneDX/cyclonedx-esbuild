@@ -148,6 +148,17 @@ const testSetups = [
       },
     ]
   },
+  {
+    dir: 'hookform-resolvers-subpath',
+    purpose: 'package `@hookform/resolvers` with shipped sub-package ``@hookform/resolvers/zod` (issue #181)',
+    packageManager: 'npm',
+    results: [ // paths relative to `dir`
+      {
+        format: 'json',
+        file: 'dist/bom.json'
+      },
+    ]
+  },
 ]
 
 describe('integration', () => {
