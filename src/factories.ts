@@ -28,8 +28,6 @@ import {isString} from "./_helpers";
 export class PackageUrlFactory {
 
   makeFromPackageJson(packageJson: normalizePackageData.Package): PackageURL | undefined {
-    // !REMINDER: even private packages may have a PURL
-
     let name: string = packageJson.name
     let namespace: string | undefined = undefined
     if ( name.startsWith('@') ) {
@@ -61,6 +59,18 @@ export class PackageUrlFactory {
       }
     }
 
+    if ( !Object.hasOwn(qualifiers, PurlQualifierNames.DownloadUrl)
+      && !Object.hasOwn(qualifiers, PurlQualifierNames.VcsUrl)
+      && ( Boolean(packageJson.private)
+        || !this.checkPackageNpmjs(packageJson.name)
+        /* eslint-disable-next-line @typescript-eslint/no-unnecessary-condition -- safety */
+        || packageJson.version?.length === 0
+      )
+    ) {
+      // package would not be reachable by PackageURL means
+      return undefined
+    }
+
     try {
       // Do not beautify the parameters here, because that is in the domain of PackageURL and its representation.
       // No need to convert an empty "subpath" string to `undefined` and such.
@@ -75,6 +85,52 @@ export class PackageUrlFactory {
     } catch {
       return undefined
     }
+  }
+
+  /**
+   * check is package for guidelines of https://npmjs.com/
+   *
+   * see the docs:
+   * - https://docs.npmjs.com/package-name-guidelines
+   * - https://docs.npmjs.com/cli/v12/configuring-npm/package-json#name
+   * - https://docs.npmjs.com/cli/v12/using-npm/scope#publishing-scoped-packages
+   */
+  private checkPackageNpmjs(packageName: string): boolean {
+    if (packageName.length > 214) {
+      // The name must be less than or equal to 214 characters. This includes the scope for scoped packages.
+      return false
+    }
+    if (packageName.startsWith('@')) {
+      // scoped package
+      if (packageName.match(/\//g)?.length !== 1
+        || packageName.startsWith('/')
+        || packageName.endsWith('/')
+      ) {
+        return false
+      }
+    } else {
+      // non-scoped package
+      if (packageName.match(/\//g)?.length !== 0) {
+        return false
+      }
+      if (packageName.startsWith('.')
+        || packageName.startsWith('_')
+      ) {
+        // The names of scoped packages can begin with a dot or an underscore. This is not permitted without a scope.
+        return false
+      }
+    }
+
+    // TODO: The name ends up being part of a URL, an argument on the command line, and a folder name. Therefore, the name can't contain any non-URL-safe characters.
+
+    /* skipped - this does not apply to old packages that already existed before this rule.
+    if (packageName.toLowerCase() !== packageName) {
+      // New packages must not have uppercase letters in the name.
+      return false
+    }
+    */
+
+    return true
   }
 
 }

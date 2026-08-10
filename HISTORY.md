@@ -6,6 +6,13 @@ All notable changes to this project will be documented in this file.
 
 <!-- add unreleased items here -->
 
+* Fixed
+  * Don't emit purls for private package without reachability qualifiers ([#193] via [#192])
+  * Don't emit purls for non-standard package names without reachability qualifiers ([#192])
+
+[#192]: https://github.com/CycloneDX/cyclonedx-esbuild/pull/192
+[#193]: https://github.com/CycloneDX/cyclonedx-esbuild/issues/193
+
 ## 1.4.3 - 2026-08-10
 
 Maintenance release.
