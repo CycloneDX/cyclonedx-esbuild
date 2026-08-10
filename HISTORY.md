@@ -6,6 +6,10 @@ All notable changes to this project will be documented in this file.
 
 <!-- add unreleased items here -->
 
+## 1.4.3 - 2026-08-10
+
+Maintenance release.
+
 ## 1.4.2 - 2026-07-02
 
 * Fixed
