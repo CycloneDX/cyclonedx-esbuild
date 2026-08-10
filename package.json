@@ -1,6 +1,6 @@
 {
   "name": "@cyclonedx/cyclonedx-esbuild",
-  "version": "1.4.3-rc.0",
+  "version": "1.4.3-rc.1",
   "description": "Create CycloneDX Software Bill of Materials (SBOM) from projects built with esbuild or Bun.",
   "license": "Apache-2.0",
   "copyright": "Copyright OWASP Foundation",
@@ -115,7 +115,6 @@
     "build": "tsc -b ./tsconfig.json",
     "build-dev": "npm run -- build --sourceMap",
     "prepublish": "npm run build",
-    "prepublishOnly": "run-s -lc build setup-tests test",
     "setup-tests": "node tests/setup.js",
     "test": "run-p --aggregate-output -lc 'test:*'",
     "test:jest": "c8 jest",
