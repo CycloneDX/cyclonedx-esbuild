@@ -15791,8 +15791,7 @@ exports[`integration package \`@hookform/resolvers\` with shipped sub-package \`
             "acknowledgement": "declared"
           }
         }
-      ],
-      "purl": "pkg:npm/%40cyclonedx/cyclonedx-eslint-testbed-hookform-resolvers-subpath@1.0.0"
+      ]
     }
   },
   "components": [
@@ -15917,8 +15916,7 @@ exports[`integration package \`@hookform/resolvers\` with shipped sub-package \`
             "acknowledgement": "declared"
           }
         }
-      ],
-      "purl": "pkg:npm/%40hookform/resolvers%2Fzod@1.0.0"
+      ]
     },
     {
       "type": "library",
