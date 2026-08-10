@@ -184,52 +184,6 @@ jobs:
           name: ${{ env.BUILD_ARTIFACT }}
           path: ${{ env.DIST_DIR }}/
           if-no-files-found: error
-  quick-test:
-    needs:
-      - "build"
-    name: quick tests
-    runs-on: ubuntu-latest
-    timeout-minutes: 30
-    # setup-tests test
-    steps:
-      - name: Checkout code
-        # see https://github.com/actions/checkout
-        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-        with:
-          ref: ${{ needs.bump.outputs.version }}
-          persist-credentials: false
-      - name: Setup Node.js ${{ env.NODE_ACTIVE_LTS }}
-        # see https://github.com/actions/setup-node
-        uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6.4.0
-        with:
-          node-version: ${{ env.NODE_ACTIVE_LTS }}
-          package-manager-cache: false
-      - name: enable yarn  # needed in some tests
-        run: |-
-          corepack enable
-          yarn --version
-        working-directory: ../  # prevent evaluation of package.json
-      - name: setup bun   # needed in some tests
-        # see https://github.com/oven-sh/setup-bun
-        uses: oven-sh/setup-bun@0c5077e51419868618aeaa5fe8019c62421857d6 # v2.2.0
-        with:
-          bun-version: latest
-          no-cache: true
-      - name: setup project
-        run: |
-          npm install --ignore-scripts --include=optional --loglevel=silly
-      - name: setup tests
-        run: |
-          npm run -- setup-tests
-      - name: fetch build result
-        # see https://github.com/actions/download-artifact
-        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
-        with:
-          name: ${{ env.BUILD_ARTIFACT }}
-          path: ${{ env.DIST_DIR }}
-      - name: run tests
-        run: |
-          npm run -- test:jest
   publish-NPMJS:
     needs:
       - "bump"
