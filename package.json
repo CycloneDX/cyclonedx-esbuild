@@ -115,7 +115,6 @@
     "build": "tsc -b ./tsconfig.json",
     "build-dev": "npm run -- build --sourceMap",
     "prepublish": "npm run build",
-    "prepublishOnly": "run-s -lc build setup-tests test",
     "setup-tests": "node tests/setup.js",
     "test": "run-p --aggregate-output -lc 'test:*'",
     "test:jest": "c8 jest",
