@@ -15,7 +15,7 @@
           "type": "library",
           "name": "cyclonedx-esbuild",
           "group": "@cyclonedx",
-          "version": "1.4.1",
+          "version": "1.4.3",
           "author": "Jan Kowalleck",
           "description": "Create CycloneDX Software Bill of Materials (SBOM) from projects built with esbuild or Bun.",
           "licenses": [
@@ -82,7 +82,7 @@
       "name": "cyclonedx-esbuild-example-plugin-bun",
       "group": "@cyclonedx",
       "version": "0.1.0-dev",
-      "bom-ref": "7ae45ad102eab3b6d7e7896acd08c427a9b25b346470d7bc6507b6481575d519",
+      "bom-ref": "@cyclonedx/cyclonedx-esbuild-example-plugin-bun@0.1.0-dev#7ae45ad102eab3b6d7e7896acd08c427a9b25b346470d7bc6507b6481575d519",
       "description": "demo integration as a plugin for bun",
       "purl": "pkg:npm/%40cyclonedx/cyclonedx-esbuild-example-plugin-bun@0.1.0-dev",
       "evidence": {}
@@ -94,7 +94,7 @@
       "name": "core",
       "group": "@popperjs",
       "version": "2.11.8",
-      "bom-ref": "e2b18ca226c83eb39d4534e5c9118962ac64657141b0efde7474cc084f839902",
+      "bom-ref": "@popperjs/core@2.11.8#e2b18ca226c83eb39d4534e5c9118962ac64657141b0efde7474cc084f839902",
       "author": "Federico Zivolo",
       "description": "Tooltip and Popover Positioning Engine",
       "scope": "required",
@@ -143,7 +143,7 @@
       "type": "library",
       "name": "bootstrap",
       "version": "5.3.8",
-      "bom-ref": "f69c6dbe42f2df903ae6a87ae6491bde586b4ad9a4cd16deeb5421a085e5bc9a",
+      "bom-ref": "bootstrap@5.3.8#f69c6dbe42f2df903ae6a87ae6491bde586b4ad9a4cd16deeb5421a085e5bc9a",
       "author": "The Bootstrap Authors",
       "description": "The most popular front-end framework for developing responsive, mobile first projects on the web.",
       "scope": "required",
@@ -191,18 +191,18 @@
   ],
   "dependencies": [
     {
-      "ref": "7ae45ad102eab3b6d7e7896acd08c427a9b25b346470d7bc6507b6481575d519",
+      "ref": "@cyclonedx/cyclonedx-esbuild-example-plugin-bun@0.1.0-dev#7ae45ad102eab3b6d7e7896acd08c427a9b25b346470d7bc6507b6481575d519",
       "dependsOn": [
-        "f69c6dbe42f2df903ae6a87ae6491bde586b4ad9a4cd16deeb5421a085e5bc9a"
+        "bootstrap@5.3.8#f69c6dbe42f2df903ae6a87ae6491bde586b4ad9a4cd16deeb5421a085e5bc9a"
       ]
     },
     {
-      "ref": "e2b18ca226c83eb39d4534e5c9118962ac64657141b0efde7474cc084f839902"
+      "ref": "@popperjs/core@2.11.8#e2b18ca226c83eb39d4534e5c9118962ac64657141b0efde7474cc084f839902"
     },
     {
-      "ref": "f69c6dbe42f2df903ae6a87ae6491bde586b4ad9a4cd16deeb5421a085e5bc9a",
+      "ref": "bootstrap@5.3.8#f69c6dbe42f2df903ae6a87ae6491bde586b4ad9a4cd16deeb5421a085e5bc9a",
       "dependsOn": [
-        "e2b18ca226c83eb39d4534e5c9118962ac64657141b0efde7474cc084f839902"
+        "@popperjs/core@2.11.8#e2b18ca226c83eb39d4534e5c9118962ac64657141b0efde7474cc084f839902"
       ]
     }
   ]

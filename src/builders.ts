@@ -80,7 +80,7 @@ export class BomBuilder {
     if ( outputReproducible ) {
       componentsPkg.forEach((component, pkgPath) => {
         /* eslint-disable-next-line no-param-reassign -- ack */
-        component.bomRef.value = mkRelativePathReproducibleHash(buildWorkingDir, pkgPath)
+        component.bomRef.value += `#${mkRelativePathReproducibleHash(buildWorkingDir, pkgPath)}`
       })
     }
 

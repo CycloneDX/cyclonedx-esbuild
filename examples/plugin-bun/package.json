@@ -6,6 +6,16 @@
   "engines": {
     "bun": "*"
   },
+  "devEngines": {
+    "runtime": {
+      "name": "bun",
+      "onFail": "error"
+    },
+    "packageManager": {
+      "name": "bun",
+      "onFail": "error"
+    }
+  },
   "main": "./dist/app.js",
   "dependencies": {
     "@popperjs/core": "^2",
