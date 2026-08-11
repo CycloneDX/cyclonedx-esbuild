@@ -6,6 +6,11 @@ All notable changes to this project will be documented in this file.
 
 <!-- add unreleased items here -->
 
+* Fix
+  * Reproducible BomRef values (via [#])
+
+[#]: 
+
 ## 1.4.3 - 2026-08-10
 
 Maintenance release.
