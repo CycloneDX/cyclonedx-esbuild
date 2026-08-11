@@ -4,7 +4,10 @@ All notable changes to this project will be documented in this file.
 
 ## unreleased
 
-<!-- add unreleased items here -->
+* Fixed
+  * No longer emit a spurious component for legacy subpath resolution directories
+    (e.g. `@hookform/resolvers/zod`) that ship their own `package.json` with a
+    non-installable name. Such modules are now attributed to their real owning package.
 
 ## 1.4.4 - 2026-08-10
 

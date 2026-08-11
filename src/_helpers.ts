@@ -191,12 +191,31 @@ function isSubDirectoryOfNodeModulesFolder(path: string): boolean {
 }
 
 
+/**
+ * Whether `name` is a valid npm package name.
+ *
+ * The only rule relevant here is the segment count: an unscoped name has no `/`, a scoped
+ * name is exactly `@scope/name` (one `/`). Anything else ΓÇö e.g. `@hookform/resolvers/zod`
+ * or `demo-lib/sub` ΓÇö is not an installable package but a legacy *subpath directory* that
+ * ships its own `package.json` for bundler resolution. Treating such a manifest as a package
+ * yields a spurious, non-existent component, so it must be rejected here.
+ *
+ * This intentionally does not enforce case or the full npm charset, to avoid rejecting real
+ * (possibly legacy) packages; only the invalid path-segment shape is filtered out.
+ */
+export function isValidNpmPackageName(name: string): boolean {
+  return name.startsWith('@')
+    ? /^@[^/\\]+\/[^/\\]+$/.test(name)
+    : !name.includes('/') && !name.includes('\\')
+}
+
 export function isValidPackageJSON(pkg: any): pkg is ValidPackageJSON {
   // checking for the existence of name and version properties
   // both are required for a valid package.json according to https://docs.npmjs.com/cli/v10/configuring-npm/package-json
   return isNonNullable(pkg)
     /* eslint-disable @typescript-eslint/no-unsafe-member-access -- false-positive */
     && isString(pkg.name)
+    && isValidNpmPackageName(pkg.name)
     && isString(pkg.version)
     /* eslint-enable @typescript-eslint/no-unsafe-member-access */
 }
