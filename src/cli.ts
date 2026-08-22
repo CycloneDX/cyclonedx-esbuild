@@ -198,7 +198,10 @@ export async function run(process_: NodeJS.Process): Promise<number> {
     resolve(process_.cwd(), options.buildWorkingDir),
     options.gatherLicenseTexts,
     options.outputReproducible,
-    logger)
+    logger,
+    // the CLI operates on a metafile directly and has no equivalent of the
+    // plugin's rootComponent* options (yet) -- keep its existing autodetect-only behavior
+    { autodetect: true, name: undefined, version: undefined })
   for (const toolC of makeToolCs(ComponentType.Application, cdxComponentBuilder, logger)) {
     bom.metadata.tools.components.add(toolC)
   }
