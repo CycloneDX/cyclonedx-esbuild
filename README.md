@@ -79,7 +79,7 @@ Since Bun provides a plugin API compatible with esbuild, the same plugin can be 
 | **gatherLicenseTexts** | `{boolean}` | `false` | Search for license files in components and include them as license evidence.<br/> This feature is experimental. |
 | **outputReproducible** | `{boolean}` | `false` | Whether to go the extra mile and make the output reproducible.<br/> This requires more resources, and might result in loss of time- and random-based-values. |
 | **mcType** | `{string}` | `"application"` | Set the MainComponent's type.<br/> See [list of valid values](https://cyclonedx.org/docs/1.7/json/#metadata_component_type). |
-| **rootComponentAutodetect** | `{boolean}` | `true` | Whether to try auto-detection of the RootComponent.<br/> Tries to find the nearest `package.json` and build a CycloneDX component from it, so it can be assigned as the BOM's root/main component. |
+| **rootComponentAutodetect** | `{boolean}` | `true` | Whether to try auto-detection of the RootComponent, by finding the nearest `package.json` and building a CycloneDX component from it, so it can be assigned as the BOM's root/main component. |
 | **rootComponentName** | `{string \| undefined}` | `undefined` | If `rootComponentAutodetect` is disabled, then this value is assumed as the "name" of the `package.json`. |
 | **rootComponentVersion** | `{string \| undefined}` | `undefined` | If `rootComponentAutodetect` is disabled, then this value is assumed as the "version" of the `package.json`. |
 | **validate** | `{boolean \| undefined}` | `undefined` | Validate resulting BOM before outputting.<br/> Validation is skipped, if requirements not met. |
