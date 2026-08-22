@@ -100,6 +100,32 @@ export interface CycloneDxEsbuildPluginOptions {
   mcType?: `${ComponentType}` | ComponentType
 
   /**
+   * Whether to try auto-detection of the RootComponent.
+   *
+   * Tries to find the nearest `package.json` and build a CycloneDX component from it,
+   * so it can be assigned as the BOM's root/main component.
+   *
+   * @defaultValue `true`
+   */
+  rootComponentAutodetect?: boolean
+
+  /**
+   * If `rootComponentAutodetect` is disabled, then
+   * this value is assumed as the "name" of the `package.json`.
+   *
+   * @defaultValue `undefined`
+   */
+  rootComponentName?: string
+
+  /**
+   * If `rootComponentAutodetect` is disabled, then
+   * this value is assumed as the "version" of the `package.json`.
+   *
+   * @defaultValue `undefined`
+   */
+  rootComponentVersion?: string
+
+  /**
    * Validate resulting BOM before outputting.
    * Validation is skipped, if requirements not met. See the README.
    *
@@ -146,7 +172,10 @@ export const cyclonedxEsbuildPlugin = (opts: CycloneDxEsbuildPluginOptions = {})
       /* eslint-disable-next-line  @typescript-eslint/prefer-nullish-coalescing, @typescript-eslint/strict-boolean-expressions -- need to handle empty strings */
       outputFile: opts.outputFile || 'bom.json',
       validate: opts.validate,
-      mcType: opts.mcType ?? ComponentType.Application
+      mcType: opts.mcType ?? ComponentType.Application,
+      rootComponentAutodetect: opts.rootComponentAutodetect ?? true,
+      rootComponentName: opts.rootComponentName,
+      rootComponentVersion: opts.rootComponentVersion
     } as const satisfies CycloneDxEsbuildPluginOptions
     logger.debug('%s setup => options: %j', LogPrefixes.DEBUG, options)
 
@@ -181,7 +210,12 @@ export const cyclonedxEsbuildPlugin = (opts: CycloneDxEsbuildPluginOptions = {})
         esbuildWorkingDir,
         options.gatherLicenseTexts,
         options.outputReproducible,
-        logger)
+        logger,
+        {
+          autodetect: options.rootComponentAutodetect,
+          name: options.rootComponentName,
+          version: options.rootComponentVersion
+        })
       bom.metadata.lifecycles.add(LifecyclePhase.Build)
 
       // region detect build environment

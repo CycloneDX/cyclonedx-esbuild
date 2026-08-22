@@ -15268,6 +15268,123 @@ exports[`integration functional: react19 on bun generated json file: dist/bom.js
 }"
 `;
 
+exports[`integration functional: rootComponentAutodetect disabled with an explicit name/version override (issue #196) generated json file: dist/bom.json 1`] = `
+"{
+  "$schema": "http://cyclonedx.org/schema/bom-1.6.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.6",
+  "version": 1,
+  "metadata": {
+    "lifecycles": [
+      {
+        "phase": "build"
+      }
+    ],
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "name": "esbuild",
+          "version": "esbuildVersion-testing"
+        },
+        {
+          "type": "library",
+          "name": "cyclonedx-esbuild",
+          "group": "@cyclonedx",
+          "version": "thisVersion-testing",
+          "author": "Jan Kowalleck",
+          "description": "Create CycloneDX Software Bill of Materials (SBOM) from projects built with esbuild or Bun.",
+          "licenses": [
+            {
+              "license": {
+                "id": "Apache-2.0"
+              }
+            }
+          ],
+          "externalReferences": [
+            {
+              "url": "https://github.com/CycloneDX/cyclonedx-esbuild/issues",
+              "type": "issue-tracker",
+              "comment": "as detected from PackageJson property \\"bugs.url\\""
+            },
+            {
+              "url": "git+https://github.com/CycloneDX/cyclonedx-esbuild.git",
+              "type": "vcs",
+              "comment": "as detected from PackageJson property \\"repository.url\\""
+            },
+            {
+              "url": "https://github.com/CycloneDX/cyclonedx-esbuild#readme",
+              "type": "website",
+              "comment": "as detected from PackageJson property \\"homepage\\""
+            }
+          ],
+          "properties": [
+            {
+              "name": "cdx:npm:package:constraint:engine:bun",
+              "value": ">=1.3.6"
+            },
+            {
+              "name": "cdx:npm:package:constraint:engine:node",
+              "value": ">=20.18.0"
+            }
+          ]
+        },
+        {
+          "type": "library",
+          "name": "cyclonedx-library",
+          "group": "@cyclonedx",
+          "version": "libVersion-testing",
+          "author": "Jan Kowalleck",
+          "description": "Core functionality of CycloneDX for JavaScript (Node.js or WebBrowser).",
+          "licenses": [
+            {
+              "license": {
+                "id": "Apache-2.0"
+              }
+            }
+          ],
+          "externalReferences": [
+            {
+              "url": "https://github.com/CycloneDX/cyclonedx-javascript-library/issues",
+              "type": "issue-tracker",
+              "comment": "as detected from PackageJson property \\"bugs.url\\""
+            },
+            {
+              "url": "git+https://github.com/CycloneDX/cyclonedx-javascript-library.git",
+              "type": "vcs",
+              "comment": "as detected from PackageJson property \\"repository.url\\""
+            },
+            {
+              "url": "https://github.com/CycloneDX/cyclonedx-javascript-library#readme",
+              "type": "website",
+              "comment": "as detected from PackageJson property \\"homepage\\""
+            }
+          ],
+          "properties": [
+            {
+              "name": "cdx:npm:package:constraint:engine:node",
+              "value": ">=20.18.0"
+            }
+          ]
+        }
+      ]
+    },
+    "component": {
+      "type": "application",
+      "name": "overridden-root-component",
+      "version": "9.9.9",
+      "bom-ref": "__root_component__"
+    }
+  },
+  "components": [],
+  "dependencies": [
+    {
+      "ref": "__root_component__"
+    }
+  ]
+}"
+`;
+
 exports[`integration functional: runtime-dependencies are external generated json file: dist/bom.json 1`] = `
 "{
   "$schema": "http://cyclonedx.org/schema/bom-1.6.schema.json",
