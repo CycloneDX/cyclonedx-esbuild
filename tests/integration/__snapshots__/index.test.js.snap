@@ -15539,6 +15539,7 @@ exports[`integration functional: react19 on bun generated json file: dist/bom.js
     {
       "ref": "react-dom@19.2.4#23b7e7ebf9d294e4ee70193af7f8c1b262ecfb395ec410ce3bd0ab9ba3c64471",
       "dependsOn": [
+        "react@19.2.4#de5f9516e3ab25d34db207368c3e93d42308a55dffacbb8b5bdcf0f9f14c10f6",
         "scheduler@0.27.0#ac9b008bbbb7598be92bc6f09ea4991f07e685b10289ffbeb5f159e9ccda0403"
       ]
     },
