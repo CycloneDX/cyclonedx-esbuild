@@ -149,6 +149,17 @@ const testSetups = [
     ]
   },
   {
+    dir: 'with-root-component-override',
+    purpose: 'functional: rootComponentAutodetect disabled with an explicit name/version override (issue #196)',
+    packageManager: 'npm',
+    results: [ // paths relative to `dir`
+      {
+        format: 'json',
+        file: 'dist/bom.json'
+      },
+    ]
+  },
+  {
     dir: 'hookform-resolvers-subpath',
     purpose: 'package `@hookform/resolvers` with shipped sub-package ``@hookform/resolvers/zod` (issue #181)',
     packageManager: 'npm',
