@@ -71,7 +71,7 @@ const MANAGERS = {
   },
   bun: {
     cmd: 'bun',
-    args: ['install', '--frozen-lockfile', '--no-scripts'],
+    args: ['install', '--frozen-lockfile'],
     dirs: [
       'react19-bun',
     ]
