@@ -47,6 +47,13 @@ import type { PackageUrlFactory } from "./factories";
 import { LogPrefixes } from "./logger";
 import { PropertyNames, PropertyValueBool } from "./properties";
 
+/** @public */
+export interface RootComponentOptions {
+  autodetect: boolean
+  name: string | undefined
+  version: string | undefined
+}
+
 export class BomBuilder {
 
   readonly componentBuilder: FromNodePackageJsonBuilders.ComponentBuilder
@@ -69,20 +76,29 @@ export class BomBuilder {
     buildWorkingDir: string,
     collectEvidence: boolean,
     outputReproducible: boolean,
-    logger: Console
+    logger: Console,
+    rootComponentOptions: RootComponentOptions
   ): Bom {
     logger.debug('%s metafile: %j', LogPrefixes.DEBUG, metafile)
 
     const bom = new Bom()
 
     logger.info(LogPrefixes.INFO, 'generating components...')
-    const [mainComponent, componentsPkg, componentsVrt] = this.generateComponents(buildWorkingDir, metafile, collectEvidence, logger)
+    const [detectedMainComponent, componentsPkg, componentsVrt] = this.generateComponents(buildWorkingDir, metafile, collectEvidence, logger)
     if ( outputReproducible ) {
       componentsPkg.forEach((component, pkgPath) => {
         /* eslint-disable-next-line no-param-reassign -- ack */
         component.bomRef.value += `#${mkRelativePathReproducibleHash(buildWorkingDir, pkgPath)}`
       })
     }
+
+    const mainComponent = rootComponentOptions.autodetect
+      ? detectedMainComponent
+      : this.overrideMainComponent(
+        detectedMainComponent,
+        rootComponentOptions,
+        [...componentsPkg.values(), ...componentsVrt.values()],
+        logger)
 
     for (const component of componentsPkg.values()) {
       logger.debug(LogPrefixes.DEBUG, 'add to bom.components', component)
@@ -98,9 +114,50 @@ export class BomBuilder {
       logger.debug(LogPrefixes.DEBUG, 'set bom.metadata.component', mainComponent)
       bom.metadata.component = mainComponent
       bom.components.delete(mainComponent)
+      if (detectedMainComponent !== undefined && detectedMainComponent !== mainComponent) {
+        // the override replaced it as bom.metadata.component, but generateComponents()
+        // still added the auto-detected component to componentsPkg -- drop the duplicate.
+        bom.components.delete(detectedMainComponent)
+      }
     }
 
     return bom
+  }
+
+  /**
+   * Replaces the auto-detected main component's name/version with the configured
+   * override, while keeping the dependency graph that was already built around it:
+   * the override inherits the detected component's dependencies, and every other
+   * component that depended on the detected component is re-pointed to the override.
+   *
+   * Returns the detected component unchanged if no override could be built (e.g. no
+   * name/version given) — matches the equivalent option on the sibling webpack plugin.
+   */
+  private overrideMainComponent(
+    detectedMainComponent: Component | undefined,
+    { name, version }: RootComponentOptions,
+    otherComponents: Iterable<Component | DummyComponent | VirtualComponent>,
+    logger: Console
+  ): Component | undefined {
+    if (detectedMainComponent === undefined) {
+      return undefined
+    }
+
+    const overrideComponent = this.componentBuilder.makeComponent({ name, version })
+    if (overrideComponent === undefined) {
+      logger.warn(LogPrefixes.WARN, 'could not build root component override from name/version; keeping auto-detected root component')
+      return detectedMainComponent
+    }
+
+    logger.debug(LogPrefixes.DEBUG, 'overriding root component', detectedMainComponent, 'with', overrideComponent)
+    overrideComponent.dependencies = detectedMainComponent.dependencies
+    for (const component of otherComponents) {
+      if (component.dependencies.delete(detectedMainComponent.bomRef)) {
+        component.dependencies.add(overrideComponent.bomRef)
+      }
+    }
+
+    return overrideComponent
   }
 
   public* getLicenseEvidence(packageDir: string, logger: Console): Generator<License> {

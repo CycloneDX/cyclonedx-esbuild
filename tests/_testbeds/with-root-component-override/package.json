@@ -1,0 +1,26 @@
+{
+  "private": true,
+  "name": "@cyclonedx/cyclonedx-esbuild-testbed-with-root-component-override/testbed",
+  "version": "1.0.0",
+  "description": "Example overriding the RootComponent's name/version instead of auto-detecting it from package.json",
+  "type": "module",
+  "main": "dist/bundle.js",
+  "scripts": {
+    "build": "node build.js",
+    "start": "npm run build && node dist/bundle.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "@cyclonedx/cyclonedx-esbuild": "file:../../../",
+    "esbuild": "0.28.1"
+  },
+  "devEngines": {
+    "packageManager": {
+      "name": "npm",
+      "onFail": "error"
+    }
+  }
+}

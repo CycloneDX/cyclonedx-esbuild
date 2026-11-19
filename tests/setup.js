@@ -39,6 +39,7 @@ const MANAGERS = {
       'with-externals',
       'no-treeshaking',
       'with-non-standard-name',
+      'with-root-component-override',
       'hookform-resolvers-subpath',
     ]
   },
